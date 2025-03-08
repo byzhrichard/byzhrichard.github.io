@@ -1,0 +1,28 @@
+# 忽略 IDE 项目配置文件
+/.idea
+
+# 忽略 Jupyter 笔记本文件
+*.ipynb
+
+# 忽略数据集等
+*.pth
+*.pt
+*.npy
+*.pkl
+*.dat
+
+# 忽略图片文件
+*.jpg
+*.png
+*.svg
+
+# 忽略其他
+*.zip
+*.rar
+
+# 忽略测试文件
+test1.*
+test2.*
+test3.*
+test4.*
+test5.*
