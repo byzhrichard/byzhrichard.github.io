@@ -11,11 +11,6 @@
 *.pkl
 *.dat
 
-# 忽略图片文件
-*.jpg
-*.png
-*.svg
-
 # 忽略其他
 *.zip
 *.rar
