@@ -109,7 +109,7 @@
             <h1>介绍说明</h1>
             <p>欢迎访问我的个人主页，这里提供各种资源下载，包括学习资料、编程文档等。</p>
             <p>请点击左侧菜单选择不同的功能模块。</p>
-			<div class="social-links">
+            <div class="social-links">
                 <a href="https://github.com/byzhrichard" target="_blank">GitHub</a>
                 <a href="#">Twitter</a>
                 <a href="#">Email</a>
@@ -118,14 +118,9 @@
 
         <div id="download" class="section download-section">
             <h1>资源下载</h1>
-            <p>提供各种资源下载，点击链接获取</p>
-            <div class="download-links">
-                <div>
-                    <a href="https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf" download>[高等数学-上</a>
-                </div>
-                <div>
-                    <a href="https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf" download>高等数学-下</a>
-                </div>
+            <p>各学科byzh手书笔记, 仅供参考! 仅供参考!! 仅供参考!!!</p>
+            <div class="download-links" id="downloadLinks">
+                <!-- 下载链接将通过 JavaScript 动态插入 -->
             </div>
             <div class="social-links">
                 <a href="https://github.com/byzhrichard" target="_blank">GitHub</a>
@@ -143,6 +138,24 @@
             document.getElementById(sectionId).style.display = 'block';
         }
         showSection('intro');
+
+        const downloadLinks = [
+            { name: '高等数学-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf' },
+            { name: '高等数学-下', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf' },
+            // 在此添加更多下载链接
+        ];
+
+        const downloadLinksContainer = document.getElementById('downloadLinks');
+        downloadLinks.forEach(link => {
+            const linkDiv = document.createElement('div');
+            const downloadLink = document.createElement('a');
+            downloadLink.href = link.url;
+            downloadLink.download = link.name;
+            downloadLink.textContent = link.name;
+            linkDiv.appendChild(downloadLink);
+
+            downloadLinksContainer.appendChild(linkDiv);
+        });
     </script>
 </body>
 </html>
