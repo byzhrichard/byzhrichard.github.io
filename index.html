@@ -34,11 +34,8 @@
         <div id="intro" class="section">
             <h1>介绍说明</h1>
             <p>欢迎访问byzh的个人主页</p>
-            <div class="social-links">
-                <a href="https://github.com/byzhrichard" target="_blank">GitHub</a>
-                <a href="https://www.mcmod.cn/class/14774.html" target="_blank">MC百科</a>
-                <a href="https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343" target="_blank">CSDN</a>
-                <a href="https://www.zhihu.com/people/chen-guang-liu-su" target="_blank">知乎</a>
+            <div class="social-links" id="socialLinks">
+                <!-- 通过 JavaScript 动态插入 -->
             </div>
         </div>
 
@@ -52,13 +49,10 @@
             <h1>资源下载</h1>
             <p>各学科byzh手书笔记, 仅供参考! 仅供参考!! 仅供参考!!!</p>
             <div class="download-links" id="downloadLinks">
-                <!-- 下载链接将通过 JavaScript 动态插入 -->
+                <!-- 通过 JavaScript 动态插入 -->
             </div>
-            <div class="social-links">
-                <a href="https://github.com/byzhrichard" target="_blank">GitHub</a>
-                <a href="https://www.mcmod.cn/class/14774.html" target="_blank">MC百科</a>
-                <a href="https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343" target="_blank">CSDN</a>
-                <a href="https://www.zhihu.com/people/chen-guang-liu-su" target="_blank">知乎</a>
+            <div class="social-links" id="socialLinks">
+                <!-- 通过 JavaScript 动态插入 -->
             </div>
         </div>
 
@@ -73,7 +67,8 @@
             document.getElementById(sectionId).style.display = 'block';
         }
         showSection('intro');
-
+        
+        // 绑定下载链接
         const downloadLinks = [
             { name: '大学英语', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf' },
             { name: '高等数学-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf' },
@@ -86,19 +81,35 @@
             { name: '电路基础', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf' },
             { name: '数据结构与算法', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数据结构与算法.pdf' },
             { name: '人工智能导论', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf' },
-            // 在此添加更多下载链接
         ];
-
         const downloadLinksContainer = document.getElementById('downloadLinks');
         downloadLinks.forEach(link => {
             const linkDiv = document.createElement('div');
             const downloadLink = document.createElement('a');
+
             downloadLink.href = link.url;
-            downloadLink.download = link.name;
             downloadLink.textContent = link.name;
             linkDiv.appendChild(downloadLink);
 
             downloadLinksContainer.appendChild(linkDiv);
+        });
+
+        // 绑定社交网站
+        const socialLinks = [
+            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
+            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
+            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
+            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
+        ];
+        const socialLinksContainers = document.querySelectorAll('.social-links');
+        socialLinksContainers.forEach(container => {
+            socialLinks.forEach(link => {
+                const socialLink = document.createElement('a');
+                socialLink.href = link.url;
+                socialLink.target = '_blank';
+                socialLink.textContent = link.name;
+                container.appendChild(socialLink);
+            });
         });
     </script>
 </body>
