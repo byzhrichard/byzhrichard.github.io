@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>介绍说明 - byzh</title>
+    <link rel="icon" href="./images/icons/byzh16x16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/intro.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/icons/byzh32x32.ico" alt="头像" class="avatar">
+            <h2 class="name">byzh</h2>
+        </div>
+
+        <a href="./index.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 主页
+        </a>
+        <a href="./intro.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 介绍说明
+        </a>
+        <a href="./personal.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 个人简介
+        </a>
+        <a href="./download.html">
+            <img src="images/icons/byzh16x16.ico" alt="Download" class="icon"> 下载界面
+        </a>
+    </div>
+
+    <div class="container">
+        <div id="intro" class="section">
+            <h1>介绍说明</h1>
+            <p>欢迎访问byzh的个人主页</p>
+            <div class="social-links" id="socialLinks">
+                <!-- 通过 JavaScript 动态插入 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 绑定社交网站
+        const socialLinks = [
+            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
+            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
+            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
+            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
+        ];
+        const socialLinksContainers = document.querySelectorAll('.social-links');
+        socialLinksContainers.forEach(container => {
+            socialLinks.forEach(link => {
+                const socialLink = document.createElement('a');
+                socialLink.href = link.url;
+                socialLink.target = '_blank';
+                socialLink.textContent = link.name;
+                container.appendChild(socialLink);
+            });
+        });
+    </script>
+</body>
+</html>

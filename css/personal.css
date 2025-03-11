@@ -57,6 +57,7 @@ body {
     font-size: 1.5em;  /* 名字的字体大小 */
     margin: 0;  /* 取消默认的上下外边距 */
 }
+
 .container {
     margin-left: 220px;
     width: calc(100% - 220px);
@@ -69,35 +70,7 @@ h1 {
     margin-top: 50px;
     text-shadow: 0 0 10px cyan;
 }
-.download-section {
-    display: none;
-}
-.download-links {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 保证整个容器居中 */
-}
-.download-links div {
-    display: flex;
-    justify-content: flex-start; /* 每个链接左对齐 */
-    width: 100%; /* 每个链接块占满宽度 */
-    max-width: 600px; /* 可以设置最大宽度来限制链接宽度 */
-    margin-bottom: 15px;
-}
-.download-links a {
-    padding: 15px 30px;
-    background: cyan;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.download-links a:hover {
-    background: #00ffaa;
-    box-shadow: 0 0 10px #00ffaa;
-}
+
 .social-links {
     margin-top: 40px;
 }
@@ -118,11 +91,11 @@ h1 {
     height: 100%;
     background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, rgba(0,0,0,1) 80%);
 }
-#intro, #download {
+#personal {
     position: relative;
     padding: 20px;
 }
-#intro:before, #download:before {
+#personal:before {
     content: "";
     position: absolute;
     top: 20px;

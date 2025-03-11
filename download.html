@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源下载 - byzh</title>
+    <link rel="icon" href="./images/icons/byzh16x16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/download.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/icons/byzh32x32.ico" alt="头像" class="avatar">
+            <h2 class="name">byzh</h2>
+        </div>
+
+        <a href="./index.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 主页
+        </a>
+        <a href="./intro.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 介绍说明
+        </a>
+        <a href="./personal.html">
+            <img src="images/icons/byzh16x16.ico" alt="Info" class="icon"> 个人简介
+        </a>
+        <a href="./download.html">
+            <img src="images/icons/byzh16x16.ico" alt="Download" class="icon"> 下载界面
+        </a>
+    </div>
+
+    <div class="container">
+        <div id="download" class="section download-section">
+            <h1>资源下载</h1>
+            <p>各学科byzh手书笔记, 仅供参考! 仅供参考!! 仅供参考!!!</p>
+            <div class="download-links" id="downloadLinks">
+                <!-- 通过 JavaScript 动态插入 -->
+            </div>
+            <div class="social-links" id="socialLinks">
+                <!-- 通过 JavaScript 动态插入 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 绑定下载链接
+        const downloadLinks = [
+            { name: '大学英语', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf' },
+            { name: '高等数学-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf' },
+            { name: '高等数学-下', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf' },
+            { name: '线性代数', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf' },
+            { name: '离散数学', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf' },
+            { name: '复变函数', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf' },
+            { name: '大学物理-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf' },
+            { name: '大学物理-下', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf' },
+            { name: '电路基础', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf' },
+            { name: '数据结构与算法', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数据结构与算法.pdf' },
+            { name: '人工智能导论', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf' },
+        ];
+        const downloadLinksContainer = document.getElementById('downloadLinks');
+        downloadLinks.forEach(link => {
+            const linkDiv = document.createElement('div');
+            const downloadLink = document.createElement('a');
+
+            downloadLink.href = link.url;
+            downloadLink.textContent = link.name;
+            linkDiv.appendChild(downloadLink);
+
+            downloadLinksContainer.appendChild(linkDiv);
+        });
+
+        // 绑定社交网站
+        const socialLinks = [
+            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
+            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
+            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
+            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
+        ];
+        const socialLinksContainers = document.querySelectorAll('.social-links');
+        socialLinksContainers.forEach(container => {
+            socialLinks.forEach(link => {
+                const socialLink = document.createElement('a');
+                socialLink.href = link.url;
+                socialLink.target = '_blank';
+                socialLink.textContent = link.name;
+                container.appendChild(socialLink);
+            });
+        });
+    </script>
+</body>
+</html>
