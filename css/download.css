@@ -116,11 +116,11 @@ h1 {
     height: 100%;
     background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, rgba(0,0,0,1) 80%);
 }
-#intro, #download {
+#download {
     position: relative;
     padding: 20px;
 }
-#intro:before, #download:before {
+#download:before {
     content: "";
     position: absolute;
     top: 20px;

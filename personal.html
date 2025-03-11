@@ -36,6 +36,29 @@
             <p>byzh, 西安电子科技大学, 本科在读, 人工智能专业</p>
             <p>拓展技术中...</p>
         </div>
+
+        <div class="social-links" id="socialLinks">
+            <!-- 通过 JavaScript 动态插入 -->
+        </div>
     </div>
+
+    <script>
+        const socialLinks = [
+            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
+            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
+            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
+            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
+        ];
+        const socialLinksContainers = document.querySelectorAll('.social-links');
+        socialLinksContainers.forEach(container => {
+            socialLinks.forEach(link => {
+                const socialLink = document.createElement('a');
+                socialLink.href = link.url;
+                socialLink.target = '_blank';
+                socialLink.textContent = link.name;
+                container.appendChild(socialLink);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -73,6 +73,14 @@ h1 {
     background: radial-gradient(circle, rgba(0,255,255,0.2) 10%, rgba(0,0,0,1) 80%);
 }
 
+.container {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
 #intro, #download {
     position: relative;
     padding: 20px;
