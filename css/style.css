@@ -8,6 +8,7 @@ body {
     overflow: auto; /* 允许滚动 */
     display: block; /* 取消 flex 布局 */
     min-height: 100vh;
+    min-width: 150vh;
 }
 .sidebar {
     width: 200px;
@@ -72,10 +73,10 @@ h1 {
     display: none;
 }
 .download-links {
-margin-top: 20px;
-display: flex;
-flex-direction: column;
-align-items: center; /* 保证整个容器居中 */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 保证整个容器居中 */
 }
 .download-links div {
     display: flex;
