@@ -26,7 +26,7 @@
             <div class="download-links" id="downloadLinks">
                 <!-- 通过 JavaScript 动态插入 -->
             </div>
-            <div class="social-links" id="socialLinks">
+            <div class="social-links">
                 <!-- 通过 JavaScript 动态插入 -->
             </div>
         </div>
@@ -60,20 +60,22 @@
         });
 
         // 绑定社交网站
-        const socialLinks = [
-            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
-            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
-            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
-            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
-        ];
-        const socialLinksContainers = document.querySelectorAll('.social-links');
-        socialLinksContainers.forEach(container => {
-            socialLinks.forEach(link => {
-                const socialLink = document.createElement('a');
-                socialLink.href = link.url;
-                socialLink.target = '_blank';
-                socialLink.textContent = link.name;
-                container.appendChild(socialLink);
+        document.addEventListener("DOMContentLoaded", async function () {
+            const socialLinksContainers = document.querySelectorAll('.social-links');
+
+            // 读取 socialLinks.json 文件
+            const response = await fetch('./json/socialLinks.json');
+            const data = await response.json();
+
+            // 生成社交链接
+            socialLinksContainers.forEach(container => {
+                data.socialLinks.forEach(link => {
+                    const socialLink = document.createElement('a');
+                    socialLink.href = link.url;
+                    socialLink.target = '_blank';
+                    socialLink.textContent = link.name;
+                    container.appendChild(socialLink);
+                });
             });
         });
 

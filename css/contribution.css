@@ -1,0 +1,76 @@
+.container .section a {
+    color: #00f9ff; /* 浅蓝色 */
+    font-family: 'Roboto', sans-serif; /* 科技感的字体 */
+    font-size: 18px; /* 字体大小 */
+    text-decoration: none; /* 去掉下划线 */
+    border-bottom: 2px solid transparent; /* 底部边框 */
+    transition: all 0.3s ease; /* 动画过渡 */
+}
+.container .section a:hover {
+    color: #00ffcc; /* 悬停时的颜色 */
+    border-bottom: 2px solid #00ffcc; /* 悬停时显示底部边框 */
+    transform: translateY(-2px); /* 上移效果 */
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.6); /* 发光效果 */
+}
+.container .section span {
+    font-size: 18px; /* 字体大小 */
+    color: #7f8c8d; /* 稍微柔和的灰色 */
+    font-family: 'Roboto', sans-serif; /* 科技感的字体 */
+    letter-spacing: 1px; /* 字母间距，增加科技感 */
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease; /* 动画过渡 */
+}
+.container .section span:hover {
+    color: #00f9ff; /* 悬停时文字变色 */
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8); /* 文字阴影效果 */
+    transform: translateY(-2px); /* 上移效果 */
+}
+
+
+/* 样式化代码块 */
+code {
+    font-family: 'Courier New', Courier, monospace; /* 使用等宽字体 */
+    background-color: #2e2e2e; /* 深灰色背景 */
+    color: #f8f8f2; /* 文字颜色为淡灰色 */
+    border-radius: 5px; /* 圆角边框 */
+    display: block; /* 使其占据整个行 */
+    word-wrap: break-word; /* 强制长单词换行 */
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5); /* 代码块发光效果 */
+    overflow-x: auto; /* 允许横向滚动 */
+    max-width: 100%; /* 限制最大宽度为 60%，避免代码块占满整行 */
+    margin: 20px auto; /* 上下间距，左右居中 */
+    padding: 2px 6px; /* 调整上下内边距为 2px */
+}
+/* 语法高亮 */
+code {
+    background-color: #333; /* 在内嵌代码中使用稍浅的背景 */
+    padding: 3px 6px; /* 缩小内边距，保持内联代码紧凑 */
+    border-radius: 4px; /* 使内联代码块有圆角 */
+}
+
+/* 提供悬停效果 */
+code:hover {
+    background-color: #333; /* 悬停时变为稍暗的灰色 */
+    border: 1px solid #00ffcc; /* 悬停时加上绿色边框 */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* 增强发光效果 */
+}
+
+
+#contribution {
+    position: relative;
+    padding: 20px;
+}
+#contribution:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    width: 129px;  /* 设置宽度，便于调试 */
+    height: 269px; /* 设置高度，便于调试 */
+    background-image: url('../images/byzh.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
