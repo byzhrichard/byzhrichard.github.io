@@ -69,10 +69,10 @@ h1 {
 }
 .sidebar a:hover {
     color: #00ffaa;
+    border: 1px solid #00ffcc; /* 悬停时加上绿色边框 */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* 增强发光效果 */
 }
 .sidebar a .icon {
-    /* width: 20px;  图标的宽度 */
-    /* height: 20px; 图标的高度 */
     margin-right: 3px;  /* 图标和文字之间的间距 */
     vertical-align: middle;  /* 垂直居中对齐 */
 }
@@ -84,7 +84,7 @@ h1 {
 .sidebar .profile .avatar {
     width: 60px;  /* 设置头像大小 */
     height: 60px;  /* 设置头像大小 */
-    /* border-radius: 50%;  使头像变圆形 */
+    border-radius: 10%;  /* 使头像变圆形 */
     margin-right: 10px;  /* 头像与名字之间的间距 */
 }
 .sidebar .profile .name {
