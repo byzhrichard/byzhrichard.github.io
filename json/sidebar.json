@@ -1,0 +1,9 @@
+{
+    "pages": [
+        { "html": "index.html", "title": "主页"},
+        { "html": "intro.html", "title": "介绍说明"},
+        { "html": "personal.html", "title": "个人简介"},
+        { "html": "contribution.html", "title": "社区贡献"},
+        { "html": "download.html", "title": "下载界面"}
+    ]
+}

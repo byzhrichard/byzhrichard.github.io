@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简介 - byzh</title>
+    <title>社区贡献 - byzh</title>
     <link rel="icon" href="./images/icons/byzh16x16.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css/personal.css">
 </head>
 <body>
     <div class="background"></div>
@@ -20,36 +19,13 @@
     </div>
 
     <div class="container">
-        <div id="personal" class="section myself">
-            <h1>个人简介</h1>
-            <p>byzh, 西安电子科技大学, 本科在读, 人工智能专业</p>
-            <p>拓展技术中...</p>
-        </div>
-
-        <div class="social-links" id="socialLinks">
-            <!-- 通过 JavaScript 动态插入 -->
+        <div id="index" class="section">
+            <h1>python</h1>
+            <p>https://pypi.org/project/byzh-rc/</p>
         </div>
     </div>
 
     <script>
-        // 绑定社交网站
-        const socialLinks = [
-            { name: 'GitHub', url: 'https://github.com/byzhrichard' },
-            { name: 'MC百科', url: 'https://www.mcmod.cn/class/14774.html' },
-            { name: 'CSDN', url: 'https://blog.csdn.net/qq_54636039?spm=1000.2115.3001.5343' },
-            { name: '知乎', url: 'https://www.zhihu.com/people/chen-guang-liu-su' },
-        ];
-        const socialLinksContainers = document.querySelectorAll('.social-links');
-        socialLinksContainers.forEach(container => {
-            socialLinks.forEach(link => {
-                const socialLink = document.createElement('a');
-                socialLink.href = link.url;
-                socialLink.target = '_blank';
-                socialLink.textContent = link.name;
-                container.appendChild(socialLink);
-            });
-        });
-
         // 生成sidebar
         document.addEventListener("DOMContentLoaded", async function () {
             const sidebar = document.querySelector(".sidebar");
@@ -71,6 +47,7 @@
             // **找到 `profile` 之后插入链接**
             sidebar.innerHTML += linksHTML;
         });
+
     </script>
 </body>
 </html>

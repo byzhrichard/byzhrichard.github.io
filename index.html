@@ -16,19 +16,7 @@
             <img src="images/icons/byzh32x32.ico" alt="头像" class="avatar">
             <h2 class="name">byzh</h2>
         </div>
-
-        <a href="./index.html">
-            <img src="images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">主页</span>
-        </a>
-        <a href="./intro.html">
-            <img src="images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">介绍说明</span>
-        </a>
-        <a href="./personal.html">
-            <img src="images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">个人简介</span>
-        </a>
-        <a href="./download.html">
-            <img src="images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">下载界面</span>
-        </a>
+        <!-- 通过 js 插入 sidebar -->
     </div>
 
     <div class="container">
@@ -36,5 +24,30 @@
             <h1>欢迎访问byzh的主页</h1>
         </div>
     </div>
+
+    <script>
+        // 生成sidebar
+        document.addEventListener("DOMContentLoaded", async function () {
+            const sidebar = document.querySelector(".sidebar");
+
+            // 读取 JSON 文件
+            const response = await fetch("./json/sidebar.json");
+            const data = await response.json();
+            
+            // 只生成导航链接，不影响 profile
+            let linksHTML = "";
+            data.pages.forEach(page => {
+                linksHTML += `
+                    <a href="./${page.html}">
+                        <img src="./images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">${page.title}</span>
+                    </a>
+                `;
+            });
+
+            // **找到 `profile` 之后插入链接**
+            sidebar.innerHTML += linksHTML;
+        });
+
+    </script>
 </body>
 </html>
