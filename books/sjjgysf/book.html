@@ -104,7 +104,7 @@
             try {
                 const response = await fetch('info.json');
                 bookData = await response.json();
-                currentPage = bookData.sjjgysf.start_page;
+                currentPage = bookData.start_page;
                 updatePages();
             } catch (error) {
                 console.error("Error loading book data:", error);
@@ -112,7 +112,7 @@
         }
 
         function updatePages() {
-            const book = bookData.sjjgysf;
+            const book = bookData;
             if (!book) return;
 
             const leftImg = document.getElementById('left-page').querySelector('img');
@@ -138,7 +138,7 @@
         }
 
         function nextPage() {
-            const book = bookData.sjjgysf;
+            const book = bookData;
             if (!book) return;
             if (currentPage < book.end_page) {
                 currentPage += book.left.includes(currentPage) ? 2 : 1;
@@ -148,7 +148,7 @@
         }
 
         function prevPage() {
-            const book = bookData.sjjgysf;
+            const book = bookData;
             if (!book) return;
             if (currentPage > book.start_page) {
                 let newPage = currentPage - 1;
@@ -164,7 +164,7 @@
         document.querySelector('.menu-button').addEventListener('click', function() {
             console.assert("awa");
             console.log("awa");
-            const book = bookData.sjjgysf;
+            const book = bookData;
             if (!book) return;
             
             const minPage = book.start_page;

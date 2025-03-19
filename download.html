@@ -34,29 +34,35 @@
 
     <script>
         // 绑定下载链接
-        const downloadLinks = [
-            { name: '大学英语', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf' },
-            { name: '高等数学-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf' },
-            { name: '高等数学-下', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf' },
-            { name: '线性代数', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf' },
-            { name: '离散数学', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf' },
-            { name: '复变函数', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf' },
-            { name: '大学物理-上', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf' },
-            { name: '大学物理-下', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf' },
-            { name: '电路基础', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf' },
-            { name: '数据结构与算法', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数据结构与算法.pdf' },
-            { name: '人工智能导论', url: 'https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf' },
-        ];
-        const downloadLinksContainer = document.getElementById('downloadLinks');
-        downloadLinks.forEach(link => {
-            const linkDiv = document.createElement('div');
-            const downloadLink = document.createElement('a');
+        document.addEventListener("DOMContentLoaded", async function () {
+            const downloadLinksContainer = document.getElementById('downloadLinks');
 
-            downloadLink.href = link.url;
-            downloadLink.textContent = link.name;
-            linkDiv.appendChild(downloadLink);
+            // 读取 downloadLinks.json 文件
+            const response = await fetch('./json/downloadLinks.json');
+            const data = await response.json();
 
-            downloadLinksContainer.appendChild(linkDiv);
+            // 遍历 JSON 数据，生成下载和预览链接
+            data.downloadLinks.forEach(link => {
+                const linkDiv = document.createElement('div');
+
+                // 创建下载链接
+                const downloadLink = document.createElement('a');
+                downloadLink.href = link.download_link;
+                downloadLink.textContent = link.name;
+                downloadLink.style.marginRight = "10px"; // 增加间距
+                downloadLink.download = ""; // 设置下载属性
+
+                // 创建预览链接
+                const previewLink = document.createElement('a');
+                previewLink.href = link.preview_link;
+                previewLink.textContent = "预览";
+                previewLink.target = "_blank"; // 在新标签页打开
+
+                // 添加到页面
+                linkDiv.appendChild(downloadLink);
+                linkDiv.appendChild(previewLink);
+                downloadLinksContainer.appendChild(linkDiv);
+            });
         });
 
         // 绑定社交网站
@@ -71,7 +77,7 @@
             socialLinksContainers.forEach(container => {
                 data.socialLinks.forEach(link => {
                     const socialLink = document.createElement('a');
-                    socialLink.href = link.url;
+                    socialLink.href = link.download_link;
                     socialLink.target = '_blank';
                     socialLink.textContent = link.name;
                     container.appendChild(socialLink);

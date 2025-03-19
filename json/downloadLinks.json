@@ -1,0 +1,49 @@
+{
+    "downloadLinks": [
+        { 
+            "name": "大学英语",
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf"
+        },
+        { 
+            "name": "高等数学-上",
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf" 
+        },
+        { 
+            "name": "高等数学-下", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf" 
+        },
+        { 
+            "name": "线性代数", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf"
+        },
+        { 
+            "name": "离散数学", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf" 
+        },
+        { 
+            "name": "复变函数", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf" 
+        },
+        { 
+            "name": "大学物理-上", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf" 
+        },
+        { 
+            "name": "大学物理-下", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf" 
+        },
+        { 
+            "name": "电路基础", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf" 
+        },
+        { 
+            "name": "数据结构与算法", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数据结构与算法.pdf", 
+            "preview_link": "https://byzhrichard.github.io/books/sjjgysf/book.html" 
+        },
+        { 
+            "name": "人工智能导论", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf"
+        }
+    ]
+}
