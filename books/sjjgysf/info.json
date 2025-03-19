@@ -1,0 +1,10 @@
+{
+    "sjjgysf": {
+        "start_page": 1,
+        "end_page": 40,
+        "dir_path": "./imgs/",
+        "prefix_name": "数据结构与算法_",
+        "suffix_name": ".png",
+        "left": []
+    }
+}

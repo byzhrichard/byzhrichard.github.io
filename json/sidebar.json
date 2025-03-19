@@ -1,5 +1,5 @@
 {
-    "pages": [
+    "sidebar": [
         { "html": "index.html", "title": "主页"},
         { "html": "intro.html", "title": "介绍说明"},
         { "html": "personal.html", "title": "个人简介"},

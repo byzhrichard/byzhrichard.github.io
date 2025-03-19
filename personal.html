@@ -63,10 +63,10 @@
             
             // 只生成导航链接，不影响 profile
             let linksHTML = "";
-            data.pages.forEach(page => {
+            data.sidebar.forEach(x => {
                 linksHTML += `
-                    <a href="./${page.html}">
-                        <img src="./images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">${page.title}</span>
+                    <a href="./${x.html}">
+                        <img src="./images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">${x.title}</span>
                     </a>
                 `;
             });
