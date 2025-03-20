@@ -22,11 +22,13 @@
         },
         { 
             "name": "离散数学", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/lssx/book.html"
         },
         { 
             "name": "复变函数", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/fbhs/book.html"
         },
         { 
             "name": "大学物理-上", 
@@ -40,7 +42,8 @@
         },
         { 
             "name": "电路基础", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/dljc/book.html"
         },
         { 
             "name": "数据结构与算法", 
@@ -49,7 +52,8 @@
         },
         { 
             "name": "人工智能导论", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf"
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/rgzndl/book.html"
         }
     ]
 }
