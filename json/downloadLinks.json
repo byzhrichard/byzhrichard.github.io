@@ -2,19 +2,23 @@
     "downloadLinks": [
         { 
             "name": "大学英语",
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf"
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/dxyy/book.html" 
         },
         { 
             "name": "高等数学-上",
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/gdsxs/book.html" 
         },
         { 
             "name": "高等数学-下", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/gdsxx/book.html" 
         },
         { 
             "name": "线性代数", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf"
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/xxds/book.html" 
         },
         { 
             "name": "离散数学", 
@@ -26,11 +30,13 @@
         },
         { 
             "name": "大学物理-上", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/dxwls/book.html"  
         },
         { 
             "name": "大学物理-下", 
-            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf" 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/dxwlx/book.html" 
         },
         { 
             "name": "电路基础", 
