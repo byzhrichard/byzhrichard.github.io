@@ -6,7 +6,7 @@
     <title>录直播 - byzh</title>
     <link rel="icon" href="./images/icons/byzh16x16.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/basic.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/link.css">
 </head>
 <body>
     <div class="background"></div>
@@ -20,22 +20,19 @@
     </div>
 
     <div class="container">
-        <div id="intro" class="section">
+        <div class="A">
             <h1>A</h1>
-            <p>A-405</p>
-            <p>http://202.117.115.59:8092/pag/202.117.115.50/7302/008872/0/MAIN/TCP/live.m3u8</p>
-            <p>http://202.117.115.59:8092/pag/202.117.115.50/7302/008873/0/MAIN/TCP/live.m3u8</p>
-            <p>A-418</p>
-            <p>http://202.117.115.53:8092/pag/202.117.115.50/7302/009022/0/MAIN/TCP/live.m3u8</p>
-            <p>http://202.117.115.53:8092/pag/202.117.115.50/7302/009023/0/MAIN/TCP/live.m3u8</p>
+            <!-- 通过 js 插入 sidebar -->
+        </div>
+        
+        <div class="B">
             <h1>B</h1>
-            <p>B-434</p>
-            <p>http://202.117.115.55:8092/pag/202.117.115.50/7302/009762/0/MAIN/TCP/live.m3u8</p>
-            <p>http://202.117.115.55:8092/pag/202.117.115.50/7302/009763/0/MAIN/TCP/live.m3u8</p>
+            <!-- 通过 js 插入 sidebar -->
+        </div>
+
+        <div class="C">
             <h1>C</h1>
-            <p>C-407</p>
-            <p>http://202.117.115.61:8092/pag/202.117.115.50/7302/008689/0/MAIN/TCP/live.m3u8</p>
-            <p>http://202.117.115.61:8092/pag/202.117.115.50/7302/008690/0/MAIN/TCP/live.m3u8</p>
+            <!-- 通过 js 插入 sidebar -->
         </div>
     </div>
 
@@ -62,6 +59,59 @@
             sidebar.innerHTML += linksHTML;
         });
 
+        // 生成A
+        document.addEventListener("DOMContentLoaded", async function () {
+            const my_div = document.querySelector(".A");
+
+            const response = await fetch("./json/link/A.json");
+            const data = await response.json();
+            
+            let linksHTML = "";
+            for (const key in data) {
+                const value = data[key];
+                linksHTML += `<p>${key}</p>`
+                value.forEach((m3u8) => {
+                    linksHTML += `<p>${m3u8}</p>`;
+                });
+            }
+            my_div.innerHTML += linksHTML;
+        });
+        
+        // 生成B
+        document.addEventListener("DOMContentLoaded", async function () {
+            const my_div = document.querySelector(".B");
+
+            const response = await fetch("./json/link/B.json");
+            const data = await response.json();
+            
+            let linksHTML = "";
+            for (const key in data) {
+                const value = data[key];
+                linksHTML += `<p>${key}</p>`
+                value.forEach((m3u8) => {
+                    linksHTML += `<p>${m3u8}</p>`;
+                });
+            }
+            my_div.innerHTML += linksHTML;
+        });
+
+        // 生成C
+        document.addEventListener("DOMContentLoaded", async function () {
+            const my_div = document.querySelector(".C");
+
+            const response = await fetch("./json/link/C.json");
+            const data = await response.json();
+            
+            let linksHTML = "";
+            for (const key in data) {
+                const value = data[key];
+                linksHTML += `<p>${key}</p>`
+                value.forEach((m3u8) => {
+                    linksHTML += `<p>${m3u8}</p>`;
+                });
+            }
+            my_div.innerHTML += linksHTML;
+        });
     </script>
 </body>
 </html>

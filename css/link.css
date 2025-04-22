@@ -1,0 +1,32 @@
+#index {
+    position: relative;
+    padding: 20px;
+}
+
+#index:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    width: 129px;
+    height: 269px;
+    background-image: url('../images/byzh.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+#index:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50px; /* 左上角，距离左侧 50px */
+    width: 129px; /* 设置宽度 */
+    height: 269px; /* 设置高度 */
+    background-image: url('../images/byzh2.png'); /* 替换为你的第二张图片 */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
