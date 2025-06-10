@@ -1,0 +1,8 @@
+{
+    "start_page": 1,
+    "end_page": 40,
+    "dir_path": "./imgs/",
+    "prefix_name": "_",
+    "suffix_name": ".png",
+    "left": []
+}

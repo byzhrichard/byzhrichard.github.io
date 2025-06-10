@@ -54,6 +54,11 @@
             "name": "人工智能导论", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf",
             "preview_link": "https://byzhrichard.github.io/books/rgzndl/book.html"
+        },
+        {
+            "name": "脑科学基础", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/脑科学基础.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/nkxjc/book.html"
         }
     ]
 }
