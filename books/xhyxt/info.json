@@ -1,8 +1,8 @@
 {
     "start_page": 1,
-    "end_page": 40,
+    "end_page": 168,
     "dir_path": "./imgs/",
-    "prefix_name": "???_",
+    "prefix_name": "信号与系统_",
     "suffix_name": ".png",
     "left": []
 }
