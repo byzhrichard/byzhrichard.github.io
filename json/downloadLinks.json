@@ -59,6 +59,11 @@
             "name": "脑科学基础", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/脑科学基础.pdf",
             "preview_link": "https://byzhrichard.github.io/books/nkxjc/book.html"
+        },
+        {
+            "name": "信号与系统", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/信号与系统.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/xhyxt/book.html"
         }
     ]
 }
