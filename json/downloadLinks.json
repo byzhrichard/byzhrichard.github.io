@@ -64,6 +64,11 @@
             "name": "信号与系统", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/信号与系统.pdf",
             "preview_link": "https://byzhrichard.github.io/books/xhyxt/book.html"
+        },
+        {
+            "name": "模电", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/模电.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/md/book.html"
         }
     ]
 }
