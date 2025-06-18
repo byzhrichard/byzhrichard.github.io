@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[预览] 数电</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f5f5f5;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            width: 90vw;
+            height: 85vh;
+            gap: 20px;
+            background-color: #eaeaea;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .page {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+            background-color: white;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+        }
+        .page img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .nav-container {
+            width: 90vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu-button {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .page-indicators {
+            display: flex;
+            justify-content: space-between; /* 修改这一行 */
+            align-items: center;
+            width: 100%; /* 确保占满整个父容器 */
+            padding: 0 140px;
+        }
+        .page-indicator {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .page-indicator-placeholder {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body onload="loadBookData()">
+    <div class="container">
+        <div class="page" id="left-page">
+            <img src="" alt="左页" style="display: none;">
+        </div>
+        <div class="page" id="right-page">
+            <img src="" alt="右页" style="display: none;">
+        </div>
+    </div>
+    <!-- <div class="page-indicator">第 1 页</div> -->
+    <div class="page-indicators">
+        <div class="page-indicator-placeholder tag-left">0</div>
+        <div class="page-indicator">第 1 页</div>
+        <div class="page-indicator-placeholder tag-right">0</div>
+    </div>
+    <div class="nav-container">
+        <button class="nav-button prev-button" style="margin-left: 0%;" onclick="prevPage()">上一页</button>
+        <button class="nav-button menu-button">目录</button>
+        <button class="nav-button next-button" style="margin-right: 0%;" onclick="nextPage()">下一页</button>
+    </div>
+
+    
+    <script>
+        let bookData = {};
+        let logicalPage = 1;
+        let currentPage = 0;
+
+        async function loadBookData() {
+            try {
+                const response = await fetch('info.json');
+                bookData = await response.json();
+                currentPage = bookData.start_page;
+                updatePages();
+            } catch (error) {
+                console.error("Error loading book data:", error);
+            }
+        }
+
+        function updatePages() {
+            const book = bookData;
+            if (!book) return;
+
+            const leftImg = document.getElementById('left-page').querySelector('img');
+            const rightImg = document.getElementById('right-page').querySelector('img');
+            
+            let leftPage = "";
+            let rightPage = currentPage;
+            
+            if (book.left.includes(currentPage)) {
+                leftPage = currentPage;
+                rightPage = currentPage + 1;
+            }
+            
+            const leftImagePath = leftPage !== "" ? `${book.dir_path}${book.prefix_name}${leftPage}${book.suffix_name}` : "";
+            const rightImagePath = `${book.dir_path}${book.prefix_name}${rightPage}${book.suffix_name}`;
+            document.querySelector('.tag-left').textContent = leftPage;
+            document.querySelector('.tag-right').textContent = rightPage;
+
+            leftImg.src = leftPage !== "" ? leftImagePath : "";
+            leftImg.style.display = leftPage !== "" ? "block" : "none";
+            rightImg.src = rightImagePath;
+            rightImg.style.display = "block";
+            
+            document.querySelector('.page-indicator').textContent = `第 ${logicalPage} 页`;
+        }
+
+        function nextPage() {
+            const book = bookData;
+            if (!book) return;
+            if (currentPage < book.end_page) {
+                currentPage += book.left.includes(currentPage) ? 2 : 1;
+                logicalPage++;
+                updatePages();
+            }
+        }
+
+        function prevPage() {
+            const book = bookData;
+            if (!book) return;
+            if (currentPage > book.start_page) {
+                let newPage = currentPage - 1;
+                if (book.left.includes(newPage - 1)) {
+                    newPage -= 1;
+                }
+                currentPage = newPage;
+                logicalPage = Math.max(1, logicalPage - 1);
+                updatePages();
+            }
+        }
+
+        document.querySelector('.menu-button').addEventListener('click', function() {
+            console.assert("awa");
+            console.log("awa");
+            const book = bookData;
+            if (!book) return;
+            
+            const minPage = book.start_page;
+            const maxPage = book.end_page;
+            
+            const userInput = prompt(`请输入要跳转的页数 (${minPage} - ${maxPage}):`);
+            const pageNumber = parseInt(userInput, 10);
+
+            if (!isNaN(pageNumber) && pageNumber >= minPage && pageNumber <= maxPage) {
+                currentPage = pageNumber;
+                logicalPage = pageNumber - minPage + 1; // 逻辑页数更新
+                updatePages();
+            } else {
+                alert("输入无效，请输入正确的页码范围！");
+            }
+        });
+    </script>
+</body>
+</html>

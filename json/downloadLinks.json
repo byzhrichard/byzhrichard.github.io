@@ -66,6 +66,11 @@
             "preview_link": "https://byzhrichard.github.io/books/xhyxt/book.html"
         },
         {
+            "name": "数电", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数电.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/sd/book.html"
+        },
+        {
             "name": "模电", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/模电.pdf",
             "preview_link": "https://byzhrichard.github.io/books/md/book.html"
