@@ -74,6 +74,11 @@
             "name": "模电", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/模电.pdf",
             "preview_link": "https://byzhrichard.github.io/books/md/book.html"
+        },
+        {
+            "name": "计组", 
+            "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/计组.pdf",
+            "preview_link": "https://byzhrichard.github.io/books/jz/book.html"
         }
     ]
 }
