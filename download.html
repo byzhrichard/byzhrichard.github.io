@@ -60,22 +60,37 @@
             data.downloadLinks.forEach(link => {
                 const linkDiv = document.createElement('div');
 
-                // 创建下载链接
-                const downloadLink = document.createElement('a');
-                downloadLink.href = link.download_link;
-                downloadLink.textContent = link.name;
-                downloadLink.style.marginRight = "10px"; // 增加间距
-                downloadLink.download = ""; // 设置下载属性
+                // 创建名称
+                const element = document.createElement('a');
+                element.textContent = link.name;
+                element.style.marginRight = "10px"; // 增加间距
 
                 // 创建预览链接
                 const previewLink = document.createElement('a');
                 previewLink.href = link.preview_link;
+                previewLink.style.marginRight = "10px"; // 增加间距
                 previewLink.textContent = "预览";
                 previewLink.target = "_blank"; // 在新标签页打开
 
+                // 创建下载链接
+                const downloadLink = document.createElement('a');
+                downloadLink.href = link.download_link;
+                downloadLink.style.marginRight = "10px"; // 增加间距
+                downloadLink.textContent = "下载";
+                downloadLink.target = "_blank"; // 在新标签页打开
+
+                // 创建备用下载链接
+                const downloadLink_backup = document.createElement('a');
+                downloadLink_backup.href = link.download_link_backup;
+                downloadLink_backup.style.marginRight = "10px"; // 增加间距
+                downloadLink_backup.textContent = "备用下载";
+                downloadLink_backup.target = "_blank"; // 在新标签页打开
+
                 // 添加到页面
-                linkDiv.appendChild(downloadLink);
+                linkDiv.appendChild(element);
                 linkDiv.appendChild(previewLink);
+                linkDiv.appendChild(downloadLink);
+                linkDiv.appendChild(downloadLink_backup);
                 downloadLinksContainer.appendChild(linkDiv);
             });
         });
