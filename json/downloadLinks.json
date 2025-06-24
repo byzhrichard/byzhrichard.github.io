@@ -3,81 +3,97 @@
         { 
             "name": "大学英语",
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学英语.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/dxyy/book.html" 
         },
         { 
             "name": "高等数学-上",
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-上.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/gdsxs/book.html" 
         },
         { 
             "name": "高等数学-下", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/高等数学-下.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/gdsxx/book.html" 
         },
         { 
             "name": "线性代数", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/线性代数.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/xxds/book.html" 
         },
         { 
             "name": "离散数学", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/离散数学.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/lssx/book.html"
         },
         { 
             "name": "复变函数", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/复变函数.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/fbhs/book.html"
         },
         { 
             "name": "大学物理-上", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-上.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/dxwls/book.html"  
         },
         { 
             "name": "大学物理-下", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/大学物理-下.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/dxwlx/book.html" 
         },
         { 
             "name": "电路基础", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/电路基础.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/dljc/book.html"
         },
         { 
             "name": "数据结构与算法", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数据结构与算法.pdf", 
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/sjjgysf/book.html" 
         },
         { 
             "name": "人工智能导论", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/人工智能导论.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/rgzndl/book.html"
         },
         {
             "name": "脑科学基础", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/脑科学基础.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/nkxjc/book.html"
         },
         {
             "name": "信号与系统", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/信号与系统.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/xhyxt/book.html"
         },
         {
             "name": "数电", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/数电.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/sd/book.html"
         },
         {
             "name": "模电", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/模电.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/md/book.html"
         },
         {
             "name": "计组", 
             "download_link": "https://github.com/byzhrichard/byzhrichard.github.io/raw/main/src/计组.pdf",
+            "download_link_backup": "https://pan.baidu.com/s/1SG76kbflD64uLxO-otFelw?pwd=byzh",
             "preview_link": "https://byzhrichard.github.io/books/jz/book.html"
         }
     ]
