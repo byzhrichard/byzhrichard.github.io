@@ -51,6 +51,10 @@
         "http://202.117.115.54:8092/pag/202.117.115.50/7302/009603/0/MAIN/TCP/live.m3u8",
         "http://202.117.115.54:8092/pag/202.117.115.50/7302/009604/0/MAIN/TCP/live.m3u8"
     ],
+    "B-421": [
+        "https://kdlbptnmedia.xidian.edu.cn/nmserv/10.168.76.239:32002/hls/live/61010001041320001247/636773/live.m3u8",
+        "https://kdlbptnmedia.xidian.edu.cn/nmserv/10.168.76.230:32002/hls/live/61010001041320000330/636775/live.m3u8"
+    ],
     "B-434": [
         "http://202.117.115.55:8092/pag/202.117.115.50/7302/009762/0/MAIN/TCP/live.m3u8",
         "http://202.117.115.55:8092/pag/202.117.115.50/7302/009763/0/MAIN/TCP/live.m3u8"
