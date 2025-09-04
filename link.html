@@ -70,8 +70,15 @@
             for (const key in data) {
                 const value = data[key];
                 linksHTML += `<p>${key}</p>`
-                value.forEach((m3u8) => {
-                    linksHTML += `<p>${m3u8}</p>`;
+                if (key === "") {
+                    continue;
+                }
+                value.forEach((m3u8, idx) => {
+                    if (idx === 0) {
+                        linksHTML += `<p>教室: ${m3u8}</p>`;
+                    } else {
+                        linksHTML += `<p>屏幕: ${m3u8}</p>`;
+                    }
                 });
             }
             my_div.innerHTML += linksHTML;
@@ -88,8 +95,15 @@
             for (const key in data) {
                 const value = data[key];
                 linksHTML += `<p>${key}</p>`
-                value.forEach((m3u8) => {
-                    linksHTML += `<p>${m3u8}</p>`;
+                if (key === "") {
+                    continue;
+                }
+                value.forEach((m3u8, idx) => {
+                    if (idx === 0) {
+                        linksHTML += `<p>教室: ${m3u8}</p>`;
+                    } else {
+                        linksHTML += `<p>屏幕: ${m3u8}</p>`;
+                    }
                 });
             }
             my_div.innerHTML += linksHTML;
@@ -106,8 +120,15 @@
             for (const key in data) {
                 const value = data[key];
                 linksHTML += `<p>${key}</p>`
-                value.forEach((m3u8) => {
-                    linksHTML += `<p>${m3u8}</p>`;
+                if (key === "") {
+                    continue;
+                }
+                value.forEach((m3u8, idx) => {
+                    if (idx === 0) {
+                        linksHTML += `<p>教室: ${m3u8}</p>`;
+                    } else {
+                        linksHTML += `<p>屏幕: ${m3u8}</p>`;
+                    }
                 });
             }
             my_div.innerHTML += linksHTML;
