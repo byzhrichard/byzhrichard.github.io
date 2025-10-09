@@ -4,5 +4,5 @@
     "dir_path": "./imgs/",
     "prefix_name": "信号与系统_",
     "suffix_name": ".png",
-    "left": []
+    "left": [14, 16, 19]
 }
