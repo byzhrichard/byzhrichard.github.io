@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录直播 C - byzh</title>
+    <link rel="icon" href="./images/icons/byzh16x16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/link.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="images/icons/byzh32x32.ico" alt="头像" class="avatar">
+            <h2 class="name">byzh</h2>
+        </div>
+        <!-- 通过 js 插入 sidebar -->
+    </div>
+
+    <div class="container">
+        <div class="C">
+            <h1>C</h1>
+            <!-- 通过 js 插入 sidebar -->
+        </div>
+    </div>
+
+    <script>
+        // 生成sidebar
+        document.addEventListener("DOMContentLoaded", async function () {
+            const sidebar = document.querySelector(".sidebar");
+
+            // 读取 JSON 文件
+            const response = await fetch("./json/sidebar.json");
+            const data = await response.json();
+            
+            // 只生成导航链接，不影响 profile
+            let linksHTML = "";
+            data.sidebar.forEach(x => {
+                linksHTML += `
+                    <a href="./${x.html}">
+                        <img src="./images/icons/byzh16x16.ico" class="icon"> <span class="sidebarFont">${x.title}</span>
+                    </a>
+                `;
+            });
+
+            // **找到 `profile` 之后插入链接**
+            sidebar.innerHTML += linksHTML;
+        });
+
+        // 生成C
+        document.addEventListener("DOMContentLoaded", async function () {
+            const my_div = document.querySelector(".C");
+
+            const response = await fetch("./json/link/C.json");
+            const data = await response.json();
+            
+            let linksHTML = "";
+            for (const key in data) {
+                const value = data[key];
+                linksHTML += `<p>${key}</p>`
+                if (key === "") {
+                    continue;
+                }
+                value.forEach((m3u8, idx) => {
+                    if (idx === 0) {
+                        linksHTML += `<p>教室: ${m3u8}</p>`;
+                    } else {
+                        linksHTML += `<p>屏幕: ${m3u8}</p>`;
+                    }
+                });
+            }
+            my_div.innerHTML += linksHTML;
+        });
+    </script>
+</body>
+</html>

@@ -5,6 +5,8 @@
         { "html": "personal.html", "title": "个人简介"},
         { "html": "contribution.html", "title": "社区贡献"},
         { "html": "download.html", "title": "下载界面"},
-        { "html": "link.html", "title": "录直播"}
+        { "html": "link_A.html", "title": "录直播-A"},
+        { "html": "link_B.html", "title": "录直播-B"},
+        { "html": "link_C.html", "title": "录直播-C"}
     ]
 }
