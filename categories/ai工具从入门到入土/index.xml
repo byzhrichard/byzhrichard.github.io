@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI工具从入门到入土 on byzh的博客</title>
+    <link>http://localhost:1313/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] 命令行</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="ai工具从入门到入土-命令行">
+<a class="header-anchor" href="#ai%e5%b7%a5%e5%85%b7%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%91%bd%e4%bb%a4%e8%a1%8c"></a>
+[AI工具从入门到入土] 命令行
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] venv、pip、conda、uv一次讲清</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] venv、pip、conda、uv一次讲清</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="python-环境-venvpipcondauv一次讲清">
+<a class="header-anchor" href="#python-%e7%8e%af%e5%a2%83-venvpipcondauv%e4%b8%80%e6%ac%a1%e8%ae%b2%e6%b8%85"></a>
+[Python-环境] venv、pip、conda、uv一次讲清
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] torch</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] torch</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="torchcat">
+<a class="header-anchor" href="#torchcat"></a>
+torch.cat
+</h1><p><strong>在已有维度上堆叠</strong></p>
+<p>张量(2, 10) 和 张量(2, 10)</p>
+<p>-&gt; 张量(4, 10): 称为沿第一个维度(axis/dim = 0)堆叠</p>
+<p>-&gt; 张量(2, 20): 称为沿第二个维度(axis/dim = 1)堆叠</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] paper</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] paper</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="顶级期刊journals">
+<a class="header-anchor" href="#%e9%a1%b6%e7%ba%a7%e6%9c%9f%e5%88%8ajournals"></a>
+顶级期刊（Journals）
+</h1><p>计算机视觉 / 模式识别:</p>
+<table>
+  <thead>
+      <tr>
+          <th>简称</th>
+          <th>全称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TPAMI / PAMI</strong></td>
+          <td>IEEE Transactions on Pattern Analysis and Machine Intelligence</td>
+          <td>计算机视觉 / 机器学习顶级期刊</td>
+      </tr>
+      <tr>
+          <td><strong>IJCV</strong></td>
+          <td>International Journal of Computer Vision</td>
+          <td>计算机视觉顶刊</td>
+      </tr>
+      <tr>
+          <td><strong>PR</strong></td>
+          <td>Pattern Recognition</td>
+          <td>模式识别经典期刊</td>
+      </tr>
+      <tr>
+          <td><strong>PRL</strong></td>
+          <td>Pattern Recognition Letters</td>
+          <td>PR 的快报版</td>
+      </tr>
+  </tbody>
+</table>
+<p>机器学习 / 神经网络:</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] pandas</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] pandas</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="注意">
+<a class="header-anchor" href="#%e6%b3%a8%e6%84%8f"></a>
+注意
+</h1><ol>
+<li>简单数据预处理先用excel做</li>
+<li>复杂数据预处理用jupyter</li>
+<li>全都处理好, 然后导出为csv, 再用py</li>
+</ol>
+<h1 id="读取">
+<a class="header-anchor" href="#%e8%af%bb%e5%8f%96"></a>
+读取
+</h1><h4 id="1第一行有杂乱信息">
+<a class="header-anchor" href="#1%e7%ac%ac%e4%b8%80%e8%a1%8c%e6%9c%89%e6%9d%82%e4%b9%b1%e4%bf%a1%e6%81%af"></a>
+1.第一行有杂乱信息
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;./Wimbledon_featured_matches.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;gbk&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span> <span class="c1"># 跳过第1行, 从2行开始读取</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h1 id="显示">
+<a class="header-anchor" href="#%e6%98%be%e7%a4%ba"></a>
+显示
+</h1><h4 id="1横线被压缩成">
+<a class="header-anchor" href="#1%e6%a8%aa%e7%ba%bf%e8%a2%ab%e5%8e%8b%e7%bc%a9%e6%88%90"></a>
+1.横线被压缩成&hellip;
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&#34;display.max_columns&#34;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   <span class="c1"># 显示所有列</span>
+</span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&#34;display.width&#34;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>         <span class="c1"># 不限制总宽度（按终端/环境尽量铺开）</span>
+</span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&#34;display.max_colwidth&#34;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># 单个单元格内容不截断（长字符串也全显示）</span>
+</span></span></code></pre></div><blockquote>
+<p>建议保存成excel再看</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] matplotlib:art:</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] matplotlib:art:</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="ai工具从入门到入土-matplotlibart">
+<a class="header-anchor" href="#ai%e5%b7%a5%e5%85%b7%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-matplotlibart"></a>
+[AI工具从入门到入土] matplotlib&#x1f3a8;
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] docker</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] docker</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="基本命令">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4"></a>
+基本命令
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># 设置开机启动docker</span>
+</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">enable</span> <span class="n">docker</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 重启docker</span>
+</span></span><span class="line"><span class="cl"><span class="n">systemctl</span> <span class="n">restart</span> <span class="n">docker</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 镜像:</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">images</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">search</span> <span class="n">xxx</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">pull</span> <span class="n">xxx</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">rmi</span> <span class="n">xxx</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 容器:</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">name</span> <span class="n">XXX</span> <span class="p">(</span><span class="o">-</span><span class="n">v</span> <span class="o">...</span><span class="p">:</span><span class="o">...</span><span class="p">)</span> <span class="n">xxx</span><span class="p">:</span><span class="mf">5.0</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">id</span> <span class="o">--</span><span class="n">name</span> <span class="n">XXX</span> <span class="p">(</span><span class="o">-</span><span class="n">v</span> <span class="o">...</span><span class="p">:</span><span class="o">...</span><span class="p">)</span> <span class="n">xxx</span><span class="p">:</span><span class="mf">5.0</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">XXX</span> <span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+</span></span><span class="line"><span class="cl"><span class="n">exit</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">start</span> <span class="n">XXX</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">ps</span> <span class="c1"># 当前容器</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span> <span class="c1"># 所有容器</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">stop</span> <span class="n">XXX</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">rm</span> <span class="n">XXX</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载镜像</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">commit</span> <span class="err">容器</span><span class="n">id</span> <span class="err">镜像名称</span><span class="p">:</span><span class="err">版本号</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">save</span> <span class="o">-</span><span class="n">o</span> <span class="err">压缩文件名</span><span class="o">.</span><span class="n">tar</span> <span class="err">镜像名称</span><span class="p">:</span><span class="err">版本号</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="nb">load</span> <span class="o">-</span><span class="n">i</span> <span class="err">压缩文件</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 根据Dockerfile来构建镜像</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">f</span> <span class="o">./</span><span class="n">Dockerfile</span> <span class="o">-</span><span class="n">t</span> <span class="n">xxx</span><span class="p">:</span><span class="mf">1.0</span> <span class="o">.</span> <span class="c1"># .代表寻址的路</span>
+</span></span></code></pre></div><h1 id="创建容器">
+<a class="header-anchor" href="#%e5%88%9b%e5%bb%ba%e5%ae%b9%e5%99%a8"></a>
+创建容器
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -id --gpus all --name SY311 -v /home/qsun/桌面/SY:/root/SY sy311:4.0 /bin/bash
+</span></span></code></pre></div>$$
+\text{
+docker run -id --gpus all --name SY311 -v \color{red}/home/qsun/桌面/SY\color{black}:\color{green}/root/SY \color{purple}sy311:4.0 \color{black}/bin/bash
+}
+\\
+\begin{cases}
+\color{red}外部主设备的项目文件夹路径(需要提前准备好)
+\\
+\color{green}容器内部的对应文件夹目录(会自动创建)
+\\
+\color{purple}镜像名与其对应版本
+\end{cases}
+$$<blockquote>
+<p>当创建容器后, 红色文件夹(实际存在) 与 绿色文件夹(容器内存在) 会关联起来
+-&gt; 修改主机内实际存在的文件夹, 则容器内的该文件夹也会变</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI工具从入门到入土] `cache缓存` 正摧毁你的C盘</title>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</guid>
+      <description>
+        <![CDATA[<h1>[AI工具从入门到入土] `cache缓存` 正摧毁你的C盘</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="ai工具从入门到入土-cache缓存-正摧毁你的c盘">
+<a class="header-anchor" href="#ai%e5%b7%a5%e5%85%b7%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-cache%e7%bc%93%e5%ad%98-%e6%ad%a3%e6%91%a7%e6%af%81%e4%bd%a0%e7%9a%84c%e7%9b%98"></a>
+[AI工具从入门到入土] <code>cache缓存</code> 正摧毁你的C盘
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>AI工具从入门到入土</category>
+      
+    </item>
+    
+  </channel>
+</rss>

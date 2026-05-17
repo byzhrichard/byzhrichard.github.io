@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>装机必备 on byzh的博客</title>
+    <link>http://localhost:1313/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[装机必备] 网站</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] 网站</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="网站">
+<a class="header-anchor" href="#%e7%bd%91%e7%ab%99"></a>
+网站
+</h1><h2 id="1-字体">
+<a class="header-anchor" href="#1-%e5%ad%97%e4%bd%93"></a>
+1. 字体
+</h2><p><a href="https://www.fonts.net.cn/">https://www.fonts.net.cn/</a></p>
+<h2 id="2-github镜像">
+<a class="header-anchor" href="#2-github%e9%95%9c%e5%83%8f"></a>
+2. github镜像
+</h2><p><a href="https://github.akams.cn/">https://github.akams.cn/</a></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] 软件</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] 软件</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="软件">
+<a class="header-anchor" href="#%e8%bd%af%e4%bb%b6"></a>
+软件
+</h1><h2 id="1-窗口置顶---altsnap">
+<a class="header-anchor" href="#1-%e7%aa%97%e5%8f%a3%e7%bd%ae%e9%a1%b6---altsnap"></a>
+1. 窗口置顶 - AltSnap
+</h2><p><a href="https://github.com/RamonUnch/AltSnap">https://github.com/RamonUnch/AltSnap</a></p>
+<h2 id="2-截图---pixpin">
+<a class="header-anchor" href="#2-%e6%88%aa%e5%9b%be---pixpin"></a>
+2. 截图 - pixpin
+</h2><p><a href="https://pixpin.cn/">https://pixpin.cn/</a></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] BIOS</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] BIOS</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="bios">
+<a class="header-anchor" href="#bios"></a>
+BIOS
+</h1><p><img src="/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/image-20260517163232082.png" alt="image-20260517163232082"></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+  </channel>
+</rss>

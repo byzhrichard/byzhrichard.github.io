@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>byzh的博客</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>markdown表情</title>
+      <link>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
+      <description>
+        <![CDATA[<h1>markdown表情</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h4 id="人">
+<a class="header-anchor" href="#%e4%ba%ba"></a>
+人
+</h4><table>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>表情</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>smile</td>
+          <td>&#x1f604;</td>
+      </tr>
+      <tr>
+          <td>laughing</td>
+          <td>&#x1f606;</td>
+      </tr>
+      <tr>
+          <td>grinning</td>
+          <td>&#x1f600;</td>
+      </tr>
+      <tr>
+          <td>joy</td>
+          <td>&#x1f602;</td>
+      </tr>
+      <tr>
+          <td>anguished</td>
+          <td>&#x1f627;</td>
+      </tr>
+      <tr>
+          <td>sweat</td>
+          <td>&#x1f613;</td>
+      </tr>
+      <tr>
+          <td>scream</td>
+          <td>&#x1f631;</td>
+      </tr>
+      <tr>
+          <td>fearful</td>
+          <td>&#x1f628;</td>
+      </tr>
+      <tr>
+          <td>rage</td>
+          <td>&#x1f621;</td>
+      </tr>
+      <tr>
+          <td>anger</td>
+          <td>&#x1f4a2;</td>
+      </tr>
+      <tr>
+          <td>shit</td>
+          <td>&#x1f4a9;</td>
+      </tr>
+      <tr>
+          <td>+1</td>
+          <td>&#x1f44d;</td>
+      </tr>
+      <tr>
+          <td>-1</td>
+          <td>&#x1f44e;</td>
+      </tr>
+      <tr>
+          <td>v</td>
+          <td>&#x270c;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>raised_hand</td>
+          <td>&#x270b;</td>
+      </tr>
+      <tr>
+          <td>point_up</td>
+          <td>&#x261d;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>muscle</td>
+          <td>&#x1f4aa;</td>
+      </tr>
+      <tr>
+          <td>ear</td>
+          <td>&#x1f442;</td>
+      </tr>
+      <tr>
+          <td>droplet</td>
+          <td>&#x1f4a7;</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="自然">
+<a class="header-anchor" href="#%e8%87%aa%e7%84%b6"></a>
+自然
+</h4><table>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>表情</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>snowflake</td>
+          <td>&#x2744;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>sun_with_face</td>
+          <td>&#x1f31e;</td>
+      </tr>
+      <tr>
+          <td>zap</td>
+          <td>&#x26a1;</td>
+      </tr>
+      <tr>
+          <td><strong>seedling</strong></td>
+          <td>&#x1f331;</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="物品">
+<a class="header-anchor" href="#%e7%89%a9%e5%93%81"></a>
+物品
+</h4><table>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>表情</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>mortar_board</td>
+          <td>&#x1f393;</td>
+      </tr>
+      <tr>
+          <td>gift</td>
+          <td>&#x1f381;</td>
+      </tr>
+      <tr>
+          <td><strong>computer</strong></td>
+          <td>&#x1f4bb;</td>
+      </tr>
+      <tr>
+          <td>sound</td>
+          <td>&#x1f509;</td>
+      </tr>
+      <tr>
+          <td>mute</td>
+          <td>&#x1f507;</td>
+      </tr>
+      <tr>
+          <td>loudspeaker</td>
+          <td>&#x1f4e2;</td>
+      </tr>
+      <tr>
+          <td>alarm_clock</td>
+          <td>&#x23f0;</td>
+      </tr>
+      <tr>
+          <td>mag</td>
+          <td>&#x1f50d;</td>
+      </tr>
+      <tr>
+          <td>mag_right</td>
+          <td>&#x1f50e;</td>
+      </tr>
+      <tr>
+          <td>unlock</td>
+          <td>&#x1f513;</td>
+      </tr>
+      <tr>
+          <td>lock</td>
+          <td>&#x1f512;</td>
+      </tr>
+      <tr>
+          <td>key</td>
+          <td>&#x1f511;</td>
+      </tr>
+      <tr>
+          <td>bulb</td>
+          <td>&#x1f4a1;</td>
+      </tr>
+      <tr>
+          <td>clipboard</td>
+          <td>&#x1f4cb;</td>
+      </tr>
+      <tr>
+          <td>calendar</td>
+          <td>&#x1f4c6;</td>
+      </tr>
+      <tr>
+          <td><strong>pushpin</strong></td>
+          <td>&#x1f4cc;</td>
+      </tr>
+      <tr>
+          <td>book</td>
+          <td>&#x1f4d6;</td>
+      </tr>
+      <tr>
+          <td>warning</td>
+          <td>&#x26a0;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>triangular_flag_on_post</td>
+          <td>&#x1f6a9;</td>
+      </tr>
+      <tr>
+          <td><strong>gear</strong></td>
+          <td>&#x2699;&#xfe0f;</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="地方">
+<a class="header-anchor" href="#%e5%9c%b0%e6%96%b9"></a>
+地方
+</h4><table>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>表情</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>rocket</td>
+          <td>&#x1f680;</td>
+      </tr>
+      <tr>
+          <td>car</td>
+          <td>&#x1f697;</td>
+      </tr>
+      <tr>
+          <td>ambulance</td>
+          <td>&#x1f691;</td>
+      </tr>
+      <tr>
+          <td>bike</td>
+          <td>&#x1f6b2;</td>
+      </tr>
+      <tr>
+          <td>office</td>
+          <td>&#x1f3e2;</td>
+      </tr>
+      <tr>
+          <td>bank</td>
+          <td>&#x1f3e6;</td>
+      </tr>
+      <tr>
+          <td>hotel</td>
+          <td>&#x1f3e8;</td>
+      </tr>
+      <tr>
+          <td>church</td>
+          <td>&#x26ea;</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="符号">
+<a class="header-anchor" href="#%e7%ac%a6%e5%8f%b7"></a>
+符号
+</h4><table>
+  <thead>
+      <tr>
+          <th>代码</th>
+          <th>表情</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>one</td>
+          <td>&#x31;&#xfe0f;&#x20e3;</td>
+      </tr>
+      <tr>
+          <td>keycap_ten</td>
+          <td>&#x1f51f;</td>
+      </tr>
+      <tr>
+          <td>hash</td>
+          <td>&#x23;&#xfe0f;&#x20e3;</td>
+      </tr>
+      <tr>
+          <td>arrow_forward</td>
+          <td>&#x25b6;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>arrow_backward</td>
+          <td>&#x25c0;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>arrows_counterclockwise</td>
+          <td>&#x1f504;</td>
+      </tr>
+      <tr>
+          <td>fast_forward</td>
+          <td>&#x23e9;</td>
+      </tr>
+      <tr>
+          <td>rewind</td>
+          <td>&#x23ea;</td>
+      </tr>
+      <tr>
+          <td>signal_strength</td>
+          <td>&#x1f4f6;</td>
+      </tr>
+      <tr>
+          <td>no_entry_sign</td>
+          <td>&#x1f6ab;</td>
+      </tr>
+      <tr>
+          <td>clock1</td>
+          <td>&#x1f550;</td>
+      </tr>
+      <tr>
+          <td>x</td>
+          <td>&#x274c;</td>
+      </tr>
+      <tr>
+          <td>heavy_exclamation_mark</td>
+          <td>&#x2757;</td>
+      </tr>
+      <tr>
+          <td>bangbang</td>
+          <td>&#x203c;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>interrobang</td>
+          <td>&#x2049;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>o</td>
+          <td>&#x2b55;</td>
+      </tr>
+      <tr>
+          <td>heavy_plus_sign</td>
+          <td>&#x2795;</td>
+      </tr>
+      <tr>
+          <td>heavy_minus_sign</td>
+          <td>&#x2796;</td>
+      </tr>
+      <tr>
+          <td>heavy_multiplication_x</td>
+          <td>&#x2716;&#xfe0f;</td>
+      </tr>
+      <tr>
+          <td>heavy_division_sign</td>
+          <td>&#x2797;</td>
+      </tr>
+      <tr>
+          <td>white_check_mark</td>
+          <td>&#x2705;</td>
+      </tr>
+      <tr>
+          <td>negative_squared_cross_mark</td>
+          <td>&#x274e;</td>
+      </tr>
+      <tr>
+          <td>red_circle</td>
+          <td>&#x1f534;</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>else</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] 网站</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] 网站</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="网站">
+<a class="header-anchor" href="#%e7%bd%91%e7%ab%99"></a>
+网站
+</h1><h2 id="1-字体">
+<a class="header-anchor" href="#1-%e5%ad%97%e4%bd%93"></a>
+1. 字体
+</h2><p><a href="https://www.fonts.net.cn/">https://www.fonts.net.cn/</a></p>
+<h2 id="2-github镜像">
+<a class="header-anchor" href="#2-github%e9%95%9c%e5%83%8f"></a>
+2. github镜像
+</h2><p><a href="https://github.akams.cn/">https://github.akams.cn/</a></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] 软件</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] 软件</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="软件">
+<a class="header-anchor" href="#%e8%bd%af%e4%bb%b6"></a>
+软件
+</h1><h2 id="1-窗口置顶---altsnap">
+<a class="header-anchor" href="#1-%e7%aa%97%e5%8f%a3%e7%bd%ae%e9%a1%b6---altsnap"></a>
+1. 窗口置顶 - AltSnap
+</h2><p><a href="https://github.com/RamonUnch/AltSnap">https://github.com/RamonUnch/AltSnap</a></p>
+<h2 id="2-截图---pixpin">
+<a class="header-anchor" href="#2-%e6%88%aa%e5%9b%be---pixpin"></a>
+2. 截图 - pixpin
+</h2><p><a href="https://pixpin.cn/">https://pixpin.cn/</a></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] BIOS</title>
+      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] BIOS</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="bios">
+<a class="header-anchor" href="#bios"></a>
+BIOS
+</h1><p><img src="/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/image-20260517163232082.png" alt="image-20260517163232082"></p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[十万个为什么] 眼睛怕蓝光</title>
+      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</guid>
+      <description>
+        <![CDATA[<h1>[十万个为什么] 眼睛怕蓝光</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="十万个为什么-眼睛怕蓝光">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%87%e4%b8%aa%e4%b8%ba%e4%bb%80%e4%b9%88-%e7%9c%bc%e7%9d%9b%e6%80%95%e8%93%9d%e5%85%89"></a>
+[十万个为什么] 眼睛怕蓝光
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>十万个为什么</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[十万个为什么] 画质and分辨率</title>
+      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</guid>
+      <description>
+        <![CDATA[<h1>[十万个为什么] 画质and分辨率</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="十万个为什么-画质and分辨率">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%87%e4%b8%aa%e4%b8%ba%e4%bb%80%e4%b9%88-%e7%94%bb%e8%b4%a8and%e5%88%86%e8%be%a8%e7%8e%87"></a>
+[十万个为什么] 画质and分辨率
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>十万个为什么</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[十万个为什么] U盘刷镜像后再也看不到了</title>
+      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</guid>
+      <description>
+        <![CDATA[<h1>[十万个为什么] U盘刷镜像后再也看不到了</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="十万个为什么-u盘刷镜像后再也看不到了">
+<a class="header-anchor" href="#%e5%8d%81%e4%b8%87%e4%b8%aa%e4%b8%ba%e4%bb%80%e4%b9%88-u%e7%9b%98%e5%88%b7%e9%95%9c%e5%83%8f%e5%90%8e%e5%86%8d%e4%b9%9f%e7%9c%8b%e4%b8%8d%e5%88%b0%e4%ba%86"></a>
+[十万个为什么] U盘刷镜像后再也看不到了
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>十万个为什么</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[深度学习网络Net从入门到入土] 长短期记忆网络LSTM</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/</guid>
+      <description>
+        <![CDATA[<h1>[深度学习网络Net从入门到入土] 长短期记忆网络LSTM</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="深度学习网络从入门到入土-长短期记忆网络lstm">
+<a class="header-anchor" href="#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%bb%9c%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e9%95%bf%e7%9f%ad%e6%9c%9f%e8%ae%b0%e5%bf%86%e7%bd%91%e7%bb%9clstm"></a>
+[深度学习网络从入门到入土] 长短期记忆网络LSTM
+</h1><h1 id="loudspeaker个人导航">
+<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+&#x1f4e2;个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>深度学习网络Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[深度学习网络Net从入门到入土] 循环神经网络RNN</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/rnn/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/rnn/</guid>
+      <description>
+        <![CDATA[<h1>[深度学习网络Net从入门到入土] 循环神经网络RNN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="深度学习网络从入门到入土-循环神经网络rnn">
+<a class="header-anchor" href="#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%bb%9c%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%be%aa%e7%8e%af%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9crnn"></a>
+[深度学习网络从入门到入土] 循环神经网络RNN
+</h1><h1 id="loudspeaker个人导航">
+<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+&#x1f4e2;个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>深度学习网络Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[深度学习网络Net从入门到入土] 网络中的网络NiN</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</guid>
+      <description>
+        <![CDATA[<h1>[深度学习网络Net从入门到入土] 网络中的网络NiN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="深度学习网络从入门到入土-网络中的网络nin">
+<a class="header-anchor" href="#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%bd%91%e7%bb%9c%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%bd%91%e7%bb%9c%e4%b8%ad%e7%9a%84%e7%bd%91%e7%bb%9cnin"></a>
+[深度学习网络从入门到入土] 网络中的网络NiN
+</h1><h1 id="loudspeaker个人导航">
+<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+&#x1f4e2;个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>深度学习网络Net从入门到入土</category>
+      
+    </item>
+    
+  </channel>
+</rss>

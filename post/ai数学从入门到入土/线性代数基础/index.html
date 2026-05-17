@@ -1,0 +1,864 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [AI数学从入门到入土] 线性代数基础 | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"http://localhost:1313/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[AI数学从入门到入土] 线性代数基础 | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="http://localhost:1313/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="http://localhost:1313/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-05-17T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-17T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="http://localhost:1313/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[AI数学从入门到入土] 线性代数基础"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[AI数学从入门到入土] 线性代数基础</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ai数学从入门到入土-线性代数基础">[AI数学从入门到入土] 线性代数基础</a></li>
+    <li><a href="#个人导航">个人导航</a></li>
+    <li><a href="#线性组合线性相关线性无关">线性组合、线性相关、线性无关</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1线性组合linear-combination">1.线性组合（linear combination）</a></li>
+                <li><a href="#2线性相关linearly-dependent">2.线性相关（linearly dependent）</a></li>
+                <li><a href="#3线性无关linearly-independent">3.线性无关（linearly independent）</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#块矩阵乘法规则">块矩阵乘法规则</a></li>
+    <li><a href="#秩rank">秩Rank</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#秩的定义常用等价定义">秩的定义（常用等价定义）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#列空间行空间零空间">列空间、行空间、零空间</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1列空间column-space">1.列空间（Column Space）</a></li>
+                <li><a href="#2零空间null-space">2.零空间（Null Space）</a></li>
+                <li><a href="#3秩-零度定理">3.秩-零度定理</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#投影projection">投影（Projection）</a></li>
+    <li><a href="#条件数">条件数</a></li>
+    <li><a href="#svd">SVD</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1定义">1.定义</a></li>
+                <li><a href="#2放大能力">2.放大能力</a></li>
+                <li><a href="#3">3. $X^TX$</a></li>
+                <li><a href="#4严重共线性-奇异值很小">4.“严重共线性”= 奇异值很小</a></li>
+                <li><a href="#5最小二乘">5.最小二乘</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">58</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-05-17 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-05-17</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-05-17</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="ai数学从入门到入土-线性代数基础">
+<a class="header-anchor" href="#ai%e6%95%b0%e5%ad%a6%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%ba%bf%e6%80%a7%e4%bb%a3%e6%95%b0%e5%9f%ba%e7%a1%80"></a>
+[AI数学从入门到入土] 线性代数基础
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>@[TOC]</p>
+<h1 id="线性组合线性相关线性无关">
+<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e7%bb%84%e5%90%88%e7%ba%bf%e6%80%a7%e7%9b%b8%e5%85%b3%e7%ba%bf%e6%80%a7%e6%97%a0%e5%85%b3"></a>
+线性组合、线性相关、线性无关
+</h1><h4 id="1线性组合linear-combination">
+<a class="header-anchor" href="#1%e7%ba%bf%e6%80%a7%e7%bb%84%e5%90%88linear-combination"></a>
+1.线性组合（linear combination）
+</h4><p>给一组向量 $v_1,\dots,v_k$，形如
+</p>
+$$
+a_1v_1+\cdots+a_kv_k
+$$<p>
+叫这组向量的线性组合</p>
+<h4 id="2线性相关linearly-dependent">
+<a class="header-anchor" href="#2%e7%ba%bf%e6%80%a7%e7%9b%b8%e5%85%b3linearly-dependent"></a>
+2.线性相关（linearly dependent）
+</h4><p>若存在<strong>不全为 0</strong> 的系数 $(a_1,\dots,a_k)$，使
+</p>
+$$
+a_1v_1+\cdots+a_kv_k=0
+$$<p>
+则这组向量<strong>线性相关</strong></p>
+<p>-&gt; 直觉：==<strong>有冗余</strong>==，某个向量能被其他向量“拼出来”</p>
+<h4 id="3线性无关linearly-independent">
+<a class="header-anchor" href="#3%e7%ba%bf%e6%80%a7%e6%97%a0%e5%85%b3linearly-independent"></a>
+3.线性无关（linearly independent）
+</h4><p>只有当所有系数都为 0 才能凑出 0：
+</p>
+$$
+a_1v_1+\cdots+a_kv_k=0 
+\\
+\Rightarrow
+\\
+a_1=\cdots=a_k=0
+$$<p>
+则这组向量<strong>线性无关</strong></p>
+<p>-&gt; 直觉：==<strong>每个向量都带来新信息/新方向</strong>==</p>
+<h1 id="块矩阵乘法规则">
+<a class="header-anchor" href="#%e5%9d%97%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95%e8%a7%84%e5%88%99"></a>
+块矩阵乘法规则
+</h1>$$
+X \in \mathbb{R}^{N\times 2D}, W \in \mathbb{R}^{2D\times 2}
+$$<p>可以按列拆: $X = [X_1 \; X_2]$</p>
+<p>可以按行拆: $W = \begin{bmatrix} W_1 \\ W_2 \end{bmatrix}$
+</p>
+$$
+X_1 \in \mathbb{R}^{N\times D}, X_2 \in \mathbb{R}^{N\times D}, 
+W_1 \in \mathbb{R}^{D\times 2}, W_2 \in \mathbb{R}^{D\times 2}
+$$<p>
+所以: $XW=[X_1 \; X_2]\begin{bmatrix} W_1 \\ W_2 \end{bmatrix}=X_1 W_1 + X_2 W_2$</p>
+<p><strong>所以在训练网络的时候, 虽然是多个特征一起和一个W一起学习, 但实际上W内部是分不同部分的, 也就是每个特征都有自己独立的W</strong></p>
+<h1 id="秩rank">
+<a class="header-anchor" href="#%e7%a7%a9rank"></a>
+秩Rank
+</h1><p>对矩阵 $X\in\mathbb{R}^{m\times n}$：</p>
+<h3 id="秩的定义常用等价定义">
+<a class="header-anchor" href="#%e7%a7%a9%e7%9a%84%e5%ae%9a%e4%b9%89%e5%b8%b8%e7%94%a8%e7%ad%89%e4%bb%b7%e5%ae%9a%e4%b9%89"></a>
+秩的定义（常用等价定义）
+</h3>$$
+\begin{align}
+\mathrm{rank}(X)
+&=\text{列向量里线性无关的最大个数}
+\\
+&=\text{列空间的维数}
+\\
+&=\text{非零奇异值的个数}
+\end{align}
+$$<p>而且, $\mathrm{rank}(X)=\mathrm{rank}(X^T)$</p>
+<p>-&gt; 直觉：==<strong>数据/特征真正“站得住”的独立方向数</strong>==</p>
+<h1 id="列空间行空间零空间">
+<a class="header-anchor" href="#%e5%88%97%e7%a9%ba%e9%97%b4%e8%a1%8c%e7%a9%ba%e9%97%b4%e9%9b%b6%e7%a9%ba%e9%97%b4"></a>
+列空间、行空间、零空间
+</h1><p>对线性方程 $Xw=y$ 或最小二乘 $Xw\approx y$</p>
+<h4 id="1列空间column-space">
+<a class="header-anchor" href="#1%e5%88%97%e7%a9%ba%e9%97%b4column-space"></a>
+1.列空间（Column Space）
+</h4>$$
+\text{列空间:}\quad \mathcal{C}(X)=\{Xw \mid w\in\mathbb{R}^n\}
+$$<p>-&gt; 模型 $Xw$ 能产生的所有预测向量集合</p>
+<blockquote>
+<p>线性模型能拟合到的 $y$ 只能在列空间里</p>
+<p>不在列空间就只能“投影拟合”（最小二乘）</p>
+</blockquote>
+<h4 id="2零空间null-space">
+<a class="header-anchor" href="#2%e9%9b%b6%e7%a9%ba%e9%97%b4null-space"></a>
+2.零空间（Null Space）
+</h4>$$
+\text{零空间:}\quad \mathcal{N}(X)=\{w\mid Xw=0\}
+$$<p>-&gt; 参数变化沿着零空间方向不会改变预测 $Xw$, 该方向上无论参数$w$多大都不改变结果</p>
+<blockquote>
+<p>一旦有 $\sigma_i=0$，就有非零零空间方向，参数沿着它变动不影响输出</p>
+</blockquote>
+<h4 id="3秩-零度定理">
+<a class="header-anchor" href="#3%e7%a7%a9-%e9%9b%b6%e5%ba%a6%e5%ae%9a%e7%90%86"></a>
+3.秩-零度定理
+</h4>$$
+\color{purple}{\mathrm{rank}(X)+\mathrm{nullity}(X)=n}
+$$<p><strong>nullity 是零空间维数</strong></p>
+<p>-&gt; ==<strong>参数空间 $n$ 维里，一部分方向真的影响输出（rank），剩下的方向不影响输出（nullity）</strong>==</p>
+<h1 id="投影projection">
+<a class="header-anchor" href="#%e6%8a%95%e5%bd%b1projection"></a>
+投影（Projection）
+</h1><p>最小二乘：
+</p>
+$$
+\min_w \|y-Xw\|^2
+$$<p>
+其解满足：$\hat y=X\hat w$ 是把 $y$ <strong>正交投影</strong>到列空间 $\mathcal{C}(X)$ 上</p>
+<blockquote>
+<p>正交投影: 误差方向与子空间成 90°</p>
+</blockquote>
+<p>关键性质：残差向量 $r=y-\hat y$ 与列空间 $\mathcal{C}(X)$ 中的任意向量都正交</p>
+$$
+(y-\hat y) \perp \mathcal{C}(X)
+$$<p>这就是<strong>正规方程</strong> $X^T(Xw-y)=0$ 的几何意义</p>
+<blockquote>
+<p>“拟合=投影”，泛化差时可能是在投影里把噪声也当成信号</p>
+</blockquote>
+<h1 id="条件数">
+<a class="header-anchor" href="#%e6%9d%a1%e4%bb%b6%e6%95%b0"></a>
+条件数
+</h1><p>当特征“几乎相关”，$X^TX$ 虽可逆但很病态</p>
+<p>常用指标：
+</p>
+$$
+\kappa(X)=\frac{\sigma_{\max}}{\sigma_{\min}}
+$$<p>
+（$\sigma$ 是奇异值）</p>
+<p>$\kappa$ 越大 ⇒ 解对噪声越敏感 ⇒ 系数不稳定</p>
+<h1 id="svd">
+<a class="header-anchor" href="#svd"></a>
+SVD
+</h1><h4 id="1定义">
+<a class="header-anchor" href="#1%e5%ae%9a%e4%b9%89"></a>
+1.定义
+</h4><p>对任意矩阵 $X\in\mathbb{R}^{m\times n}$，都存在分解：
+</p>
+$$
+X = U\Sigma V^T
+$$<ul>
+<li>秩 = 非零奇异值个数</li>
+<li>零空间由 $V$ 里对应零奇异值的列组成</li>
+</ul>
+<blockquote>
+<p>$U\in\mathbb{R}^{m\times m}$：正交矩阵（列向量两两正交、长度 1）</p>
+<p>$V\in\mathbb{R}^{n\times n}$：正交矩阵（列向量两两正交、长度 1）</p>
+<p>$\Sigma\in\mathbb{R}^{m\times n}$：对角“矩形”矩阵，主对角线上是非负数
+$\sigma_1\ge \sigma_2\ge\cdots\ge \sigma_r>0,\quad \sigma_{r+1}=\cdots=0$
+这些 $\sigma_i$ 叫<strong>奇异值</strong>，且$r=\mathrm{rank}(X)$</p>
+</blockquote>
+<h4 id="2放大能力">
+<a class="header-anchor" href="#2%e6%94%be%e5%a4%a7%e8%83%bd%e5%8a%9b"></a>
+2.放大能力
+</h4><p>把一个向量 $w$ 送进 $X$：
+</p>
+$$
+Xw = U\Sigma V^T w
+$$<p>
+按步骤看：</p>
+<ol>
+<li>$V^T$：把输入空间（参数空间）先<strong>旋转到一组特殊坐标系</strong></li>
+<li>$\Sigma$：在这些坐标轴上做<strong>按轴缩放</strong>（第 $i$ 个轴缩放 $\sigma_i$ 倍）</li>
+<li>$U$：再把结果在输出空间里<strong>旋转</strong>到最终方向</li>
+</ol>
+<p>SVD 表明：**矩阵 $X$ 对不同方向的“放大能力”**有多强——<strong>最强方向放大 $\sigma_1$，最弱方向放大 $\sigma_r$</strong></p>
+<h4 id="3">
+<a class="header-anchor" href="#3"></a>
+3. $X^TX$
+</h4><p>由 SVD 推出：
+</p>
+$$
+X^TX = (U\Sigma V^T)^T(U\Sigma V^T)=V\Sigma^T\Sigma V^T
+$$<p>
+其中 $\Sigma^T\Sigma$ 是 $n\times n$ 的对角矩阵，元素是 $\sigma_i^2$</p>
+<p>所以：</p>
+<ul>
+<li>$X^TX$ 的特征值就是 $\sigma_i^2$</li>
+<li><strong>只要有 $\sigma_i=0$，就有特征值 0 $\Rightarrow$ $X^TX$ 不可逆</strong></li>
+</ul>
+<h4 id="4严重共线性-奇异值很小">
+<a class="header-anchor" href="#4%e4%b8%a5%e9%87%8d%e5%85%b1%e7%ba%bf%e6%80%a7-%e5%a5%87%e5%bc%82%e5%80%bc%e5%be%88%e5%b0%8f"></a>
+4.“严重共线性”= 奇异值很小
+</h4><p>当某些 $\sigma_i$ 很小但不为 0：</p>
+<ul>
+<li>$\Sigma^+$ 里会出现 $1/\sigma_i$ 的大数</li>
+<li>噪声会被在这些方向上疯狂放大</li>
+<li><strong>参数 $w$ 巨大且不稳定</strong></li>
+</ul>
+<blockquote>
+<p>$\Sigma^+$: 伪逆($\Sigma$的非零奇异值取倒数)</p>
+</blockquote>
+<p>条件数:（衡量病态程度）
+</p>
+$$
+\kappa(X)=\frac{\sigma_1}{\sigma_r}
+$$<p>
+-&gt; 越大越病态</p>
+<h4 id="5最小二乘">
+<a class="header-anchor" href="#5%e6%9c%80%e5%b0%8f%e4%ba%8c%e4%b9%98"></a>
+5.最小二乘
+</h4></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/ai%e6%95%b0%e5%ad%a6%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >AI数学从入门到入土</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+              data-sizes="auto"
+              alt="[Windows] 包管理器"
+              class="lazyload"
+            /><a
+          href="/post/else/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"
+          aria-label="前一篇:[Windows] 包管理器"
+          title="前一篇:[Windows] 包管理器"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[Windows] 包管理器</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+              data-sizes="auto"
+              alt="[AI数学从入门到入土] 脉络"
+              class="lazyload"
+            /><a
+          href="/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%84%89%E7%BB%9C/"
+          aria-label="后一篇:[AI数学从入门到入土] 脉络"
+          title="后一篇:[AI数学从入门到入土] 脉络"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[AI数学从入门到入土] 脉络</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;63.9k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;02:37</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ai数学从入门到入土-线性代数基础">[AI数学从入门到入土] 线性代数基础</a></li>
+    <li><a href="#个人导航">个人导航</a></li>
+    <li><a href="#线性组合线性相关线性无关">线性组合、线性相关、线性无关</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1线性组合linear-combination">1.线性组合（linear combination）</a></li>
+                <li><a href="#2线性相关linearly-dependent">2.线性相关（linearly dependent）</a></li>
+                <li><a href="#3线性无关linearly-independent">3.线性无关（linearly independent）</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#块矩阵乘法规则">块矩阵乘法规则</a></li>
+    <li><a href="#秩rank">秩Rank</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#秩的定义常用等价定义">秩的定义（常用等价定义）</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#列空间行空间零空间">列空间、行空间、零空间</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1列空间column-space">1.列空间（Column Space）</a></li>
+                <li><a href="#2零空间null-space">2.零空间（Null Space）</a></li>
+                <li><a href="#3秩-零度定理">3.秩-零度定理</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#投影projection">投影（Projection）</a></li>
+    <li><a href="#条件数">条件数</a></li>
+    <li><a href="#svd">SVD</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1定义">1.定义</a></li>
+                <li><a href="#2放大能力">2.放大能力</a></li>
+                <li><a href="#3">3. $X^TX$</a></li>
+                <li><a href="#4严重共线性-奇异值很小">4.“严重共线性”= 奇异值很小</a></li>
+                <li><a href="#5最小二乘">5.最小二乘</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">58</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      9
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">0</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js"  ></script><script src="/js/aos.js"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[AI数学从入门到入土] 线性代数基础",
+          url: "http:\/\/localhost:1313\/post\/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%9F%BA%E7%A1%80\/",
+          description: "\r[AI数学从入门到入土] 线性代数基础\r个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
+          cover: "http:\/\/localhost:1313\/images\/banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" data-pjax ></script><script src="/js/tabs.js" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

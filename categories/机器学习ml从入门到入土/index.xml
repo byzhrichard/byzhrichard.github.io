@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>机器学习ML从入门到入土 on byzh的博客</title>
+    <link>http://localhost:1313/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 自回归滑动平均ARMA</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E5%9B%9E%E5%BD%92%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87arma/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E5%9B%9E%E5%BD%92%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87arma/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 自回归滑动平均ARMA</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="机器学习从入门到入土-自回归滑动平均arma">
+<a class="header-anchor" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%87%aa%e5%9b%9e%e5%bd%92%e6%bb%91%e5%8a%a8%e5%b9%b3%e5%9d%87arma"></a>
+[机器学习从入门到入土] 自回归滑动平均ARMA
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 自回归AR</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E5%9B%9E%E5%BD%92ar/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E5%9B%9E%E5%BD%92ar/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 自回归AR</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="机器学习从入门到入土-自回归ar">
+<a class="header-anchor" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%87%aa%e5%9b%9e%e5%bd%92ar"></a>
+[机器学习从入门到入土] 自回归AR
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 线性回归</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 线性回归</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="核心思想">
+<a class="header-anchor" href="#%e6%a0%b8%e5%bf%83%e6%80%9d%e6%83%b3"></a>
+核心思想
+</h1><p>线性回归的本质是<strong>寻找自变量与因变量之间的线性关系</strong>。假设我们有一组特征 $X$ 和对应的标签 $y$，线性回归试图构建如下的线性模型：</p>
+$$
+y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n + \epsilon
+$$<blockquote>
+<p>$y$ 是预测目标（因变量）</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 聚类</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%81%9A%E7%B1%BB/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%81%9A%E7%B1%BB/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 聚类</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="指标">
+<a class="header-anchor" href="#%e6%8c%87%e6%a0%87"></a>
+指标
+</h1><h4 id="1-purity">
+<a class="header-anchor" href="#1-purity"></a>
+1. Purity
+</h4><p>每个 cluster 只看 <strong>占比最大的 label</strong>
+</p>
+$$
+\text{Purity}=\frac{1}{N}\sum_k \max_j |C_k \cap L_j|
+$$<h4 id="2-ari">
+<a class="header-anchor" href="#2-ari"></a>
+2. ARI
+</h4><p>同类样本是否在同一个 cluster</p>
+<h4 id="3-nmi">
+<a class="header-anchor" href="#3-nmi"></a>
+3. NMI
+</h4><p>NMI 基于信息论，衡量聚类结果和真实标签之间共享的信息量</p>
+<table>
+  <thead>
+      <tr>
+          <th>指标</th>
+          <th>核心思想</th>
+          <th>优点</th>
+          <th>缺点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Purity</td>
+          <td>cluster 内最大类别比例</td>
+          <td>直观易理解</td>
+          <td>cluster 多时会虚高</td>
+      </tr>
+      <tr>
+          <td>ARI</td>
+          <td>样本对一致性</td>
+          <td>对错误惩罚强</td>
+          <td>对过度分裂敏感</td>
+      </tr>
+      <tr>
+          <td>NMI</td>
+          <td>信息共享量</td>
+          <td>稳定、常用于论文</td>
+          <td>直觉性稍弱</td>
+      </tr>
+  </tbody>
+</table>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 滑动平均MA</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87ma/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87ma/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 滑动平均MA</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="机器学习从入门到入土-滑动平均ma">
+<a class="header-anchor" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e6%bb%91%e5%8a%a8%e5%b9%b3%e5%9d%87ma"></a>
+[机器学习从入门到入土] 滑动平均MA
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] 发展脉络</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%91%E5%B1%95%E8%84%89%E7%BB%9C/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%91%E5%B1%95%E8%84%89%E7%BB%9C/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] 发展脉络</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="监督学习">
+<a class="header-anchor" href="#%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0"></a>
+监督学习
+</h1><h4 id="1线性回归岭回归lassoelasticnet">
+<a class="header-anchor" href="#1%e7%ba%bf%e6%80%a7%e5%9b%9e%e5%bd%92%e5%b2%ad%e5%9b%9e%e5%bd%92lassoelasticnet"></a>
+1.线性回归/岭回归/Lasso/ElasticNet
+</h4><h4 id="2逻辑回归">
+<a class="header-anchor" href="#2%e9%80%bb%e8%be%91%e5%9b%9e%e5%bd%92"></a>
+2.逻辑回归
+</h4><h4 id="3svm">
+<a class="header-anchor" href="#3svm"></a>
+3.SVM
+</h4><h4 id="4knn">
+<a class="header-anchor" href="#4knn"></a>
+4.KNN
+</h4><h4 id="5朴素贝叶斯">
+<a class="header-anchor" href="#5%e6%9c%b4%e7%b4%a0%e8%b4%9d%e5%8f%b6%e6%96%af"></a>
+5.朴素贝叶斯
+</h4><h4 id="6决策树随机森林gbdt">
+<a class="header-anchor" href="#6%e5%86%b3%e7%ad%96%e6%a0%91%e9%9a%8f%e6%9c%ba%e6%a3%ae%e6%9e%97gbdt"></a>
+6.决策树/随机森林/GBDT
+</h4><h1 id="无监督学习">
+<a class="header-anchor" href="#%e6%97%a0%e7%9b%91%e7%9d%a3%e5%ad%a6%e4%b9%a0"></a>
+无监督学习
+</h1><h4 id="1聚类kmeansgmmdbscan谱聚类">
+<a class="header-anchor" href="#1%e8%81%9a%e7%b1%bbkmeansgmmdbscan%e8%b0%b1%e8%81%9a%e7%b1%bb"></a>
+1.聚类(KMeans、GMM、DBSCAN、谱聚类)
+</h4><h4 id="2降维pcaicat-sneumap自编码器">
+<a class="header-anchor" href="#2%e9%99%8d%e7%bb%b4pcaicat-sneumap%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8"></a>
+2.降维(PCA、ICA、t-SNE/UMAP、自编码器)
+</h4><h4 id="3密度估计异常检测one-class-svmisolation-forest概率模型">
+<a class="header-anchor" href="#3%e5%af%86%e5%ba%a6%e4%bc%b0%e8%ae%a1%e5%bc%82%e5%b8%b8%e6%a3%80%e6%b5%8bone-class-svmisolation-forest%e6%a6%82%e7%8e%87%e6%a8%a1%e5%9e%8b"></a>
+3.密度估计/异常检测(One-class SVM、Isolation Forest、概率模型)
+</h4><h1 id="概率图模型">
+<a class="header-anchor" href="#%e6%a6%82%e7%8e%87%e5%9b%be%e6%a8%a1%e5%9e%8b"></a>
+概率图模型
+</h1><h4 id="1联合分布分解">
+<a class="header-anchor" href="#1%e8%81%94%e5%90%88%e5%88%86%e5%b8%83%e5%88%86%e8%a7%a3"></a>
+1.联合分布分解
+</h4><h4 id="2bayes网">
+<a class="header-anchor" href="#2bayes%e7%bd%91"></a>
+2.Bayes网
+</h4><h4 id="3markov随机场">
+<a class="header-anchor" href="#3markov%e9%9a%8f%e6%9c%ba%e5%9c%ba"></a>
+3.Markov随机场
+</h4><h4 id="4朴素贝叶斯">
+<a class="header-anchor" href="#4%e6%9c%b4%e7%b4%a0%e8%b4%9d%e5%8f%b6%e6%96%af"></a>
+4.朴素贝叶斯
+</h4><h4 id="5hmm">
+<a class="header-anchor" href="#5hmm"></a>
+5.HMM
+</h4><h1 id="统计学习">
+<a class="header-anchor" href="#%e7%bb%9f%e8%ae%a1%e5%ad%a6%e4%b9%a0"></a>
+统计学习
+</h1><p>&hellip;</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[机器学习ML从入门到入土] XXX</title>
+      <link>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/</guid>
+      <description>
+        <![CDATA[<h1>[机器学习ML从入门到入土] XXX</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="机器学习从入门到入土-xxx">
+<a class="header-anchor" href="#%e6%9c%ba%e5%99%a8%e5%ad%a6%e4%b9%a0%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-xxx"></a>
+[机器学习从入门到入土] XXX
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>机器学习ML从入门到入土</category>
+      
+    </item>
+    
+  </channel>
+</rss>
