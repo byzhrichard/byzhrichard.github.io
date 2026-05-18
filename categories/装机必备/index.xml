@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>装机必备 on byzh的博客</title>
-    <link>http://localhost:1313/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/</link>
+    <link>https://byzhrichard.github.io/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[装机必备] 网站</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
       <description>
         <![CDATA[<h1>[装机必备] 网站</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -41,8 +41,36 @@
 <a class="header-anchor" href="#2-github%e9%95%9c%e5%83%8f"></a>
 2. github镜像
 </h2><p><a href="https://github.akams.cn/">https://github.akams.cn/</a></p>
+<h2 id="3-ppt模板">
+<a class="header-anchor" href="#3-ppt%e6%a8%a1%e6%9d%bf"></a>
+3. PPT模板
+</h2><p><a href="https://ppter8.com/ppter/dabian.html">https://ppter8.com/ppter/dabian.html</a></p>
+<h2 id="4-矢量图">
+<a class="header-anchor" href="#4-%e7%9f%a2%e9%87%8f%e5%9b%be"></a>
+4. 矢量图
+</h2><p><a href="https://lucid.app/documents/">https://lucid.app/documents/</a></p>
+<h2 id="5-svg编辑器">
+<a class="header-anchor" href="#5-svg%e7%bc%96%e8%be%91%e5%99%a8"></a>
+5. SVG编辑器
+</h2><p><a href="https://boxy-svg.com/app/">https://boxy-svg.com/app/</a></p>
+<h2 id="6-ai抠图">
+<a class="header-anchor" href="#6-ai%e6%8a%a0%e5%9b%be"></a>
+6. AI抠图
+</h2><p><a href="https://www.koukoutu.com/">https://www.koukoutu.com/</a></p>
+<h2 id="7-流程图">
+<a class="header-anchor" href="#7-%e6%b5%81%e7%a8%8b%e5%9b%be"></a>
+7. 流程图
+</h2><p><a href="https://www.drawio.com/">https://www.drawio.com/</a></p>
+<h2 id="8-文档代码高亮">
+<a class="header-anchor" href="#8-%e6%96%87%e6%a1%a3%e4%bb%a3%e7%a0%81%e9%ab%98%e4%ba%ae"></a>
+8. 文档代码高亮
+</h2><p><a href="https://highlightcode.com/">https://highlightcode.com/</a></p>
+<h2 id="9-json视图查看">
+<a class="header-anchor" href="#9-json%e8%a7%86%e5%9b%be%e6%9f%a5%e7%9c%8b"></a>
+9. JSON视图查看
+</h2><p><a href="https://www.lddgo.net/string/json-viewer/">https://www.lddgo.net/string/json-viewer/</a></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -53,10 +81,10 @@
 
     <item>
       <title>[装机必备] 软件</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
       <description>
         <![CDATA[<h1>[装机必备] 软件</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -72,7 +100,7 @@
 2. 截图 - pixpin
 </h2><p><a href="https://pixpin.cn/">https://pixpin.cn/</a></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -83,10 +111,10 @@
 
     <item>
       <title>[装机必备] BIOS</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
       <description>
         <![CDATA[<h1>[装机必备] BIOS</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -95,7 +123,7 @@
 BIOS
 </h1><p><img src="/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/image-20260517163232082.png" alt="image-20260517163232082"></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
