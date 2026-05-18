@@ -332,7 +332,7 @@
 <h1 id="gear架构公式">
 <a class="header-anchor" href="#gear%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
 &#x2699;&#xfe0f;架构(公式)
-</h1><p><img src="LSTM.assets/image-20260310100633010.png" alt="image-20260310100633010"></p>
+</h1><p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/image-20260310100633010.png" alt="image-20260310100633010"></p>
 <p>LSTM 在每个时间步 $t$ 会接收：</p>
 <ul>
 <li>当前输入 $x_t$</li>
@@ -348,7 +348,7 @@
 <h4 id="1-遗忘门-forget-gate">
 <a class="header-anchor" href="#1-%e9%81%97%e5%bf%98%e9%97%a8-forget-gate"></a>
 1. 遗忘门 Forget Gate
-</h4><p><img src="LSTM.assets/image-20260310100811577.png" alt="image-20260310100811577"></p>
+</h4><p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/image-20260310100811577.png" alt="image-20260310100811577"></p>
 <p>遗忘门决定旧记忆 $c_{t-1}$ 中哪些部分应该保留：
 </p>
 $$
@@ -363,7 +363,7 @@ $$<p>
 <h4 id="2-输入门-input-gate">
 <a class="header-anchor" href="#2-%e8%be%93%e5%85%a5%e9%97%a8-input-gate"></a>
 2. 输入门 Input Gate
-</h4><p><img src="LSTM.assets/image-20260310100935235.png" alt="image-20260310100935235"></p>
+</h4><p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/image-20260310100935235.png" alt="image-20260310100935235"></p>
 <p>输入门先决定“<strong>哪些位置允许写入新信息</strong>”：
 </p>
 $$
@@ -384,7 +384,7 @@ $$<ul>
 <h4 id="3-更新细胞状态-cell-state">
 <a class="header-anchor" href="#3-%e6%9b%b4%e6%96%b0%e7%bb%86%e8%83%9e%e7%8a%b6%e6%80%81-cell-state"></a>
 3. 更新细胞状态 Cell State
-</h4><p><img src="LSTM.assets/image-20260310101744129.png" alt="image-20260310101744129"></p>
+</h4><p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/image-20260310101744129.png" alt="image-20260310101744129"></p>
 <p>结合旧记忆与新记忆，得到新的细胞状态：
 </p>
 $$
@@ -397,7 +397,7 @@ $$<ul>
 <h4 id="4-输出门-output-gate">
 <a class="header-anchor" href="#4-%e8%be%93%e5%87%ba%e9%97%a8-output-gate"></a>
 4. 输出门 Output Gate
-</h4><p><img src="LSTM.assets/image-20260310101752228.png" alt="image-20260310101752228"></p>
+</h4><p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/image-20260310101752228.png" alt="image-20260310101752228"></p>
 <p>输出门决定当前时刻从细胞状态中暴露多少信息给隐藏状态：
 </p>
 $$

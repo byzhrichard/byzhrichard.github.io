@@ -375,7 +375,7 @@ f(x)=\frac{1}{1+e^{-x}}
 \\
 f'(x)=f(x)(1-f(x))
 $$<p>
-<img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/sigmoid.png" alt="sigmoid"></p>
+<img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/sigmoid.png" alt="sigmoid"></p>
 <h4 id="1-好处">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84"></a>
 1. 好处
@@ -402,7 +402,7 @@ $$<p>
 Tanh
 </h1>$$
 f(x)=\tanh(x) \\ f'(x)=1-\tanh^2(x)
-$$<p><img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/tanh.png" alt="tanh"></p>
+$$<p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/tanh.png" alt="tanh"></p>
 <h4 id="1-好处-1">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-1"></a>
 1. 好处
@@ -434,7 +434,7 @@ f(x)=1.7159\tanh\left(\frac{2}{3}x\right)
 \\
 f'(x) = 1.7159 \cdot \frac{2}{3} \left( 1-\tanh^2\left(\frac{2}{3}x\right) \right)
 $$<p>
-<img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/tanh_lenet5.png" alt="tanh_lenet5"></p>
+<img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/tanh_lenet5.png" alt="tanh_lenet5"></p>
 <h4 id="1-好处-2">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-2"></a>
 1. 好处
@@ -461,7 +461,7 @@ ReLU
 f(x)=\max(0,x) 
 \\ 
 f'(x)= \begin{cases} 1 & x>0\\ 0 & x\le0 \end{cases}
-$$<p><img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/relu.png" alt="relu"></p>
+$$<p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/relu.png" alt="relu"></p>
 <h4 id="1-好处-3">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-3"></a>
 1. 好处
@@ -490,7 +490,7 @@ Leaky_ReLU
 f(x)= \begin{cases} x & x>0\\ \alpha x & x\le0 \end{cases}
 \\ 
 f'(x)= \begin{cases} 1 & x>0\\ \alpha & x<0 \end{cases}
-$$<p><img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/leaky_relu.png" alt="leaky_relu"></p>
+$$<p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/leaky_relu.png" alt="leaky_relu"></p>
 <h4 id="1-好处-4">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-4"></a>
 1. 好处
@@ -515,7 +515,7 @@ f(x)=\max(0,x)+a\min(0,x)
 \frac{\partial f}{\partial x} = \begin{cases} 1 & x>0\\ a & x<0 \end{cases}
 \quad\quad\quad
 \frac{\partial f}{\partial a} = \begin{cases} 0 & x>0\\ x & x<0 \end{cases}
-$$<p><img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/prelu.png" alt="prelu"></p>
+$$<p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/prelu.png" alt="prelu"></p>
 <h4 id="1-好处-5">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-5"></a>
 1. 好处
@@ -560,7 +560,7 @@ $$<blockquote>
 <p>$φ(x)$ 是标准正态分布 PDF: $\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}$</p>
 <p>$\Phi(x)$ 是累积分布函数 CDF: $\Phi(x)=\int_{-\infty}^{x}\phi(t)\,dt$</p>
 </blockquote>
-<p><img src="%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0.assets/gelu.png" alt="gelu"></p>
+<p><img src="/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cnet%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/gelu.png" alt="gelu"></p>
 <h4 id="1-好处-6">
 <a class="header-anchor" href="#1-%e5%a5%bd%e5%a4%84-6"></a>
 1. 好处
