@@ -168,7 +168,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">58</div>
+    <div>文章</div><div class="sidebar-state-number">60</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -303,30 +303,42 @@
 </span></span></code></pre></div><h1 id="指定软件快捷键">
 <a class="header-anchor" href="#%e6%8c%87%e5%ae%9a%e8%bd%af%e4%bb%b6%e5%bf%ab%e6%8d%b7%e9%94%ae"></a>
 指定软件快捷键
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#HotIf WinActive(&#34;ahk_exe Typora.exe&#34;)
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#HotIf WinActive(&#34;ahk_exe Typora.exe&#34;) || WinActive(&#34;ahk_exe Obsidian.exe&#34;)
+</span></span><span class="line"><span class="cl">; 仅当 XX 窗口处于激活状态时，下面的热键才生效
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">^m::
 </span></span><span class="line"><span class="cl">{
 </span></span><span class="line"><span class="cl">    backup := A_Clipboard
+</span></span><span class="line"><span class="cl">    ; 备份当前剪贴板内容，防止覆盖用户原有数据
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    A_Clipboard := &#34;&#34;
+</span></span><span class="line"><span class="cl">    ; 清空剪贴板，确保后续 Ctrl+C 能正确触发内容变化
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    Send &#34;^c&#34;
+</span></span><span class="line"><span class="cl">    ; 模拟按下 Ctrl+C，复制当前选中的文本
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    if !ClipWait(1)
 </span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        ; 等待剪贴板更新，最多 1 秒
+</span></span><span class="line"><span class="cl">        ; 如果超时（没有成功复制内容）
 </span></span><span class="line"><span class="cl">        A_Clipboard := backup
+</span></span><span class="line"><span class="cl">        ; 恢复原剪贴板内容
 </span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">        ; 直接退出
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    text := A_Clipboard
+</span></span><span class="line"><span class="cl">    ; 获取刚刚复制的文本内容
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    SendText &#34;&lt;mark&gt;&#34; text &#34;&lt;/mark&gt;&#34;
+</span></span><span class="line"><span class="cl">    ; 在当前输入位置输出 HTML 高亮标签包裹的文本
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    A_Clipboard := backup
+</span></span><span class="line"><span class="cl">    ; 恢复原剪贴板内容，避免污染用户剪贴板
 </span></span><span class="line"><span class="cl">}
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">#HotIf
+</span></span><span class="line"><span class="cl">; 结束条件限制作用域
 </span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -343,17 +355,17 @@
     aria-label="Article navigation"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap left"><img
-              data-src="https://s41.ax1x.com/2026/05/19/pezQa2n.webp"
+              data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[工具] Obsidian"
+              alt="[工具] Conda"
               class="lazyload"
             /><a
-          href="/post/%E5%B7%A5%E5%85%B7/obsidian/"
-          aria-label="前一篇:[工具] Obsidian"
-          title="前一篇:[工具] Obsidian"
+          href="/post/%E5%B7%A5%E5%85%B7/conda/"
+          aria-label="前一篇:[工具] Conda"
+          title="前一篇:[工具] Conda"
         ></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">[工具] Obsidian</h3>
+        <h3 class="article-nav-title">[工具] Conda</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -375,10 +387,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;63.7k</span
+          >&nbsp;64.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;02:39</span>
+        <span class="icon-coffee">&nbsp;02:41</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -435,7 +447,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">58</div>
+    <div>文章</div><div class="sidebar-state-number">60</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>

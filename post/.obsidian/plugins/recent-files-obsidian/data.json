@@ -1,0 +1,20 @@
+{
+  "recentFiles": [
+    {
+      "basename": "index",
+      "path": "工具/Obsidian/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "工具/Conda/index.md"
+    },
+    {
+      "basename": "index",
+      "path": "工具/AutoHotkey/index.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}

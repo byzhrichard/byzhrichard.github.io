@@ -39,7 +39,188 @@
 </h3><h3 id="2-recent-files">
 <a class="header-anchor" href="#2-recent-files"></a>
 2. Recent Files
-</h3>
+</h3><h2 id="项目配置">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e9%85%8d%e7%bd%ae"></a>
+项目配置
+</h2><h3 id="1-obsidianappjson">
+<a class="header-anchor" href="#1-obsidianappjson"></a>
+1. <code>.obsidian/app.json</code>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;attachmentFolderPath&#34;</span><span class="p">:</span> <span class="s2">&#34;./&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="2-obsidianhotkeysjson">
+<a class="header-anchor" href="#2-obsidianhotkeysjson"></a>
+2. <code>.obsidian/hotkeys.json</code>
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor:toggle-source&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;modifiers&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Mod&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;editor:toggle-comments&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        
+        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] Git</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/git/</link>
+      <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/git/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Git</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="url">
+<a class="header-anchor" href="#url"></a>
+url
+</h1><p>网页: gitee.com/byzh-rc/study_pytorch
+ssh: <a href="mailto:git@gitee.com">git@gitee.com</a>:byzh-rc/study_pytorch.git</p>
+<p>网页: swanhub.co/byzh/study_nets/tree/master
+ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
+<h1 id="gitignore">
+<a class="header-anchor" href="#gitignore"></a>
+<code>.gitignore</code>
+</h1><h2 id="1-基础内容">
+<a class="header-anchor" href="#1-%e5%9f%ba%e7%a1%80%e5%86%85%e5%ae%b9"></a>
+1. 基础内容
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
+</span></span><span class="line"><span class="cl">**/.idea/
+</span></span><span class="line"><span class="cl">**/.vscode/
+</span></span><span class="line"><span class="cl">uv.lock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略虚拟环境
+</span></span><span class="line"><span class="cl">**/.venv
+</span></span><span class="line"><span class="cl">**/node_modules/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略所有目录下的 python 运行文件
+</span></span><span class="line"><span class="cl">**/__pycache__
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略 Jupyter 笔记本文件
+</span></span><span class="line"><span class="cl">*.ipynb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略数据集等
+</span></span><span class="line"><span class="cl">*.pth
+</span></span><span class="line"><span class="cl">*.pt
+</span></span><span class="line"><span class="cl">*.npy
+</span></span><span class="line"><span class="cl">*.npz
+</span></span><span class="line"><span class="cl">*.pkl
+</span></span><span class="line"><span class="cl">*.dat
+</span></span><span class="line"><span class="cl">*.mat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略图片视频文件
+</span></span><span class="line"><span class="cl">*.jpg
+</span></span><span class="line"><span class="cl">*.png
+</span></span><span class="line"><span class="cl">*.svg
+</span></span><span class="line"><span class="cl">*.mp4
+</span></span><span class="line"><span class="cl">*.ts
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略压缩文件
+</span></span><span class="line"><span class="cl">*.7z
+</span></span><span class="line"><span class="cl">*.zip
+</span></span><span class="line"><span class="cl">*.rar
+</span></span><span class="line"><span class="cl">*.tar
+</span></span><span class="line"><span class="cl">*.gz
+</span></span><span class="line"><span class="cl">*.h5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 忽略测试文件
+</span></span><span class="line"><span class="cl">test1.*
+</span></span><span class="line"><span class="cl">test2.*
+</span></span><span class="line"><span class="cl">test3.*
+</span></span><span class="line"><span class="cl">test4.*
+</span></span><span class="line"><span class="cl">test5.*
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">part_*/
+</span></span><span class="line"><span class="cl">!part_main/
+</span></span></code></pre></div><h2 id="2-latex内容">
+<a class="header-anchor" href="#2-latex%e5%86%85%e5%ae%b9"></a>
+2. latex内容
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># latex相关
+</span></span><span class="line"><span class="cl">/*.aux
+</span></span><span class="line"><span class="cl">/*.out
+</span></span><span class="line"><span class="cl">/*.log
+</span></span><span class="line"><span class="cl">/*.toc
+</span></span><span class="line"><span class="cl">/*.gz
+</span></span><span class="line"><span class="cl">/*.synctex
+</span></span><span class="line"><span class="cl">/*.pdf
+</span></span></code></pre></div><h2 id="gitignore语法">
+<a class="header-anchor" href="#gitignore%e8%af%ad%e6%b3%95"></a>
+<code>.gitignore</code>语法
+</h2><p>注释: <code>#</code></p>
+        
+        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] Conda</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</link>
+      <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Conda</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="miniconda">
+<a class="header-anchor" href="#miniconda"></a>
+miniconda
+</h1><h2 id="1-配置">
+<a class="header-anchor" href="#1-%e9%85%8d%e7%bd%ae"></a>
+1. 配置
+</h2><p>环境变量:
+![[Pasted image 20260520012222.png]]</p>
+<p>生成.condarc文件:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">conda init cmd.exe
+</span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes		//生成.condarc文件
+</span></span></code></pre></div><p>替换.condarc文件:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">channels:
+</span></span><span class="line"><span class="cl">  - defaults
+</span></span><span class="line"><span class="cl">show_channel_urls: true
+</span></span><span class="line"><span class="cl">default_channels:
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+</span></span><span class="line"><span class="cl">custom_channels:
+</span></span><span class="line"><span class="cl">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+</span></span></code></pre></div><h1 id="命令">
+<a class="header-anchor" href="#%e5%91%bd%e4%bb%a4"></a>
+命令
+</h1><h2 id="1-基本命令">
+<a class="header-anchor" href="#1-%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4"></a>
+1. 基本命令
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">env</span> <span class="n">list</span>
+</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="p">-</span><span class="n">-name</span> <span class="n">名字</span> <span class="n">python</span><span class="p">=</span><span class="mf">3.11</span><span class="p">.</span><span class="py">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">名字</span> <span class="n">python</span><span class="p">=</span><span class="mf">3.10</span><span class="p">.</span><span class="py">9</span>
+</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="p">-</span><span class="n">-clone</span> <span class="n">名字</span> <span class="p">-</span><span class="n">-name</span> <span class="n">新名字</span>	<span class="p">//</span><span class="n">克隆一个一模一样的环境</span>
+</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">remove</span> <span class="p">-</span><span class="n">-name</span> <span class="n">名字</span> <span class="p">-</span><span class="n">-all</span>
+</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">activate</span> <span class="n">名字</span>
+</span></span></code></pre></div><h2 id="2-conda-activate">
+<a class="header-anchor" href="#2-conda-activate"></a>
+2. conda activate
+</h2><p>也可以直接从路径启动conda环境, 不过必须是conda的环境(包含 Conda 环境的必要文件)</p>
         
         <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
@@ -99,30 +280,42 @@
 </span></span></code></pre></div><h1 id="指定软件快捷键">
 <a class="header-anchor" href="#%e6%8c%87%e5%ae%9a%e8%bd%af%e4%bb%b6%e5%bf%ab%e6%8d%b7%e9%94%ae"></a>
 指定软件快捷键
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#HotIf WinActive(&#34;ahk_exe Typora.exe&#34;)
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#HotIf WinActive(&#34;ahk_exe Typora.exe&#34;) || WinActive(&#34;ahk_exe Obsidian.exe&#34;)
+</span></span><span class="line"><span class="cl">; 仅当 XX 窗口处于激活状态时，下面的热键才生效
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">^m::
 </span></span><span class="line"><span class="cl">{
 </span></span><span class="line"><span class="cl">    backup := A_Clipboard
+</span></span><span class="line"><span class="cl">    ; 备份当前剪贴板内容，防止覆盖用户原有数据
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    A_Clipboard := &#34;&#34;
+</span></span><span class="line"><span class="cl">    ; 清空剪贴板，确保后续 Ctrl+C 能正确触发内容变化
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    Send &#34;^c&#34;
+</span></span><span class="line"><span class="cl">    ; 模拟按下 Ctrl+C，复制当前选中的文本
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    if !ClipWait(1)
 </span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        ; 等待剪贴板更新，最多 1 秒
+</span></span><span class="line"><span class="cl">        ; 如果超时（没有成功复制内容）
 </span></span><span class="line"><span class="cl">        A_Clipboard := backup
+</span></span><span class="line"><span class="cl">        ; 恢复原剪贴板内容
 </span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">        ; 直接退出
 </span></span><span class="line"><span class="cl">    }
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    text := A_Clipboard
+</span></span><span class="line"><span class="cl">    ; 获取刚刚复制的文本内容
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    SendText &#34;&lt;mark&gt;&#34; text &#34;&lt;/mark&gt;&#34;
+</span></span><span class="line"><span class="cl">    ; 在当前输入位置输出 HTML 高亮标签包裹的文本
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    A_Clipboard := backup
+</span></span><span class="line"><span class="cl">    ; 恢复原剪贴板内容，避免污染用户剪贴板
 </span></span><span class="line"><span class="cl">}
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">#HotIf
+</span></span><span class="line"><span class="cl">; 结束条件限制作用域
 </span></span></code></pre></div>
         
         <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
