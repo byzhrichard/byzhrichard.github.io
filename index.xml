@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>byzh的博客</title>
-    <link>http://localhost:1313/</link>
+    <link>https://byzhrichard.github.io/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[工具] Obsidian</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
       <description>
         <![CDATA[<h1>[工具] Obsidian</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -41,7 +41,7 @@
 2. Recent Files
 </h3>
         
-        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
@@ -52,10 +52,10 @@
 
     <item>
       <title>[工具] AutoHotkey</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/autohotkey/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/autohotkey/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/autohotkey/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/autohotkey/</guid>
       <description>
         <![CDATA[<h1>[工具] AutoHotkey</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -125,7 +125,7 @@
 </span></span><span class="line"><span class="cl">#HotIf
 </span></span></code></pre></div>
         
-        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
@@ -136,10 +136,10 @@
 
     <item>
       <title>markdown表情</title>
-      <link>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</link>
+      <link>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
+      <guid>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
       <description>
         <![CDATA[<h1>markdown表情</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -525,7 +525,7 @@
   </tbody>
 </table>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>else</category>
@@ -536,10 +536,10 @@
 
     <item>
       <title>[装机必备] 网站</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
       <description>
         <![CDATA[<h1>[装机必备] 网站</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -583,7 +583,7 @@
 9. JSON视图查看
 </h2><p><a href="https://www.lddgo.net/string/json-viewer/">https://www.lddgo.net/string/json-viewer/</a></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -594,10 +594,10 @@
 
     <item>
       <title>[装机必备] 软件</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/</guid>
       <description>
         <![CDATA[<h1>[装机必备] 软件</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -617,7 +617,7 @@
 3. 快捷键 - AutoHotkey
 </h3><p><a href="https://www.autohotkey.com/">https://www.autohotkey.com/</a></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -628,10 +628,10 @@
 
     <item>
       <title>[装机必备] BIOS</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/win&#43;r/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/win&#43;r/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/win&#43;r/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/win&#43;r/</guid>
       <description>
         <![CDATA[<h1>[装机必备] BIOS</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -640,7 +640,7 @@
 
 </h2><p>shell:startup</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -651,10 +651,10 @@
 
     <item>
       <title>[装机必备] BIOS</title>
-      <link>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/</guid>
       <description>
         <![CDATA[<h1>[装机必备] BIOS</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -663,7 +663,7 @@
 BIOS
 </h1><p><img src="/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/bios/image-20260517163232082.png" alt="image-20260517163232082"></p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>装机必备</category>
@@ -674,10 +674,10 @@ BIOS
 
     <item>
       <title>[十万个为什么] 眼睛怕蓝光</title>
-      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</link>
+      <link>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%9C%BC%E7%9D%9B%E6%80%95%E8%93%9D%E5%85%89/</guid>
       <description>
         <![CDATA[<h1>[十万个为什么] 眼睛怕蓝光</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -690,7 +690,7 @@ BIOS
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>十万个为什么</category>
@@ -701,10 +701,10 @@ BIOS
 
     <item>
       <title>[十万个为什么] 画质and分辨率</title>
-      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</link>
+      <link>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/%E7%94%BB%E8%B4%A8and%E5%88%86%E8%BE%A8%E7%8E%87/</guid>
       <description>
         <![CDATA[<h1>[十万个为什么] 画质and分辨率</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -717,7 +717,7 @@ BIOS
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>十万个为什么</category>
@@ -728,10 +728,10 @@ BIOS
 
     <item>
       <title>[十万个为什么] U盘刷镜像后再也看不到了</title>
-      <link>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</link>
+      <link>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/u%E7%9B%98%E5%88%B7%E9%95%9C%E5%83%8F%E5%90%8E%E5%86%8D%E4%B9%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BA%86/</guid>
       <description>
         <![CDATA[<h1>[十万个为什么] U盘刷镜像后再也看不到了</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -744,7 +744,7 @@ BIOS
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>十万个为什么</category>
