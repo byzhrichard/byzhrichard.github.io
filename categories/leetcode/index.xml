@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LeetCode on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/leetcode/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/leetcode/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[leetCode] 1</title>
+      <link>https://byzhrichard.github.io/post/leetcode/1/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/leetcode/1/</guid>
+      <description>
+        <![CDATA[<h1>[leetCode] 1</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="1-两数之和">
+<a class="header-anchor" href="#1-%e4%b8%a4%e6%95%b0%e4%b9%8b%e5%92%8c"></a>
+1. 两数之和
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">target</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 需要找到的目标数字</span>
+</span></span><span class="line"><span class="cl">            <span class="n">res</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 遍历剩下的元素，查找是否存在该数字</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 还需加上i+1才是该元素在nums中的索引</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+</span></span></code></pre></div><h2 id="2-两数相加">
+<a class="header-anchor" href="#2-%e4%b8%a4%e6%95%b0%e7%9b%b8%e5%8a%a0"></a>
+2. 两数相加
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, val=0, next=None):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = val</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = next</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">addTwoNumbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">l2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_num</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_num</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">result_node</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp_node</span> <span class="o">=</span> <span class="n">result_node</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># while True + break的方式实现遍历链表!!!</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 实际工作</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp_node</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">            <span class="c1"># 更新退出数据</span>
+</span></span><span class="line"><span class="cl">            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 判断退出条件</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">break</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 不退出的话, 更新数据</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp_node</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp_node</span> <span class="o">=</span> <span class="n">temp_node</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result_node</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_num</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">l</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span> <span class="o">+=</span> <span class="n">l</span><span class="o">.</span><span class="n">val</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">temp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">temp</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">result</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1"># Definition for singly-linked list.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># class ListNode:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     def __init__(self, val=0, next=None):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.val = val</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#         self.next = next</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 手动添加carry=0参数</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">addTwoNumbers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">l2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">carry</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 递归边界</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">l1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">l2</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">carry</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 实际工作</span>
+</span></span><span class="line"><span class="cl">        <span class="n">s</span> <span class="o">=</span> <span class="n">carry</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">l1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span> <span class="o">+=</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">l2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span> <span class="o">+=</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="n">next</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># s 除以 10 的余数为当前节点值，商为进位</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># (若题目要返回链表, 可考虑递归, 返回值是首个节点!!!)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ListNode</span><span class="p">(</span><span class="n">s</span> <span class="o">%</span> <span class="mi">10</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">addTwoNumbers</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">s</span> <span class="o">//</span> <span class="mi">10</span><span class="p">))</span>
+</span></span></code></pre></div><h2 id="3-无重复字符的最长子串">
+<a class="header-anchor" href="#3-%e6%97%a0%e9%87%8d%e5%a4%8d%e5%ad%97%e7%ac%a6%e7%9a%84%e6%9c%80%e9%95%bf%e5%ad%90%e4%b8%b2"></a>
+3. 无重复字符的最长子串
+</h2>
+        
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+      </description>
+      
+        <category>leetCode</category>
+      
+    </item>
+    
+  </channel>
+</rss>

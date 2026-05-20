@@ -12,12 +12,139 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[工具] 命令行</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>
+        <![CDATA[<h1>[工具] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="命令行">
+<a class="header-anchor" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c"></a>
+命令行
+</h1><h1 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+个人导航
+</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] vim</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</guid>
+      <description>
+        <![CDATA[<h1>[工具] vim</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="安装vim">
+<a class="header-anchor" href="#%e5%ae%89%e8%a3%85vim"></a>
+安装vim
+</h1><p><code>https://github.com/vim/vim-win32-installer/releases</code></p>
+<p>在vim中输入<code>:echo $MYVIMRC</code>可以找到文件位置
+打开, 在最下面添加一行<code>set number</code>就可以永久显示行号
+打开, 在最下面添加一行<code>set relativenumber</code>就可以永久显示相对行号</p>
+        
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] mermaid</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
+      <description>
+        <![CDATA[<h1>[工具] mermaid</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="基本用法">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95"></a>
+基本用法
+</h2><p>第一次输入的符号需要括号加字:</p>
+<ul>
+<li><code>[]</code>: 方框</li>
+<li><code>{}</code>: 菱形</li>
+</ul>
+<p><code>--&gt;</code>: 箭头</p>
+<p><code>|xxx|</code>: 给连线加文字标签</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TD
+</span></span><span class="line"><span class="cl">A[开始] --&gt; B{判断}
+</span></span><span class="line"><span class="cl">B --&gt; |是| C[执行]
+</span></span><span class="line"><span class="cl">B --&gt; |否| D[结束]
+</span></span></code></pre></div><pre class="mermaid">
+  graph TD
+A[开始] --> B{判断}
+B --> |是| C[执行]
+B --> |否| D[结束]
+</pre>
+        
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] Espanso</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Espanso</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="基本使用">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
+基本使用
+</h1><p><code>Open config folder</code> -&gt; 找到 <code>/match/base.yml</code></p>
+<h3 id="1-添加baseyml">
+<a class="header-anchor" href="#1-%e6%b7%bb%e5%8a%a0baseyml"></a>
+1. 添加base.yml
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:smile&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;😄&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:rocket&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🚀&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:fire&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔥&#34;</span><span class="w">
+</span></span></span></code></pre></div>
+        
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
     
     
 

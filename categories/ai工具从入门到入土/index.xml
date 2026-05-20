@@ -22,33 +22,6 @@
     
 
     <item>
-      <title>[AI工具从入门到入土] 命令行</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
-      <description>
-        <![CDATA[<h1>[AI工具从入门到入土] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="ai工具从入门到入土-命令行">
-<a class="header-anchor" href="#ai%e5%b7%a5%e5%85%b7%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%91%bd%e4%bb%a4%e8%a1%8c"></a>
-[AI工具从入门到入土] 命令行
-</h1><h1 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
-      </description>
-      
-        <category>AI工具从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
       <title>[AI工具从入门到入土] venv、pip、conda、uv一次讲清</title>
       <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
