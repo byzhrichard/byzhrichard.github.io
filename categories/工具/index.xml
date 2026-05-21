@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <link>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -12,21 +12,108 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 20 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
     
 
     <item>
+      <title>[工具] uv</title>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</guid>
+      <description>
+        <![CDATA[<h1>[工具] uv</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="安装">
+<a class="header-anchor" href="#%e5%ae%89%e8%a3%85"></a>
+安装
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install pipx
+</span></span><span class="line"><span class="cl">pipx install uv
+</span></span><span class="line"><span class="cl">或者从https://github.com/astral-sh/uv下载uv, 手动添加环境变量
+</span></span></code></pre></div><blockquote>
+<p>检查安装: <code>uv --version</code></p>
+<p>如果version无效, 则去添加环境变量, 路径大致为<code>C:\Users\...\AppData\Roaming\Python\Python311\Scripts</code>, 添加入Path中</p>
+        
+        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] Typora</title>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Typora</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="typora-plugin">
+<a class="header-anchor" href="#typora-plugin"></a>
+typora-plugin
+</h2><p><a href="https://github.com/obgnail/typora_plugin">https://github.com/obgnail/typora_plugin</a></p>
+<h3 id="1-自动编号">
+<a class="header-anchor" href="#1-%e8%87%aa%e5%8a%a8%e7%bc%96%e5%8f%b7"></a>
+1. 自动编号
+</h3><p>关闭</p>
+<h3 id="2-快捷键中心">
+<a class="header-anchor" href="#2-%e5%bf%ab%e6%8d%b7%e9%94%ae%e4%b8%ad%e5%bf%83"></a>
+2. 快捷键中心
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ENABLE&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;NAME&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;HOTKEY&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CUSTOM_HOTKEYS&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hotkey&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+m&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;desc&#34;</span><span class="p">:</span> <span class="s2">&#34;添加mark&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;plugin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;function&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;closestSelector&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;evil&#34;</span><span class="p">:</span> <span class="s2">&#34;() =&gt; { const s = window.getSelection().toString(); document.execCommand(&#39;insertText&#39;, false, s ? `&lt;mark&gt;${s}&lt;/mark&gt;` : &#39;&lt;mark&gt;&lt;/mark&gt;&#39;); }&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hotkey&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+shift+t&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;desc&#34;</span><span class="p">:</span> <span class="s2">&#34;插入hugo的front_matter&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;plugin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;function&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;closestSelector&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;evil&#34;</span><span class="p">:</span> <span class="s2">&#34;() =&gt; { const d = new Date(); const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, &#39;0&#39;)}-${String(d.getDate()).padStart(2, &#39;0&#39;)}`; return this.utils.insertText(null, `+++\\n\\ndate = &#39;${date}&#39;\\ndraft = false\\nmath = true\\ntitle = &#39;[x] y&#39;\\ncategories = [&#39;x&#39;]\\ntags = []\\n\\n+++\\n`); }&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="typora-community-plugin">
+<a class="header-anchor" href="#typora-community-plugin"></a>
+typora-community-plugin
+</h2><p><a href="https://github.com/typora-community-plugin/typora-community-plugin">https://github.com/typora-community-plugin/typora-community-plugin</a></p>
+        
+        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[工具] 命令行</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>
         <![CDATA[<h1>[工具] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -39,7 +126,7 @@
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -50,10 +137,10 @@
 
     <item>
       <title>[工具] vim</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</guid>
       <description>
         <![CDATA[<h1>[工具] vim</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -65,7 +152,7 @@
 打开, 在最下面添加一行<code>set number</code>就可以永久显示行号
 打开, 在最下面添加一行<code>set relativenumber</code>就可以永久显示相对行号</p>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -76,10 +163,10 @@
 
     <item>
       <title>[工具] mermaid</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
       <description>
         <![CDATA[<h1>[工具] mermaid</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -104,7 +191,7 @@ B --> |是| C[执行]
 B --> |否| D[结束]
 </pre>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -115,10 +202,10 @@ B --> |否| D[结束]
 
     <item>
       <title>[工具] Espanso</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
       <description>
         <![CDATA[<h1>[工具] Espanso</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -129,17 +216,48 @@ B --> |否| D[结束]
 <h3 id="1-添加baseyml">
 <a class="header-anchor" href="#1-%e6%b7%bb%e5%8a%a0baseyml"></a>
 1. 添加base.yml
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:smile&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;😄&#34;</span><span class="w">
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">matches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:loudspeaker&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;📢&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:rocket&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🚀&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:book&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;📖&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:seedling&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🌱&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:fire&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔥&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:gear&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⚙️&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:+1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;👍&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:-1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;👎&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:computer&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💻&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:smile&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;😄&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:thinking&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🤔&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:mag&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔍&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:warning&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⚠️&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:rocket&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🚀&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:fire&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔥&#34;</span><span class="w">
 </span></span></span></code></pre></div>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -150,10 +268,10 @@ B --> |否| D[结束]
 
     <item>
       <title>[工具] Obsidian</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
       <description>
         <![CDATA[<h1>[工具] Obsidian</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -191,7 +309,7 @@ B --> |否| D[结束]
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
         
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
@@ -202,10 +320,10 @@ B --> |否| D[结束]
 
     <item>
       <title>[工具] Git</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/git/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/git/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/git/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/git/</guid>
       <description>
         <![CDATA[<h1>[工具] Git</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -286,7 +404,7 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 <code>.gitignore</code>语法
 </h2><p>注释: <code>#</code></p>
         
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
@@ -297,10 +415,10 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 
     <item>
       <title>[工具] Conda</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/conda/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/conda/</guid>
       <description>
         <![CDATA[<h1>[工具] Conda</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -349,7 +467,7 @@ miniconda
 2. conda activate
 </h2><p>也可以直接从路径启动conda环境, 不过必须是conda的环境(包含 Conda 环境的必要文件)</p>
         
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
@@ -360,10 +478,10 @@ miniconda
 
     <item>
       <title>[工具] AutoHotkey</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/autohotkey/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/autohotkey/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/autohotkey/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/autohotkey/</guid>
       <description>
         <![CDATA[<h1>[工具] AutoHotkey</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -445,7 +563,7 @@ miniconda
 </span></span><span class="line"><span class="cl">; 结束条件限制作用域
 </span></span></code></pre></div>
         
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
