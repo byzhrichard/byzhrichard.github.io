@@ -1,0 +1,1176 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [DL_Net从入门到入土] CycleGAN | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[DL_Net从入门到入土] CycleGAN | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-05-22T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-22T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] CycleGAN"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[DL_Net从入门到入土] CycleGAN</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-cyclegan">[DL_Net从入门到入土] CycleGAN</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-两个生成器">1. 两个生成器</a></li>
+                <li><a href="#2-两个判别器">2. 两个判别器</a></li>
+                <li><a href="#3-对抗损失-adversarial-loss">3. 对抗损失 Adversarial Loss</a></li>
+                <li><a href="#4-循环一致性损失-cycle-consistency-loss">4. 循环一致性损失 Cycle Consistency Loss</a></li>
+                <li><a href="#5-身份损失-identity-loss">5. 身份损失 Identity Loss</a></li>
+                <li><a href="#6-总目标函数">6. 总目标函数</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-不需要成对数据">1. 不需要成对数据</a></li>
+                <li><a href="#2-循环一致性约束">2. 循环一致性约束</a></li>
+                <li><a href="#3-适合风格迁移类任务">3. 适合风格迁移类任务</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-不适合几何结构变化太大的任务">1. 不适合几何结构变化太大的任务</a></li>
+                <li><a href="#2-训练仍然不稳定-计算成本更高">2. 训练仍然不稳定, 计算成本更高</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">73</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      13
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">3</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-05-22 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-05-22</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-05-22</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-cyclegan">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-cyclegan"></a>
+[DL_Net从入门到入土] CycleGAN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>普通 GAN 更偏向于：从随机噪声 z 生成一张图片</p>
+<blockquote>
+<p>例如：随机噪声 z → Generator → 生成图片</p>
+</blockquote>
+<p>而在实际任务中，我们更希望做的是<strong>把一种风格的图片转换成另一种风格的图片</strong></p>
+<blockquote>
+<ul>
+<li>马 → 斑马</li>
+<li>苹果 → 橙子</li>
+<li>白天 → 黑夜</li>
+<li>普通照片 → 梵高风格</li>
+<li>夏天场景 → 冬天场景</li>
+</ul>
+</blockquote>
+<p>这类任务叫做：<strong>Image-to-Image Translation：图像到图像转换</strong></p>
+<blockquote>
+<p>Pix2Pix 可以完成, 但需要<strong>成对数据 paired data</strong>
+但是现实中, 成对数据很难收集, 故而采用CycleGAN</p>
+</blockquote>
+<p>CycleGAN 的核心优势：<strong>Unpaired Image-to-Image Translation：非成对图像转换</strong></p>
+<p>CycleGAN 的核心思想：如果一张图片从 A 域转换到 B 域，再从 B 域转换回 A 域，应该还能变回原来的图片
+-&gt; 称为 <strong>循环一致性(Cycle Consistency)</strong></p>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><pre class="mermaid">
+  graph LR
+X[真实图片 x ∈ X] --> G[生成器 G: X -> Y]
+G --> FY["生成图片 fake_y = G(x)"]
+FY --> DY[判别器 D_Y]
+DY --> OY[判断是否像真实 Y 域图片]
+
+FY --> F[生成器 F: Y -> X]
+F --> RX["重建图片 rec_x = F(G(x))"]
+RX --> CX["希望 rec_x ≈ x"]
+
+Y[真实图片 y ∈ Y] --> F2[生成器 F: Y -> X]
+F2 --> FX["生成图片 fake_x = F(y)"]
+FX --> DX[判别器 D_X]
+DX --> OX[判断是否像真实 X 域图片]
+
+FX --> G2[生成器 G: X -> Y]
+G2 --> RY["重建图片 rec_y = G(F(y))"]
+RY --> CY["希望 rec_y ≈ y"]
+
+style G font-weight:bold
+style F font-weight:bold
+style F2 font-weight:bold
+style G2 font-weight:bold
+style DY font-weight:bold
+style DX font-weight:bold
+</pre><p>CycleGAN 主要包含：</p>
+<ul>
+<li>两个生成器</li>
+<li>两个判别器</li>
+</ul>
+<p>假设有两个图像域：</p>
+<ul>
+<li>$X$：源域，例如马</li>
+<li>$Y$：目标域，例如斑马</li>
+</ul>
+<h4 id="1-两个生成器">
+<a class="header-anchor" href="#1-%e4%b8%a4%e4%b8%aa%e7%94%9f%e6%88%90%e5%99%a8"></a>
+1. 两个生成器
+</h4><p>有两个生成器：</p>
+<ul>
+<li>$G: X \rightarrow Y$ (把 X 域图片转换成 Y 域风格)</li>
+<li>$F: Y \rightarrow X$ (把 Y 域图片转换成 X 域风格)</li>
+</ul>
+<h4 id="2-两个判别器">
+<a class="header-anchor" href="#2-%e4%b8%a4%e4%b8%aa%e5%88%a4%e5%88%ab%e5%99%a8"></a>
+2. 两个判别器
+</h4><p>有两个判别器：</p>
+<ul>
+<li>$D_Y$：判断图片是不是真实的 Y 域图片</li>
+<li>$D_X$：判断图片是不是真实的 X 域图片</li>
+</ul>
+<h4 id="3-对抗损失-adversarial-loss">
+<a class="header-anchor" href="#3-%e5%af%b9%e6%8a%97%e6%8d%9f%e5%a4%b1-adversarial-loss"></a>
+3. 对抗损失 Adversarial Loss
+</h4><p>对于映射：
+</p>
+$$
+G: X \rightarrow Y
+$$<p>
+其损失可以写成：
+</p>
+$$
+L_{GAN}(G, D_Y, X, Y)=
+\mathbb{E}_{y \sim p_{data}(y)}[\log D_Y(y)]
++
+\mathbb{E}_{x \sim p_{data}(x)}[\log(1 - D_Y(G(x)))]
+$$<ul>
+<li>$D_Y$ 希望真实的 $y$ 被判断为真</li>
+<li>$D_Y$ 希望生成的 $G(x)$ 被判断为假</li>
+<li>$G$ 希望生成的 $G(x)$ 能骗过 $D_Y$</li>
+</ul>
+<blockquote>
+<p>同理，对于反方向映射：
+</p>
+$$
+> F: Y \rightarrow X
+> $$<p>
+也有：
+</p>
+$$
+> L_{GAN}(F, D_X, Y, X)=\mathbb{E}_{x \sim p_{data}(x)}[\log D_X(x)]+\mathbb{E}_{y \sim p_{data}(y)}[\log(1 - D_X(F(y)))]
+> $$</blockquote>
+<h4 id="4-循环一致性损失-cycle-consistency-loss">
+<a class="header-anchor" href="#4-%e5%be%aa%e7%8e%af%e4%b8%80%e8%87%b4%e6%80%a7%e6%8d%9f%e5%a4%b1-cycle-consistency-loss"></a>
+4. 循环一致性损失 Cycle Consistency Loss
+</h4><p>只使用对抗损失是不够的
+因为模型只需要生成“像目标域”的图片即可，不一定保留原图内容</p>
+<blockquote>
+<p>例如：</p>
+<p>输入一张马, 生成器只要输出一张看起来像斑马的图片
+但这张斑马可能和原来的马没有任何关系</p>
+</blockquote>
+<p>所以 CycleGAN 加入了循环一致性约束：</p>
+$$
+x \rightarrow G(x) \rightarrow F(G(x)) \approx x
+$$<p>对应损失为：</p>
+$$
+L_{cyc}(G, F)=
+\mathbb{E}_{x \sim p_{data}(x)}
+[
+||F(G(x)) - x||_1
+]
++
+\mathbb{E}_{y \sim p_{data}(y)}
+[
+||G(F(y)) - y||_1
+]
+$$<blockquote>
+<p>这里通常使用 L1 损失，而不是 L2 损失</p>
+<p>因为 L1 损失相对更<strong>不容易让图像变得过度平滑</strong></p>
+</blockquote>
+<h4 id="5-身份损失-identity-loss">
+<a class="header-anchor" href="#5-%e8%ba%ab%e4%bb%bd%e6%8d%9f%e5%a4%b1-identity-loss"></a>
+5. 身份损失 Identity Loss
+</h4><p>有时 CycleGAN 还会加入 Identity Loss
+作用是：如果输入图片已经属于目标域，那么生成器最好不要乱改它</p>
+<p>例如，生成器 $G$ 的作用是：</p>
+$$
+G: X \rightarrow Y
+$$<p>如果输入本来就是 Y 域图片，那么：</p>
+$$
+G(y) \approx y
+$$<blockquote>
+<p>例如：</p>
+<p>如果给 马→斑马 的生成器输入一张斑马
+它最好不要再乱改</p>
+</blockquote>
+<p>Identity Loss 可以写成：</p>
+$$
+L_{identity}(G, F)=
+\mathbb{E}_{y \sim p_{data}(y)}
+[
+||G(y) - y||_1
+]
++
+\mathbb{E}_{x \sim p_{data}(x)}
+[
+||F(x) - x||_1
+]
+$$<p>这个损失在颜色迁移、风格迁移中比较有用，可以帮助模型保留颜色、亮度等信息</p>
+<h4 id="6-总目标函数">
+<a class="header-anchor" href="#6-%e6%80%bb%e7%9b%ae%e6%a0%87%e5%87%bd%e6%95%b0"></a>
+6. 总目标函数
+</h4><p>CycleGAN 的总损失通常由三部分组成：</p>
+$$
+L(G, F, D_X, D_Y)=
+L_{GAN}(G, D_Y, X, Y)
++
+L_{GAN}(F, D_X, Y, X)
++
+\lambda L_{cyc}(G, F)
+$$<p>如果加入 Identity Loss，则可以写成：</p>
+$$
+L_{total}=
+L_{GAN}
++
+\lambda_{cyc} L_{cyc}
++
+\lambda_{id} L_{identity}
+$$<ul>
+<li>$L_{GAN}$：让生成图片看起来像目标域</li>
+<li>$L_{cyc}$：保证转换前后内容一致</li>
+<li>$L_{identity}$：减少不必要的颜色和内容改变</li>
+<li>$\lambda_{cyc}$：循环一致性损失权重</li>
+<li>$\lambda_{id}$：身份损失权重</li>
+</ul>
+<blockquote>
+<p>常见设置：$\lambda_{cyc} = 10$</p>
+</blockquote>
+<h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h4 id="1-不需要成对数据">
+<a class="header-anchor" href="#1-%e4%b8%8d%e9%9c%80%e8%a6%81%e6%88%90%e5%af%b9%e6%95%b0%e6%8d%ae"></a>
+1. 不需要成对数据
+</h4><p>Pix2Pix 需要成对数据：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入图 A ↔ 输出图 B
+</span></span></code></pre></div><p>但是 CycleGAN 只需要：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">一堆 X 域图片 + 一堆 Y 域图片
+</span></span></code></pre></div><h4 id="2-循环一致性约束">
+<a class="header-anchor" href="#2-%e5%be%aa%e7%8e%af%e4%b8%80%e8%87%b4%e6%80%a7%e7%ba%a6%e6%9d%9f"></a>
+2. 循环一致性约束
+</h4><p>普通 GAN 只关心生成结果像不像真实样本
+但是 CycleGAN 还要求：转换过去之后，还能转换回来</p>
+<p>也就是：$x → G(x) → F(G(x)) ≈ x$</p>
+<h4 id="3-适合风格迁移类任务">
+<a class="header-anchor" href="#3-%e9%80%82%e5%90%88%e9%a3%8e%e6%a0%bc%e8%bf%81%e7%a7%bb%e7%b1%bb%e4%bb%bb%e5%8a%a1"></a>
+3. 适合风格迁移类任务
+</h4><h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><h4 id="1-不适合几何结构变化太大的任务">
+<a class="header-anchor" href="#1-%e4%b8%8d%e9%80%82%e5%90%88%e5%87%a0%e4%bd%95%e7%bb%93%e6%9e%84%e5%8f%98%e5%8c%96%e5%a4%aa%e5%a4%a7%e7%9a%84%e4%bb%bb%e5%8a%a1"></a>
+1. 不适合几何结构变化太大的任务
+</h4><p>CycleGAN 更擅长风格转换，而不是复杂形状变化</p>
+<p>因为循环一致性会强迫模型尽量保留原图结构</p>
+<h4 id="2-训练仍然不稳定-计算成本更高">
+<a class="header-anchor" href="#2-%e8%ae%ad%e7%bb%83%e4%bb%8d%e7%84%b6%e4%b8%8d%e7%a8%b3%e5%ae%9a-%e8%ae%a1%e7%ae%97%e6%88%90%e6%9c%ac%e6%9b%b4%e9%ab%98"></a>
+2. 训练仍然不稳定, 计算成本更高
+</h4><h2 id="模型代码">
+<a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
+💻模型代码
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ResnetBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ResNet 残差块
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入 shape:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        [batch_size, channels, height, width]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出 shape:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        [batch_size, channels, height, width]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReflectionPad2d</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="n">channels</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReflectionPad2d</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="n">channels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">block</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Generator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    CycleGAN 生成器 Generator
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    作用:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        将一个域的图片转换到另一个域
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        img: 图片
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, img_channels, height, width]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        fake_img: 转换后的图片
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, img_channels, height, width]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">num_residual_blocks</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1. 初始卷积层</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">+=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReflectionPad2d</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">img_channels</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="mi">64</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2. 下采样</span>
+</span></span><span class="line"><span class="cl">        <span class="n">in_channels</span> <span class="o">=</span> <span class="mi">64</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out_channels</span> <span class="o">=</span> <span class="mi">128</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span> <span class="o">+=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">in_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">out_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">in_channels</span> <span class="o">=</span> <span class="n">out_channels</span>
+</span></span><span class="line"><span class="cl">            <span class="n">out_channels</span> <span class="o">*=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3. 残差块</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_residual_blocks</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span> <span class="o">+=</span> <span class="p">[</span><span class="n">ResnetBlock</span><span class="p">(</span><span class="n">in_channels</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 4. 上采样</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out_channels</span> <span class="o">=</span> <span class="n">in_channels</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">model</span> <span class="o">+=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">in_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">out_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">output_padding</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">in_channels</span> <span class="o">=</span> <span class="n">out_channels</span>
+</span></span><span class="line"><span class="cl">            <span class="n">out_channels</span> <span class="o">=</span> <span class="n">in_channels</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 5. 输出层</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span> <span class="o">+=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReflectionPad2d</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">img_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Discriminator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    CycleGAN 判别器 Discriminator
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    PatchGAN 判别器:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        不直接输出一个单独的真假概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        而是输出一个二维特征图
+</span></span></span><span class="line"><span class="cl"><span class="s2">        每个位置表示对应 patch 的真假判断
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        img: 图片
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, img_channels, height, width]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        validity: Patch 真假判断结果
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape 约为 [batch_size, 1, h, w]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">discriminator_block</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">layers</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">in_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">out_channels</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">padding</span><span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">InstanceNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">layers</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="o">*</span><span class="n">discriminator_block</span><span class="p">(</span><span class="n">img_channels</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="o">*</span><span class="n">discriminator_block</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="o">*</span><span class="n">discriminator_block</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="o">*</span><span class="n">discriminator_block</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ZeroPad2d</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_channels</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_size</span> <span class="o">=</span> <span class="mi">256</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 两个生成器</span>
+</span></span><span class="line"><span class="cl">    <span class="n">G_XtoY</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">img_channels</span><span class="o">=</span><span class="n">img_channels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">G_YtoX</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">img_channels</span><span class="o">=</span><span class="n">img_channels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 两个判别器</span>
+</span></span><span class="line"><span class="cl">    <span class="n">D_X</span> <span class="o">=</span> <span class="n">Discriminator</span><span class="p">(</span><span class="n">img_channels</span><span class="o">=</span><span class="n">img_channels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">D_Y</span> <span class="o">=</span> <span class="n">Discriminator</span><span class="p">(</span><span class="n">img_channels</span><span class="o">=</span><span class="n">img_channels</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 假设 X 域和 Y 域各有一批图片</span>
+</span></span><span class="line"><span class="cl">    <span class="n">real_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">img_channels</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">img_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">real_y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">img_channels</span><span class="p">,</span> <span class="n">img_size</span><span class="p">,</span> <span class="n">img_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># X -&gt; Y</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fake_y</span> <span class="o">=</span> <span class="n">G_XtoY</span><span class="p">(</span><span class="n">real_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Y -&gt; X</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fake_x</span> <span class="o">=</span> <span class="n">G_YtoX</span><span class="p">(</span><span class="n">real_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 循环重建</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rec_x</span> <span class="o">=</span> <span class="n">G_YtoX</span><span class="p">(</span><span class="n">fake_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rec_y</span> <span class="o">=</span> <span class="n">G_XtoY</span><span class="p">(</span><span class="n">fake_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判别器判断</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pred_fake_y</span> <span class="o">=</span> <span class="n">D_Y</span><span class="p">(</span><span class="n">fake_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pred_fake_x</span> <span class="o">=</span> <span class="n">D_X</span><span class="p">(</span><span class="n">fake_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;real_x 的形状:&#34;</span><span class="p">,</span> <span class="n">real_x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;real_y 的形状:&#34;</span><span class="p">,</span> <span class="n">real_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;fake_y = G_XtoY(real_x) 的形状:&#34;</span><span class="p">,</span> <span class="n">fake_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;fake_x = G_YtoX(real_y) 的形状:&#34;</span><span class="p">,</span> <span class="n">fake_x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;rec_x = G_YtoX(fake_y) 的形状:&#34;</span><span class="p">,</span> <span class="n">rec_x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;rec_y = G_XtoY(fake_x) 的形状:&#34;</span><span class="p">,</span> <span class="n">rec_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;D_Y(fake_y) 的输出形状:&#34;</span><span class="p">,</span> <span class="n">pred_fake_y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;D_X(fake_x) 的输出形状:&#34;</span><span class="p">,</span> <span class="n">pred_fake_x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >DL_Net从入门到入土</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[工具] LaTex"
+              class="lazyload"
+            /><a
+          href="/post/%E5%B7%A5%E5%85%B7/latex/"
+          aria-label="前一篇:[工具] LaTex"
+          title="前一篇:[工具] LaTex"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[工具] LaTex</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;76.6k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;03:12</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-cyclegan">[DL_Net从入门到入土] CycleGAN</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-两个生成器">1. 两个生成器</a></li>
+                <li><a href="#2-两个判别器">2. 两个判别器</a></li>
+                <li><a href="#3-对抗损失-adversarial-loss">3. 对抗损失 Adversarial Loss</a></li>
+                <li><a href="#4-循环一致性损失-cycle-consistency-loss">4. 循环一致性损失 Cycle Consistency Loss</a></li>
+                <li><a href="#5-身份损失-identity-loss">5. 身份损失 Identity Loss</a></li>
+                <li><a href="#6-总目标函数">6. 总目标函数</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-不需要成对数据">1. 不需要成对数据</a></li>
+                <li><a href="#2-循环一致性约束">2. 循环一致性约束</a></li>
+                <li><a href="#3-适合风格迁移类任务">3. 适合风格迁移类任务</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-不适合几何结构变化太大的任务">1. 不适合几何结构变化太大的任务</a></li>
+                <li><a href="#2-训练仍然不稳定-计算成本更高">2. 训练仍然不稳定, 计算成本更高</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">73</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      13
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">3</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[DL_Net从入门到入土] CycleGAN",
+          url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/cyclegan\/",
+          description: "\r[DL_Net从入门到入土] CycleGAN\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.12.0/dist/mermaid.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-o&#43;g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.6/dist/purify.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla&#43;3" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt&#43;Y&#43;cBEb95og5cXKllnWKSELlzbx" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = '.mermaid'
+          const processElements = (callback) => {
+            const els = _$$(elementCode);
+            if (!els.length) return Promise.resolve();
+            
+            return new Promise((resolve, reject) => {
+              try {
+                els.forEach(callback);
+                resolve();
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const saveOriginalData = () => processElements(el => {
+            if (!el.getAttribute('data-original-code')) {
+              el.setAttribute('data-original-code', el.innerHTML);
+            }
+          });
+
+          const resetProcessed = () => processElements(el => {
+            const originalCode = el.getAttribute('data-original-code');
+            if (originalCode) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = DOMPurify.sanitize(originalCode);
+            }
+          });
+          const loadMermaid = async (theme) => {
+            window.mermaid.initialize({theme, startOnLoad: false})
+            await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
+            if (window.svgPanZoom) {
+              window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
+              window.__panZoomList = [];
+              _$$('.mermaid > svg').forEach(el => {
+                const bbox = el.getBBox();
+                el.setAttribute('height', Math.max(bbox.height, 80));
+                window.__panZoomList.push(window.svgPanZoom(el, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  center: true
+                }));
+              });
+              if (window.__resizeMermaidSvg) {
+                window.removeEventListener('resize', window.__resizeMermaidSvg);
+              }
+              window.__resizeMermaidSvg = () => {
+                try {
+                  window.__panZoomList.forEach(panZoom => {
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                  });
+                } catch {
+                  window.removeEventListener('resize', window.__resizeMermaidSvg);
+                  window.__panZoomList = [];
+                }
+              }
+              window.addEventListener('resize', window.__resizeMermaidSvg);
+            }
+          }
+          const initMermaid = async (theme) => {
+            try {
+              await saveOriginalData();
+              await resetProcessed();
+              await loadMermaid(theme);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
+            initMermaid(isDark ? 'dark' : 'default');
+          });
+
+          const mode = localStorage.getItem('dark_mode');
+          if (mode === 'auto') {
+            const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            initMermaid(osMode ? 'dark' : 'default');
+          } else {
+            initMermaid(mode === 'true' ? 'dark' : 'default');
+          }
+        }
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

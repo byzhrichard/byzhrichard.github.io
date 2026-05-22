@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>byzh的博客</title>
-    <link>http://localhost:1313/</link>
+    <link>https://byzhrichard.github.io/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -12,21 +12,261 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 21 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
     
 
     <item>
+      <title>[工具] LaTex</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</link>
+      <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</guid>
+      <description>
+        <![CDATA[<h1>[工具] LaTex</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="报告模版">
+<a class="header-anchor" href="#%e6%8a%a5%e5%91%8a%e6%a8%a1%e7%89%88"></a>
+报告模版
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 1. 基础文档与中文支持（Overleaf专用，修复生僻字）
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="na">[UTF8,fontset=none]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% Overleaf 原生预装 Noto 思源字体，完整支持“焜”等生僻字
+</span></span></span><span class="line"><span class="cl"><span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK SC<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setCJKsansfont</span><span class="nb">{</span>Noto Sans CJK SC<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setCJKmonofont</span><span class="nb">{</span>Noto Sans Mono CJK SC<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 2. 页面布局与边距设置
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>geometry<span class="nb">}</span>              <span class="c">% 页面尺寸、边距控制
+</span></span></span><span class="line"><span class="cl"><span class="k">\geometry</span><span class="nb">{</span>a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 3. 数学公式与符号
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>               <span class="c">% 数学公式核心扩展包
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span>               <span class="c">% 数学符号与字体扩展
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 4. 表格绘制增强
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>multirow<span class="nb">}</span>              <span class="c">% 表格单元格跨行
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tabularx<span class="nb">}</span>              <span class="c">% 自动宽度表格
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>booktabs<span class="nb">}</span>              <span class="c">% 专业表格横线（三线表）
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 5. 列表环境（枚举/项目符）
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>enumitem<span class="nb">}</span>              <span class="c">% 自定义列表缩进、标签、间距
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 6. 图片与图形绘制
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>                 <span class="c">% 浮动体（图表）位置控制（H选项）
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>graphicx<span class="nb">}</span>              <span class="c">% 插入图片必备
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>tikz<span class="nb">}</span>                  <span class="c">% 矢量绘图与精确定位
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>eso-pic<span class="nb">}</span>               <span class="c">% 页面背景/水印/绝对定位图片
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 7. 页眉页脚样式
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>fancyhdr<span class="nb">}</span>              <span class="c">% 自定义页眉、页脚、页码
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 8. 代码高亮与展示
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>listings<span class="nb">}</span>              <span class="c">% 基础代码环境
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>xcolor<span class="nb">}</span>                <span class="c">% 颜色定义支持
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="nb">{</span>minted<span class="nb">}</span>                <span class="c">% 高级代码高亮（依赖Python/Pygments）
+</span></span></span><span class="line"><span class="cl"><span class="k">\usemintedstyle</span><span class="nb">{</span>colorful<span class="nb">}</span>          <span class="c">% minted代码高亮风格
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 9. 高亮框与内容美化
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="na">[most]</span><span class="nb">{</span>tcolorbox<span class="nb">}</span>       <span class="c">% 彩色边框/背景盒子，most开启全部功能
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 10. 超链接与书签（必须放最后）
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\usepackage</span><span class="na">[hidelinks]</span><span class="nb">{</span>hyperref<span class="nb">}</span>   <span class="c">% 交叉引用、目录链接，hidelinks隐藏边框
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ============================================================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 全局配置
+</span></span></span><span class="line"><span class="cl"><span class="c">% ============================================================
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 页眉页脚设置（fancyhdr 包）
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\pagestyle</span><span class="nb">{</span>fancy<span class="nb">}</span>                  <span class="c">% 启用fancy页眉页脚样式，替代默认格式
+</span></span></span><span class="line"><span class="cl"><span class="k">\fancyhf</span><span class="nb">{}</span>                         <span class="c">% 清空当前所有页眉、页脚内容，避免默认样式干扰
+</span></span></span><span class="line"><span class="cl"><span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\headrulewidth</span><span class="nb">}{</span>0pt<span class="nb">}</span> <span class="c">% 取消页眉下方的默认横线，让页面更简洁
+</span></span></span><span class="line"><span class="cl"><span class="k">\fancyfoot</span><span class="na">[C]</span><span class="nb">{</span><span class="k">\thepage</span><span class="nb">}</span>            <span class="c">% 页脚居中位置显示当前页码（C=Center居中）
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 文档标题、作者、日期定义
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\title</span><span class="nb">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\Huge</span> <span class="k">\textbf</span><span class="nb">{</span>西安电子科技大学<span class="nb">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\vspace</span><span class="nb">{</span>0.3cm<span class="nb">}</span>                     
+</span></span><span class="line"><span class="cl">    ——<span class="k">\LARGE</span> 图像处理与机器视觉~大作业           
+</span></span><span class="line"><span class="cl"><span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\author</span><span class="nb">{}</span>         <span class="c">% 作者栏留空
+</span></span></span><span class="line"><span class="cl"><span class="k">\date</span><span class="nb">{}</span>           <span class="c">% 日期栏留空
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span> <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 封面左上角插入校徽logo
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\AddToShipoutPicture*</span><span class="nb">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\AtPageUpperLeft</span><span class="nb">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[remember picture, overlay]
+</span></span><span class="line"><span class="cl">            <span class="k">\node</span><span class="na">[anchor=north west, inner sep=0pt]</span> at (1cm,-1cm) <span class="nb">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">\includegraphics</span><span class="na">[width=3cm]</span><span class="nb">{</span>src/xd<span class="nb">_</span>local.png<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">}</span>;
+</span></span><span class="line"><span class="cl">        <span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 生成标题页
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\maketitle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 实验名称
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\Huge</span> 实验名称: <span class="k">\textbf</span><span class="nb">{</span>基于GAN的图像风格转换<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\vspace</span><span class="nb">{</span>0.5cm<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\Large</span> ———— ~ CycleGAN实现“马→斑马”
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\vspace</span><span class="nb">{</span>1cm<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 个人信息
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\Large</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>ll<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">        学院: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>人工智能<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span> <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        行政班: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>2320032<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span> <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        教学班: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>AI205003 | 02班<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span> <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        姓名: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>xxx<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span> <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        学号: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>xxx<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">&amp;</span> <span class="k">\\</span>
+</span></span><span class="line"><span class="cl">        日期: <span class="nb">&amp;</span> <span class="k">\underline</span><span class="nb">{</span>2026年5月<span class="nb">}</span><span class="k">\\</span>
+</span></span><span class="line"><span class="cl">    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 页码样式切换 + 生成目录
+</span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl"><span class="k">\pagenumbering</span><span class="nb">{</span>roman<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\newpage</span> 
+</span></span><span class="line"><span class="cl"><span class="k">\tableofcontents</span> <span class="c">% 目录
+</span></span></span><span class="line"><span class="cl"><span class="k">\newpage</span> 
+</span></span><span class="line"><span class="cl"><span class="k">\pagenumbering</span><span class="nb">{</span>arabic<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% ============================================================
+</span></span></span><span class="line"><span class="cl"><span class="c">% 正文开始
+</span></span></span><span class="line"><span class="cl"><span class="c">% ============================================================
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>引言<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>课题背景<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>研究内容<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>基本原理<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>GAN基本思想<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>CycleGAN基本思想<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\subsection</span><span class="nb">{</span>损失函数<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>任务设计<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>系统实现<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>实验结果与分析<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>总结<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl"><span class="k">\section</span><span class="nb">{</span>附录<span class="nb">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span> <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span></code></pre></div>
+        
+        <hr><p>本文2026-05-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] CycleGAN</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</link>
+      <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] CycleGAN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-cyclegan">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-cyclegan"></a>
+[DL_Net从入门到入土] CycleGAN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[工具] uv</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</guid>
       <description>
         <![CDATA[<h1>[工具] uv</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -40,7 +280,7 @@
 <p>检查安装: <code>uv --version</code></p>
 <p>如果version无效, 则去添加环境变量, 路径大致为<code>C:\Users\...\AppData\Roaming\Python\Python311\Scripts</code>, 添加入Path中</p>
         
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>工具</category>
@@ -51,10 +291,10 @@
 
     <item>
       <title>[工具] Typora</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</guid>
       <description>
         <![CDATA[<h1>[工具] Typora</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -69,37 +309,16 @@ typora-plugin
 <h3 id="2-快捷键中心">
 <a class="header-anchor" href="#2-%e5%bf%ab%e6%8d%b7%e9%94%ae%e4%b8%ad%e5%bf%83"></a>
 2. 快捷键中心
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ENABLE&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;NAME&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;HOTKEY&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CUSTOM_HOTKEYS&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hotkey&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+m&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;desc&#34;</span><span class="p">:</span> <span class="s2">&#34;添加mark&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;plugin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;function&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;closestSelector&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;evil&#34;</span><span class="p">:</span> <span class="s2">&#34;() =&gt; { const s = window.getSelection().toString(); document.execCommand(&#39;insertText&#39;, false, s ? `&lt;mark&gt;${s}&lt;/mark&gt;` : &#39;&lt;mark&gt;&lt;/mark&gt;&#39;); }&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;enable&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;hotkey&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+shift+t&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;desc&#34;</span><span class="p">:</span> <span class="s2">&#34;插入hugo的front_matter&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;plugin&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;function&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;closestSelector&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;evil&#34;</span><span class="p">:</span> <span class="s2">&#34;() =&gt; { const d = new Date(); const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, &#39;0&#39;)}-${String(d.getDate()).padStart(2, &#39;0&#39;)}`; return this.utils.insertText(null, `+++\\n\\ndate = &#39;${date}&#39;\\ndraft = false\\nmath = true\\ntitle = &#39;[x] y&#39;\\ncategories = [&#39;x&#39;]\\ntags = []\\n\\n+++\\n`); }&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</h3><p>ctrl+m: 添加mark</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">const</span> <span class="n">s</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">getSelection</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span> <span class="n">document</span><span class="o">.</span><span class="n">execCommand</span><span class="p">(</span><span class="s1">&#39;insertText&#39;</span><span class="p">,</span> <span class="bp">false</span><span class="p">,</span> <span class="n">s</span> <span class="err">?</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">mark</span><span class="o">&gt;$</span><span class="p">{</span><span class="n">s</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">mark</span><span class="o">&gt;</span><span class="err">`</span> <span class="p">:</span> <span class="s1">&#39;&lt;mark&gt;&lt;/mark&gt;&#39;</span><span class="p">);</span> <span class="p">}</span>
+</span></span></code></pre></div><p>ctrl+shift+t: 插入hugo的front_matter</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span><span class="o">=&gt;</span><span class="p">{</span><span class="k">const</span> <span class="n">d</span><span class="o">=</span><span class="n">new</span> <span class="n">Date</span><span class="p">();</span><span class="k">const</span> <span class="n">date</span><span class="o">=</span><span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">d</span><span class="o">.</span><span class="n">getFullYear</span><span class="p">()}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getDate</span><span class="p">())</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="err">`</span><span class="p">;</span><span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s2">&#34;+++</span><span class="se">\n\n</span><span class="s2">date = &#39;&#34;</span><span class="o">+</span><span class="n">date</span><span class="o">+</span><span class="s2">&#34;&#39;</span><span class="se">\n</span><span class="s2">draft = false</span><span class="se">\n</span><span class="s2">math = true</span><span class="se">\n</span><span class="s2">mermaid = true</span><span class="se">\n</span><span class="s2">title = &#39;[x] y&#39;</span><span class="se">\n</span><span class="s2">categories = [&#39;x&#39;]</span><span class="se">\n</span><span class="s2">tags = []</span><span class="se">\n\n</span><span class="s2">+++</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">);}</span>
 </span></span></code></pre></div><h2 id="typora-community-plugin">
 <a class="header-anchor" href="#typora-community-plugin"></a>
 typora-community-plugin
 </h2><p><a href="https://github.com/typora-community-plugin/typora-community-plugin">https://github.com/typora-community-plugin/typora-community-plugin</a></p>
         
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>工具</category>
@@ -109,49 +328,24 @@ typora-community-plugin
     
 
     <item>
-      <title>[DL_Net从入门到入土] 自编码器 AE</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/ae/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/ae/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] 自编码器 AE</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-自编码器-ae">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-ae"></a>
-[DL_Net从入门到入土] 自编码器 AE
-</h1><h1 id="loudspeaker个人导航">
-<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-&#x1f4e2;个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
       <title>[DL_Net从入门到入土] VAE</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] VAE</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="dl_net从入门到入土-变分自编码器-vae">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%8f%98%e5%88%86%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-vae"></a>
 [DL_Net从入门到入土] 变分自编码器 VAE
-</h1><h1 id="loudspeaker个人导航">
-<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-&#x1f4e2;个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -162,10 +356,10 @@ typora-community-plugin
 
     <item>
       <title>[DL_Net从入门到入土] GAN</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] GAN</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -178,7 +372,7 @@ typora-community-plugin
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -188,11 +382,38 @@ typora-community-plugin
     
 
     <item>
-      <title>[AI数学从入门到入土] KL散度</title>
-      <link>http://localhost:1313/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/</link>
+      <title>[DL_Net 从入门到入土] 自编码器 AE</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/ae/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/ae/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net 从入门到入土] 自编码器 AE</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net-从入门到入土-自编码器-ae">
+<a class="header-anchor" href="#dl_net-%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-ae"></a>
+[DL_Net 从入门到入土] 自编码器 AE
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+      </description>
+      
+        <category>DL_Net 从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI数学从入门到入土] KL散度</title>
+      <link>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/</guid>
       <description>
         <![CDATA[<h1>[AI数学从入门到入土] KL散度</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -205,7 +426,7 @@ typora-community-plugin
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>AI数学从入门到入土</category>
@@ -216,10 +437,10 @@ typora-community-plugin
 
     <item>
       <title>[工具] 命令行</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>
         <![CDATA[<h1>[工具] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -232,7 +453,7 @@ typora-community-plugin
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -243,10 +464,10 @@ typora-community-plugin
 
     <item>
       <title>[工具] vim</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</link>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</guid>
       <description>
         <![CDATA[<h1>[工具] vim</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -258,112 +479,7 @@ typora-community-plugin
 打开, 在最下面添加一行<code>set number</code>就可以永久显示行号
 打开, 在最下面添加一行<code>set relativenumber</code>就可以永久显示相对行号</p>
         
-        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] mermaid</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
-      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
-      <description>
-        <![CDATA[<h1>[工具] mermaid</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="基本用法">
-<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95"></a>
-基本用法
-</h2><p>第一次输入的符号需要括号加字:</p>
-<ul>
-<li><code>[]</code>: 方框</li>
-<li><code>{}</code>: 菱形</li>
-</ul>
-<p><code>--&gt;</code>: 箭头</p>
-<p><code>|xxx|</code>: 给连线加文字标签</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">graph TD
-</span></span><span class="line"><span class="cl">A[开始] --&gt; B{判断}
-</span></span><span class="line"><span class="cl">B --&gt; |是| C[执行]
-</span></span><span class="line"><span class="cl">B --&gt; |否| D[结束]
-</span></span></code></pre></div><pre class="mermaid">
-  graph TD
-A[开始] --> B{判断}
-B --> |是| C[执行]
-B --> |否| D[结束]
-</pre>
-        
-        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] Espanso</title>
-      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</link>
-      <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
-      <description>
-        <![CDATA[<h1>[工具] Espanso</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="基本使用">
-<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8"></a>
-基本使用
-</h1><p><code>Open config folder</code> -&gt; 找到 <code>/match/base.yml</code></p>
-<h3 id="1-添加baseyml">
-<a class="header-anchor" href="#1-%e6%b7%bb%e5%8a%a0baseyml"></a>
-1. 添加base.yml
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">matches</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:loudspeaker&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;📢&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:book&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;📖&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:seedling&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🌱&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:gear&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⚙️&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:+1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;👍&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:-1&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;👎&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:computer&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;💻&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:smile&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;😄&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:thinking&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🤔&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:mag&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔍&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:warning&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;⚠️&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:rocket&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🚀&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;:fire&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔥&#34;</span><span class="w">
-</span></span></span></code></pre></div>
-        
-        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
