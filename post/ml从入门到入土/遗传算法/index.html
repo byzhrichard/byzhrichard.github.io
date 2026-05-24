@@ -1,0 +1,1514 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [ML从入门到入土] 遗传算法 | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[ML从入门到入土] 遗传算法 | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-05-24T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-24T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[ML从入门到入土] 遗传算法"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[ML从入门到入土] 遗传算法</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ml从入门到入土-遗传算法ga">[ML从入门到入土] 遗传算法GA</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a>
+          <ul>
+            <li><a href="#1-为什么需要遗传算法">1. 为什么需要遗传算法</a></li>
+            <li><a href="#2-核心思想">2. 核心思想</a></li>
+          </ul>
+        </li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li><a href="#1-个体编码">1. 个体编码</a></li>
+            <li><a href="#2-适应度函数">2. 适应度函数</a></li>
+            <li><a href="#3-选择-selection">3. 选择 Selection</a></li>
+            <li><a href="#4-交叉-crossover">4. 交叉 Crossover</a>
+              <ul>
+                <li><a href="#41-交叉---二进制">4.1 交叉 - 二进制</a></li>
+                <li><a href="#41-交叉---实数">4.1 交叉 - 实数</a></li>
+              </ul>
+            </li>
+            <li><a href="#5-变异-mutation">5. 变异 Mutation</a>
+              <ul>
+                <li><a href="#51-变异---二进制">5.1 变异 - 二进制</a></li>
+                <li><a href="#52-变异---实数">5.2 变异 - 实数</a></li>
+              </ul>
+            </li>
+            <li><a href="#6-终止条件">6. 终止条件</a></li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li><a href="#1-不依赖梯度">1. 不依赖梯度</a></li>
+            <li><a href="#2-全局搜索能力较强">2. 全局搜索能力较强</a></li>
+            <li><a href="#3-适合组合优化问题">3. 适合组合优化问题</a></li>
+            <li><a href="#4-算法框架通用">4. 算法框架通用</a></li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li><a href="#1-参数较多">1. 参数较多</a></li>
+            <li><a href="#2-计算成本较高">2. 计算成本较高</a></li>
+            <li><a href="#3-容易早熟收敛">3. 容易早熟收敛</a></li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">75</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      14
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">3</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-05-24 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-05-24</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-05-24</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="ml从入门到入土-遗传算法ga">
+<a class="header-anchor" href="#ml%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e9%81%97%e4%bc%a0%e7%ae%97%e6%b3%95ga"></a>
+[ML从入门到入土] 遗传算法GA
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Adaptation in Natural and Artificial Systems.</p>
+<p>Genetic Algorithms in Search, Optimization and Machine Learning.</p>
+<p>An Introduction to Genetic Algorithms.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>GA: Genetic Algorithm: 遗传算法</p>
+<p>在自然界中，生物通过：</p>
+<ul>
+<li>选择</li>
+<li>交叉</li>
+<li>变异</li>
+<li>适者生存</li>
+</ul>
+<p>不断进化，最终让更适应环境的个体保留下来</p>
+<p>遗传算法借鉴了这个思想：</p>
+<ul>
+<li>把<strong>问题的一个解</strong>看成一个“个体”，</li>
+<li>把<strong>很多个解</strong>组成一个“种群”，</li>
+<li>让这些解不断进化，逐渐找到<strong>更优解</strong></li>
+</ul>
+<h3 id="1-为什么需要遗传算法">
+<a class="header-anchor" href="#1-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e9%81%97%e4%bc%a0%e7%ae%97%e6%b3%95"></a>
+1. 为什么需要遗传算法
+</h3><p>在机器学习、运筹优化、路径规划、参数搜索等问题中，经常会遇到这类情况：</p>
+<ul>
+<li>目标函数很复杂</li>
+<li>变量很多</li>
+<li>约束条件很多</li>
+<li>很难直接求导</li>
+<li>很难用传统数学方法求最优解</li>
+<li>搜索空间巨大，暴力枚举不现实</li>
+</ul>
+<h3 id="2-核心思想">
+<a class="header-anchor" href="#2-%e6%a0%b8%e5%bf%83%e6%80%9d%e6%83%b3"></a>
+2. 核心思想
+</h3><p>遗传算法不是从一个解开始优化，而是从一群解开始搜索</p>
+<p>这<strong>一群解</strong>叫做：种群 Population
+种群里的<strong>每一个解</strong>叫做：个体 Individual</p>
+<p>每个个体有自己的编码，类似生物的基因</p>
+<p>遗传算法会评价每个个体的好坏：适应度函数 Fitness Function
+-&gt; 适应度越高，说明这个解越好
+-&gt; 让更优秀的个体更容易被保留下来，并通过交叉和变异生成新的个体</p>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><pre class="mermaid">
+  graph TD
+A[初始化种群] --> B[计算适应度]
+B --> C{是否满足终止条件}
+C -->|是| D[输出最优解]
+C -->|否| E[选择操作]
+E --> F[交叉操作]
+F --> G[变异操作]
+G --> H[生成新种群]
+H --> B
+</pre><table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>个体 Individual</td>
+          <td>一个候选解</td>
+      </tr>
+      <tr>
+          <td>种群 Population</td>
+          <td>多个候选解组成的集合</td>
+      </tr>
+      <tr>
+          <td>染色体 Chromosome</td>
+          <td>个体的编码形式</td>
+      </tr>
+      <tr>
+          <td>基因 Gene</td>
+          <td>染色体中的一个位置</td>
+      </tr>
+      <tr>
+          <td>适应度 Fitness</td>
+          <td>衡量解的好坏</td>
+      </tr>
+      <tr>
+          <td>选择 Selection</td>
+          <td>挑选优秀个体</td>
+      </tr>
+      <tr>
+          <td>交叉 Crossover</td>
+          <td>两个个体交换部分基因</td>
+      </tr>
+      <tr>
+          <td>变异 Mutation</td>
+          <td>随机改变部分基因</td>
+      </tr>
+      <tr>
+          <td>迭代代数 Generation</td>
+          <td>进化轮数</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="1-个体编码">
+<a class="header-anchor" href="#1-%e4%b8%aa%e4%bd%93%e7%bc%96%e7%a0%81"></a>
+1. 个体编码
+</h3><p>编码: 把一个实际问题的解表示成算法可以处理的形式</p>
+<ol>
+<li>二进制编码:
+<ul>
+<li>1 表示选择</li>
+<li>0 表示不选择</li>
+<li>e.g. <code>[1, 0, 1, 1, 0]</code></li>
+</ul>
+</li>
+<li>整数编码:
+<ul>
+<li>排列、路径、顺序类问题</li>
+<li>e.g. <code>[3, 1, 4, 2, 5]</code></li>
+</ul>
+</li>
+<li>实数编码:
+<ul>
+<li>连续参数优化问题</li>
+<li>e.g. <code>[0.23, -1.52, 3.77]</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-适应度函数">
+<a class="header-anchor" href="#2-%e9%80%82%e5%ba%94%e5%ba%a6%e5%87%bd%e6%95%b0"></a>
+2. 适应度函数
+</h3><p><strong>适应度函数用于评价一个个体的好坏</strong></p>
+<p>假设我们要求最大化目标函数：
+</p>
+$$
+\max f(x)
+$$<p>
+那么可以直接令适应度为：
+</p>
+$$
+Fitness(x) = f(x)
+$$<h3 id="3-选择-selection">
+<a class="header-anchor" href="#3-%e9%80%89%e6%8b%a9-selection"></a>
+3. 选择 Selection
+</h3><p>选择操作的作用是：让优秀个体更容易被保留下来</p>
+<ol>
+<li>轮盘赌选择: 适应度越高，被选中的概率越大</li>
+<li>锦标赛选择: 每次随机挑 n 个个体，谁最好谁留下 (重复这个过程，直到选够)</li>
+<li>精英保留策略: 每一代中最好的几个个体，直接复制到下一代</li>
+</ol>
+<h3 id="4-交叉-crossover">
+<a class="header-anchor" href="#4-%e4%ba%a4%e5%8f%89-crossover"></a>
+4. 交叉 Crossover
+</h3><p>两个父代个体交换部分基因，生成新的子代个体</p>
+<h4 id="41-交叉---二进制">
+<a class="header-anchor" href="#41-%e4%ba%a4%e5%8f%89---%e4%ba%8c%e8%bf%9b%e5%88%b6"></a>
+4.1 交叉 - 二进制
+</h4><ol>
+<li>
+<p>单点交叉:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">父代1: 111 | 000
+</span></span><span class="line"><span class="cl">父代2: 000 | 111
+</span></span><span class="line"><span class="cl">-&gt; 
+</span></span><span class="line"><span class="cl">子代1: 111111
+</span></span><span class="line"><span class="cl">子代2: 000000
+</span></span></code></pre></div></li>
+<li>
+<p>两点交叉: 交换中间片段</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">父代1: 11 | 000 | 11
+</span></span><span class="line"><span class="cl">父代2: 00 | 111 | 00
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">子代1: 11 | 111 | 11
+</span></span><span class="line"><span class="cl">子代2: 00 | 000 | 00
+</span></span></code></pre></div></li>
+<li>
+<p>均匀交叉: 每个基因位置都随机决定</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">父代1: [1, 1, 1, 1]
+</span></span><span class="line"><span class="cl">父代2: [0, 0, 0, 0]
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">子代:  [1, 0, 1, 0]
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="41-交叉---实数">
+<a class="header-anchor" href="#41-%e4%ba%a4%e5%8f%89---%e5%ae%9e%e6%95%b0"></a>
+4.1 交叉 - 实数
+</h4><ol>
+<li>
+<p>算术交叉: 子代是父代的线性组合</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">父代1: x₁
+</span></span><span class="line"><span class="cl">父代2: x₂
+</span></span><span class="line"><span class="cl">α ∈ [0, 1] (随机权重)
+</span></span><span class="line"><span class="cl">-&gt;
+</span></span><span class="line"><span class="cl">子代1: α·x₁ + (1-α)·x₂
+</span></span><span class="line"><span class="cl">子代2: α·x₂ + (1-α)·x₁
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="5-变异-mutation">
+<a class="header-anchor" href="#5-%e5%8f%98%e5%bc%82-mutation"></a>
+5. 变异 Mutation
+</h3><p>如果没有变异，种群可能很快变得非常相似，陷入局部最优</p>
+<h4 id="51-变异---二进制">
+<a class="header-anchor" href="#51-%e5%8f%98%e5%bc%82---%e4%ba%8c%e8%bf%9b%e5%88%b6"></a>
+5.1 变异 - 二进制
+</h4><ol>
+<li>
+<p>随机把某个位置翻转</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">变异前: 10110
+</span></span><span class="line"><span class="cl">变异后: 10010
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="52-变异---实数">
+<a class="header-anchor" href="#52-%e5%8f%98%e5%bc%82---%e5%ae%9e%e6%95%b0"></a>
+5.2 变异 - 实数
+</h4><ol>
+<li>
+<p>对某个实数基因加入随机扰动 $x_i' = x_i + \Delta$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">变异前: [1.2, 3.5, 2.7]
+</span></span><span class="line"><span class="cl">变异后: [1.2, 3.8, 2.7]
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="6-终止条件">
+<a class="header-anchor" href="#6-%e7%bb%88%e6%ad%a2%e6%9d%a1%e4%bb%b6"></a>
+6. 终止条件
+</h3><p>常见终止条件包括：</p>
+<ul>
+<li>达到最大迭代次数</li>
+<li>最优适应度达到要求</li>
+<li>连续多代没有明显提升</li>
+<li>运行时间达到上限</li>
+</ul>
+<h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h3 id="1-不依赖梯度">
+<a class="header-anchor" href="#1-%e4%b8%8d%e4%be%9d%e8%b5%96%e6%a2%af%e5%ba%a6"></a>
+1. 不依赖梯度
+</h3><p>不需要目标函数可导</p>
+<p>遗传算法只需要知道：这个解好不好？</p>
+<p>-&gt; 只需要适应度函数</p>
+<h3 id="2-全局搜索能力较强">
+<a class="header-anchor" href="#2-%e5%85%a8%e5%b1%80%e6%90%9c%e7%b4%a2%e8%83%bd%e5%8a%9b%e8%be%83%e5%bc%ba"></a>
+2. 全局搜索能力较强
+</h3><p>遗传算法不是只维护一个解，而是维护一群解</p>
+<p>多个个体可以同时在搜索空间中探索不同区域</p>
+<p>不能保证一定找到全局最优，但通常能找到不错的近似解</p>
+<h3 id="3-适合组合优化问题">
+<a class="header-anchor" href="#3-%e9%80%82%e5%90%88%e7%bb%84%e5%90%88%e4%bc%98%e5%8c%96%e9%97%ae%e9%a2%98"></a>
+3. 适合组合优化问题
+</h3><p>很多组合优化问题搜索空间极大。</p>
+<p>比如一个简单的排列问题，如果有 $n$ 个元素，可能的排列数是 $n!$</p>
+<p>-&gt; 当 $n$ 很大时，暴力搜索基本不可行</p>
+<p>遗传算法可以通过选择、交叉、变异在巨大搜索空间中进行<strong>启发式搜索</strong></p>
+<h3 id="4-算法框架通用">
+<a class="header-anchor" href="#4-%e7%ae%97%e6%b3%95%e6%a1%86%e6%9e%b6%e9%80%9a%e7%94%a8"></a>
+4. 算法框架通用
+</h3><p>只要能定义：</p>
+<ul>
+<li>个体如何编码</li>
+<li>如何评价个体</li>
+<li>如何选择</li>
+<li>如何交叉</li>
+<li>如何变异</li>
+</ul>
+<p>就可以用遗传算法求解很多问题</p>
+<h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><h3 id="1-参数较多">
+<a class="header-anchor" href="#1-%e5%8f%82%e6%95%b0%e8%be%83%e5%a4%9a"></a>
+1. 参数较多
+</h3><p>参数会明显影响算法效果:</p>
+<ul>
+<li>种群大小</li>
+<li>迭代次数</li>
+<li>交叉概率</li>
+<li>变异概率</li>
+<li>精英个体数量</li>
+<li>选择方式</li>
+</ul>
+<p>比如：</p>
+<ul>
+<li>种群太小，容易早熟</li>
+<li>种群太大，计算成本高</li>
+<li>变异率太低，容易陷入局部最优</li>
+<li>变异率太高，搜索又太随机</li>
+</ul>
+<h3 id="2-计算成本较高">
+<a class="header-anchor" href="#2-%e8%ae%a1%e7%ae%97%e6%88%90%e6%9c%ac%e8%be%83%e9%ab%98"></a>
+2. 计算成本较高
+</h3><p>每一代都需要计算整个种群的适应度</p>
+<p>如果适应度函数本身很复杂，比如需要跑仿真、训练模型、计算路径代价，那么遗传算法的计算量会比较大</p>
+<h3 id="3-容易早熟收敛">
+<a class="header-anchor" href="#3-%e5%ae%b9%e6%98%93%e6%97%a9%e7%86%9f%e6%94%b6%e6%95%9b"></a>
+3. 容易早熟收敛
+</h3><p>早熟收敛: 如果种群多样性下降太快，所有个体很快变得相似，算法可能陷入局部最优</p>
+<p>解决方法包括：</p>
+<ul>
+<li>增大种群规模</li>
+<li>提高变异概率</li>
+<li>使用精英保留但不要保留太多</li>
+<li>引入随机新个体</li>
+<li>使用多种群遗传算法</li>
+</ul>
+<h2 id="模型代码">
+<a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
+💻模型代码
+</h2><p>目标函数为：
+</p>
+$$
+f(x) = x \sin(10\pi x) + 2
+$$<p>
+搜索范围：
+</p>
+$$
+x \in [-1, 2]
+$$<p>
+求解函数最大值问题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">########################################</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 最大化目标函数:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - 目标函数: f(x)=xsin(10πx)+2</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - 搜索访问: x∈[−1,2]</span>
+</span></span><span class="line"><span class="cl"><span class="c1">########################################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GeneticAlgorithm</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">objective_func</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bounds</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pop_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_generations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">crossover_rate</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">elite_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">seed</span><span class="o">=</span><span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        objective_func: 目标函数，输入一个个体，输出适应度
+</span></span></span><span class="line"><span class="cl"><span class="s2">        bounds: 每个变量的取值范围，例如 [(-1, 2)]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        pop_size: 种群规模
+</span></span></span><span class="line"><span class="cl"><span class="s2">        max_generations: 最大迭代次数
+</span></span></span><span class="line"><span class="cl"><span class="s2">        crossover_rate: 交叉概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        mutation_rate: 变异概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        elite_size: 精英保留数量
+</span></span></span><span class="line"><span class="cl"><span class="s2">        mutation_scale: 变异扰动强度
+</span></span></span><span class="line"><span class="cl"><span class="s2">        seed: 随机种子
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">objective_func</span> <span class="o">=</span> <span class="n">objective_func</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">=</span> <span class="n">pop_size</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">max_generations</span> <span class="o">=</span> <span class="n">max_generations</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">crossover_rate</span> <span class="o">=</span> <span class="n">crossover_rate</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mutation_rate</span> <span class="o">=</span> <span class="n">mutation_rate</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span> <span class="o">=</span> <span class="n">elite_size</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mutation_scale</span> <span class="o">=</span> <span class="n">mutation_scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span> <span class="c1"># 优化变量的个数(问题的维度)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="c1"># 随机数生成器对象</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_population</span><span class="p">()</span> <span class="c1"># 存储当前种群</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">best_history</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 记录每一代最优个体适应度值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_init_population</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        初始化种群
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lower</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">upper</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span> <span class="c1"># 均匀分布</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span><span class="o">=</span><span class="n">lower</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span><span class="o">=</span><span class="n">upper</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">population</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        计算种群中每个个体的适应度(fitness)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fitness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">objective_func</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fitness</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_tournament_selection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fitness</span><span class="p">,</span> <span class="n">tournament_size</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        锦标赛选择 (每次随机挑 n 个个体，谁最好谁留下)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">candidates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">size</span><span class="o">=</span><span class="n">tournament_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">replace</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># 不重复抽取(同一轮锦标赛中不会选到同一个体两次)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">best_candidate</span> <span class="o">=</span> <span class="n">candidates</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">[</span><span class="n">candidates</span><span class="p">])]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_candidate</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_crossover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        实数编码交叉：算术交叉
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># (1 - self.crossover_rate) % 的概率 不交叉</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">crossover_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">parent1</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">parent2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># self.crossover_rate % 的概率 交叉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">child1</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">parent1</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">parent2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">child2</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">parent2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">parent1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">child1</span><span class="p">,</span> <span class="n">child2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_mutate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">individual</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        实数变异：对部分基因加入高斯噪声
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutation_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutation_scale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 防止越界</span>
+</span></span><span class="line"><span class="cl">        <span class="n">individual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">individual</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">individual</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        执行遗传算法
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">generation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_generations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fitness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">()</span> <span class="c1"># 计算self.population的适应度</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 记录当前最优</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_individual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 最优个体</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_fitness</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">best_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Generation </span><span class="si">{</span><span class="n">generation</span> <span class="o">+</span> <span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2"> | &#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Best Fitness = </span><span class="si">{</span><span class="n">best_fitness</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> | &#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Best Individual = </span><span class="si">{</span><span class="n">best_individual</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 精英保留</span>
+</span></span><span class="line"><span class="cl">            <span class="n">elite_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">fitness</span><span class="p">)[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">elites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">elite_indices</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 精英</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 选择 (锦标赛)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected_population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tournament_selection</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 交叉 + 变异</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_population</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent1</span> <span class="o">=</span> <span class="n">selected_population</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent2</span> <span class="o">=</span> <span class="n">selected_population</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 交叉</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child1</span><span class="p">,</span> <span class="n">child2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crossover</span><span class="p">(</span><span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 变异</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mutate</span><span class="p">(</span><span class="n">child1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mutate</span><span class="p">(</span><span class="n">child2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">new_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_population</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">new_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 合并新种群和精英个体</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_population</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">elites</span>
+</span></span><span class="line"><span class="cl">            <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 最终结果</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fitness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_idx</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">objective</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    目标函数:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    f(x) = x * sin(10πx) + 2
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ga</span> <span class="o">=</span> <span class="n">GeneticAlgorithm</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">objective_func</span><span class="o">=</span><span class="n">objective</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bounds</span><span class="o">=</span><span class="p">[(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pop_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_generations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">crossover_rate</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">elite_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">best_x</span><span class="p">,</span> <span class="n">best_y</span> <span class="o">=</span> <span class="n">ga</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Final Result:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Best x:&#34;</span><span class="p">,</span> <span class="n">best_x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Best y:&#34;</span><span class="p">,</span> <span class="n">best_y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制收敛曲线</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ga</span><span class="o">.</span><span class="n">best_history</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;Generation&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&#34;Best Fitness&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&#34;Genetic Algorithm Convergence&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">########################################</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0-1背包问题:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - 给定若干物品，每个物品有重量和价值</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - 在背包容量限制下，选择一部分物品</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># - 目标: 最大化所选物品的总价值</span>
+</span></span><span class="line"><span class="cl"><span class="c1">########################################</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">KnapsackGA</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">weights</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">values</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">capacity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pop_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_generations</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">crossover_rate</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">elite_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">seed</span><span class="o">=</span><span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        weights: 物品重量列表
+</span></span></span><span class="line"><span class="cl"><span class="s2">        values: 物品价值列表
+</span></span></span><span class="line"><span class="cl"><span class="s2">        capacity: 背包最大容量
+</span></span></span><span class="line"><span class="cl"><span class="s2">        pop_size: 种群规模
+</span></span></span><span class="line"><span class="cl"><span class="s2">        max_generations: 最大迭代次数
+</span></span></span><span class="line"><span class="cl"><span class="s2">        crossover_rate: 交叉概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        mutation_rate: 变异概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        elite_size: 精英保留数量
+</span></span></span><span class="line"><span class="cl"><span class="s2">        seed: 随机种子
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="c1"># 物品重量</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="c1"># 物品价值</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">capacity</span> <span class="c1"># 背包容量</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">=</span> <span class="n">pop_size</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">max_generations</span> <span class="o">=</span> <span class="n">max_generations</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">crossover_rate</span> <span class="o">=</span> <span class="n">crossover_rate</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">mutation_rate</span> <span class="o">=</span> <span class="n">mutation_rate</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span> <span class="o">=</span> <span class="n">elite_size</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">num_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="c1"># 物品数量</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="c1"># 随机数生成器对象</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_population</span><span class="p">()</span> <span class="c1"># 存储当前种群</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">best_history</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># 记录每一代最优适应度值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_init_population</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        初始化种群
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        二进制编码:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        1 表示选择该物品
+</span></span></span><span class="line"><span class="cl"><span class="s2">        0 表示不选择该物品
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">individual</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        计算单个个体的适应度
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        对于背包问题:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        - 如果总重量超过背包容量，则适应度为 0
+</span></span></span><span class="line"><span class="cl"><span class="s2">        - 如果没有超过容量，则适应度为总价值
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total_weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">individual</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="c1"># 当前方案总重量</span>
+</span></span><span class="line"><span class="cl">        <span class="n">total_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">individual</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="c1"># 当前方案总价值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 超出背包容量，说明该方案不可行</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">total_weight</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">total_value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        计算种群中每个个体的适应度(fitness)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fitness</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">_fitness</span><span class="p">(</span><span class="n">individual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">individual</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fitness</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_tournament_selection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fitness</span><span class="p">,</span> <span class="n">tournament_size</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        锦标赛选择
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        每次随机挑选 tournament_size 个个体
+</span></span></span><span class="line"><span class="cl"><span class="s2">        从中选择适应度最高的个体进入下一代候选种群
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">selected</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">candidates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">size</span><span class="o">=</span><span class="n">tournament_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">replace</span><span class="o">=</span><span class="kc">False</span> <span class="c1"># 不重复抽取</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">best_candidate</span> <span class="o">=</span> <span class="n">candidates</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">[</span><span class="n">candidates</span><span class="p">])]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_candidate</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">selected</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_crossover</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        单点交叉
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        随机选择一个交叉点
+</span></span></span><span class="line"><span class="cl"><span class="s2">        将两个父代在该位置之后的基因片段进行交换
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># (1 - self.crossover_rate) % 的概率 不交叉</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">crossover_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">parent1</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">parent2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># self.crossover_rate % 的概率 交叉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">point</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">child1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent1</span><span class="p">[:</span><span class="n">point</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent2</span><span class="p">[</span><span class="n">point</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">child2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent2</span><span class="p">[:</span><span class="n">point</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="n">parent1</span><span class="p">[</span><span class="n">point</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">child1</span><span class="p">,</span> <span class="n">child2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_mutate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">individual</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        二进制变异
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        对每一个基因位:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        - 0 -&gt; 1
+</span></span></span><span class="line"><span class="cl"><span class="s2">        - 1 -&gt; 0
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_items</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutation_rate</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">individual</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">individual</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        执行遗传算法
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">generation</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_generations</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">fitness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">()</span> <span class="c1"># 计算 self.population 的适应度</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 记录当前最优</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_fitness</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">best_individual</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 最优个体</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">best_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">best_fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Generation </span><span class="si">{</span><span class="n">generation</span> <span class="o">+</span> <span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2"> | &#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Best Value = </span><span class="si">{</span><span class="n">best_fitness</span><span class="si">}</span><span class="s2"> | &#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s2">&#34;Best Individual = </span><span class="si">{</span><span class="n">best_individual</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 精英保留</span>
+</span></span><span class="line"><span class="cl">            <span class="n">elite_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">fitness</span><span class="p">)[</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">elites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">elite_indices</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># 精英个体</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 选择 (锦标赛)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">selected_population</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tournament_selection</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 交叉 + 变异</span>
+</span></span><span class="line"><span class="cl">            <span class="n">new_population</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent1</span> <span class="o">=</span> <span class="n">selected_population</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">parent2</span> <span class="o">=</span> <span class="n">selected_population</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 交叉</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child1</span><span class="p">,</span> <span class="n">child2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crossover</span><span class="p">(</span><span class="n">parent1</span><span class="p">,</span> <span class="n">parent2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 变异</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mutate</span><span class="p">(</span><span class="n">child1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">child2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mutate</span><span class="p">(</span><span class="n">child2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="n">new_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_population</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">pop_size</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">elite_size</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">new_population</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">child2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 合并新种群和精英个体</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_population</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">elites</span>
+</span></span><span class="line"><span class="cl">            <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 最终结果</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fitness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">best_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">population</span><span class="p">[</span><span class="n">best_idx</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="n">best_idx</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">capacity</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">ga</span> <span class="o">=</span> <span class="n">KnapsackGA</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">capacity</span><span class="o">=</span><span class="n">capacity</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pop_size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_generations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">crossover_rate</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mutation_rate</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">elite_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">best_solution</span><span class="p">,</span> <span class="n">best_value</span> <span class="o">=</span> <span class="n">ga</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">total_weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">best_solution</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">))</span> <span class="c1"># 最优方案总重量</span>
+</span></span><span class="line"><span class="cl">    <span class="n">selected_items</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">best_solution</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 被选中的物品编号</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Final Result:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Best Solution:&#34;</span><span class="p">,</span> <span class="n">best_solution</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Selected Items:&#34;</span><span class="p">,</span> <span class="n">selected_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Total Weight:&#34;</span><span class="p">,</span> <span class="n">total_weight</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Total Value:&#34;</span><span class="p">,</span> <span class="n">best_value</span><span class="p">)</span>
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/ml%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >ML从入门到入土</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[雷达] 4D毫米波雷达"
+              class="lazyload"
+            /><a
+          href="/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/"
+          aria-label="前一篇:[雷达] 4D毫米波雷达"
+          title="前一篇:[雷达] 4D毫米波雷达"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[雷达] 4D毫米波雷达</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;80.7k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;03:22</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ml从入门到入土-遗传算法ga">[ML从入门到入土] 遗传算法GA</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a>
+          <ul>
+            <li><a href="#1-为什么需要遗传算法">1. 为什么需要遗传算法</a></li>
+            <li><a href="#2-核心思想">2. 核心思想</a></li>
+          </ul>
+        </li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li><a href="#1-个体编码">1. 个体编码</a></li>
+            <li><a href="#2-适应度函数">2. 适应度函数</a></li>
+            <li><a href="#3-选择-selection">3. 选择 Selection</a></li>
+            <li><a href="#4-交叉-crossover">4. 交叉 Crossover</a>
+              <ul>
+                <li><a href="#41-交叉---二进制">4.1 交叉 - 二进制</a></li>
+                <li><a href="#41-交叉---实数">4.1 交叉 - 实数</a></li>
+              </ul>
+            </li>
+            <li><a href="#5-变异-mutation">5. 变异 Mutation</a>
+              <ul>
+                <li><a href="#51-变异---二进制">5.1 变异 - 二进制</a></li>
+                <li><a href="#52-变异---实数">5.2 变异 - 实数</a></li>
+              </ul>
+            </li>
+            <li><a href="#6-终止条件">6. 终止条件</a></li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li><a href="#1-不依赖梯度">1. 不依赖梯度</a></li>
+            <li><a href="#2-全局搜索能力较强">2. 全局搜索能力较强</a></li>
+            <li><a href="#3-适合组合优化问题">3. 适合组合优化问题</a></li>
+            <li><a href="#4-算法框架通用">4. 算法框架通用</a></li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li><a href="#1-参数较多">1. 参数较多</a></li>
+            <li><a href="#2-计算成本较高">2. 计算成本较高</a></li>
+            <li><a href="#3-容易早熟收敛">3. 容易早熟收敛</a></li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">75</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      14
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">3</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[ML从入门到入土] 遗传算法",
+          url: "https:\/\/byzhrichard.github.io\/post\/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95\/",
+          description: "\r[ML从入门到入土] 遗传算法GA\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.12.0/dist/mermaid.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-o&#43;g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.6/dist/purify.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla&#43;3" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt&#43;Y&#43;cBEb95og5cXKllnWKSELlzbx" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = '.mermaid'
+          const processElements = (callback) => {
+            const els = _$$(elementCode);
+            if (!els.length) return Promise.resolve();
+            
+            return new Promise((resolve, reject) => {
+              try {
+                els.forEach(callback);
+                resolve();
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const saveOriginalData = () => processElements(el => {
+            if (!el.getAttribute('data-original-code')) {
+              el.setAttribute('data-original-code', el.innerHTML);
+            }
+          });
+
+          const resetProcessed = () => processElements(el => {
+            const originalCode = el.getAttribute('data-original-code');
+            if (originalCode) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = DOMPurify.sanitize(originalCode);
+            }
+          });
+          const loadMermaid = async (theme) => {
+            window.mermaid.initialize({theme, startOnLoad: false})
+            await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
+            if (window.svgPanZoom) {
+              window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
+              window.__panZoomList = [];
+              _$$('.mermaid > svg').forEach(el => {
+                const bbox = el.getBBox();
+                el.setAttribute('height', Math.max(bbox.height, 80));
+                window.__panZoomList.push(window.svgPanZoom(el, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  center: true
+                }));
+              });
+              if (window.__resizeMermaidSvg) {
+                window.removeEventListener('resize', window.__resizeMermaidSvg);
+              }
+              window.__resizeMermaidSvg = () => {
+                try {
+                  window.__panZoomList.forEach(panZoom => {
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                  });
+                } catch {
+                  window.removeEventListener('resize', window.__resizeMermaidSvg);
+                  window.__panZoomList = [];
+                }
+              }
+              window.addEventListener('resize', window.__resizeMermaidSvg);
+            }
+          }
+          const initMermaid = async (theme) => {
+            try {
+              await saveOriginalData();
+              await resetProcessed();
+              await loadMermaid(theme);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
+            initMermaid(isDark ? 'dark' : 'default');
+          });
+
+          const mode = localStorage.getItem('dark_mode');
+          if (mode === 'auto') {
+            const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            initMermaid(osMode ? 'dark' : 'default');
+          } else {
+            initMermaid(mode === 'true' ? 'dark' : 'default');
+          }
+        }
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
