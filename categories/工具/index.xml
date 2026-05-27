@@ -12,12 +12,55 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 22 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[工具] OpenCode</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</guid>
+      <description>
+        <![CDATA[<h1>[工具] OpenCode</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="全局配置">
+<a class="header-anchor" href="#%e5%85%a8%e5%b1%80%e9%85%8d%e7%bd%ae"></a>
+全局配置
+</h1><h3 id="1-始终用中文回答">
+<a class="header-anchor" href="#1-%e5%a7%8b%e7%bb%88%e7%94%a8%e4%b8%ad%e6%96%87%e5%9b%9e%e7%ad%94"></a>
+1. 始终用中文回答
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">新建一个全局规则文件，我希望始终用中文回复
+</span></span></code></pre></div><h1 id="常用命令">
+<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
+常用命令
+</h1><p>读取项目</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/init
+</span></span></code></pre></div><p>压缩上下文</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/compact
+</span></span></code></pre></div><p>选择model</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/models
+</span></span></code></pre></div><p>添加model</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/connect
+</span></span></code></pre></div><p>?切换model</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ctrl+p -&gt; switch model
+</span></span></code></pre></div><h1 id="多对话框">
+<a class="header-anchor" href="#%e5%a4%9a%e5%af%b9%e8%af%9d%e6%a1%86"></a>
+多对话框
+</h1><p>创建新的section</p>
+        
+        <hr><p>本文2026-05-26首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
     
     
 
@@ -519,20 +562,20 @@ B --> |否| D[结束]
       <description>
         <![CDATA[<h1>[工具] Git</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="url">
+          <h2 id="url">
 <a class="header-anchor" href="#url"></a>
 url
-</h1><p>网页: gitee.com/byzh-rc/study_pytorch
+</h2><p>网页: gitee.com/byzh-rc/study_pytorch
 ssh: <a href="mailto:git@gitee.com">git@gitee.com</a>:byzh-rc/study_pytorch.git</p>
 <p>网页: swanhub.co/byzh/study_nets/tree/master
 ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
-<h1 id="gitignore">
+<h2 id="gitignore">
 <a class="header-anchor" href="#gitignore"></a>
 <code>.gitignore</code>
-</h1><h2 id="1-基础内容">
+</h2><h3 id="1-基础内容">
 <a class="header-anchor" href="#1-%e5%9f%ba%e7%a1%80%e5%86%85%e5%ae%b9"></a>
 1. 基础内容
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
 </span></span><span class="line"><span class="cl">**/.idea/
 </span></span><span class="line"><span class="cl">**/.vscode/
 </span></span><span class="line"><span class="cl">uv.lock
@@ -580,10 +623,10 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">part_*/
 </span></span><span class="line"><span class="cl">!part_main/
-</span></span></code></pre></div><h2 id="2-latex内容">
+</span></span></code></pre></div><h3 id="2-latex内容">
 <a class="header-anchor" href="#2-latex%e5%86%85%e5%ae%b9"></a>
 2. latex内容
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># latex相关
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># latex相关
 </span></span><span class="line"><span class="cl">/*.aux
 </span></span><span class="line"><span class="cl">/*.out
 </span></span><span class="line"><span class="cl">/*.log
@@ -595,69 +638,6 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 <a class="header-anchor" href="#gitignore%e8%af%ad%e6%b3%95"></a>
 <code>.gitignore</code>语法
 </h2><p>注释: <code>#</code></p>
-        
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] Conda</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</link>
-      <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/conda/</guid>
-      <description>
-        <![CDATA[<h1>[工具] Conda</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="miniconda">
-<a class="header-anchor" href="#miniconda"></a>
-miniconda
-</h1><h2 id="1-配置">
-<a class="header-anchor" href="#1-%e9%85%8d%e7%bd%ae"></a>
-1. 配置
-</h2><p>环境变量:
-![[Pasted image 20260520012222.png]]</p>
-<p>生成.condarc文件:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">conda init cmd.exe
-</span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes		//生成.condarc文件
-</span></span></code></pre></div><p>替换.condarc文件:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">channels:
-</span></span><span class="line"><span class="cl">  - defaults
-</span></span><span class="line"><span class="cl">show_channel_urls: true
-</span></span><span class="line"><span class="cl">default_channels:
-</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
-</span></span><span class="line"><span class="cl">custom_channels:
-</span></span><span class="line"><span class="cl">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-</span></span><span class="line"><span class="cl">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
-</span></span></code></pre></div><h1 id="命令">
-<a class="header-anchor" href="#%e5%91%bd%e4%bb%a4"></a>
-命令
-</h1><h2 id="1-基本命令">
-<a class="header-anchor" href="#1-%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4"></a>
-1. 基本命令
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">env</span> <span class="n">list</span>
-</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="p">-</span><span class="n">-name</span> <span class="n">名字</span> <span class="n">python</span><span class="p">=</span><span class="mf">3.11</span><span class="p">.</span><span class="py">5</span>
-</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="n">-n</span> <span class="n">名字</span> <span class="n">python</span><span class="p">=</span><span class="mf">3.10</span><span class="p">.</span><span class="py">9</span>
-</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">create</span> <span class="p">-</span><span class="n">-clone</span> <span class="n">名字</span> <span class="p">-</span><span class="n">-name</span> <span class="n">新名字</span>	<span class="p">//</span><span class="n">克隆一个一模一样的环境</span>
-</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">remove</span> <span class="p">-</span><span class="n">-name</span> <span class="n">名字</span> <span class="p">-</span><span class="n">-all</span>
-</span></span><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">activate</span> <span class="n">名字</span>
-</span></span></code></pre></div><h2 id="2-conda-activate">
-<a class="header-anchor" href="#2-conda-activate"></a>
-2. conda activate
-</h2><p>也可以直接从路径启动conda环境, 不过必须是conda的环境(包含 Conda 环境的必要文件)</p>
         
         <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>

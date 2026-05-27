@@ -137,17 +137,24 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#url">url</a></li>
-    <li><a href="#gitignore"><code>.gitignore</code></a>
+    <li>
       <ul>
-        <li><a href="#1-基础内容">1. 基础内容</a></li>
-        <li><a href="#2-latex内容">2. latex内容</a></li>
+        <li><a href="#url">url</a></li>
+        <li><a href="#gitignore"><code>.gitignore</code></a>
+          <ul>
+            <li><a href="#1-基础内容">1. 基础内容</a></li>
+            <li><a href="#2-latex内容">2. latex内容</a></li>
+          </ul>
+        </li>
         <li><a href="#gitignore语法"><code>.gitignore</code>语法</a></li>
-      </ul>
-    </li>
-    <li><a href="#github">github</a>
-      <ul>
-        <li><a href="#1-下载内容">1. 下载内容</a></li>
+        <li><a href="#github">Github</a>
+          <ul>
+            <li><a href="#1-下载内容">1. 下载内容</a></li>
+            <li><a href="#2-关联远程仓库">2. 关联远程仓库</a></li>
+            <li><a href="#3-克隆远程仓库">3. 克隆远程仓库</a></li>
+          </ul>
+        </li>
+        <li><a href="#一键pull-add-commit-push">一键pull-add-commit-push</a></li>
       </ul>
     </li>
   </ul>
@@ -165,12 +172,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -260,20 +267,20 @@
       >2026-05-19</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="url">
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="url">
 <a class="header-anchor" href="#url"></a>
 url
-</h1><p>网页: gitee.com/byzh-rc/study_pytorch
+</h2><p>网页: gitee.com/byzh-rc/study_pytorch
 ssh: <a href="mailto:git@gitee.com">git@gitee.com</a>:byzh-rc/study_pytorch.git</p>
 <p>网页: swanhub.co/byzh/study_nets/tree/master
 ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
-<h1 id="gitignore">
+<h2 id="gitignore">
 <a class="header-anchor" href="#gitignore"></a>
 <code>.gitignore</code>
-</h1><h2 id="1-基础内容">
+</h2><h3 id="1-基础内容">
 <a class="header-anchor" href="#1-%e5%9f%ba%e7%a1%80%e5%86%85%e5%ae%b9"></a>
 1. 基础内容
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
 </span></span><span class="line"><span class="cl">**/.idea/
 </span></span><span class="line"><span class="cl">**/.vscode/
 </span></span><span class="line"><span class="cl">uv.lock
@@ -321,10 +328,10 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">part_*/
 </span></span><span class="line"><span class="cl">!part_main/
-</span></span></code></pre></div><h2 id="2-latex内容">
+</span></span></code></pre></div><h3 id="2-latex内容">
 <a class="header-anchor" href="#2-latex%e5%86%85%e5%ae%b9"></a>
 2. latex内容
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># latex相关
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># latex相关
 </span></span><span class="line"><span class="cl">/*.aux
 </span></span><span class="line"><span class="cl">/*.out
 </span></span><span class="line"><span class="cl">/*.log
@@ -349,25 +356,55 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 不以<code>/</code>结尾: 表示文件或目录</p>
 <p>以<code>/</code>开头: 代表是项目根目录下的, 而非所有目录下的
 不以<code>/</code>开头: 代表所有目录下的, 相当于以<code>**/</code>开头</p>
-<h1 id="github">
+<h2 id="github">
 <a class="header-anchor" href="#github"></a>
-github
-</h1><h2 id="1-下载内容">
+Github
+</h2><h3 id="1-下载内容">
 <a class="header-anchor" href="#1-%e4%b8%8b%e8%bd%bd%e5%86%85%e5%ae%b9"></a>
 1. 下载内容
-</h2><p>在浏览仓库时的内容一般是以<code>github.com</code>开头的</p>
+</h3><p>在浏览仓库时的内容一般是以<code>github.com</code>开头的</p>
 <blockquote>
 <p><a href="https://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp">https://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp</a></p>
 </blockquote>
-<p>但这只是浏览仓库的, 不是真实文件的链接, 需要手动改成<code>raw.githubusercontent.com</code>开头的</p>
+<p>但这只是浏览仓库的, 不是真实文件的链接:</p>
+<ul>
+<li>需要手动改成<code>raw.githubusercontent.com</code>开头的</li>
+<li>还需要手动去掉blob</li>
+</ul>
 <blockquote>
 <p><a href="https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp">https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp</a></p>
 </blockquote>
-<blockquote>
-<p>如果只是需要图床, 建议改成<code>https://byzhrichard.github.io/byzh/image1.webp</code>
+<p>注意: 如果只是需要图床, 建议改成<code>https://byzhrichard.github.io/byzh/image1.webp</code>
 这样有CDN, 更稳定</p>
+<h3 id="2-关联远程仓库">
+<a class="header-anchor" href="#2-%e5%85%b3%e8%81%94%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
+2. 关联远程仓库
+</h3><p>关联远程仓库:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote add origin url
+</span></span><span class="line"><span class="cl">git push -u origin main   # -u后, 以后只需要输入git push
+</span></span></code></pre></div><blockquote>
+<p>本地强制覆盖云端: <code>push加上-f</code> (慎用)</p>
 </blockquote>
-</div>
+<p>查看远程仓库:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote -v
+</span></span></code></pre></div><p>取消关联:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote remove origin
+</span></span></code></pre></div><h3 id="3-克隆远程仓库">
+<a class="header-anchor" href="#3-%e5%85%8b%e9%9a%86%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
+3. 克隆远程仓库
+</h3><p>自动创建与远程仓库同名的文件夹: (最常用)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone ssh
+</span></span></code></pre></div><p>直接克隆到当前文件夹: (不创建同名文件夹)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone ssh .
+</span></span></code></pre></div><h2 id="一键pull-add-commit-push">
+<a class="header-anchor" href="#%e4%b8%80%e9%94%aepull-add-commit-push"></a>
+一键pull-add-commit-push
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bat" data-lang="bat"><span class="line"><span class="cl"><span class="k">call</span> git pull --rebase --autostash
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m &#39;awa&#39;
+</span></span><span class="line"><span class="cl">git push
+</span></span><span class="line"><span class="cl">cmd /k
+</span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -427,10 +464,10 @@ github
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;80.7k</span
+          >&nbsp;81.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:22</span>
+        <span class="icon-coffee">&nbsp;03:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -456,17 +493,24 @@ github
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#url">url</a></li>
-    <li><a href="#gitignore"><code>.gitignore</code></a>
+    <li>
       <ul>
-        <li><a href="#1-基础内容">1. 基础内容</a></li>
-        <li><a href="#2-latex内容">2. latex内容</a></li>
+        <li><a href="#url">url</a></li>
+        <li><a href="#gitignore"><code>.gitignore</code></a>
+          <ul>
+            <li><a href="#1-基础内容">1. 基础内容</a></li>
+            <li><a href="#2-latex内容">2. latex内容</a></li>
+          </ul>
+        </li>
         <li><a href="#gitignore语法"><code>.gitignore</code>语法</a></li>
-      </ul>
-    </li>
-    <li><a href="#github">github</a>
-      <ul>
-        <li><a href="#1-下载内容">1. 下载内容</a></li>
+        <li><a href="#github">Github</a>
+          <ul>
+            <li><a href="#1-下载内容">1. 下载内容</a></li>
+            <li><a href="#2-关联远程仓库">2. 关联远程仓库</a></li>
+            <li><a href="#3-克隆远程仓库">3. 克隆远程仓库</a></li>
+          </ul>
+        </li>
+        <li><a href="#一键pull-add-commit-push">一键pull-add-commit-push</a></li>
       </ul>
     </li>
   </ul>
@@ -484,12 +528,12 @@ github
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

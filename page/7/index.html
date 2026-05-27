@@ -46,8 +46,8 @@
   />
   <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
   <meta property="article:author" content="byzh" />
-  <meta property="article:published_time" content="2026-05-24T00:00:00&#43;00:00" />
-  <meta property="article:modified_time" content="2026-05-24T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" /><link rel="alternate" type="application/rss+xml" href="https://byzhrichard.github.io/index.xml" title="byzh的博客">
+  <meta property="article:published_time" content="2026-05-26T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-26T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" /><link rel="alternate" type="application/rss+xml" href="https://byzhrichard.github.io/index.xml" title="byzh的博客">
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
     rel="preload"
     as="style"
@@ -146,12 +146,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -345,15 +345,15 @@
       <h3 class="widget-title">最新文章</h3>
       <div class="widget">
         <ul><li>
+              <a href="/post/%E5%B7%A5%E5%85%B7/opencode/" title="[工具] OpenCode">[工具] OpenCode</a>
+            </li><li>
+              <a href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/" title="[x] y">[x] y</a>
+            </li><li>
               <a href="/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" title="[ML从入门到入土] 遗传算法">[ML从入门到入土] 遗传算法</a>
             </li><li>
               <a href="/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/" title="[雷达] 4D毫米波雷达">[雷达] 4D毫米波雷达</a>
             </li><li>
               <a href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/" title="[DL_Net从入门到入土] CycleGAN">[DL_Net从入门到入土] CycleGAN</a>
-            </li><li>
-              <a href="/post/%E5%B7%A5%E5%85%B7/latex/" title="[工具] LaTex">[工具] LaTex</a>
-            </li><li>
-              <a href="/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/" title="[AI数学从入门到入土] KL散度">[AI数学从入门到入土] KL散度</a>
             </li></ul>
       </div>
     </div>
@@ -366,13 +366,56 @@
     data-aos="fade-up"
   ><a
         class="post-link"
+        href="/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%81%9A%E7%B1%BB/"
+        aria-label="[ML从入门到入土] 聚类"
+        title="[ML从入门到入土] 聚类"
+      >
+      </a><div
+      class="
+        post-cover left
+      "
+    ><img
+            data-src="/byzh/image1.webp"
+            data-sizes="auto"
+            alt="[ML从入门到入土] 聚类"
+            class="lazyload"
+          /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2026-05-17</span
+        ><span
+          ><span class="icon-pencil"></span
+          >132 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >1 分钟</span
+        >
+      </div>
+      <h2 class="post-title">[ML从入门到入土] 聚类</h2>
+      <article class="post-article">指标1. Purity每个 cluster 只看 占比最大的 label $$\text{Purity}=\frac{1}{N}\sum_k \max_j |C_k \cap L_j|$$2. ARI同类样本是否在同一个 cluster
+3. NMINMI 基于信息论，衡量聚类结果和真实标签之间共享的信息量
+指标 核心思想 优点 缺点 Purity cluster 内最大类别比例 直观易理解 cluster 多时会虚高 ARI 样本对一致性 对错误惩罚强 对过度分裂敏感 NMI 信息共享量 稳定、常用于论文 直觉性稍弱 </article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
         href="/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"
         aria-label="[ML从入门到入土] 线性回归"
         title="[ML从入门到入土] 线性回归"
       >
       </a><div
       class="
-        post-cover left
+        post-cover right
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -404,7 +447,7 @@ $$y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n + \epsilon$$ $y$ 是预测目标（
 <div class="post-wrapper">
   <div
     class="
-      post-wrap right
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
@@ -415,7 +458,7 @@ $$y = w_0 + w_1x_1 + w_2x_2 + ... + w_nx_n + \epsilon$$ $y$ 是预测目标（
       >
       </a><div
       class="
-        post-cover right
+        post-cover left
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -447,7 +490,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap left
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
@@ -458,7 +501,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover left
+        post-cover right
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -490,7 +533,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap right
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
@@ -501,7 +544,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover right
+        post-cover left
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -533,7 +576,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap left
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
@@ -544,7 +587,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover left
+        post-cover right
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -576,7 +619,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap right
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
@@ -587,7 +630,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover right
+        post-cover left
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -619,7 +662,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap left
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
@@ -630,7 +673,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover left
+        post-cover right
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -662,7 +705,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap right
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
@@ -673,7 +716,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover right
+        post-cover left
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -703,7 +746,7 @@ CSDN：https://blog.csdn.net/qq_54636039
 <div class="post-wrapper">
   <div
     class="
-      post-wrap left
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
@@ -714,7 +757,7 @@ CSDN：https://blog.csdn.net/qq_54636039
       >
       </a><div
       class="
-        post-cover left
+        post-cover right
       "
     ><img
             data-src="/byzh/image1.webp"
@@ -738,50 +781,6 @@ CSDN：https://blog.csdn.net/qq_54636039
       </div>
       <h2 class="post-title">[装机必备] BIOS</h2>
       <article class="post-article">shell:startup
-</article>
-    </div>
-  </div>
-</div>
-<div class="post-wrapper">
-  <div
-    class="
-      post-wrap right
-    "
-    data-aos="fade-up"
-  ><a
-        class="post-link"
-        href="/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E8%BD%AF%E4%BB%B6/"
-        aria-label="[装机必备] 软件"
-        title="[装机必备] 软件"
-      >
-      </a><div
-      class="
-        post-cover right
-      "
-    ><img
-            data-src="/byzh/image1.webp"
-            data-sizes="auto"
-            alt="[装机必备] 软件"
-            class="lazyload"
-          /></div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span
-          ><span class="icon-calendar"></span
-          >2026-05-17</span
-        ><span
-          ><span class="icon-pencil"></span
-          >23 字</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >1 分钟</span
-        >
-      </div>
-      <h2 class="post-title">[装机必备] 软件</h2>
-      <article class="post-article">软件1. 窗口置顶 - AltSnaphttps://github.com/RamonUnch/AltSnap
-2. 截图 - pixpinhttps://pixpin.cn/
-3. 快捷键 - AutoHotkeyhttps://www.autohotkey.com/
 </article>
     </div>
   </div>
@@ -812,10 +811,10 @@ CSDN：https://blog.csdn.net/qq_54636039
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;80.7k</span
+          >&nbsp;81.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:22</span>
+        <span class="icon-coffee">&nbsp;03:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -849,12 +848,12 @@ CSDN：https://blog.csdn.net/qq_54636039
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

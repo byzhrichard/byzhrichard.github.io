@@ -137,13 +137,12 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-使用块的网络vgg">[DL_Net从入门到入土] 使用块的网络VGG</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear架构公式">&#x2699;&#xfe0f;架构(公式)</a>
+    <li><a href="#dl_net从入门到入土-使用块的网络vgg">[DL_Net从入门到入土] 使用块的网络VGG</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
           <ul>
             <li>
               <ul>
@@ -154,11 +153,7 @@
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#1优点创新点">&#x1f44d;优点/创新点</a>
-      <ul>
-        <li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
               <ul>
@@ -169,10 +164,10 @@
             </li>
           </ul>
         </li>
+        <li><a href="#代码实现">💻代码实现</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
-    <li><a href="#computer代码实现">&#x1f4bb;代码实现</a></li>
-    <li><a href="#computer项目实例">&#x1f4bb;项目实例</a></li>
   </ul>
 </nav>
 </div></div>
@@ -188,12 +183,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -286,22 +281,22 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-使用块的网络vgg">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e4%bd%bf%e7%94%a8%e5%9d%97%e7%9a%84%e7%bd%91%e7%bb%9cvgg"></a>
 [DL_Net从入门到入土] 使用块的网络VGG
-</h1><h1 id="loudspeaker个人导航">
-<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-&#x1f4e2;个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
 <p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
 <p>参考文章：各方资料</p>
 <p>@[TOC]</p>
-<h1 id="book参考资料">
-<a class="header-anchor" href="#book%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
-&#x1f4d6;参考资料
-</h1><p>Very Deep Convolutional Networks for Large-Scale Image Recognition.</p>
-<h1 id="seedling背景">
-<a class="header-anchor" href="#seedling%e8%83%8c%e6%99%af"></a>
-&#x1f331;背景
-</h1><p>AlexNet（2012）之后，大家发现 CNN “更深”通常更强，但当时“怎么加深”并不统一：</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Very Deep Convolutional Networks for Large-Scale Image Recognition.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>AlexNet（2012）之后，大家发现 CNN “更深”通常更强，但当时“怎么加深”并不统一：</p>
 <ul>
 <li>AlexNet 用较大的卷积核（11×11、5×5）</li>
 <li>GoogLeNet 用 Inception（结构更复杂）</li>
@@ -310,10 +305,10 @@
 <p>VGG 提出的核心思想非常“工程化”：<strong>用简单、统一、可重复堆叠的卷积块，把网络堆深</strong></p>
 <p>用<strong>大量 3×3 小卷积核</strong>替代大卷积核，并用**Block（块）**的方式组织网络
 -&gt; 使结构更规整、易于扩展、易于迁移（也因此成为经典 backbone）</p>
-<h1 id="gear架构公式">
-<a class="header-anchor" href="#gear%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
-&#x2699;&#xfe0f;架构(公式)
-</h1><p><img src="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/v2-3b2958de99b903e2e74983c1aaa37dd9_1440w.jpg" alt="img"></p>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><p><img src="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/v2-3b2958de99b903e2e74983c1aaa37dd9_1440w.jpg" alt="img"></p>
 <h4 id="1-vgg-block-的形式">
 <a class="header-anchor" href="#1-vgg-block-%e7%9a%84%e5%bd%a2%e5%bc%8f"></a>
 1. VGG Block 的形式
@@ -347,10 +342,10 @@ $$<p>
 <li>每个块后面一个 <code>2×2 maxpool</code></li>
 </ul>
 <p>最后是分类头：<code>FC 4096 -&gt; FC 4096 -&gt; FC num_classes</code></p>
-<h1 id="1优点创新点">
-<a class="header-anchor" href="#1%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
-&#x1f44d;优点/创新点
-</h1><h4 id="1-提出块作为结构单位">
+<h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h4 id="1-提出块作为结构单位">
 <a class="header-anchor" href="#1-%e6%8f%90%e5%87%ba%e5%9d%97%e4%bd%9c%e4%b8%ba%e7%bb%93%e6%9e%84%e5%8d%95%e4%bd%8d"></a>
 1. ==提出“块”作为结构单位==
 </h4><p>VGG 的结构非常规整：<strong>每个 Block 做特征提取 + 下采样</strong>，重复堆叠即可</p>
@@ -367,10 +362,10 @@ $$<p>
 <a class="header-anchor" href="#3-%e5%bc%ba%e8%bf%81%e7%a7%bb%e8%83%bd%e5%8a%9b%e7%bb%8f%e5%85%b8-backbone"></a>
 3. 强迁移能力（经典 backbone）
 </h4><p>虽然 VGG 参数量大、计算慢，但其<strong>特征泛化强</strong>，早期大量检测/分割方法都用它做 backbone</p>
-<h1 id="computer代码实现">
-<a class="header-anchor" href="#computer%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0"></a>
-&#x1f4bb;代码实现
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+<h2 id="代码实现">
+<a class="header-anchor" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0"></a>
+💻代码实现
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 </span></span><span class="line"><span class="cl">
@@ -611,10 +606,10 @@ $$<p>
 </span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;VGG16 输出形状:&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([2, 1000])</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;参数量: </span><span class="si">{</span><span class="n">b_get_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>  <span class="c1"># 143_667_240</span>
-</span></span></code></pre></div><h1 id="computer项目实例">
-<a class="header-anchor" href="#computer%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
-&#x1f4bb;项目实例
-</h1><p>库环境:</p>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2><p>库环境:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">numpy==1.26.4
 </span></span><span class="line"><span class="cl">torch==2.2.2cu121
 </span></span><span class="line"><span class="cl">byzh-core==0.0.9.21
@@ -758,10 +753,10 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;80.7k</span
+          >&nbsp;81.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:22</span>
+        <span class="icon-coffee">&nbsp;03:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -787,13 +782,12 @@ $$<p>
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-使用块的网络vgg">[DL_Net从入门到入土] 使用块的网络VGG</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear架构公式">&#x2699;&#xfe0f;架构(公式)</a>
+    <li><a href="#dl_net从入门到入土-使用块的网络vgg">[DL_Net从入门到入土] 使用块的网络VGG</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
           <ul>
             <li>
               <ul>
@@ -804,11 +798,7 @@ $$<p>
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#1优点创新点">&#x1f44d;优点/创新点</a>
-      <ul>
-        <li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
               <ul>
@@ -819,10 +809,10 @@ $$<p>
             </li>
           </ul>
         </li>
+        <li><a href="#代码实现">💻代码实现</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
-    <li><a href="#computer代码实现">&#x1f4bb;代码实现</a></li>
-    <li><a href="#computer项目实例">&#x1f4bb;项目实例</a></li>
   </ul>
 </nav>
 </div></div>
@@ -838,12 +828,12 @@ $$<p>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -962,7 +952,7 @@ $$<p>
           author: "byzh",
           title: "[DL_Net从入门到入土] 使用块的网络VGG",
           url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/vgg\/",
-          description: "\r[DL_Net从入门到入土] 使用块的网络VGG\r\u0026#x1f4e2;个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\n",
+          description: "\r[DL_Net从入门到入土] 使用块的网络VGG\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

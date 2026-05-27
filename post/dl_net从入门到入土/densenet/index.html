@@ -137,13 +137,12 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-稠密连接网络densenet">[DL_Net从入门到入土] 稠密连接网络DenseNet</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear架构公式">&#x2699;&#xfe0f;架构(公式)</a>
+    <li><a href="#dl_net从入门到入土-稠密连接网络densenet">[DL_Net从入门到入土] 稠密连接网络DenseNet</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
           <ul>
             <li>
               <ul>
@@ -154,11 +153,7 @@
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#1优点创新点">&#x1f44d;优点/创新点</a>
-      <ul>
-        <li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
               <ul>
@@ -167,11 +162,7 @@
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#为什么-densenet-很强">为什么 DenseNet 很强</a>
-      <ul>
-        <li>
+        <li><a href="#为什么-densenet-很强">为什么 DenseNet 很强</a>
           <ul>
             <li>
               <ul>
@@ -182,10 +173,10 @@
             </li>
           </ul>
         </li>
+        <li><a href="#代码实现">💻代码实现</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
-    <li><a href="#computer代码实现">&#x1f4bb;代码实现</a></li>
-    <li><a href="#computer项目实例">&#x1f4bb;项目实例</a></li>
   </ul>
 </nav>
 </div></div>
@@ -201,12 +192,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -299,22 +290,22 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-稠密连接网络densenet">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%a8%a0%e5%af%86%e8%bf%9e%e6%8e%a5%e7%bd%91%e7%bb%9cdensenet"></a>
 [DL_Net从入门到入土] 稠密连接网络DenseNet
-</h1><h1 id="loudspeaker个人导航">
-<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-&#x1f4e2;个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
 <p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
 <p>参考文章：各方资料</p>
 <p>@[TOC]</p>
-<h1 id="book参考资料">
-<a class="header-anchor" href="#book%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
-&#x1f4d6;参考资料
-</h1><p>Densely Connected Convolutional Networks.</p>
-<h1 id="seedling背景">
-<a class="header-anchor" href="#seedling%e8%83%8c%e6%99%af"></a>
-&#x1f331;背景
-</h1><p>在 ResNet 解决“退化问题”后，研究者提出一个更激进的问题：
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Densely Connected Convolutional Networks.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>在 ResNet 解决“退化问题”后，研究者提出一个更激进的问题：
 如果残差连接有效，那么为什么不让每一层都和所有前面的层连接</p>
 <p>ResNet 是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x = F(x) + x
@@ -338,10 +329,10 @@ $$<blockquote>
 <p>$H_l$: Pre-Activation 结构: $BN \rightarrow ReLU \rightarrow Conv$</p>
 <p>每层输入维度不断增长</p>
 </blockquote>
-<h1 id="gear架构公式">
-<a class="header-anchor" href="#gear%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
-&#x2699;&#xfe0f;架构(公式)
-</h1><p><img src="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/image-20260218183622158.png" alt="image-20260218183622158"></p>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><p><img src="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/image-20260218183622158.png" alt="image-20260218183622158"></p>
 <p><img src="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/image-20260218183637473.png" alt="image-20260218183637473"></p>
 <h4 id="1-dense-block">
 <a class="header-anchor" href="#1-dense-block"></a>
@@ -386,10 +377,10 @@ $$<blockquote>
 </span></span><span class="line"><span class="cl">GAP
 </span></span><span class="line"><span class="cl">FC
 </span></span></code></pre></div><p>层数计算：$(6+12+24+16)×2 + 4 = 121$</p>
-<h1 id="1优点创新点">
-<a class="header-anchor" href="#1%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
-&#x1f44d;优点/创新点
-</h1><p>DenseNet 是对 ResNet 的“极限推进版”</p>
+<h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><p>DenseNet 是对 ResNet 的“极限推进版”</p>
 <table>
   <thead>
       <tr>
@@ -446,10 +437,10 @@ $$<blockquote>
 <li>更少的信息损失</li>
 <li>更好的收敛性</li>
 </ul>
-<h1 id="为什么-densenet-很强">
+<h2 id="为什么-densenet-很强">
 <a class="header-anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88-densenet-%e5%be%88%e5%bc%ba"></a>
 为什么 DenseNet 很强
-</h1><h4 id="1-强梯度传播">
+</h2><h4 id="1-强梯度传播">
 <a class="header-anchor" href="#1-%e5%bc%ba%e6%a2%af%e5%ba%a6%e4%bc%a0%e6%92%ad"></a>
 1. 强梯度传播
 </h4><p>每层直接连接到输入：(存在大量短路径)
@@ -474,10 +465,10 @@ $$<h4 id="2-极端特征复用">
 <li>ResNet50：25M</li>
 <li>VGG16：138M</li>
 </ul>
-<h1 id="computer代码实现">
-<a class="header-anchor" href="#computer%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0"></a>
-&#x1f4bb;代码实现
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+<h2 id="代码实现">
+<a class="header-anchor" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0"></a>
+💻代码实现
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 </span></span><span class="line"><span class="cl">
@@ -673,10 +664,10 @@ $$<h4 id="2-极端特征复用">
 </span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">net</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;参数量: </span><span class="si">{</span><span class="n">b_get_params</span><span class="p">(</span><span class="n">net</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> <span class="c1"># 7_978_856</span>
-</span></span></code></pre></div><h1 id="computer项目实例">
-<a class="header-anchor" href="#computer%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
-&#x1f4bb;项目实例
-</h1><p>库环境:</p>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2><p>库环境:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">numpy==1.26.4
 </span></span><span class="line"><span class="cl">torch==2.2.2cu121
 </span></span><span class="line"><span class="cl">byzh-core==0.0.9.21
@@ -820,10 +811,10 @@ $$<h4 id="2-极端特征复用">
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;80.7k</span
+          >&nbsp;81.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:22</span>
+        <span class="icon-coffee">&nbsp;03:24</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -849,13 +840,12 @@ $$<h4 id="2-极端特征复用">
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-稠密连接网络densenet">[DL_Net从入门到入土] 稠密连接网络DenseNet</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear架构公式">&#x2699;&#xfe0f;架构(公式)</a>
+    <li><a href="#dl_net从入门到入土-稠密连接网络densenet">[DL_Net从入门到入土] 稠密连接网络DenseNet</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
           <ul>
             <li>
               <ul>
@@ -866,11 +856,7 @@ $$<h4 id="2-极端特征复用">
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#1优点创新点">&#x1f44d;优点/创新点</a>
-      <ul>
-        <li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
               <ul>
@@ -879,11 +865,7 @@ $$<h4 id="2-极端特征复用">
             </li>
           </ul>
         </li>
-      </ul>
-    </li>
-    <li><a href="#为什么-densenet-很强">为什么 DenseNet 很强</a>
-      <ul>
-        <li>
+        <li><a href="#为什么-densenet-很强">为什么 DenseNet 很强</a>
           <ul>
             <li>
               <ul>
@@ -894,10 +876,10 @@ $$<h4 id="2-极端特征复用">
             </li>
           </ul>
         </li>
+        <li><a href="#代码实现">💻代码实现</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
-    <li><a href="#computer代码实现">&#x1f4bb;代码实现</a></li>
-    <li><a href="#computer项目实例">&#x1f4bb;项目实例</a></li>
   </ul>
 </nav>
 </div></div>
@@ -913,12 +895,12 @@ $$<h4 id="2-极端特征复用">
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">75</div>
+    <div>文章</div><div class="sidebar-state-number">78</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      14
+      15
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -1037,7 +1019,7 @@ $$<h4 id="2-极端特征复用">
           author: "byzh",
           title: "[DL_Net从入门到入土] 稠密连接网络DenseNet",
           url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/densenet\/",
-          description: "\r[DL_Net从入门到入土] 稠密连接网络DenseNet\r\u0026#x1f4e2;个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\n",
+          description: "\r[DL_Net从入门到入土] 稠密连接网络DenseNet\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
