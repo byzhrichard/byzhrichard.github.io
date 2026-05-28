@@ -3,15 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://byzhrichard.github.io/post/</loc>
-    <lastmod>2026-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</loc>
-    <lastmod>2026-05-26T00:00:00+00:00</lastmod>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/</loc>
-    <lastmod>2026-05-26T00:00:00+00:00</lastmod>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/categories/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/categories/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/tags/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/categories/windows/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/</loc>
+    <lastmod>2026-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</loc>
     <lastmod>2026-05-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
@@ -39,9 +66,6 @@
     <lastmod>2026-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</loc>
-    <lastmod>2026-05-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://byzhrichard.github.io/categories/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</loc>
     <lastmod>2026-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/kl%E6%95%A3%E5%BA%A6/</loc>
@@ -137,9 +161,6 @@
     <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/snn%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</loc>
-    <lastmod>2026-05-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A1%A5%E5%85%85/</loc>
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -147,9 +168,6 @@
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/</loc>
-    <lastmod>2026-05-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</loc>
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/</loc>
@@ -275,12 +293,6 @@
     <loc>https://byzhrichard.github.io/tags/rnn%E7%B3%BB%E5%88%97%E5%BA%8F%E5%88%97/</loc>
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://byzhrichard.github.io/tags/</loc>
-    <lastmod>2026-05-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://byzhrichard.github.io/categories/windows/</loc>
-    <lastmod>2026-05-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://byzhrichard.github.io/categories/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/</loc>
     <lastmod>2026-05-17T00:00:00+00:00</lastmod>
   </url><url>
@@ -296,11 +308,17 @@
     <loc>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2026-05-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/temporal-attention/</loc>
+    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/</loc>
+    <lastmod>2026-01-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://byzhrichard.github.io/archives/</loc>
   </url><url>
-    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</loc>
-  </url><url>
     <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gpt/</loc>
+  </url><url>
+    <loc>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/tcn/</loc>
   </url><url>
     <loc>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/agent/init/</loc>
   </url><url>

@@ -12,12 +12,100 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/windows/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Windows] 变量名</title>
+      <link>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</guid>
+      <description>
+        <![CDATA[<h1>[Windows] 变量名</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="变量名">
+<a class="header-anchor" href="#%e5%8f%98%e9%87%8f%e5%90%8d"></a>
+变量名
+</h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">变量</th>
+          <th style="text-align: left">典型值</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>%USERPROFILE%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh</code></td>
+          <td style="text-align: left"><strong>当前用户主目录</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%APPDATA%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Roaming</code></td>
+          <td style="text-align: left">漫游应用数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%LOCALAPPDATA%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local</code></td>
+          <td style="text-align: left">本地应用数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%TEMP%</code> / <code>%TMP%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local\Temp</code></td>
+          <td style="text-align: left">临时文件夹</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%HOMEPATH%</code></td>
+          <td style="text-align: left"><code>\Users\byzh</code></td>
+          <td style="text-align: left">用户目录路径（不含盘符）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%HOMEDRIVE%</code></td>
+          <td style="text-align: left"><code>C:</code></td>
+          <td style="text-align: left">系统盘符</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%USERNAME%</code></td>
+          <td style="text-align: left"><code>byzh</code></td>
+          <td style="text-align: left">当前用户名</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%COMPUTERNAME%</code></td>
+          <td style="text-align: left"><code>PC-xxx</code></td>
+          <td style="text-align: left">计算机名</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%PROGRAMFILES%</code></td>
+          <td style="text-align: left"><code>C:\Program Files</code></td>
+          <td style="text-align: left">64位程序安装目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%PROGRAMFILES(X86)%</code></td>
+          <td style="text-align: left"><code>C:\Program Files (x86)</code></td>
+          <td style="text-align: left">32位程序安装目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%SYSTEMROOT%</code></td>
+          <td style="text-align: left"><code>C:\Windows</code></td>
+          <td style="text-align: left">Windows 系统目录</td>
+      </tr>
+  </tbody>
+</table>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>Windows</category>
+      
+    </item>
     
     
 

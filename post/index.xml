@@ -12,12 +12,208 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 26 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Windows] 变量名</title>
+      <link>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</guid>
+      <description>
+        <![CDATA[<h1>[Windows] 变量名</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="变量名">
+<a class="header-anchor" href="#%e5%8f%98%e9%87%8f%e5%90%8d"></a>
+变量名
+</h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">变量</th>
+          <th style="text-align: left">典型值</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>%USERPROFILE%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh</code></td>
+          <td style="text-align: left"><strong>当前用户主目录</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%APPDATA%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Roaming</code></td>
+          <td style="text-align: left">漫游应用数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%LOCALAPPDATA%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local</code></td>
+          <td style="text-align: left">本地应用数据</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%TEMP%</code> / <code>%TMP%</code></td>
+          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local\Temp</code></td>
+          <td style="text-align: left">临时文件夹</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%HOMEPATH%</code></td>
+          <td style="text-align: left"><code>\Users\byzh</code></td>
+          <td style="text-align: left">用户目录路径（不含盘符）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%HOMEDRIVE%</code></td>
+          <td style="text-align: left"><code>C:</code></td>
+          <td style="text-align: left">系统盘符</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%USERNAME%</code></td>
+          <td style="text-align: left"><code>byzh</code></td>
+          <td style="text-align: left">当前用户名</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%COMPUTERNAME%</code></td>
+          <td style="text-align: left"><code>PC-xxx</code></td>
+          <td style="text-align: left">计算机名</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%PROGRAMFILES%</code></td>
+          <td style="text-align: left"><code>C:\Program Files</code></td>
+          <td style="text-align: left">64位程序安装目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%PROGRAMFILES(X86)%</code></td>
+          <td style="text-align: left"><code>C:\Program Files (x86)</code></td>
+          <td style="text-align: left">32位程序安装目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%SYSTEMROOT%</code></td>
+          <td style="text-align: left"><code>C:\Windows</code></td>
+          <td style="text-align: left">Windows 系统目录</td>
+      </tr>
+  </tbody>
+</table>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>Windows</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] 词向量模型GloVe</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] 词向量模型GloVe</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-词向量模型glove">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%af%8d%e5%90%91%e9%87%8f%e6%a8%a1%e5%9e%8bglove"></a>
+[DL_Net从入门到入土] 词向量模型GloVe
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] Transformer</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] Transformer</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-transformer">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-transformer"></a>
+[DL_Net从入门到入土] Transformer
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] Self-Attention</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] Self-Attention</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-self-attention">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-self-attention"></a>
+[DL_Net从入门到入土] Self-Attention
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] ELMo</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] ELMo</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-elmo">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-elmo"></a>
+[DL_Net从入门到入土] ELMo
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
     
     
 
@@ -30,13 +226,18 @@
       <description>
         <![CDATA[<h1>[工具] OpenCode</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="全局配置">
-<a class="header-anchor" href="#%e5%85%a8%e5%b1%80%e9%85%8d%e7%bd%ae"></a>
-全局配置
-</h1><h3 id="1-始终用中文回答">
-<a class="header-anchor" href="#1-%e5%a7%8b%e7%bb%88%e7%94%a8%e4%b8%ad%e6%96%87%e5%9b%9e%e7%ad%94"></a>
-1. 始终用中文回答
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">新建一个全局规则文件，我希望始终用中文回复
+          <h1 id="规则">
+<a class="header-anchor" href="#%e8%a7%84%e5%88%99"></a>
+规则
+</h1><h3 id="1-项目级规则">
+<a class="header-anchor" href="#1-%e9%a1%b9%e7%9b%ae%e7%ba%a7%e8%a7%84%e5%88%99"></a>
+1. 项目级规则
+</h3><p>在项目根目录放置一个 <code>AGENTS.md</code> 文件</p>
+<h3 id="3-全局规则">
+<a class="header-anchor" href="#3-%e5%85%a8%e5%b1%80%e8%a7%84%e5%88%99"></a>
+3. 全局规则
+</h3><p>在 <code>~/.config/opencode/AGENTS.md</code> 文件中设置全局规则</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。你要开始进行操作时，需要先询问我是否开始。
 </span></span></code></pre></div><h1 id="常用命令">
 <a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 常用命令
@@ -48,8 +249,6 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/models
 </span></span></code></pre></div><p>添加model</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/connect
-</span></span></code></pre></div><p>?切换model</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ctrl+p -&gt; switch model
 </span></span></code></pre></div><h1 id="多对话框">
 <a class="header-anchor" href="#%e5%a4%9a%e5%af%b9%e8%af%9d%e6%a1%86"></a>
 多对话框
@@ -347,153 +546,6 @@
       </description>
       
         <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] CycleGAN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</link>
-      <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] CycleGAN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-cyclegan">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-cyclegan"></a>
-[DL_Net从入门到入土] CycleGAN
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] uv</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</guid>
-      <description>
-        <![CDATA[<h1>[工具] uv</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="安装">
-<a class="header-anchor" href="#%e5%ae%89%e8%a3%85"></a>
-安装
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install pipx
-</span></span><span class="line"><span class="cl">pipx install uv
-</span></span><span class="line"><span class="cl">或者从https://github.com/astral-sh/uv下载uv, 手动添加环境变量
-</span></span></code></pre></div><blockquote>
-<p>检查安装: <code>uv --version</code></p>
-<p>如果version无效, 则去添加环境变量, 路径大致为<code>C:\Users\...\AppData\Roaming\Python\Python311\Scripts</code>, 添加入Path中</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] Typora</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</guid>
-      <description>
-        <![CDATA[<h1>[工具] Typora</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="typora-plugin">
-<a class="header-anchor" href="#typora-plugin"></a>
-typora-plugin
-</h2><p><a href="https://github.com/obgnail/typora_plugin">https://github.com/obgnail/typora_plugin</a></p>
-<h3 id="1-自动编号">
-<a class="header-anchor" href="#1-%e8%87%aa%e5%8a%a8%e7%bc%96%e5%8f%b7"></a>
-1. 自动编号
-</h3><p>关闭</p>
-<h3 id="2-快捷键中心">
-<a class="header-anchor" href="#2-%e5%bf%ab%e6%8d%b7%e9%94%ae%e4%b8%ad%e5%bf%83"></a>
-2. 快捷键中心
-</h3><p>ctrl+m: 添加mark</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">const</span> <span class="n">s</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">getSelection</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span> <span class="n">document</span><span class="o">.</span><span class="n">execCommand</span><span class="p">(</span><span class="s1">&#39;insertText&#39;</span><span class="p">,</span> <span class="bp">false</span><span class="p">,</span> <span class="n">s</span> <span class="err">?</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">mark</span><span class="o">&gt;$</span><span class="p">{</span><span class="n">s</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">mark</span><span class="o">&gt;</span><span class="err">`</span> <span class="p">:</span> <span class="s1">&#39;&lt;mark&gt;&lt;/mark&gt;&#39;</span><span class="p">);</span> <span class="p">}</span>
-</span></span></code></pre></div><p>ctrl+shift+t: 插入hugo的front_matter</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span><span class="o">=&gt;</span><span class="p">{</span><span class="k">const</span> <span class="n">d</span><span class="o">=</span><span class="n">new</span> <span class="n">Date</span><span class="p">();</span><span class="k">const</span> <span class="n">date</span><span class="o">=</span><span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">d</span><span class="o">.</span><span class="n">getFullYear</span><span class="p">()}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getDate</span><span class="p">())</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="err">`</span><span class="p">;</span><span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s2">&#34;+++</span><span class="se">\n\n</span><span class="s2">date = &#39;&#34;</span><span class="o">+</span><span class="n">date</span><span class="o">+</span><span class="s2">&#34;&#39;</span><span class="se">\n</span><span class="s2">draft = false</span><span class="se">\n</span><span class="s2">math = true</span><span class="se">\n</span><span class="s2">mermaid = true</span><span class="se">\n</span><span class="s2">title = &#39;[x] y&#39;</span><span class="se">\n</span><span class="s2">categories = [&#39;x&#39;]</span><span class="se">\n</span><span class="s2">tags = []</span><span class="se">\n\n</span><span class="s2">+++</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">);}</span>
-</span></span></code></pre></div><h2 id="typora-community-plugin">
-<a class="header-anchor" href="#typora-community-plugin"></a>
-typora-community-plugin
-</h2><p><a href="https://github.com/typora-community-plugin/typora-community-plugin">https://github.com/typora-community-plugin/typora-community-plugin</a></p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] VAE</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] VAE</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-变分自编码器-vae">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%8f%98%e5%88%86%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-vae"></a>
-[DL_Net从入门到入土] 变分自编码器 VAE
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] GAN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] GAN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-生成对抗网络-gan">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%94%9f%e6%88%90%e5%af%b9%e6%8a%97%e7%bd%91%e7%bb%9c-gan"></a>
-[DL_Net从入门到入土] 生成对抗网络 GAN
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
       
     </item>
     

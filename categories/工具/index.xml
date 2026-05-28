@@ -30,13 +30,18 @@
       <description>
         <![CDATA[<h1>[工具] OpenCode</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="全局配置">
-<a class="header-anchor" href="#%e5%85%a8%e5%b1%80%e9%85%8d%e7%bd%ae"></a>
-全局配置
-</h1><h3 id="1-始终用中文回答">
-<a class="header-anchor" href="#1-%e5%a7%8b%e7%bb%88%e7%94%a8%e4%b8%ad%e6%96%87%e5%9b%9e%e7%ad%94"></a>
-1. 始终用中文回答
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">新建一个全局规则文件，我希望始终用中文回复
+          <h1 id="规则">
+<a class="header-anchor" href="#%e8%a7%84%e5%88%99"></a>
+规则
+</h1><h3 id="1-项目级规则">
+<a class="header-anchor" href="#1-%e9%a1%b9%e7%9b%ae%e7%ba%a7%e8%a7%84%e5%88%99"></a>
+1. 项目级规则
+</h3><p>在项目根目录放置一个 <code>AGENTS.md</code> 文件</p>
+<h3 id="3-全局规则">
+<a class="header-anchor" href="#3-%e5%85%a8%e5%b1%80%e8%a7%84%e5%88%99"></a>
+3. 全局规则
+</h3><p>在 <code>~/.config/opencode/AGENTS.md</code> 文件中设置全局规则</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。你要开始进行操作时，需要先询问我是否开始。
 </span></span></code></pre></div><h1 id="常用命令">
 <a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 常用命令
@@ -48,8 +53,6 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/models
 </span></span></code></pre></div><p>添加model</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/connect
-</span></span></code></pre></div><p>?切换model</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ctrl+p -&gt; switch model
 </span></span></code></pre></div><h1 id="多对话框">
 <a class="header-anchor" href="#%e5%a4%9a%e5%af%b9%e8%af%9d%e6%a1%86"></a>
 多对话框

@@ -137,11 +137,12 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#全局配置">全局配置</a>
+    <li><a href="#规则">规则</a>
       <ul>
         <li>
           <ul>
-            <li><a href="#1-始终用中文回答">1. 始终用中文回答</a></li>
+            <li><a href="#1-项目级规则">1. 项目级规则</a></li>
+            <li><a href="#3-全局规则">3. 全局规则</a></li>
           </ul>
         </li>
       </ul>
@@ -149,6 +150,16 @@
     <li><a href="#常用命令">常用命令</a></li>
     <li><a href="#多对话框">多对话框</a></li>
     <li><a href="#分享">分享</a></li>
+    <li><a href="#skills">skills</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-项目级">1. 项目级</a></li>
+            <li><a href="#2-全局">2. 全局</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -164,7 +175,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">78</div>
+    <div>文章</div><div class="sidebar-state-number">83</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -174,7 +185,7 @@
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </a>
 </div>
 <div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
@@ -259,13 +270,18 @@
       >2026-05-26</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="全局配置">
-<a class="header-anchor" href="#%e5%85%a8%e5%b1%80%e9%85%8d%e7%bd%ae"></a>
-全局配置
-</h1><h3 id="1-始终用中文回答">
-<a class="header-anchor" href="#1-%e5%a7%8b%e7%bb%88%e7%94%a8%e4%b8%ad%e6%96%87%e5%9b%9e%e7%ad%94"></a>
-1. 始终用中文回答
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">新建一个全局规则文件，我希望始终用中文回复
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="规则">
+<a class="header-anchor" href="#%e8%a7%84%e5%88%99"></a>
+规则
+</h1><h3 id="1-项目级规则">
+<a class="header-anchor" href="#1-%e9%a1%b9%e7%9b%ae%e7%ba%a7%e8%a7%84%e5%88%99"></a>
+1. 项目级规则
+</h3><p>在项目根目录放置一个 <code>AGENTS.md</code> 文件</p>
+<h3 id="3-全局规则">
+<a class="header-anchor" href="#3-%e5%85%a8%e5%b1%80%e8%a7%84%e5%88%99"></a>
+3. 全局规则
+</h3><p>在 <code>~/.config/opencode/AGENTS.md</code> 文件中设置全局规则</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。你要开始进行操作时，需要先询问我是否开始。
 </span></span></code></pre></div><h1 id="常用命令">
 <a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 常用命令
@@ -277,8 +293,6 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/models
 </span></span></code></pre></div><p>添加model</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/connect
-</span></span></code></pre></div><p>?切换model</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ctrl+p -&gt; switch model
 </span></span></code></pre></div><h1 id="多对话框">
 <a class="header-anchor" href="#%e5%a4%9a%e5%af%b9%e8%af%9d%e6%a1%86"></a>
 多对话框
@@ -295,7 +309,19 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/unshare
 </span></span></code></pre></div><p>导出为文件</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/</span><span class="k">export</span>
-</span></span></code></pre></div></div>
+</span></span></code></pre></div><h1 id="skills">
+<a class="header-anchor" href="#skills"></a>
+skills
+</h1><p><a href="https://github.com/anthropics/skills">https://github.com/anthropics/skills</a></p>
+<h3 id="1-项目级">
+<a class="header-anchor" href="#1-%e9%a1%b9%e7%9b%ae%e7%ba%a7"></a>
+1. 项目级
+</h3><p><code>根目录/.opencode/skills</code></p>
+<h3 id="2-全局">
+<a class="header-anchor" href="#2-%e5%85%a8%e5%b1%80"></a>
+2. 全局
+</h3><p><code>%USERPROFILE%/.config/opencode/skills</code></p>
+</div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -322,6 +348,18 @@
         ></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">[x] y</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[Windows] 变量名"
+              class="lazyload"
+            /><a
+          href="/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/"
+          aria-label="后一篇:[Windows] 变量名"
+          title="后一篇:[Windows] 变量名"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[Windows] 变量名</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -343,10 +381,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;81.0k</span
+          >&nbsp;87.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:24</span>
+        <span class="icon-coffee">&nbsp;03:40</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -372,11 +410,12 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#全局配置">全局配置</a>
+    <li><a href="#规则">规则</a>
       <ul>
         <li>
           <ul>
-            <li><a href="#1-始终用中文回答">1. 始终用中文回答</a></li>
+            <li><a href="#1-项目级规则">1. 项目级规则</a></li>
+            <li><a href="#3-全局规则">3. 全局规则</a></li>
           </ul>
         </li>
       </ul>
@@ -384,6 +423,16 @@
     <li><a href="#常用命令">常用命令</a></li>
     <li><a href="#多对话框">多对话框</a></li>
     <li><a href="#分享">分享</a></li>
+    <li><a href="#skills">skills</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1-项目级">1. 项目级</a></li>
+            <li><a href="#2-全局">2. 全局</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -399,7 +448,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">78</div>
+    <div>文章</div><div class="sidebar-state-number">83</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -409,7 +458,7 @@
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">3</div>
+    <div class="sidebar-state-number">4</div>
   </a>
 </div>
 <div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
@@ -523,7 +572,7 @@
           author: "byzh",
           title: "[工具] OpenCode",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%B7%A5%E5%85%B7\/opencode\/",
-          description: "\r全局配置\r1. 始终用中文回答\r新建一个全局规则文件，我希望始终用中文回复 常用命令\r读取项目\n\/init 压缩上下文\n\/compact 选择model\n\/models 添加model\n\/connect ?切换model\nctrl\u002bp -\u0026gt; switch model 多对话框\r创建新的section\n",
+          description: "\r规则\r1. 项目级规则\r在项目根目录放置一个 AGENTS.md 文件\n3. 全局规则\r在 ~\/.config\/opencode\/AGENTS.md 文件中设置全局规则\n你始终用中文回复。你要开始进行操作时，需要先询问我是否开始。 常用命令\r读取项目\n\/init 压缩上下文\n\/compact 选择model\n\/models 添加model\n\/connect 多对话框\r创建新的section\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
