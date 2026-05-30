@@ -198,12 +198,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -360,9 +360,9 @@
 <a class="header-anchor" href="#1-qkv-%e7%9a%84%e5%90%ab%e4%b9%89"></a>
 1. Q、K、V 的含义
 </h4><ul>
-<li>Query: 我想查什么 (当前 token 提出的问题)</li>
-<li>Key: 我有什么索引 (其他 token 的匹配标签)</li>
-<li>Value: 我真正携带的信息 (其他 token 真正提供的内容)</li>
+<li>Query: 我想查什么 (<!-- raw HTML omitted -->当前 token<!-- raw HTML omitted --> 提出的问题)</li>
+<li>Key: 我有什么索引 (<!-- raw HTML omitted -->其他 token<!-- raw HTML omitted --> 的匹配标签)</li>
+<li>Value: 我真正携带的信息 (<!-- raw HTML omitted -->其他 token<!-- raw HTML omitted --> 真正提供的内容)</li>
 </ul>
 <blockquote>
 <p>比如模型处理 <code>it</code> 时：</p>
@@ -395,8 +395,15 @@ $$<ul>
 <p>得到：
 </p>
 $$
-Q, K, V \in R^{n \times d_k}
-$$<h4 id="3-注意力分数">
+Q \in R^{n \times d_q},K \in R^{n \times d_k},V \in R^{n \times d_v} \quad \text{其中：} d_q=d_k
+$$<blockquote>
+<p>因为 $Q$ 和 $K$ 要做点积，所以需要 $d_q=d_k$</p>
+<ul>
+<li>Q 和 K 是用来“算匹配分数”的，所以它俩维度必须一致</li>
+<li>V 是被取走的信息本身 (只是在注意力权重算完之后，被加权求和)</li>
+</ul>
+</blockquote>
+<h4 id="3-注意力分数">
 <a class="header-anchor" href="#3-%e6%b3%a8%e6%84%8f%e5%8a%9b%e5%88%86%e6%95%b0"></a>
 3. 注意力分数
 </h4><p>计算 Query 和 Key 的相似度：
@@ -462,7 +469,7 @@ $$<p>
 其中：
 </p>
 $$
-Z \in R^{n \times d_k}
+Z \in R^{n \times d_v}
 $$<p>
 <!-- raw HTML omitted -->$Z$​ 就是 Self-Attention 的输出<!-- raw HTML omitted -->, 它和输入一样, 仍然是一个<strong>序列</strong>表示</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入 X:
@@ -542,7 +549,249 @@ $$<p>
 <h2 id="模型代码">
 <a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
 💻模型代码
-</h2><h2 id="项目实例">
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">byzh.ai.Butils</span> <span class="kn">import</span> <span class="n">b_get_params</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># B: batch_size</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># T: 序列长度</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># D: d_model</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># dk: d_k</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Self-Attention:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入一个序列 X
+</span></span></span><span class="line"><span class="cl"><span class="s2">        生成 Q、K、V
+</span></span></span><span class="line"><span class="cl"><span class="s2">        然后计算每个 token 对其他 token 的注意力
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (B, T, D)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        mask: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        out: (B, T, D)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        attn_weights: (B, T, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>    <span class="c1"># 输入的 token embedding 维度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Q、K 的维度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_v</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># V 的维度</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">d_k</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_k</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">d_v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_v</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span> <span class="o">=</span> <span class="n">d_k</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_v</span> <span class="o">=</span> <span class="n">d_v</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q = XW_Q</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_Q</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># K = XW_K</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_K</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># V = XW_V</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_V</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把输出重新映射回 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_v</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            x: (B, T, d_model)       token embedding 序列
+</span></span></span><span class="line"><span class="cl"><span class="s2">            mask: (B, T)             `非pad` 的位置为 True，`pad` 的位置为 False
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            out: (B, T, d_model)     Self-Attention 后的新序列表示
+</span></span></span><span class="line"><span class="cl"><span class="s2">            attn_weights: (B, T, T)  注意力权重矩阵
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1) 生成 Q、K、V</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_Q</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_K</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_V</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dv)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2) 计算注意力分数 QK^T</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># bmm: batch matrix multiplication</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q: (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># K.transpose(-2, -1): (B, dk, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>   <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3) 除以 sqrt(d_k)，防止点积结果过大</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">)</span>      <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 4) mask 掉 pad 位置</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask: (B, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask.unsqueeze(1): (B, 1, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 表示每个 query 都不能关注到 pad token</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 5) 对每一行做 softmax，得到注意力权重</span>
+</span></span><span class="line"><span class="cl">        <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 6) 用注意力权重对 V 加权求和</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">attn_weights</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>           <span class="c1"># (B, T, dv)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 7) 映射回 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>                   <span class="c1"># (B, T, d_model)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_SelfAttention_Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    基础版 Self-Attention 模型:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        token 序列 -&gt; embedding -&gt; Self-Attention -&gt; pooling -&gt; 分类
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        logits: (B, num_classes)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        attn_weights: (B, T, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pad_idx</span> <span class="o">=</span> <span class="n">pad_idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把 “离散的 token id” 映射成 “连续的向量表示”</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">padding_idx</span><span class="o">=</span><span class="n">pad_idx</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果 embedding 维度和 d_model 不一样，就先投影到 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">input_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_dim</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Self-Attention 核心模块</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">self_attention</span> <span class="o">=</span> <span class="n">B_SelfAttention</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_k</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_v</span><span class="o">=</span><span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 最后用序列的整体表示做分类</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            x: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            logits: (B, num_classes)       每个类别的预测分数
+</span></span></span><span class="line"><span class="cl"><span class="s2">            attn_weights: (B, T, T)        每个 token 对其他 token 的注意力权重
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask 用来标记哪些位置不是 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 非 pad 位置: True</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pad 位置: False</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mask</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad_idx</span>                  <span class="c1"># (B, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                   <span class="c1"># (B, T, E)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_proj</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>                <span class="c1"># (B, T, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Self-Attention:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 让每个 token 都和其他 token 计算关系</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span><span class="p">,</span> <span class="n">attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attention</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>                                         <span class="c1"># out: (B, T, D), attn_weights: (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 简单做一个 mean pooling</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 注意：这里不能直接 mean，因为有 pad</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 所以要把 pad 位置去掉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mask_float</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>   <span class="c1"># (B, T, 1)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">*</span> <span class="n">mask_float</span>                    <span class="c1"># (B, T, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 每个样本真实 token 的数量</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="n">mask_float</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># (B, 1)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="n">length</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>              <span class="c1"># 防止除以 0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 对所有非 pad token 求平均，得到整个序列的表示</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pooled</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">length</span>          <span class="c1"># (B, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">pooled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>                  <span class="c1"># (B, num_classes)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vocab = {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;pad&gt;&#34;: 0,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;bos&gt;&#34;: 1,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;eos&gt;&#34;: 2,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;I&#34;: 3,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;love&#34;: 4,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;deep&#34;: 5,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;learning&#34;: 6,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;you&#34;: 7,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># }</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x = torch.tensor([</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 5, 6, 2],    # I love deep learning &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 7, 2, 0],    # I love you &lt;eos&gt; &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ===== 超参数 =====</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="mi">7</span>                     <span class="c1"># 输入序列长度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># 词表大小（包含特殊 token，如 &lt;pad&gt;, &lt;bos&gt;, &lt;eos&gt;）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">emb_dim</span> <span class="o">=</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d_model</span> <span class="o">=</span> <span class="mi">64</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">3</span>           <span class="c1"># 分类类别数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">B_SelfAttention_Model</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 随机生成输入序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 手动造几个 pad，模拟真实 batch 中的变长序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">logits</span><span class="p">,</span> <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>        <span class="c1"># (B, num_classes)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">attn_weights</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 注意力矩阵每一行的和应该约等于 1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">attn_weights</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># (B, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;参数量: </span><span class="si">{</span><span class="n">b_get_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> <span class="c1"># 22_147</span>
+</span></span></code></pre></div><h2 id="项目实例">
 <a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
 💻项目实例
 </h2></div>
@@ -605,10 +854,10 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;87.0k</span
+          >&nbsp;93.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:40</span>
+        <span class="icon-coffee">&nbsp;03:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -695,12 +944,12 @@ $$<p>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

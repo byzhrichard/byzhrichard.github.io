@@ -142,7 +142,16 @@
         <li><a href="#个人导航">📢个人导航</a></li>
         <li><a href="#参考资料">📖参考资料</a></li>
         <li><a href="#背景">🌱背景</a></li>
-        <li><a href="#架构公式">⚙️架构(公式)</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-embedding">1. Embedding</a></li>
+                <li><a href="#2-位置编码-positional-encoding">2. 位置编码 (Positional Encoding)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#优点创新点">👍优点/创新点</a></li>
         <li><a href="#缺点">👎缺点</a></li>
         <li><a href="#模型代码">💻模型代码</a></li>
@@ -164,12 +173,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -277,11 +286,72 @@
 <h2 id="背景">
 <a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
 🌱背景
-</h2><p>核心思想: 不再依赖 RNN、LSTM、CNN，而是主要依赖 Attention 机制完成序列建模</p>
+</h2><p>核心思想: 不再依赖 RNN、LSTM、CNN，而是主要依赖 <strong>Attention</strong> 机制完成序列建模</p>
+<p>在 Transformer 出现之前，处理序列数据时常见做法是：</p>
+<ul>
+<li>RNN</li>
+<li>LSTM</li>
+<li>GRU</li>
+<li>Seq2Seq</li>
+<li>Seq2Seq + Attention</li>
+</ul>
 <h2 id="架构公式">
 <a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
 ⚙️架构(公式)
-</h2><h2 id="优点创新点">
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Source Sentence
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Embedding + Positional Encoding
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Encoder Layer × N
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Memory
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Decoder Layer × N
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Linear + Softmax
+</span></span><span class="line"><span class="cl">      ↓
+</span></span><span class="line"><span class="cl">Target Sentence
+</span></span></code></pre></div><p>Encoder 负责理解输入句子</p>
+<ul>
+<li>Multi-Head Self-Attention</li>
+<li>Feed Forward Network</li>
+</ul>
+<p>Decoder 负责根据 Encoder 的表示一步一步生成目标句子</p>
+<ul>
+<li>Masked Multi-Head Self-Attention</li>
+<li>Encoder-Decoder Attention</li>
+<li>Feed Forward Network</li>
+</ul>
+<p>Transformer 里面最核心的部分有：</p>
+<ul>
+<li>Embedding</li>
+<li>Positional Encoding</li>
+<li>Scaled Dot-Product Attention</li>
+<li>Multi-Head Attention</li>
+<li>Feed Forward Network</li>
+<li>Residual Connection</li>
+<li>Layer Normalization</li>
+<li>Mask</li>
+</ul>
+<h4 id="1-embedding">
+<a class="header-anchor" href="#1-embedding"></a>
+1. Embedding
+</h4><p>输入文本一般不能直接送进神经网络，需要先把 token 转成向量</p>
+<ul>
+<li>假设一句话经过分词后为：<code>我 爱 你</code></li>
+<li>然后映射成 id：<code>[3, 4, 5]</code></li>
+<li>再经过 Embedding 层：<code>[3, 4, 5] -&gt; [x1, x2, x3]</code></li>
+</ul>
+<p>其中每个 token 会变成一个 <code>d_model</code> 维向量 $x_i$</p>
+<blockquote>
+<p>如果 batch size 为 <code>B</code>，序列长度为 <code>T</code>，词向量维度为 <code>d_model</code>，那么输入形状为：<code>(B, T)</code></p>
+<p>经过 Embedding 后变成：<code>(B, T, d_model)</code></p>
+</blockquote>
+<h4 id="2-位置编码-positional-encoding">
+<a class="header-anchor" href="#2-%e4%bd%8d%e7%bd%ae%e7%bc%96%e7%a0%81-positional-encoding"></a>
+2. 位置编码 (Positional Encoding)
+</h4><p>Attention 本身不知道词的顺序</p>
+<h2 id="优点创新点">
 <a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
 👍优点/创新点
 </h2><h2 id="缺点">
@@ -360,10 +430,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;87.0k</span
+          >&nbsp;93.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:40</span>
+        <span class="icon-coffee">&nbsp;03:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -394,7 +464,16 @@
         <li><a href="#个人导航">📢个人导航</a></li>
         <li><a href="#参考资料">📖参考资料</a></li>
         <li><a href="#背景">🌱背景</a></li>
-        <li><a href="#架构公式">⚙️架构(公式)</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-embedding">1. Embedding</a></li>
+                <li><a href="#2-位置编码-positional-encoding">2. 位置编码 (Positional Encoding)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#优点创新点">👍优点/创新点</a></li>
         <li><a href="#缺点">👎缺点</a></li>
         <li><a href="#模型代码">💻模型代码</a></li>
@@ -416,12 +495,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

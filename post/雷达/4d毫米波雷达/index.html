@@ -142,6 +142,16 @@
         <li><a href="#参考资料">参考资料</a></li>
         <li><a href="#基本概念">基本概念</a></li>
         <li><a href="#软硬一体">软硬一体</a></li>
+        <li><a href="#3d---4d">3D -&gt; 4D</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-3d-雷达">1. 3D 雷达($R, v, \theta$)</a></li>
+                <li><a href="#2-4d-雷达">2. 4D 雷达($R, v, \theta, \phi$)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -159,12 +169,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -277,6 +287,38 @@
 <blockquote>
 <p>如何把相近的目标物分离开来、如何找到失效场景、怎么过滤干扰、如何合理设置信噪比的阈值（阈值太高，小目标容易被漏检；阈值太低，则容易有误检）等，都需要强大的软件算法能力</p>
 </blockquote>
+<h2 id="3d---4d">
+<a class="header-anchor" href="#3d---4d"></a>
+3D -&gt; 4D
+</h2><h4 id="1-3d-雷达">
+<a class="header-anchor" href="#1-3d-%e9%9b%b7%e8%be%be"></a>
+1. 3D 雷达($R, v, \theta$)
+</h4><p>传统 3D 雷达通常采用<strong>1 发多收</strong>或<strong>2 发多收</strong>的天线配置，且所有天线都排布在<strong>同一水平线上</strong>，形成一维线性阵列</p>
+<p>这种设计只能测量目标的：</p>
+<ul>
+<li>距离R（通过差频）</li>
+<li>径向速度v（通过多普勒）</li>
+<li>水平方位角$\theta$（通过一维阵列的相位差）</li>
+</ul>
+<blockquote>
+<p><strong>无高度感知能力</strong>：无法区分地面障碍物和高空物体（路牌、天桥），这是导致 &ldquo;幽灵刹车&rdquo; 的根本原因</p>
+<p><strong>角分辨率极低</strong>：通常水平角分辨率只有 5°~10°，无法分辨近距离的多个目标</p>
+<p><strong>点云稀疏</strong>：每秒只能输出几十到几百个点，无法描绘目标轮廓</p>
+<p><strong>无法区分静止目标</strong>：由于地面杂波的影响，传统雷达对静止目标的检测能力很差</p>
+</blockquote>
+<h4 id="2-4d-雷达">
+<a class="header-anchor" href="#2-4d-%e9%9b%b7%e8%be%be"></a>
+2. 4D 雷达($R, v, \theta, \phi$)
+</h4><p>4D 雷达通过<strong>在垂直方向也排布天线阵列</strong>，形成<strong>二维面阵</strong>，配合 MIMO 技术生成大量虚拟通道，从而同时获得：</p>
+<ul>
+<li>距离R</li>
+<li>径向速度v</li>
+<li>水平方位角$\theta$</li>
+<li>垂直俯仰角$\phi$（高度）</li>
+</ul>
+<blockquote>
+<p>由于虚拟阵列孔径大幅增大，角分辨率提高到 0.5°~2°，点云密度提高到每秒几千到几十万个点，实现了<strong>成像能力</strong>，因此也被称为<strong>4D 成像毫米波雷达</strong></p>
+</blockquote>
 </div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -337,10 +379,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;87.0k</span
+          >&nbsp;93.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:40</span>
+        <span class="icon-coffee">&nbsp;03:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -371,6 +413,16 @@
         <li><a href="#参考资料">参考资料</a></li>
         <li><a href="#基本概念">基本概念</a></li>
         <li><a href="#软硬一体">软硬一体</a></li>
+        <li><a href="#3d---4d">3D -&gt; 4D</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-3d-雷达">1. 3D 雷达($R, v, \theta$)</a></li>
+                <li><a href="#2-4d-雷达">2. 4D 雷达($R, v, \theta, \phi$)</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -388,12 +440,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

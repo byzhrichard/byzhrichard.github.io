@@ -179,7 +179,7 @@
           </ul>
         </li>
         <li><a href="#代码实现">💻代码实现</a></li>
-        <li><a href="#comput项目实例">:comput项目实例</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
   </ul>
@@ -197,12 +197,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -474,9 +474,297 @@ $$<p>
 <h2 id="代码实现">
 <a class="header-anchor" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0"></a>
 💻代码实现
-</h2><h2 id="comput项目实例">
-<a class="header-anchor" href="#comput%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
-:comput项目实例
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">random</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">byzh.ai.Butils</span> <span class="kn">import</span> <span class="n">b_get_params</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># T: 序列长度</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># L: num_layers</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_Seq2Seq_Encoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Encoder:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入 token 序列 -&gt; hidden states -&gt; 最终隐藏状态
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (B, T_in)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        outputs: (B, T_in, H)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        hT: (L, B, H)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># L</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># 规定词表里 index=0 代表 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">batch_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">batch_first</span> <span class="o">=</span> <span class="n">batch_first</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把 “离散的 token id” 映射成 “连续的向量表示”</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">emb_dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="n">pad_idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># GRU最省事, 也可以换成别的</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">input_size</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">batch_first</span><span class="o">=</span><span class="n">batch_first</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span> <span class="k">if</span> <span class="n">num_layers</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1"># (B, T_in)</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            x: (B, T_in)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            outputs: (B, T_in, H)  每一个时间步的隐藏状态
+</span></span></span><span class="line"><span class="cl"><span class="s2">            hT: (L, B, H)          最后一个时间步的隐藏状态（L层，每层一个隐藏状态）
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># (B, T_in, E)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">outputs</span><span class="p">,</span> <span class="n">hT</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">hT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_Seq2Seq_Decoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Decoder:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        每次输入一个 token，输出一步预测
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        y_t: (B,)                当前步输入 token id
+</span></span></span><span class="line"><span class="cl"><span class="s2">        h_prev: (L, B, H)        上一步隐藏状态
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        logits: (B, vocab_size)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        h_t: (L, B, H)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># 规定词表里 index=0 代表 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把 “离散的 token id” 映射成 “连续的向量表示（embedding）”</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">emb_dim</span><span class="p">,</span> <span class="n">padding_idx</span><span class="o">=</span><span class="n">pad_idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># GRU最省事, 也可以换成别的</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">input_size</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span> <span class="k">if</span> <span class="n">num_layers</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">0.0</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_t</span><span class="p">,</span> <span class="n">h_prev</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            y_t: (B,)                当前步输入 token id
+</span></span></span><span class="line"><span class="cl"><span class="s2">            h_prev: (L, B, H)        上一步隐藏状态（L层，每层一个隐藏状态）
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            logits: (B, vocab_size)  每个 token 的预测分数（未归一化）
+</span></span></span><span class="line"><span class="cl"><span class="s2">            h_t: (L, B, H)           当前步的隐藏状态（L层，每层一个隐藏状态）
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">y_t</span><span class="p">)</span>            <span class="c1"># (B, E)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="n">emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>               <span class="c1"># (B, 1, E)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">out</span><span class="p">,</span> <span class="n">h_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gru</span><span class="p">(</span><span class="n">emb</span><span class="p">,</span> <span class="n">h_prev</span><span class="p">)</span>     <span class="c1"># out: (B, 1, H)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>                 <span class="c1"># out: (B, H)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>     <span class="c1"># (B, vocab_size)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">h_t</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_Seq2Seq</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    基础版 Seq2Seq:
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - 训练时支持 teacher forcing (即用真实 token 作为下一步输入)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    - 推理时自回归生成 (即用模型预测的 token 作为下一步输入)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">src_vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tgt_vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># L</span>
+</span></span><span class="line"><span class="cl">        <span class="n">src_pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># 规定词表里 index=0 代表 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tgt_pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># 规定词表里 index=0 代表 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bos_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 规定词表里 index=1 代表 &lt;bos&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">eos_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># 规定词表里 index=2 代表 &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">B_Seq2Seq_Encoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vocab_size</span><span class="o">=</span><span class="n">src_vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb_dim</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pad_idx</span><span class="o">=</span><span class="n">src_pad_idx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">B_Seq2Seq_Decoder</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vocab_size</span><span class="o">=</span><span class="n">tgt_vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb_dim</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">num_layers</span><span class="o">=</span><span class="n">num_layers</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pad_idx</span><span class="o">=</span><span class="n">tgt_pad_idx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">tgt_vocab_size</span> <span class="o">=</span> <span class="n">tgt_vocab_size</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bos_idx</span> <span class="o">=</span> <span class="n">bos_idx</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">eos_idx</span> <span class="o">=</span> <span class="n">eos_idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">tgt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">teacher_forcing_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">max_len</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        训练:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            src: (B, T_src)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            tgt: (B, T_tgt)   这里通常 tgt[:,0] = &lt;bos&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        推理:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            src: (B, T_src)
+</span></span></span><span class="line"><span class="cl"><span class="s2">            tgt: None
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        返回:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            outputs:
+</span></span></span><span class="line"><span class="cl"><span class="s2">                如果训练: (B, T_tgt-1, vocab_size)
+</span></span></span><span class="line"><span class="cl"><span class="s2">                如果推理: (B, max_len, vocab_size)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">B</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">device</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">device</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1) 编码</span>
+</span></span><span class="line"><span class="cl">        <span class="n">enc_outputs</span><span class="p">,</span> <span class="n">hT</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">src</span><span class="p">)</span> <span class="c1"># enc_outputs: (B, T_src, H), hT: (L, B, H)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2) 初始化 decoder hidden</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dec_hidden</span> <span class="o">=</span> <span class="n">hT</span> <span class="c1"># (L, B, H)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ===== 训练模式 =====</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">tgt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">T_tgt</span> <span class="o">=</span> <span class="n">tgt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1"># 第一步输入通常是 &lt;bos&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dec_input</span> <span class="o">=</span> <span class="n">tgt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>   <span class="c1"># (B,)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">T_tgt</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">logits</span><span class="p">,</span> <span class="n">dec_hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">dec_input</span><span class="p">,</span> <span class="n">dec_hidden</span><span class="p">)</span> <span class="c1"># logits: (B, vocab_size), dec_hidden: (L, B, H)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 决定下一步输入是用真实 token 还是用模型预测的 token</span>
+</span></span><span class="line"><span class="cl">                <span class="n">teacher_force</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">teacher_forcing_ratio</span>
+</span></span><span class="line"><span class="cl">                <span class="n">top1</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (B,) | 代表模型预测的下一个 token id (最有可能的)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># teacher forcing: 下一个输入用真实 token</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dec_input</span> <span class="o">=</span> <span class="n">tgt</span><span class="p">[:,</span> <span class="n">t</span><span class="p">]</span> <span class="k">if</span> <span class="n">teacher_force</span> <span class="k">else</span> <span class="n">top1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">outputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (B, T_tgt-1, vocab_size)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">outputs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ===== 推理模式 =====</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dec_input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">B</span><span class="p">,),</span> <span class="bp">self</span><span class="o">.</span><span class="n">bos_idx</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_len</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">logits</span><span class="p">,</span> <span class="n">dec_hidden</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">dec_input</span><span class="p">,</span> <span class="n">dec_hidden</span><span class="p">)</span> <span class="c1"># logits: (B, vocab_size), dec_hidden: (L, B, H)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># 推理时总是用模型预测的 token 作为下一步输入</span>
+</span></span><span class="line"><span class="cl">                <span class="n">top1</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># (B,) | 代表模型预测的下一个 token id (最有可能的)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">dec_input</span> <span class="o">=</span> <span class="n">top1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">outputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (B, max_len, vocab_size)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">outputs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># src_vocab = {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;pad&gt;&#34;: 0,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;bos&gt;&#34;: 1,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;eos&gt;&#34;: 2,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;我&#34;: 3,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;爱&#34;: 4,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;你&#34;: 5,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;他&#34;: 6,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;喜欢&#34;: 7,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;猫&#34;: 8,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># }</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># tgt_vocab = {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;pad&gt;&#34;: 0,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;bos&gt;&#34;: 1,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;eos&gt;&#34;: 2,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;I&#34;: 3,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;love&#34;: 4,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;you&#34;: 5,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;he&#34;: 6,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;likes&#34;: 7,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;cats&#34;: 8,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># }</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># src = torch.tensor([</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 5, 2],    # 我 爱 你 &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [6, 7, 8, 2],    # 他 喜欢 猫 &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 2, 0],    # 我 爱 &lt;eos&gt; &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ])</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># tgt = torch.tensor([</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [1, 3, 4, 5, 2],    # &lt;bos&gt; I love you &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [1, 6, 7, 8, 2],    # &lt;bos&gt; he likes cats &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [1, 3, 4, 2, 0],    # &lt;bos&gt; I love &lt;eos&gt; &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ===== 超参数 =====</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T_src</span> <span class="o">=</span> <span class="mi">7</span> <span class="c1"># 输入序列长度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T_tgt</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># 输出序列长度（训练时）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">src_vocab_size</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1"># 输入词表大小（包含特殊 token，如 &lt;pad&gt;, &lt;bos&gt;, &lt;eos&gt;）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tgt_vocab_size</span> <span class="o">=</span> <span class="mi">120</span> <span class="c1"># 输出词表大小（包含特殊 token，如 &lt;pad&gt;, &lt;bos&gt;, &lt;eos&gt;）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">emb_dim</span> <span class="o">=</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hidden_size</span> <span class="o">=</span> <span class="mi">64</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">B_Seq2Seq</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">src_vocab_size</span><span class="o">=</span><span class="n">src_vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tgt_vocab_size</span><span class="o">=</span><span class="n">tgt_vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_size</span><span class="o">=</span><span class="n">hidden_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bos_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># 规定词表里 index=1 代表 &lt;bos&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">eos_idx</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># 规定词表里 index=2 代表 &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">src</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">src_vocab_size</span><span class="p">,</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T_src</span><span class="p">))</span> <span class="c1"># 随机生成输入序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tgt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">tgt_vocab_size</span><span class="p">,</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T_tgt</span><span class="p">))</span> <span class="c1"># 随机生成输出序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tgt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># 开始标记 &lt;bos&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 训练模式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tgt</span><span class="o">=</span><span class="n">tgt</span><span class="p">,</span> <span class="n">teacher_forcing_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>   <span class="c1"># (B, T_tgt-1, tgt_vocab_size)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 推理模式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">out_infer</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tgt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">out_infer</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (B, 10, tgt_vocab_size)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;参数量: </span><span class="si">{</span><span class="n">b_get_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> <span class="c1"># 52_472</span>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
 </h2></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -544,10 +832,10 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;87.0k</span
+          >&nbsp;93.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:40</span>
+        <span class="icon-coffee">&nbsp;03:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -615,7 +903,7 @@ $$<p>
           </ul>
         </li>
         <li><a href="#代码实现">💻代码实现</a></li>
-        <li><a href="#comput项目实例">:comput项目实例</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
     </li>
   </ul>
@@ -633,12 +921,12 @@ $$<p>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

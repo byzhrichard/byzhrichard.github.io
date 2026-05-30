@@ -163,12 +163,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -271,6 +271,8 @@ typora-plugin
 2. 快捷键中心
 </h3><p>ctrl+m: 添加mark</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">const</span> <span class="n">s</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">getSelection</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span> <span class="n">document</span><span class="o">.</span><span class="n">execCommand</span><span class="p">(</span><span class="s1">&#39;insertText&#39;</span><span class="p">,</span> <span class="bp">false</span><span class="p">,</span> <span class="n">s</span> <span class="err">?</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">mark</span><span class="o">&gt;$</span><span class="p">{</span><span class="n">s</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">mark</span><span class="o">&gt;</span><span class="err">`</span> <span class="p">:</span> <span class="s1">&#39;&lt;mark&gt;&lt;/mark&gt;&#39;</span><span class="p">);</span> <span class="p">}</span>
+</span></span></code></pre></div><p>ctrl+n: 添加颜色span</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">const</span> <span class="n">s</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">getSelection</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span> <span class="n">document</span><span class="o">.</span><span class="n">execCommand</span><span class="p">(</span><span class="s1">&#39;insertText&#39;</span><span class="p">,</span> <span class="bp">false</span><span class="p">,</span> <span class="n">s</span> <span class="err">?</span> <span class="err">`</span><span class="o">&lt;</span><span class="n">span</span> <span class="n">style</span><span class="o">=</span><span class="s2">&#34;color:red;&#34;</span><span class="o">&gt;$</span><span class="p">{</span><span class="n">s</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">span</span><span class="o">&gt;</span><span class="err">`</span> <span class="p">:</span> <span class="s1">&#39;&lt;span style=&#34;color:red;&#34;&gt;&lt;/span&gt;&#39;</span><span class="p">);</span> <span class="p">}</span>
 </span></span></code></pre></div><p>ctrl+shift+t: 插入hugo的front_matter</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">()</span><span class="o">=&gt;</span><span class="p">{</span><span class="k">const</span> <span class="n">d</span><span class="o">=</span><span class="n">new</span> <span class="n">Date</span><span class="p">();</span><span class="k">const</span> <span class="n">date</span><span class="o">=</span><span class="err">`</span><span class="o">$</span><span class="p">{</span><span class="n">d</span><span class="o">.</span><span class="n">getFullYear</span><span class="p">()}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="o">-$</span><span class="p">{</span><span class="ne">String</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">getDate</span><span class="p">())</span><span class="o">.</span><span class="n">padStart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span><span class="err">`</span><span class="p">;</span><span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">insertText</span><span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s2">&#34;+++</span><span class="se">\n\n</span><span class="s2">date = &#39;&#34;</span><span class="o">+</span><span class="n">date</span><span class="o">+</span><span class="s2">&#34;&#39;</span><span class="se">\n</span><span class="s2">draft = false</span><span class="se">\n</span><span class="s2">math = true</span><span class="se">\n</span><span class="s2">mermaid = true</span><span class="se">\n</span><span class="s2">title = &#39;[x] y&#39;</span><span class="se">\n</span><span class="s2">categories = [&#39;x&#39;]</span><span class="se">\n</span><span class="s2">tags = []</span><span class="se">\n\n</span><span class="s2">+++</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">);}</span>
 </span></span></code></pre></div><h2 id="typora-community-plugin">
@@ -337,10 +339,10 @@ typora-community-plugin
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;87.0k</span
+          >&nbsp;93.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:40</span>
+        <span class="icon-coffee">&nbsp;03:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -392,12 +394,12 @@ typora-community-plugin
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">83</div>
+    <div>文章</div><div class="sidebar-state-number">86</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      15
+      16
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -516,7 +518,7 @@ typora-community-plugin
           author: "byzh",
           title: "[工具] Typora",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%B7%A5%E5%85%B7\/typora\/",
-          description: "\rtypora-plugin\rhttps:\/\/github.com\/obgnail\/typora_plugin\n1. 自动编号\r关闭\n2. 快捷键中心\rctrl\u002bm: 添加mark\n() =\u0026gt; { const s = window.getSelection().toString(); document.execCommand(\u0026#39;insertText\u0026#39;, false, s ? \u0060\u0026lt;mark\u0026gt;${s}\u0026lt;\/mark\u0026gt;\u0060 : \u0026#39;\u0026lt;mark\u0026gt;\u0026lt;\/mark\u0026gt;\u0026#39;); } ctrl\u002bshift\u002bt: 插入hugo的 …",
+          description: "\rtypora-plugin\rhttps:\/\/github.com\/obgnail\/typora_plugin\n1. 自动编号\r关闭\n2. 快捷键中心\rctrl\u002bm: 添加mark\n() =\u0026gt; { const s = window.getSelection().toString(); document.execCommand(\u0026#39;insertText\u0026#39;, false, s ? \u0060\u0026lt;mark\u0026gt;${s}\u0026lt;\/mark\u0026gt;\u0060 : \u0026#39;\u0026lt;mark\u0026gt;\u0026lt;\/mark\u0026gt;\u0026#39;); } ctrl\u002bn: 添加颜色span\n() =\u0026gt; …",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

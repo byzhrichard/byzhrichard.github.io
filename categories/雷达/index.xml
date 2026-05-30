@@ -12,12 +12,40 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[雷达] 雷达基础</title>
+      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Sat, 30 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</guid>
+      <description>
+        <![CDATA[<h1>[雷达] 雷达基础</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="基础理论">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80%e7%90%86%e8%ae%ba"></a>
+基础理论
+</h2><p>雷达本质是<strong>利用电磁波的反射特性探测目标</strong>的电子设备
+</p>
+$$
+c=\lambda\cdot f
+$$<p>
+其中\(\lambda\)为波长，f为频率。电磁波具有<strong>反射、折射、散射、衍射、衰减</strong>五大特性，雷达主要利用<strong>反射特性</strong>，同时必须考虑<strong>衰减特性</strong>（雨衰、雾衰）对探测距离的影响</p>
+        
+        <hr><p>本文2026-05-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-30</p>]]>
+      </description>
+      
+        <category>雷达</category>
+      
+    </item>
     
     
 
