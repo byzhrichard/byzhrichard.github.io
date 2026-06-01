@@ -137,18 +137,27 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-snn基础">[DL_Net从入门到入土] SNN基础</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear编码">&#x2699;&#xfe0f;编码</a></li>
-    <li><a href="#gear神经元模型---从-relu-到-lif">&#x2699;&#xfe0f;神经元模型 - 从 ReLU 到 LIF</a></li>
-    <li><a href="#gear如何训练---surrogate-gradient">&#x2699;&#xfe0f;如何训练 - Surrogate Gradient</a></li>
-    <li><a href="#1优点">&#x1f44d;优点</a></li>
-    <li><a href="#-1缺点">&#x1f44e;缺点</a></li>
-    <li><a href="#computer代码实现---简易版">&#x1f4bb;代码实现 - 简易版</a>
+    <li><a href="#dl_net从入门到入土-snn基础">[DL_Net从入门到入土] SNN基础</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#编码">⚙️编码</a></li>
+        <li><a href="#神经元模型---从-relu-到-lif">⚙️神经元模型 - 从 ReLU 到 LIF</a></li>
+        <li><a href="#如何训练---surrogate-gradient">⚙️如何训练 - Surrogate Gradient</a></li>
+        <li><a href="#优点">👍优点</a></li>
+        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#补充-detach_reset">补充: detach_reset</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-detach_resetfalse">1. <code>detach_reset=False</code></a></li>
+                <li><a href="#2-detach_resettrue">2. <code>detach_reset=True</code></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#代码实现---简易版">💻代码实现 - 简易版</a>
           <ul>
             <li>
               <ul>
@@ -178,7 +187,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">86</div>
+    <div>文章</div><div class="sidebar-state-number">87</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -276,22 +285,22 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-snn基础">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-snn%e5%9f%ba%e7%a1%80"></a>
 [DL_Net从入门到入土] SNN基础
-</h1><h1 id="loudspeaker个人导航">
-<a class="header-anchor" href="#loudspeaker%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-&#x1f4e2;个人导航
-</h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
 <p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
 <p>参考文章：各方资料</p>
 <p>@[TOC]</p>
-<h1 id="book参考资料">
-<a class="header-anchor" href="#book%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
-&#x1f4d6;参考资料
-</h1><p>Surrogate Gradient Learning in Spiking Neural Networks.</p>
-<h1 id="seedling背景">
-<a class="header-anchor" href="#seedling%e8%83%8c%e6%99%af"></a>
-&#x1f331;背景
-</h1><p>在 CNN 或 RNN 中，神经元之间传递的是连续的激活值（例如 0.85 或 -0.2）
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Surrogate Gradient Learning in Spiking Neural Networks.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>在 CNN 或 RNN 中，神经元之间传递的是连续的激活值（例如 0.85 或 -0.2）
 而在 SNN 中，神经元之间只传递<strong>脉冲Spike</strong>:</p>
 <ul>
 <li>用 <strong>0 或 1</strong> 表示</li>
@@ -301,25 +310,25 @@
 <p>ANN： 像是在打长途电话，你对着麦克风喊出的音量大小代表信息
 SNN： 像是在发莫尔斯电码，只有“点”和“划”，信息隐藏在点击的节奏中</p>
 </blockquote>
-<h1 id="gear编码">
-<a class="header-anchor" href="#gear%e7%bc%96%e7%a0%81"></a>
-&#x2699;&#xfe0f;编码
-</h1><p>SNN 不能直接处理像 0.75 这样的像素值，必须先“翻译”成脉冲:</p>
+<h2 id="编码">
+<a class="header-anchor" href="#%e7%bc%96%e7%a0%81"></a>
+⚙️编码
+</h2><p>SNN 不能直接处理像 0.75 这样的像素值，必须先“翻译”成脉冲:</p>
 <ol>
 <li><strong>频率编码</strong> (Rate Coding)： 数值越大，<strong>单位时间内发的脉冲</strong>越多（最常用，最简单）</li>
 <li><strong>时间编码</strong> (Temporal Coding)： 数值越大，<strong>脉冲发出的时间</strong>越早</li>
 <li>直接驱动： 现在很多主流框架直接<strong>把第一层作为编码层，让 CNN 的输出直接进入 LIF 神经元</strong></li>
 </ol>
-<h1 id="gear神经元模型---从-relu-到-lif">
-<a class="header-anchor" href="#gear%e7%a5%9e%e7%bb%8f%e5%85%83%e6%a8%a1%e5%9e%8b---%e4%bb%8e-relu-%e5%88%b0-lif"></a>
-&#x2699;&#xfe0f;神经元模型 - 从 ReLU 到 LIF
-</h1><p>LIF: Leaky Integrate-and-Fire: 漏电积分发放模型</p>
+<h2 id="神经元模型---从-relu-到-lif">
+<a class="header-anchor" href="#%e7%a5%9e%e7%bb%8f%e5%85%83%e6%a8%a1%e5%9e%8b---%e4%bb%8e-relu-%e5%88%b0-lif"></a>
+⚙️神经元模型 - <!-- raw HTML omitted -->从 ReLU 到 LIF<!-- raw HTML omitted -->
+</h2><p>LIF: Leaky Integrate-and-Fire: 漏电积分发放模型</p>
 <ol>
 <li><strong>积分 (Integrate)：</strong> 输入脉冲进入木桶，水面 (<strong>膜电位 $V$</strong>) 上升</li>
 <li><strong>漏电 (Leaky)：</strong> 如果一段时间没动静，水会从小孔慢慢流走（电位随时间衰减）</li>
 <li><strong>发放 (Fire)：</strong> 当水面超过<strong>阈值 $V_{th}$</strong>，神经元瞬间喷出一个脉冲，同时水面立刻清空（重置电位）</li>
 </ol>
-<p>-&gt; “达到阈值就发射并归零”的离散跳变机制
+<p>-&gt; 达到阈值就发射并归零”的离散跳变机制
 </p>
 $$
 V_t = \tau V_{t-1} + I_t - V_{th} S_{t-1}
@@ -329,10 +338,10 @@ $$<ul>
 <li>$S_{t-1}$: 上一时间步时, 神经元是否发放脉冲 (0或1)
 (离散值 - 信息输出) (来自 LIFNode 的输出)</li>
 </ul>
-<h1 id="gear如何训练---surrogate-gradient">
-<a class="header-anchor" href="#gear%e5%a6%82%e4%bd%95%e8%ae%ad%e7%bb%83---surrogate-gradient"></a>
-&#x2699;&#xfe0f;如何训练 - Surrogate Gradient
-</h1><p>SNN 的脉冲函数（Step Function）在阈值处是不可导的（导数为无穷大，其余地方为0），这意味着 <strong>Backprop 炸了</strong></p>
+<h2 id="如何训练---surrogate-gradient">
+<a class="header-anchor" href="#%e5%a6%82%e4%bd%95%e8%ae%ad%e7%bb%83---surrogate-gradient"></a>
+⚙️如何训练 - Surrogate Gradient
+</h2><p>SNN 的脉冲函数（Step Function）在阈值处是不可导的（导数为无穷大，其余地方为0），这意味着 <strong>Backprop 炸了</strong></p>
 <blockquote>
 <p>在传统的神经网络里，我们通过链式法则计算梯度：$\frac{\partial Loss}{\partial W} = \frac{\partial Loss}{\partial Output} \cdot \frac{\partial Output}{\partial Input} \cdot \frac{\partial Input}{\partial W}$</p>
 <p>在 SNN 的神经元里，$Output$ 是脉冲 $S$，它与电压 $V$ 的关系是一个 <strong>阶跃函数</strong>:</p>
@@ -369,19 +378,19 @@ $$<ul>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 这里的计算完全不看阶跃函数，而是用一个平滑函数代替</span>
 </span></span><span class="line"><span class="cl">        <span class="n">grad_input</span> <span class="o">=</span> <span class="n">grad_output</span> <span class="o">*</span> <span class="p">(</span><span class="n">某个平滑函数的导数公式</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">grad_input</span>
-</span></span></code></pre></div><h1 id="1优点">
-<a class="header-anchor" href="#1%e4%bc%98%e7%82%b9"></a>
-&#x1f44d;优点
-</h1><ol>
+</span></span></code></pre></div><h2 id="优点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9"></a>
+👍优点
+</h2><ol>
 <li><strong>极低功耗:</strong> SNN 是**“事件驱动”**的。如果没有脉冲，神经元就不计算
 (在专门的类脑芯片 [如<code> Intel Loihi</code> 或<code>华为天机</code>] 上，功耗比 GPU 低几个数量级)</li>
 <li><strong>时间动力学:</strong> SNN 天然擅长处理语音、视频等<strong>时序强相关信号</strong>（比 RNN 更省电）</li>
 <li><strong>高动态范围:</strong> 适合处理来自 **DVS（事件相机）**的数据</li>
 </ol>
-<h1 id="-1缺点">
-<a class="header-anchor" href="#-1%e7%bc%ba%e7%82%b9"></a>
-&#x1f44e;缺点
-</h1><ol>
+<h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><ol>
 <li>高推理延迟:
 <ul>
 <li>设置 $T=100$ 就意味着为了得到一个分类结果，网络必须重复计算 100 次</li>
@@ -398,10 +407,55 @@ $$<ul>
 <li>SNN 的精度通常仍略低于同规模的顶级 CNN 或 Transformer
 (信息在“连续值”转“0/1 脉冲”的过程中存在量化损失，且深层 SNN 的梯度流非常不稳定)</li>
 </ol>
-<h1 id="computer代码实现---简易版">
-<a class="header-anchor" href="#computer%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0---%e7%ae%80%e6%98%93%e7%89%88"></a>
-&#x1f4bb;代码实现 - 简易版
-</h1><h4 id="1-lenet">
+<h2 id="补充-detach_reset">
+<a class="header-anchor" href="#%e8%a1%a5%e5%85%85-detach_reset"></a>
+补充: detach_reset
+</h2><p>detach_reset默认为False</p>
+<p>SpikingJelly源码里神经元都会把 <code>detach_reset</code> 传给训练时的 autograd 函数，用来控制 reset 过程的梯度行为</p>
+<ul>
+<li><code>detach_reset=False</code>：<strong>reset 过程也参与反向传播，梯度会考虑“发放脉冲导致膜电位重置”这件事</strong></li>
+<li><code>detach_reset=True</code>：重置电压时，把 spike 从计算图里断开，<strong>不让 reset 对 spike 的梯度反传产生影响</strong></li>
+</ul>
+$$
+v_{next} = v_{reset} * spike + v * (1 - spike)
+$$<ul>
+<li><code>detach_reset=False</code> -&gt; 反传路径与公式一样</li>
+<li><code>detach_reset=True</code> -&gt; $v_{reset}$ 这条路径不再通过 spike 反传梯度</li>
+</ul>
+<h4 id="1-detach_resetfalse">
+<a class="header-anchor" href="#1-detach_resetfalse"></a>
+1. <code>detach_reset=False</code>
+</h4><p>优点：</p>
+<ul>
+<li><strong>梯度更完整</strong></li>
+<li>理论上更符合 BPTT 中的时序依赖</li>
+<li>小模型、短时间步时可能效果更细腻</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>reset 带来的<strong>梯度路径会更复杂</strong>；</li>
+<li>时间步长较长时，梯度更容易不稳定；</li>
+<li>有时训练会更敏感。</li>
+</ul>
+<h4 id="2-detach_resettrue">
+<a class="header-anchor" href="#2-detach_resettrue"></a>
+2. <code>detach_reset=True</code>
+</h4><p>优点：</p>
+<ul>
+<li><strong>训练更稳</strong></li>
+<li>减少 reset 对梯度的干扰</li>
+<li>在较深 SNN、较长时间步、DVS 这类时序任务中经常更好调</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>梯度近似更粗</li>
+<li>理论上忽略了 reset 对后续膜电位的部分影响</li>
+<li><strong>不一定总是提升精度</strong></li>
+</ul>
+<h2 id="代码实现---简易版">
+<a class="header-anchor" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0---%e7%ae%80%e6%98%93%e7%89%88"></a>
+💻代码实现 - 简易版
+</h2><h4 id="1-lenet">
 <a class="header-anchor" href="#1-lenet"></a>
 1. LeNet
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
@@ -1281,10 +1335,10 @@ $$<ul>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;93.6k</span
+          >&nbsp;96.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;03:53</span>
+        <span class="icon-coffee">&nbsp;04:00</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -1310,18 +1364,27 @@ $$<ul>
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#dl_net从入门到入土-snn基础">[DL_Net从入门到入土] SNN基础</a></li>
-    <li><a href="#loudspeaker个人导航">&#x1f4e2;个人导航</a></li>
-    <li><a href="#book参考资料">&#x1f4d6;参考资料</a></li>
-    <li><a href="#seedling背景">&#x1f331;背景</a></li>
-    <li><a href="#gear编码">&#x2699;&#xfe0f;编码</a></li>
-    <li><a href="#gear神经元模型---从-relu-到-lif">&#x2699;&#xfe0f;神经元模型 - 从 ReLU 到 LIF</a></li>
-    <li><a href="#gear如何训练---surrogate-gradient">&#x2699;&#xfe0f;如何训练 - Surrogate Gradient</a></li>
-    <li><a href="#1优点">&#x1f44d;优点</a></li>
-    <li><a href="#-1缺点">&#x1f44e;缺点</a></li>
-    <li><a href="#computer代码实现---简易版">&#x1f4bb;代码实现 - 简易版</a>
+    <li><a href="#dl_net从入门到入土-snn基础">[DL_Net从入门到入土] SNN基础</a>
       <ul>
-        <li>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#编码">⚙️编码</a></li>
+        <li><a href="#神经元模型---从-relu-到-lif">⚙️神经元模型 - 从 ReLU 到 LIF</a></li>
+        <li><a href="#如何训练---surrogate-gradient">⚙️如何训练 - Surrogate Gradient</a></li>
+        <li><a href="#优点">👍优点</a></li>
+        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#补充-detach_reset">补充: detach_reset</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-detach_resetfalse">1. <code>detach_reset=False</code></a></li>
+                <li><a href="#2-detach_resettrue">2. <code>detach_reset=True</code></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#代码实现---简易版">💻代码实现 - 简易版</a>
           <ul>
             <li>
               <ul>
@@ -1351,7 +1414,7 @@ $$<ul>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">86</div>
+    <div>文章</div><div class="sidebar-state-number">87</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -1475,7 +1538,7 @@ $$<ul>
           author: "byzh",
           title: "[DL_Net从入门到入土] SNN基础",
           url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/snn%E5%9F%BA%E7%A1%80\/",
-          description: "\r[DL_Net从入门到入土] SNN基础\r\u0026#x1f4e2;个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\n",
+          description: "\r[DL_Net从入门到入土] SNN基础\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

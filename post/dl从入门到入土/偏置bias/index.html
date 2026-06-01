@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  [DL_Net从入门到入土] 拓展 - 数据增强 | byzh
+  [DL从入门到入土] 偏置bias | byzh
 </title>
 <meta name="description" content="钻研学习中..."/><script>
   window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,20 +33,20 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="[DL_Net从入门到入土] 拓展 - 数据增强 | byzh" />
+  <meta property="og:title" content="[DL从入门到入土] 偏置bias | byzh" />
   <meta
     property="og:description"
     content="钻研学习中..."
   />
-  <meta property="og:url" content="https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA/" />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%81%8F%E7%BD%AEbias/" />
   <meta
     property="og:site_name"
     content="byzh的博客"
   />
   <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
   <meta property="article:author" content="byzh" />
-  <meta property="article:published_time" content="2026-05-17T00:00:00&#43;00:00" />
-  <meta property="article:modified_time" content="2026-05-17T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:published_time" content="2026-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-01-01T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
     rel="preload"
     as="style"
@@ -121,9 +121,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] 拓展 - 数据增强"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL从入门到入土] 偏置bias"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">[DL_Net从入门到入土] 拓展 - 数据增强</h1>
+            <h1 data-aos="slide-up">[DL从入门到入土] 偏置bias</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -137,7 +137,31 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#拓展---数据增强">拓展 - 数据增强</a></li>
+    <li><a href="#dl从入门到入土-偏置bias">[DL从入门到入土] 偏置bias</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#偏置bias">偏置bias</a></li>
+        <li><a href="#linear-里的-bias">Linear 里的 bias</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-bias是阈值">1. bias是阈值</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#conv-里的-bias">Conv 里的 bias</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-bias-可以调整这个通道整体的激活倾向">1. bias 可以调整这个通道整体的激活倾向</a></li>
+                <li><a href="#2-有-batchnorm-的时候-bias-常常可以不要">2. 有 BatchNorm 的时候 bias 常常可以不要</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -241,28 +265,118 @@
     class="article-date-link icon-calendar"
     data-aos="zoom-in"
   >
-    <time datetime="2026-05-17 00:00:00 &#43;0000 UTC" itemprop="datePublished"
-      >2026-05-17</time
+    <time datetime="2026-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2026-05-17</time
+      >2026-01-01</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="拓展---数据增强">
-<a class="header-anchor" href="#%e6%8b%93%e5%b1%95---%e6%95%b0%e6%8d%ae%e5%a2%9e%e5%bc%ba"></a>
-拓展 - 数据增强
-</h1><ul>
-<li>随机裁剪</li>
-<li>水平翻转</li>
-<li>RGB 颜色扰动（PCA jittering）</li>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl从入门到入土-偏置bias">
+<a class="header-anchor" href="#dl%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%81%8f%e7%bd%aebias"></a>
+[DL从入门到入土] 偏置bias
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="偏置bias">
+<a class="header-anchor" href="#%e5%81%8f%e7%bd%aebias"></a>
+偏置bias
+</h2><p>bias 让模型的输出不一定必须经过原点</p>
+$$
+y = wx + b
+$$<p>
+在神经网络里，bias 可以让神经元更灵活</p>
+<h2 id="linear-里的-bias">
+<a class="header-anchor" href="#linear-%e9%87%8c%e7%9a%84-bias"></a>
+Linear 里的 bias
+</h2><ul>
+<li>pytorch: <code>nn.Linear(in_features, out_features, bias=True)</code></li>
+<li>数学: $y = xW^T + b$</li>
 </ul>
-</div>
+<p>bias每个输出特征分配一个:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">第 1 个输出神经元加 b[0]
+</span></span><span class="line"><span class="cl">第 2 个输出神经元加 b[1]
+</span></span></code></pre></div><h4 id="1-bias是阈值">
+<a class="header-anchor" href="#1-bias%e6%98%af%e9%98%88%e5%80%bc"></a>
+1. bias是阈值
+</h4><p>假设后续接激活函数:</p>
+<ul>
+<li>没有 bias 时，一个神经元只能学：<code>输入大于某个由权重决定的位置时激活</code></li>
+<li>有 bias 后，它可以自己调整激活阈值：<code>输入大于某个可学习的偏移位置时激活</code></li>
+</ul>
+<p>这就是为什么 bias 常被理解为：<strong>可学习的阈值/偏移量</strong></p>
+<blockquote>
+<p>神经元激活条件是：
+</p>
+$$
+> wx + b > 0
+> \\
+> wx > -b
+> \\
+> x > -\frac{b}{w}
+> $$<p>
+所以神经元的激活阈值是：
+</p>
+$$
+> -\frac{b}{w}
+> $$<p>
+-&gt; bias 决定了 x 要大到什么程度，这个神经元才会激活</p>
+</blockquote>
+<h2 id="conv-里的-bias">
+<a class="header-anchor" href="#conv-%e9%87%8c%e7%9a%84-bias"></a>
+Conv 里的 bias
+</h2><ul>
+<li><code>nn.Conv2d(in_channels, out_channels, kernel_size, bias=True)</code></li>
+<li>$Y_c = X * W_c + b_c$</li>
+</ul>
+<p>bias每个输出通道分配一个:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">第 0 个输出通道的所有位置，都加 bias[0]
+</span></span><span class="line"><span class="cl">第 1 个输出通道的所有位置，都加 bias[1]
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">第 63 个输出通道的所有位置，都加 bias[63]
+</span></span></code></pre></div><h4 id="1-bias-可以调整这个通道整体的激活倾向">
+<a class="header-anchor" href="#1-bias-%e5%8f%af%e4%bb%a5%e8%b0%83%e6%95%b4%e8%bf%99%e4%b8%aa%e9%80%9a%e9%81%93%e6%95%b4%e4%bd%93%e7%9a%84%e6%bf%80%e6%b4%bb%e5%80%be%e5%90%91"></a>
+1. bias 可以调整这个通道整体的激活倾向
+</h4><p>假设某个输出通道专门检测“边缘”:</p>
+<ul>
+<li>没有 bias：<code>只有卷积响应本身决定输出强弱</code></li>
+<li>有 bias：<code>整个边缘检测通道可以整体抬高或压低</code></li>
+</ul>
+<blockquote>
+<p>比如：</p>
+<ul>
+<li>bias &gt; 0：这个通道更容易被激活</li>
+<li>bias &lt; 0：这个通道更不容易被激活</li>
+</ul>
+</blockquote>
+<h4 id="2-有-batchnorm-的时候-bias-常常可以不要">
+<a class="header-anchor" href="#2-%e6%9c%89-batchnorm-%e7%9a%84%e6%97%b6%e5%80%99-bias-%e5%b8%b8%e5%b8%b8%e5%8f%af%e4%bb%a5%e4%b8%8d%e8%a6%81"></a>
+2. 有 BatchNorm 的时候 bias 常常可以不要
+</h4><p>因为 BatchNorm 本身有两个可学习参数：
+</p>
+$$
+y = \gamma \hat{x} + \beta
+$$<ul>
+<li><code>gamma</code> 控制缩放</li>
+<li><code>beta</code> 控制平移</li>
+</ul>
+<p>-&gt; BatchNorm 自己已经能做“偏移”了</p>
+<p>所以常见写法是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nn.Conv2d(..., bias=False)
+</span></span><span class="line"><span class="cl">nn.BatchNorm2d(out_c)
+</span></span><span class="line"><span class="cl">nn.ReLU()
+</span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
-      href="/categories/dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      href="/categories/dl%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
       data-aos="zoom-in"
-      >DL_Net从入门到入土</a
+      >DL从入门到入土</a
     >
     </li></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
@@ -274,27 +388,27 @@
   ><div class="article-nav-link-wrap left"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[DL_Net从入门到入土] 网络中的网络NiN"
+              alt="[ML从入门到入土] XXX"
               class="lazyload"
             /><a
-          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/"
-          aria-label="前一篇:[DL_Net从入门到入土] 网络中的网络NiN"
-          title="前一篇:[DL_Net从入门到入土] 网络中的网络NiN"
+          href="/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/"
+          aria-label="前一篇:[ML从入门到入土] XXX"
+          title="前一篇:[ML从入门到入土] XXX"
         ></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">[DL_Net从入门到入土] 网络中的网络NiN</h3>
+        <h3 class="article-nav-title">[ML从入门到入土] XXX</h3>
       </div><div class="article-nav-link-wrap right"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[DL_Net从入门到入土] 拓展 - 激活函数"
+              alt="[DL从入门到入土] XXX"
               class="lazyload"
             /><a
-          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%8B%93%E5%B1%95-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
-          aria-label="后一篇:[DL_Net从入门到入土] 拓展 - 激活函数"
-          title="后一篇:[DL_Net从入门到入土] 拓展 - 激活函数"
+          href="/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/"
+          aria-label="后一篇:[DL从入门到入土] XXX"
+          title="后一篇:[DL从入门到入土] XXX"
         ></a>
         <div class="article-nav-caption">后一篇</div>
-        <h3 class="article-nav-title">[DL_Net从入门到入土] 拓展 - 激活函数</h3>
+        <h3 class="article-nav-title">[DL从入门到入土] XXX</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -345,7 +459,31 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#拓展---数据增强">拓展 - 数据增强</a></li>
+    <li><a href="#dl从入门到入土-偏置bias">[DL从入门到入土] 偏置bias</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#偏置bias">偏置bias</a></li>
+        <li><a href="#linear-里的-bias">Linear 里的 bias</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-bias是阈值">1. bias是阈值</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#conv-里的-bias">Conv 里的 bias</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-bias-可以调整这个通道整体的激活倾向">1. bias 可以调整这个通道整体的激活倾向</a></li>
+                <li><a href="#2-有-batchnorm-的时候-bias-常常可以不要">2. 有 BatchNorm 的时候 bias 常常可以不要</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -483,9 +621,9 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "byzh",
-          title: "[DL_Net从入门到入土] 拓展 - 数据增强",
-          url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E6%8B%93%E5%B1%95-%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA\/",
-          description: "\r拓展 - 数据增强\r随机裁剪 水平翻转 RGB 颜色扰动（PCA jittering） ",
+          title: "[DL从入门到入土] 偏置bias",
+          url: "https:\/\/byzhrichard.github.io\/post\/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E5%81%8F%E7%BD%AEbias\/",
+          description: "\r[DL从入门到入土] 偏置bias\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

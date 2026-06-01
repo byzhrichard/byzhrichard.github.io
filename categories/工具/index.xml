@@ -580,16 +580,15 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 </h2><h3 id="1-基础内容">
 <a class="header-anchor" href="#1-%e5%9f%ba%e7%a1%80%e5%86%85%e5%ae%b9"></a>
 1. 基础内容
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略配置文件
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 忽略 配置文件 | 虚拟环境 | 运行文件
 </span></span><span class="line"><span class="cl">**/.idea/
 </span></span><span class="line"><span class="cl">**/.vscode/
+</span></span><span class="line"><span class="cl">**/.opencode/
 </span></span><span class="line"><span class="cl">uv.lock
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 忽略虚拟环境
 </span></span><span class="line"><span class="cl">**/.venv
 </span></span><span class="line"><span class="cl">**/node_modules/
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># 忽略所有目录下的 python 运行文件
 </span></span><span class="line"><span class="cl">**/__pycache__
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"># 忽略 Jupyter 笔记本文件
