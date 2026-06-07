@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CNN系列 on byzh的博客</title>
-    <link>https://byzhrichard.github.io/tags/cnn%E7%B3%BB%E5%88%97/</link>
+    <link>http://localhost:1313/tags/cnn%E7%B3%BB%E5%88%97/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/tags/cnn%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/tags/cnn%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 网络中的网络NiN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 网络中的网络NiN</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -39,7 +39,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -50,10 +50,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 使用块的网络VGG</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 使用块的网络VGG</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -66,7 +66,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -77,10 +77,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 深度卷积神经网络AlexNet</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/alexnet/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/alexnet/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/alexnet/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/alexnet/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 深度卷积神经网络AlexNet</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -92,7 +92,7 @@
 📢个人导航
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -103,10 +103,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 含并行连结的网络GoogLeNet</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/googlenet/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/googlenet/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/googlenet/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/googlenet/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 含并行连结的网络GoogLeNet</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -118,7 +118,7 @@
 📢个人导航
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -129,10 +129,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 稠密连接网络DenseNet</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 稠密连接网络DenseNet</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -144,7 +144,7 @@
 📢个人导航
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -155,10 +155,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 残差网络ResNet</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/resnet/</link>
+      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/resnet/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/resnet/</guid>
+      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/resnet/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 残差网络ResNet</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -171,7 +171,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>

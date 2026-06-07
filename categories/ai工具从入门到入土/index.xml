@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI工具从入门到入土 on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
+    <link>http://localhost:1313/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[AI工具从入门到入土] venv、pip、conda、uv一次讲清</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/venv/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] venv、pip、conda、uv一次讲清</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -38,7 +38,7 @@
 个人导航
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -49,10 +49,10 @@
 
     <item>
       <title>[AI工具从入门到入土] torch</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/torch/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] torch</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -64,7 +64,7 @@ torch.cat
 <p>-&gt; 张量(4, 10): 称为沿第一个维度(axis/dim = 0)堆叠</p>
 <p>-&gt; 张量(2, 20): 称为沿第二个维度(axis/dim = 1)堆叠</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -75,10 +75,10 @@ torch.cat
 
     <item>
       <title>[AI工具从入门到入土] paper</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/paper/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] paper</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -119,7 +119,7 @@ torch.cat
 </table>
 <p>机器学习 / 神经网络:</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -130,10 +130,10 @@ torch.cat
 
     <item>
       <title>[AI工具从入门到入土] pandas</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/pandas/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] pandas</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -167,7 +167,7 @@ torch.cat
 </span></span></code></pre></div><blockquote>
 <p>建议保存成excel再看</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -178,10 +178,10 @@ torch.cat
 
     <item>
       <title>[AI工具从入门到入土] matplotlib:art:</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/matplotlib/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] matplotlib:art:</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -194,7 +194,7 @@ torch.cat
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -205,10 +205,10 @@ torch.cat
 
     <item>
       <title>[AI工具从入门到入土] docker</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/docker/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] docker</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -260,7 +260,7 @@ $$<blockquote>
 <p>当创建容器后, 红色文件夹(实际存在) 与 绿色文件夹(容器内存在) 会关联起来
 -&gt; 修改主机内实际存在的文件夹, 则容器内的该文件夹也会变</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>
@@ -271,10 +271,10 @@ $$<blockquote>
 
     <item>
       <title>[AI工具从入门到入土] `cache缓存` 正摧毁你的C盘</title>
-      <link>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</link>
+      <link>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</guid>
+      <guid>http://localhost:1313/post/ai%E5%B7%A5%E5%85%B7%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cache/</guid>
       <description>
         <![CDATA[<h1>[AI工具从入门到入土] `cache缓存` 正摧毁你的C盘</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -286,7 +286,7 @@ $$<blockquote>
 个人导航
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI工具从入门到入土</category>

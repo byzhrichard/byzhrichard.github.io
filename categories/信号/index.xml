@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信号 on byzh的博客</title>
+    <link>http://localhost:1313/categories/%E4%BF%A1%E5%8F%B7/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 04 Jun 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/%E4%BF%A1%E5%8F%B7/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[信号] 信号数据集</title>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[信号] 信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="分类">
+<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
+分类
+</h2><p>生理信号:</p>
+<ul>
+<li>EEG: 脑电图</li>
+<li>ECG: 心电图</li>
+<li>EMG: 肌电图</li>
+</ul>
+<p>射频信号</p>
+<p>机械信号</p>
+<p>语音信号</p>
+<h2 id="数据集">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+数据集
+</h2><h4 id="1-seed">
+<a class="header-anchor" href="#1-seed"></a>
+1. SEED
+</h4><p>SJTU Emotion EEG Dataset: 上海交通大学情感脑电数据集</p>
+<ul>
+<li><strong>数据类型</strong>：脑电图（EEG）</li>
+<li><strong>内容</strong>：被试观看情感电影片段时采集的多通道 EEG 信号。SEED 初始版本包含 15 名被试，62 通道，三类情感（<strong>积极、中性、消极</strong>）</li>
+<li><strong>用途</strong>：情感识别、脑机接口、跨被试迁移学习</li>
+</ul>
+<h4 id="2-ptb-xl">
+<a class="header-anchor" href="#2-ptb-xl"></a>
+2. PTB-XL
+</h4><p>Physikalisch-Technische Bundesanstalt – XL: 大规模临床心电图数据集</p>
+        
+        <hr><p>本文2026-06-04首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-04</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+  </channel>
+</rss>

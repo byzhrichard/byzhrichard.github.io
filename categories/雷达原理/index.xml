@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>雷达原理 on byzh的博客</title>
+    <link>http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[雷达原理] 绪论</title>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</guid>
+      <description>
+        <![CDATA[<h1>[雷达原理] 绪论</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="绪论">
+<a class="header-anchor" href="#%e7%bb%aa%e8%ae%ba"></a>
+绪论
+</h1><p>radar: <strong>ra</strong>dio <strong>d</strong>etection <strong>a</strong>nd <strong>r</strong>anging: 无线电探测和测距</p>
+<h2 id="雷达的任务">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e4%bb%bb%e5%8a%a1"></a>
+雷达的任务
+</h2><p>早期: 测距
+现在: 测距, 角度, 速度, 形状</p>
+<h2 id="雷达的基本组成">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%bb%84%e6%88%90"></a>
+雷达的基本组成
+</h2><ul>
+<li>天线: 发射信号, 接收回波</li>
+<li>发射机: 产生射频信号</li>
+<li>接收机: 接收信号(射频, 中频, 视频)</li>
+<li>信号处理机: 提取目标的各种信息</li>
+</ul>
+<hr>
+$$
+s_t(t) = A \cos\left(2\pi f_0 t + \varphi\right) = A \cos\left(\omega_0 t + \varphi\right)
+\\
+T=1/f_0 \quad \lambda=Tc=\frac{c}{f_0} \quad \lambda f_0=c
+$$<p>$f_0$: 射频/载频</p>
+        
+        <hr><p>本文2026-06-07首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-07</p>]]>
+      </description>
+      
+        <category>雷达原理</category>
+      
+    </item>
+    
+  </channel>
+</rss>
