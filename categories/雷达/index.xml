@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>雷达 on byzh的博客</title>
-    <link>http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE/</link>
+    <link>https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Tue, 02 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[雷达] 雷达视觉融合</title>
-      <link>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</link>
+      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</link>
       <pubDate>Tue, 02 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</guid>
+      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</guid>
       <description>
         <![CDATA[<h1>[雷达] 雷达视觉融合</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -42,7 +42,7 @@
 两个传感器
 </h2><p>摄像头负责“它是什么”，雷达负责“它在哪、离我多远、速度多少”</p>
         
-        <hr><p>本文2026-06-02首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-02</p>]]>
+        <hr><p>本文2026-06-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-02</p>]]>
       </description>
       
         <category>雷达</category>
@@ -53,10 +53,10 @@
 
     <item>
       <title>[雷达] 雷达基础</title>
-      <link>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
+      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sat, 30 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</guid>
       <description>
         <![CDATA[<h1>[雷达] 雷达基础</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -70,7 +70,7 @@ c=\lambda\cdot f
 $$<p>
 其中\(\lambda\)为波长，f为频率。电磁波具有<strong>反射、折射、散射、衍射、衰减</strong>五大特性，雷达主要利用<strong>反射特性</strong>，同时必须考虑<strong>衰减特性</strong>（雨衰、雾衰）对探测距离的影响</p>
         
-        <hr><p>本文2026-05-30首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-30</p>]]>
+        <hr><p>本文2026-05-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-30</p>]]>
       </description>
       
         <category>雷达</category>
@@ -81,10 +81,10 @@ $$<p>
 
     <item>
       <title>[雷达] 4D毫米波雷达</title>
-      <link>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/</link>
+      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/</link>
       <pubDate>Sun, 24 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/</guid>
+      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/4d%E6%AF%AB%E7%B1%B3%E6%B3%A2%E9%9B%B7%E8%BE%BE/</guid>
       <description>
         <![CDATA[<h1>[雷达] 4D毫米波雷达</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -98,7 +98,7 @@ $$<p>
 </h2><p>毫米波雷达，在自动驾驶传感器配置中的地位，正在快速上升。</p>
 <p>具备“高清”特质的毫米波雷达，被称为<strong>成像雷达</strong>，或者<strong>4D毫米波雷达</strong>。</p>
         
-        <hr><p>本文2026-05-24首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-24</p>]]>
+        <hr><p>本文2026-05-24首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-24</p>]]>
       </description>
       
         <category>雷达</category>

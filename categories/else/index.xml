@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Else on byzh的博客</title>
-    <link>http://localhost:1313/categories/else/</link>
+    <link>https://byzhrichard.github.io/categories/else/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/categories/else/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/categories/else/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>markdown表情</title>
-      <link>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</link>
+      <link>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
+      <guid>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
       <description>
         <![CDATA[<h1>markdown表情</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -412,7 +412,62 @@
   </tbody>
 </table>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+      </description>
+      
+        <category>else</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[else] paper</title>
+      <link>https://byzhrichard.github.io/post/else/paper/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/else/paper/</guid>
+      <description>
+        <![CDATA[<h1>[else] paper</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="顶级期刊journals">
+<a class="header-anchor" href="#%e9%a1%b6%e7%ba%a7%e6%9c%9f%e5%88%8ajournals"></a>
+顶级期刊（Journals）
+</h1><p>计算机视觉 / 模式识别:</p>
+<table>
+  <thead>
+      <tr>
+          <th>简称</th>
+          <th>全称</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TPAMI / PAMI</strong></td>
+          <td>IEEE Transactions on Pattern Analysis and Machine Intelligence</td>
+          <td>计算机视觉 / 机器学习顶级期刊</td>
+      </tr>
+      <tr>
+          <td><strong>IJCV</strong></td>
+          <td>International Journal of Computer Vision</td>
+          <td>计算机视觉顶刊</td>
+      </tr>
+      <tr>
+          <td><strong>PR</strong></td>
+          <td>Pattern Recognition</td>
+          <td>模式识别经典期刊</td>
+      </tr>
+      <tr>
+          <td><strong>PRL</strong></td>
+          <td>Pattern Recognition Letters</td>
+          <td>PR 的快报版</td>
+      </tr>
+  </tbody>
+</table>
+<p>机器学习 / 神经网络:</p>
+        
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>else</category>

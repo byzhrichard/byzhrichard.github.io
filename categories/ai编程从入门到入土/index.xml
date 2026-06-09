@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI编程从入门到入土 on byzh的博客</title>
-    <link>http://localhost:1313/categories/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
+    <link>https://byzhrichard.github.io/categories/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/categories/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/categories/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[AI编程从入门到入土] 装饰器decorator</title>
-      <link>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A3%85%E9%A5%B0%E5%99%A8decorator/</link>
+      <link>https://byzhrichard.github.io/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A3%85%E9%A5%B0%E5%99%A8decorator/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A3%85%E9%A5%B0%E5%99%A8decorator/</guid>
+      <guid>https://byzhrichard.github.io/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A3%85%E9%A5%B0%E5%99%A8decorator/</guid>
       <description>
         <![CDATA[<h1>[AI编程从入门到入土] 装饰器decorator</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -39,7 +39,7 @@
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI编程从入门到入土</category>
@@ -50,10 +50,10 @@
 
     <item>
       <title>[AI编程从入门到入土] 配置文件</title>
-      <link>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <link>https://byzhrichard.github.io/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://byzhrichard.github.io/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
       <description>
         <![CDATA[<h1>[AI编程从入门到入土] 配置文件</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -66,73 +66,7 @@
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
-      </description>
-      
-        <category>AI编程从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[AI编程从入门到入土] 规范</title>
-      <link>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A7%84%E8%8C%83/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/ai%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%A7%84%E8%8C%83/</guid>
-      <description>
-        <![CDATA[<h1>[AI编程从入门到入土] 规范</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="项目规范">
-<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e8%a7%84%e8%8c%83"></a>
-项目规范
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">my_project/
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── data/                     # 存放数据集（原始/处理后）
-</span></span><span class="line"><span class="cl">│   └── README.md             # 说明数据来源、格式、预处理方式
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── models/                   # 模型定义
-</span></span><span class="line"><span class="cl">│   ├── __init__.py          
-</span></span><span class="line"><span class="cl">│   ├── loss.py               
-</span></span><span class="line"><span class="cl">│   └── cnn.py                
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── training/                 # 训练脚本
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   └── train_cnn.py          # 原 s03_01_train_cnn.py
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── clustering/               # 聚类算法
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   ├── minibatchkmeans.py    
-</span></span><span class="line"><span class="cl">│   ├── bisectingkmeans.py    
-</span></span><span class="line"><span class="cl">│   ├── faisskmeans.py       
-</span></span><span class="line"><span class="cl">│   ├── birch.py              
-</span></span><span class="line"><span class="cl">│   └── hdbscan.py            
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── visualization/            # 可视化脚本
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   ├── t_sne.py            
-</span></span><span class="line"><span class="cl">│   ├── umap.py              
-</span></span><span class="line"><span class="cl">│   └── pacmap.py            
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── utils/                    # 工具函数（可选，如数据加载、日志、配置）
-</span></span><span class="line"><span class="cl">│   ├── __init__.py
-</span></span><span class="line"><span class="cl">│   └── helpers.py
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── configs/                  # 配置文件（如超参数、路径）
-</span></span><span class="line"><span class="cl">│   └── config.yaml
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── scripts/                  # 主运行脚本（可选，封装命令行入口）
-</span></span><span class="line"><span class="cl">│   └── run_pipeline.py       # 可调用各模块的主流程
-</span></span><span class="line"><span class="cl">│
-</span></span><span class="line"><span class="cl">├── logs/                     # 训练/运行日志
-</span></span><span class="line"><span class="cl">├── outputs/                  # 输出结果（模型、聚类结果、可视化图）
-</span></span><span class="line"><span class="cl">├── requirements.txt          # 依赖包列表
-</span></span><span class="line"><span class="cl">├── README.md                 # 项目说明、安装、使用指南
-</span></span><span class="line"><span class="cl">└── .gitignore                # Git忽略文件
-</span></span></code></pre></div>
-        
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>AI编程从入门到入土</category>
