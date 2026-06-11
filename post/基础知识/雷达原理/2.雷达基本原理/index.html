@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  [雷达原理] 雷达基本原理 | byzh
+  [雷达原理] 2.雷达基本原理 | byzh
 </title>
 <meta name="description" content="钻研学习中..."/><script>
   window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,7 +33,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="[雷达原理] 雷达基本原理 | byzh" />
+  <meta property="og:title" content="[雷达原理] 2.雷达基本原理 | byzh" />
   <meta
     property="og:description"
     content="钻研学习中..."
@@ -121,9 +121,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[雷达原理] 雷达基本原理"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[雷达原理] 2.雷达基本原理"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">[雷达原理] 雷达基本原理</h1>
+            <h1 data-aos="slide-up">[雷达原理] 2.雷达基本原理</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -153,12 +153,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">93</div>
+    <div>文章</div><div class="sidebar-state-number">101</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      18
+      19
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -251,7 +251,93 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="基本雷达方程">
 <a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e9%9b%b7%e8%be%be%e6%96%b9%e7%a8%8b"></a>
 基本雷达方程
-</h1><p>雷达最大作用距离方程</p>
+</h1><p>基本:</p>
+<ul>
+<li>单基地(收发在同一个地点完成)</li>
+<li>理想无损耗自由空间传播</li>
+</ul>
+<p>雷达最大作用距离方程: $R_{max}$</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/image-20260610141743161.png" alt="image-20260610141743161"></p>
+<ul>
+<li>$\sigma$: 目标的<strong>雷达截面积 (RCS: radar cross section)</strong>
+<ul>
+<li>$\sigma$ 越小, 雷达反射回来的回波功率很弱 (目标对雷达隐身)</li>
+</ul>
+</li>
+<li>$G_t$: 发射天线的最大增益 $G_r=\frac{4\pi A_r}{\lambda^2}$</li>
+<li>$G_r$: 接收天线的最大增益 $G_t=\frac{4\pi A_t}{\lambda^2}$</li>
+<li>$S_{i~min}$: 接收机的灵敏度 / 最小可检测的功率信号
+(越小越好)</li>
+<li>$P_t$: 发射机发射出去的信号</li>
+<li>$P_r$: 接收机接收到的回波信号
+<ul>
+<li>如果 $\bold{P_r \ge S_{i~min}}$, 说明雷达能够探测到目标
+(等价于 $\bold{R \le R_{max}}$)</li>
+<li>目标越远, $P_r$ 越小</li>
+</ul>
+</li>
+<li>$A_r$: 接收天线的有效面积</li>
+<li>$A_t$: 发射天线的有效面积</li>
+</ul>
+<p>无方向性天线:
+</p>
+$$
+P_r=\frac{P_t}{4\pi R^2}
+$$<p>
+有方向性天线:
+</p>
+$$
+\begin{align}
+P_r&=\frac{P_t G_t}{4\pi R^2} \sigma \frac{A_r}{4\pi R^2}
+\\
+&=\frac{P_tG_tG_r\lambda^2 \sigma}{(4\pi)^3R^4}
+\end{align}
+$$<p>
+所以: ($R$对应$R_{max}$, $P_r$对应$S_{i~min}$)
+</p>
+$$
+R_{max}=\left[\frac{P_tG_tG_r\lambda^2 \sigma}{(4\pi)^3S_{i~min}}\right]^{\frac{1}{4}}
+$$<ul>
+<li>如果要让其变大2倍, 则需要$P_t$变大16倍</li>
+<li>$S_{i~min}$越小越好</li>
+<li>敌方若不想被探测, 则会降低$\sigma$</li>
+</ul>
+<p>公式单位:</p>
+<table>
+  <thead>
+      <tr>
+          <th>$P_t$</th>
+          <th>$G_t$ / $G_r$</th>
+          <th>$\lambda$</th>
+          <th>$\sigma$</th>
+          <th>$S_{i~min}$</th>
+          <th>$R_{max}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>真值</td>
+          <td>真值</td>
+          <td>$m$</td>
+          <td>$m^2$</td>
+          <td>真值</td>
+          <td>$m$</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>单位换算:</p>
+<p>例如: $G_t$为1000, 则换算为分贝值是$10\log_{10}1000=30dB$</p>
+<p>例如: $G_t$为30dB, 则换算为真值是$10^{\frac{30}{10}}=1000$</p>
+<p>例如: $S_{i~min}$为$10^{-12}W$, 则换算为分贝值是$10\log_{10}10^{-12}=-120dBW$</p>
+<p>例如: $S_{i~min}$为$10^{-9}mW$, 则换算为分贝值是$10\log_{10}10^{-9}=-90dBmW==-90dBm(W)$</p>
+<blockquote>
+<p>dBmW时, 有时候会省略W</p>
+</blockquote>
+<ul>
+<li>dBW -&gt; dBmW: 需要<code>+30</code></li>
+<li>dBmW -&gt; dBW: 需要<code>-30</code></li>
+</ul>
 </div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -270,15 +356,27 @@
   ><div class="article-nav-link-wrap left"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[雷达原理] 绪论"
+              alt="[雷达原理] 1.绪论"
               class="lazyload"
             /><a
           href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/"
-          aria-label="前一篇:[雷达原理] 绪论"
-          title="前一篇:[雷达原理] 绪论"
+          aria-label="前一篇:[雷达原理] 1.绪论"
+          title="前一篇:[雷达原理] 1.绪论"
         ></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">[雷达原理] 绪论</h3>
+        <h3 class="article-nav-title">[雷达原理] 1.绪论</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[信号] 通过sin理解信号"
+              class="lazyload"
+            /><a
+          href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/"
+          aria-label="后一篇:[信号] 通过sin理解信号"
+          title="后一篇:[信号] 通过sin理解信号"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[信号] 通过sin理解信号</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -300,10 +398,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;101.5k</span
+          >&nbsp;110.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;04:13</span>
+        <span class="icon-coffee">&nbsp;04:35</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -345,12 +443,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">93</div>
+    <div>文章</div><div class="sidebar-state-number">101</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      18
+      19
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -467,9 +565,9 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "byzh",
-          title: "[雷达原理] 雷达基本原理",
+          title: "[雷达原理] 2.雷达基本原理",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86\/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86\/",
-          description: "\r基本雷达方程\r雷达最大作用距离方程\n",
+          description: "\r基本雷达方程\r基本:\n单基地(收发在同一个地点完成) 理想无损耗自由空间传播 雷达最大作用距离方程: $R_{max}$\n$\\sigma$: 目标的雷达截面积 (RCS: radar cross section) $\\sigma$ 越小, 雷达反射回来的回波功率很弱 (目标对雷达隐身) $G_t$: 发射天线的最大增益 $G_r=\\frac{4\\pi A_r}{\\lambda^2}$ $G_r$: 接收天线的最大增益 $G_t=\\frac{4\\pi A_t}{\\lambda^2}$ $S_{i~min}$: 接收机的灵敏度 \/ 最小可检测的功率信号 (越小越好) $P_t$: 发射机发射出去 …",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

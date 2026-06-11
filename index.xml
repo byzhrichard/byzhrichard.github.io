@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,18 +22,347 @@
     
 
     <item>
-      <title>[雷达原理] 雷达基本原理</title>
+      <title>[信号] Laplace</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</link>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</guid>
+      <description>
+        <![CDATA[<h1>[信号] Laplace</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="拉普拉斯变换---laplace">
+<a class="header-anchor" href="#%e6%8b%89%e6%99%ae%e6%8b%89%e6%96%af%e5%8f%98%e6%8d%a2---laplace"></a>
+拉普拉斯变换 - Laplace
+</h2><p>CTFT 只看虚轴上的频率 -&gt; CTFT 用的是 $e^{-j\Omega t}$
+Laplace 看整个复平面 -&gt; Laplace 用的是 $e^{-st}$
+其中 $s=\sigma+j\Omega$</p>
+<ul>
+<li>$σ$：看信号的增长/衰减特性</li>
+<li>$Ω$：看信号的振荡频率</li>
+<li>$s$ = 衰减/增长 + 振荡</li>
+</ul>
+<p>Laplace:
+</p>
+        
+        <hr><p>本文2026-06-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] DTFT</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dtft/</link>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dtft/</guid>
+      <description>
+        <![CDATA[<h1>[信号] DTFT</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="离散时间傅里叶变换---dtft">
+<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dtft"></a>
+离散时间傅里叶变换 - DTFT
+</h2><p>CTFT 是看连续信号有哪些频率
+DTFT 是看离散信号有哪些频率</p>
+<p>离散时间信号：
+</p>
+$$
+x[n]=\sin(\omega_0 n)=\sin(2\pi f_d n)
+$$<ul>
+<li>采 样频率: $f_s$</li>
+<li>$\omega_0=2\pi\frac{f_0}{f_s}$</li>
+</ul>
+<p>DTFT:
+</p>
+$$
+X(e^{j\omega})=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\omega n}
+\\
+x[n]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\omega})e^{j\omega n}d\omega
+$$<blockquote>
+<p><!-- raw HTML omitted -->DTFT 的频率变量 $\omega$ 仍然是<strong>连续变化的</strong> -&gt; 离散时间，不等于离散频率<!-- raw HTML omitted --></p>
+        
+        <hr><p>本文2026-06-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] DFT</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dft/</link>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dft/</guid>
+      <description>
+        <![CDATA[<h1>[信号] DFT</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="离散傅里叶变换---dft">
+<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dft"></a>
+离散傅里叶变换 - DFT
+</h2><p>DTFT 是理论上的连续频率谱 -&gt;  $\omega$ 可以是任意值
+DFT 是电脑真正能算的有限个频率点 -&gt; 只看 $N$ 个固定频率点 $\omega_0, \omega_1,..., \omega_{N-1}$
+-&gt; DTFT 是离散信号的完整频谱，<!-- raw HTML omitted -->而 DFT 是把 DTFT 采样成有限个点<!-- raw HTML omitted -->
+-&gt; 而 $X(e^{j\omega})$ 以 $2\pi$ 为周期, 所以 DFT 只需要在一个周期 $0\sim 2\pi$ 里取点
+</p>
+        
+        <hr><p>本文2026-06-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] CTFT</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/ctft/</link>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/ctft/</guid>
+      <description>
+        <![CDATA[<h1>[信号] CTFT</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="连续时间傅里叶变换---ctft">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---ctft"></a>
+连续时间傅里叶变换 - CTFT
+</h2><p><strong>一个连续时间信号里，到底含有哪些频率成分</strong></p>
+<p>CTFT 不关心信号“长什么样”，CTFT 关心的是：这个信号由哪些频率组成？</p>
+<p>连续时间信号：
+</p>
+        
+        <hr><p>本文2026-06-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] 通过sin理解信号</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/</guid>
+      <description>
+        <![CDATA[<h1>[信号] 通过sin理解信号</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="学习顺序">
+<a class="header-anchor" href="#%e5%ad%a6%e4%b9%a0%e9%a1%ba%e5%ba%8f"></a>
+学习顺序
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTFT  →  采样  →  DTFT  →  DFT  →  STFT
+</span></span><span class="line"><span class="cl">  ↓                ↓                ↓
+</span></span><span class="line"><span class="cl">Laplace           ZT               CWT
+</span></span></code></pre></div><ul>
+<li>
+<p>CTFT: 先看连续正弦在频域长什么样</p>
+<ul>
+<li>CTFT 的加强版</li>
+</ul>
+</li>
+<li>
+<p>采样: 从 CTFT 过渡到 DTFT</p>
+</li>
+<li>
+<p>DTFT: 离散信号的完整频谱</p>
+<ul>
+<li>ZT: DTFT 的加强版</li>
+</ul>
+</li>
+<li>
+<p>DFT: 把 DTFT 采样成有限个点</p>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达原理] 3.雷达的工作频率、应用、发展</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/3.%E9%9B%B7%E8%BE%BE%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%A2%91%E7%8E%87/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/3.%E9%9B%B7%E8%BE%BE%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%A2%91%E7%8E%87/</guid>
+      <description>
+        <![CDATA[<h1>[雷达原理] 3.雷达的工作频率、应用、发展</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="雷达的工作频率">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e5%b7%a5%e4%bd%9c%e9%a2%91%e7%8e%87"></a>
+雷达的工作频率
+</h2><p>常用的频段范围(射频): 220M~35G Hz</p>
+<ul>
+<li>$L$波段, 中心频率对应波长22cm, 波长范围: 20~25cm</li>
+<li>$S$波段, 中心频率对应波长10cm</li>
+<li>$C$波段, 中心频率对应波长5cm</li>
+<li>$X$波段, 中心频率对应波长3cm, 对应载频为10GHz
+($\frac{3*10^8}{3*10^{-2}}=10^{10}Hz$)</li>
+<li>$K_u$波段, 中心频率对应波长2.2cm</li>
+<li>$K_a$波段, 中心频率对应波长8mm</li>
+</ul>
+<h2 id="雷达的应用">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e5%ba%94%e7%94%a8"></a>
+雷达的应用
+</h2><h4 id="1-军用">
+<a class="header-anchor" href="#1-%e5%86%9b%e7%94%a8"></a>
+1. 军用
+</h4><p>预警雷达: 敌方洲际导弹</p>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>雷达原理</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达基础] 5.雷达发射机</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</guid>
+      <description>
+        <![CDATA[<h1>[雷达基础] 5.雷达发射机</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="雷达发射机的任务和基本组成">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e5%8f%91%e5%b0%84%e6%9c%ba%e7%9a%84%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%9f%ba%e6%9c%ac%e7%bb%84%e6%88%90"></a>
+雷达发射机的任务和基本组成
+</h1><h2 id="雷达发射机的任务">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e5%8f%91%e5%b0%84%e6%9c%ba%e7%9a%84%e4%bb%bb%e5%8a%a1"></a>
+雷达发射机的任务
+</h2><p>任务: 产生<strong>大功率</strong>, <strong>特定调制</strong>的<strong>射频</strong>信号</p>
+<blockquote>
+<p>发射的是射频信号, 接收的也是射频信号: 多普勒对其的影响微乎其微</p>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>雷达基础</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达基础] 4.电子战与雷达</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</guid>
+      <description>
+        <![CDATA[<h1>[雷达基础] 4.电子战与雷达</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="电子战ew">
+<a class="header-anchor" href="#%e7%94%b5%e5%ad%90%e6%88%98ew"></a>
+电子战EW
+</h2><p>E: electronic
+W: warfare</p>
+<p>电子战EW:</p>
+<ul>
+<li>电子对抗ECM: electronic counter measurement
+(对雷达进行对抗)
+<ul>
+<li>电子侦察</li>
+<li>电子干扰</li>
+<li>电子隐身和伪装</li>
+<li>电子摧毁</li>
+</ul>
+</li>
+<li>电子反对抗ECCM: electronic counter counter measurement
+(保护雷达不被对抗)
+<ul>
+<li>电子反侦察</li>
+<li>电子反干扰</li>
+<li>电子反隐身</li>
+<li>电子反摧毁</li>
+</ul>
+</li>
+</ul>
+<h2 id="雷达的抗干扰技术">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e6%8a%97%e5%b9%b2%e6%89%b0%e6%8a%80%e6%9c%af"></a>
+雷达的抗干扰技术
+</h2><h4 id="1-与天线有关的抗干扰技术">
+<a class="header-anchor" href="#1-%e4%b8%8e%e5%a4%a9%e7%ba%bf%e6%9c%89%e5%85%b3%e7%9a%84%e6%8a%97%e5%b9%b2%e6%89%b0%e6%8a%80%e6%9c%af"></a>
+1. 与天线有关的抗干扰技术
+</h4><ul>
+<li>旁瓣相消: SLC</li>
+<li>旁瓣匿影</li>
+</ul>
+<h4 id="2-与发射机有关的抗干扰技术">
+<a class="header-anchor" href="#2-%e4%b8%8e%e5%8f%91%e5%b0%84%e6%9c%ba%e6%9c%89%e5%85%b3%e7%9a%84%e6%8a%97%e5%b9%b2%e6%89%b0%e6%8a%80%e6%9c%af"></a>
+2. 与发射机有关的抗干扰技术
+</h4><h4 id="3-与接收机有关的抗干扰技术">
+<a class="header-anchor" href="#3-%e4%b8%8e%e6%8e%a5%e6%94%b6%e6%9c%ba%e6%9c%89%e5%85%b3%e7%9a%84%e6%8a%97%e5%b9%b2%e6%89%b0%e6%8a%80%e6%9c%af"></a>
+3. 与接收机有关的抗干扰技术
+</h4><h4 id="4-反隐身">
+<a class="header-anchor" href="#4-%e5%8f%8d%e9%9a%90%e8%ba%ab"></a>
+4. 反隐身
+</h4>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>雷达基础</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达原理] 2.雷达基本原理</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</guid>
       <description>
-        <![CDATA[<h1>[雷达原理] 雷达基本原理</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[雷达原理] 2.雷达基本原理</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="基本雷达方程">
 <a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e9%9b%b7%e8%be%be%e6%96%b9%e7%a8%8b"></a>
 基本雷达方程
-</h1><p>雷达最大作用距离方程</p>
+</h1><p>基本:</p>
+<ul>
+<li>单基地(收发在同一个地点完成)</li>
+<li>理想无损耗自由空间传播</li>
+</ul>
+<p>雷达最大作用距离方程: $R_{max}$</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/image-20260610141743161.png" alt="image-20260610141743161"></p>
+<ul>
+<li>$\sigma$: 目标的<strong>雷达截面积 (RCS: radar cross section)</strong>
+<ul>
+<li>$\sigma$ 越小, 雷达反射回来的回波功率很弱 (目标对雷达隐身)</li>
+</ul>
+</li>
+<li>$G_t$: 发射天线的最大增益 $G_r=\frac{4\pi A_r}{\lambda^2}$</li>
+<li>$G_r$: 接收天线的最大增益 $G_t=\frac{4\pi A_t}{\lambda^2}$</li>
+<li>$S_{i~min}$: 接收机的灵敏度 / 最小可检测的功率信号
+(越小越好)</li>
+<li>$P_t$: 发射机发射出去的信号</li>
+<li>$P_r$: 接收机接收到的回波信号
+<ul>
+<li>如果 $\bold{P_r \ge S_{i~min}}$, 说明雷达能够探测到目标
+(等价于 $\bold{R \le R_{max}}$)</li>
+<li>目标越远, $P_r$ 越小</li>
+</ul>
+</li>
+<li>$A_r$: 接收天线的有效面积</li>
+<li>$A_t$: 发射天线的有效面积</li>
+</ul>
+<p>无方向性天线:
+</p>
         
         <hr><p>本文2026-06-09首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-09</p>]]>
       </description>
@@ -45,13 +374,13 @@
     
 
     <item>
-      <title>[雷达原理] 绪论</title>
+      <title>[雷达原理] 1.绪论</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</link>
       <pubDate>Sun, 07 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</guid>
       <description>
-        <![CDATA[<h1>[雷达原理] 绪论</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[雷达原理] 1.绪论</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="绪论">
 <a class="header-anchor" href="#%e7%bb%aa%e8%ae%ba"></a>
@@ -84,427 +413,6 @@ $$<p>$f_0$: 射频/载频</p>
       </description>
       
         <category>雷达原理</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] 信号数据集</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Thu, 04 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[信号] 信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="分类">
-<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
-分类
-</h2><p>生理信号:</p>
-<ul>
-<li>EEG: 脑电图</li>
-<li>ECG: 心电图</li>
-<li>EMG: 肌电图</li>
-</ul>
-<p>射频信号</p>
-<p>机械信号</p>
-<p>语音信号</p>
-<h2 id="数据集">
-<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-数据集
-</h2><h4 id="1-seed">
-<a class="header-anchor" href="#1-seed"></a>
-1. SEED
-</h4><p>SJTU Emotion EEG Dataset: 上海交通大学情感脑电数据集</p>
-<ul>
-<li><strong>数据类型</strong>：脑电图（EEG）</li>
-<li><strong>内容</strong>：被试观看情感电影片段时采集的多通道 EEG 信号。SEED 初始版本包含 15 名被试，62 通道，三类情感（<strong>积极、中性、消极</strong>）</li>
-<li><strong>用途</strong>：情感识别、脑机接口、跨被试迁移学习</li>
-</ul>
-<h4 id="2-ptb-xl">
-<a class="header-anchor" href="#2-ptb-xl"></a>
-2. PTB-XL
-</h4><p>Physikalisch-Technische Bundesanstalt – XL: 大规模临床心电图数据集</p>
-        
-        <hr><p>本文2026-06-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-04</p>]]>
-      </description>
-      
-        <category>信号</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] Python</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/python/</link>
-      <pubDate>Wed, 03 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/python/</guid>
-      <description>
-        <![CDATA[<h1>[工具] Python</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="python-解释器参数">
-<a class="header-anchor" href="#python-%e8%a7%a3%e9%87%8a%e5%99%a8%e5%8f%82%e6%95%b0"></a>
-Python 解释器参数
-</h2><p>在 <code>python</code> 后, 在 <code>py脚本</code> 前</p>
-<blockquote>
-<p>如果在 <code>py脚本</code> 后, 则是作为传给 <code>py脚本</code> 的参数</p>
-</blockquote>
-<h4 id="1--m">
-<a class="header-anchor" href="#1--m"></a>
-1. -m
-</h4><p><strong>把“模块”当脚本运行</strong></p>
-<h4 id="2--u">
-<a class="header-anchor" href="#2--u"></a>
-2. -u
-</h4><p><strong>stdout / stderr 尽量别缓冲，有东西就赶紧输出</strong></p>
-        
-        <hr><p>本文2026-06-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-03</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[leetCode] 2</title>
-      <link>https://byzhrichard.github.io/post/leetcode/2/</link>
-      <pubDate>Wed, 03 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/leetcode/2/</guid>
-      <description>
-        <![CDATA[<h1>[leetCode] 2</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="21-合并两个有序链表">
-<a class="header-anchor" href="#21-%e5%90%88%e5%b9%b6%e4%b8%a4%e4%b8%aa%e6%9c%89%e5%ba%8f%e9%93%be%e8%a1%a8"></a>
-21. 合并两个有序链表
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list1</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">],</span> <span class="n">list2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">()</span> <span class="c1"># 哨兵节点</span>
-</span></span><span class="line"><span class="cl">        <span class="n">cur</span> <span class="o">=</span> <span class="n">dummy</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">list1</span> <span class="ow">and</span> <span class="n">list2</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">list1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">list2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cur</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">list1</span>
-</span></span><span class="line"><span class="cl">                <span class="n">list1</span> <span class="o">=</span> <span class="n">list1</span><span class="o">.</span><span class="n">next</span>
-</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">cur</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">list2</span>
-</span></span><span class="line"><span class="cl">                <span class="n">list2</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="n">next</span>
-</span></span><span class="line"><span class="cl">            <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">next</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">cur</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">list1</span> <span class="k">if</span> <span class="n">list1</span> <span class="k">else</span> <span class="n">list2</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
-</span></span></code></pre></div><h2 id="22-括号生成">
-<a class="header-anchor" href="#22-%e6%8b%ac%e5%8f%b7%e7%94%9f%e6%88%90"></a>
-22. 括号生成
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">generateParenthesis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 回溯DFS</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="nf">backtrack</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">            left: 用了几个左括号
-</span></span></span><span class="line"><span class="cl"><span class="s2">            right: 用了几个右括号
-</span></span></span><span class="line"><span class="cl"><span class="s2">            &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># 终止条件：左右括号都用完</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">right</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="k">return</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># 优先加左括号（左括号没到上限）</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">backtrack</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&#34;(&#34;</span><span class="p">,</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># 右括号数量小于左括号，才能加右括号</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">right</span> <span class="o">&lt;</span> <span class="n">left</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">backtrack</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&#34;)&#34;</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">backtrack</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">res</span>
-</span></span></code></pre></div><h2 id="23-合并-k-个升序链表-hard">
-<a class="header-anchor" href="#23-%e5%90%88%e5%b9%b6-k-%e4%b8%aa%e5%8d%87%e5%ba%8f%e9%93%be%e8%a1%a8-hard"></a>
-23. 合并 K 个升序链表 (hard)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ListNode</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">#建立小顶堆</span>
-</span></span><span class="line"><span class="cl">        <span class="n">heap</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lists</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">curr</span> <span class="o">=</span> <span class="n">dummy</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">heap</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">val</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span> <span class="o">=</span> <span class="n">heapq</span><span class="o">.</span><span class="n">heappop</span><span class="p">(</span><span class="n">heap</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">            <span class="n">curr</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">node</span>
-</span></span><span class="line"><span class="cl">            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="n">next</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">heapq</span><span class="o">.</span><span class="n">heappush</span><span class="p">(</span><span class="n">heap</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
-</span></span></code></pre></div><h2 id="31-下一个排列-hard">
-<a class="header-anchor" href="#31-%e4%b8%8b%e4%b8%80%e4%b8%aa%e6%8e%92%e5%88%97-hard"></a>
-31. 下一个排列 (hard)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">nextPermutation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">        Do not return anything, modify nums in-place instead.
-</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 步骤1：找i，从倒数第二个元素向前遍历</span>
-</span></span><span class="line"><span class="cl">        <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 找到拐点</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># 步骤2：找j</span>
-</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># 步骤3：交换i,j</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="c1"># 步骤4：反转i+1到末尾</span>
-</span></span><span class="line"><span class="cl">        <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">            <span class="n">left</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">            <span class="n">right</span> <span class="o">-=</span> <span class="mi">1</span>
-</span></span></code></pre></div>
-        
-        <hr><p>本文2026-06-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-03</p>]]>
-      </description>
-      
-        <category>leetCode</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[雷达] 雷达视觉融合</title>
-      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</link>
-      <pubDate>Tue, 02 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E8%A7%86%E8%A7%89%E8%9E%8D%E5%90%88/</guid>
-      <description>
-        <![CDATA[<h1>[雷达] 雷达视觉融合</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="雷达视觉融合">
-<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e8%a7%86%e8%a7%89%e8%9e%8d%e5%90%88"></a>
-雷达视觉融合
-</h2><p>用“雷达的距离/速度感知能力”补上“摄像头的语义理解能力”，让机器更稳地看懂真实世界</p>
-<blockquote>
-<p>毫米波雷达 + 摄像头是很常见的组合</p>
-</blockquote>
-<h2 id="两个传感器">
-<a class="header-anchor" href="#%e4%b8%a4%e4%b8%aa%e4%bc%a0%e6%84%9f%e5%99%a8"></a>
-两个传感器
-</h2><p>摄像头负责“它是什么”，雷达负责“它在哪、离我多远、速度多少”</p>
-        
-        <hr><p>本文2026-06-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-02</p>]]>
-      </description>
-      
-        <category>雷达</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[雷达] 雷达基础</title>
-      <link>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Sat, 30 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E9%9B%B7%E8%BE%BE/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</guid>
-      <description>
-        <![CDATA[<h1>[雷达] 雷达基础</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="基础理论">
-<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80%e7%90%86%e8%ae%ba"></a>
-基础理论
-</h2><p>雷达本质是<strong>利用电磁波的反射特性探测目标</strong>的电子设备
-</p>
-$$
-c=\lambda\cdot f
-$$<p>
-其中\(\lambda\)为波长，f为频率。电磁波具有<strong>反射、折射、散射、衍射、衰减</strong>五大特性，雷达主要利用<strong>反射特性</strong>，同时必须考虑<strong>衰减特性</strong>（雨衰、雾衰）对探测距离的影响</p>
-        
-        <hr><p>本文2026-05-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-30</p>]]>
-      </description>
-      
-        <category>雷达</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[计算机网络] 基础知识</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
-      <pubDate>Fri, 29 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
-      <description>
-        <![CDATA[<h1>[计算机网络] 基础知识</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="一次访问">
-<a class="header-anchor" href="#%e4%b8%80%e6%ac%a1%e8%ae%bf%e9%97%ae"></a>
-一次访问
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你的软件
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">你的电脑网络配置
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">DNS：把域名翻译成 IP
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">网关/路由器：决定数据往哪走
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">运营商网络
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">目标服务器
-</span></span><span class="line"><span class="cl">  ↓
-</span></span><span class="line"><span class="cl">目标服务器上的某个端口/服务
-</span></span></code></pre></div><h2 id="ip">
-<a class="header-anchor" href="#ip"></a>
-IP
-</h2><p>机器的门牌号: <strong>IP 地址</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">192.168.1.50
-</span></span></code></pre></div><h4 id="1-ipv4">
-<a class="header-anchor" href="#1-ipv4"></a>
-1. IPv4
-</h4><p>IPv4 是现在最经典、最常见的 IP 地址格式
-由 4 段数字组成，每段范围是 <code>0 ~ 255</code></p>
-        
-        <hr><p>本文2026-05-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-29</p>]]>
-      </description>
-      
-        <category>计算机网络</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[计算机网络] y</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
-      <pubDate>Fri, 29 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
-      <description>
-        <![CDATA[<h1>[计算机网络] y</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="常见问题">
-<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98"></a>
-常见问题
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">无法访问
-</span></span><span class="line"><span class="cl">连接超时
-</span></span><span class="line"><span class="cl">无互联网连接
-</span></span><span class="line"><span class="cl">服务器无响应
-</span></span></code></pre></div><p>本质是:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. DNS 问题：域名解析错了 / 解析不到
-</span></span><span class="line"><span class="cl">2. 路由问题：数据不知道该走哪条路
-</span></span><span class="line"><span class="cl">3. 代理问题：流量有没有走 Clash / VPN / 系统代理
-</span></span><span class="line"><span class="cl">4. 防火墙问题：被本机、服务器、路由器、防火墙拦了
-</span></span><span class="line"><span class="cl">5. 网关 / NAT 问题：内网出口转换出问题
-</span></span><span class="line"><span class="cl">6. 缓存问题：系统缓存了错误的解析或连接状态
-</span></span><span class="line"><span class="cl">7. 运营商问题：某些线路访问某些服务质量很差
-</span></span><span class="line"><span class="cl">8. 应用自身问题：Steam、浏览器、Git、pip、conda 各自有自己的网络策略
-</span></span></code></pre></div>
-        
-        <hr><p>本文2026-05-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-29</p>]]>
-      </description>
-      
-        <category>计算机网络</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[Windows] 变量名</title>
-      <link>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</link>
-      <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/windows/%E5%8F%98%E9%87%8F%E5%90%8D/</guid>
-      <description>
-        <![CDATA[<h1>[Windows] 变量名</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="变量名">
-<a class="header-anchor" href="#%e5%8f%98%e9%87%8f%e5%90%8d"></a>
-变量名
-</h2><table>
-  <thead>
-      <tr>
-          <th style="text-align: left">变量</th>
-          <th style="text-align: left">典型值</th>
-          <th style="text-align: left">说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left"><code>%USERPROFILE%</code></td>
-          <td style="text-align: left"><code>C:\Users\byzh</code></td>
-          <td style="text-align: left"><strong>当前用户主目录</strong></td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%APPDATA%</code></td>
-          <td style="text-align: left"><code>C:\Users\byzh\AppData\Roaming</code></td>
-          <td style="text-align: left">漫游应用数据</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%LOCALAPPDATA%</code></td>
-          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local</code></td>
-          <td style="text-align: left">本地应用数据</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%TEMP%</code> / <code>%TMP%</code></td>
-          <td style="text-align: left"><code>C:\Users\byzh\AppData\Local\Temp</code></td>
-          <td style="text-align: left">临时文件夹</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%HOMEPATH%</code></td>
-          <td style="text-align: left"><code>\Users\byzh</code></td>
-          <td style="text-align: left">用户目录路径（不含盘符）</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%HOMEDRIVE%</code></td>
-          <td style="text-align: left"><code>C:</code></td>
-          <td style="text-align: left">系统盘符</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%USERNAME%</code></td>
-          <td style="text-align: left"><code>byzh</code></td>
-          <td style="text-align: left">当前用户名</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%COMPUTERNAME%</code></td>
-          <td style="text-align: left"><code>PC-xxx</code></td>
-          <td style="text-align: left">计算机名</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%PROGRAMFILES%</code></td>
-          <td style="text-align: left"><code>C:\Program Files</code></td>
-          <td style="text-align: left">64位程序安装目录</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%PROGRAMFILES(X86)%</code></td>
-          <td style="text-align: left"><code>C:\Program Files (x86)</code></td>
-          <td style="text-align: left">32位程序安装目录</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><code>%SYSTEMROOT%</code></td>
-          <td style="text-align: left"><code>C:\Windows</code></td>
-          <td style="text-align: left">Windows 系统目录</td>
-      </tr>
-  </tbody>
-</table>
-        
-        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
-      </description>
-      
-        <category>Windows</category>
       
     </item>
     

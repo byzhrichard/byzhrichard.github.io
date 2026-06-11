@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,18 +22,86 @@
     
 
     <item>
-      <title>[雷达原理] 雷达基本原理</title>
+      <title>[雷达原理] 3.雷达的工作频率、应用、发展</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/3.%E9%9B%B7%E8%BE%BE%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%A2%91%E7%8E%87/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/3.%E9%9B%B7%E8%BE%BE%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%A2%91%E7%8E%87/</guid>
+      <description>
+        <![CDATA[<h1>[雷达原理] 3.雷达的工作频率、应用、发展</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="雷达的工作频率">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e5%b7%a5%e4%bd%9c%e9%a2%91%e7%8e%87"></a>
+雷达的工作频率
+</h2><p>常用的频段范围(射频): 220M~35G Hz</p>
+<ul>
+<li>$L$波段, 中心频率对应波长22cm, 波长范围: 20~25cm</li>
+<li>$S$波段, 中心频率对应波长10cm</li>
+<li>$C$波段, 中心频率对应波长5cm</li>
+<li>$X$波段, 中心频率对应波长3cm, 对应载频为10GHz
+($\frac{3*10^8}{3*10^{-2}}=10^{10}Hz$)</li>
+<li>$K_u$波段, 中心频率对应波长2.2cm</li>
+<li>$K_a$波段, 中心频率对应波长8mm</li>
+</ul>
+<h2 id="雷达的应用">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e7%9a%84%e5%ba%94%e7%94%a8"></a>
+雷达的应用
+</h2><h4 id="1-军用">
+<a class="header-anchor" href="#1-%e5%86%9b%e7%94%a8"></a>
+1. 军用
+</h4><p>预警雷达: 敌方洲际导弹</p>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>雷达原理</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达原理] 2.雷达基本原理</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</link>
       <pubDate>Tue, 09 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/</guid>
       <description>
-        <![CDATA[<h1>[雷达原理] 雷达基本原理</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[雷达原理] 2.雷达基本原理</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="基本雷达方程">
 <a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e9%9b%b7%e8%be%be%e6%96%b9%e7%a8%8b"></a>
 基本雷达方程
-</h1><p>雷达最大作用距离方程</p>
+</h1><p>基本:</p>
+<ul>
+<li>单基地(收发在同一个地点完成)</li>
+<li>理想无损耗自由空间传播</li>
+</ul>
+<p>雷达最大作用距离方程: $R_{max}$</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/image-20260610141743161.png" alt="image-20260610141743161"></p>
+<ul>
+<li>$\sigma$: 目标的<strong>雷达截面积 (RCS: radar cross section)</strong>
+<ul>
+<li>$\sigma$ 越小, 雷达反射回来的回波功率很弱 (目标对雷达隐身)</li>
+</ul>
+</li>
+<li>$G_t$: 发射天线的最大增益 $G_r=\frac{4\pi A_r}{\lambda^2}$</li>
+<li>$G_r$: 接收天线的最大增益 $G_t=\frac{4\pi A_t}{\lambda^2}$</li>
+<li>$S_{i~min}$: 接收机的灵敏度 / 最小可检测的功率信号
+(越小越好)</li>
+<li>$P_t$: 发射机发射出去的信号</li>
+<li>$P_r$: 接收机接收到的回波信号
+<ul>
+<li>如果 $\bold{P_r \ge S_{i~min}}$, 说明雷达能够探测到目标
+(等价于 $\bold{R \le R_{max}}$)</li>
+<li>目标越远, $P_r$ 越小</li>
+</ul>
+</li>
+<li>$A_r$: 接收天线的有效面积</li>
+<li>$A_t$: 发射天线的有效面积</li>
+</ul>
+<p>无方向性天线:
+</p>
         
         <hr><p>本文2026-06-09首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-09</p>]]>
       </description>
@@ -45,13 +113,13 @@
     
 
     <item>
-      <title>[雷达原理] 绪论</title>
+      <title>[雷达原理] 1.绪论</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</link>
       <pubDate>Sun, 07 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/1.%E7%BB%AA%E8%AE%BA/</guid>
       <description>
-        <![CDATA[<h1>[雷达原理] 绪论</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[雷达原理] 1.绪论</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="绪论">
 <a class="header-anchor" href="#%e7%bb%aa%e8%ae%ba"></a>

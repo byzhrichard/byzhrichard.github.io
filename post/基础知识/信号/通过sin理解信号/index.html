@@ -1,0 +1,1133 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [信号] 通过sin理解信号 | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[信号] 通过sin理解信号 | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-06-10T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-06-10T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[信号] 通过sin理解信号"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[信号] 通过sin理解信号</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#学习顺序">学习顺序</a>
+      <ul>
+        <li><a href="#采样连续信号-离散信号">采样(连续信号-&gt;离散信号)</a></li>
+        <li><a href="#连续时间傅里叶变换---ctft">连续时间傅里叶变换 - CTFT</a></li>
+        <li><a href="#离散时间傅里叶变换---dtft">离散时间傅里叶变换 - DTFT</a></li>
+        <li><a href="#离散傅里叶变换---dft">离散傅里叶变换 - DFT</a></li>
+        <li><a href="#短时傅里叶变换---stft">短时傅里叶变换 - STFT</a></li>
+        <li><a href="#拉普拉斯变换---laplace">拉普拉斯变换 - Laplace</a></li>
+        <li><a href="#z变化---zt">Z变化 - ZT</a></li>
+        <li><a href="#连续小波变换---cwt">连续小波变换 - CWT</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码">代码</a>
+      <ul>
+        <li><a href="#采样连续信号-离散信号-1">采样(连续信号-&gt;离散信号)</a></li>
+        <li><a href="#z变化---zt-1">Z变化 - ZT</a></li>
+        <li><a href="#连续小波变换---cwt-1">连续小波变换 - CWT</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">101</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      19
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-06-10 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-06-10</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-06-10</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="学习顺序">
+<a class="header-anchor" href="#%e5%ad%a6%e4%b9%a0%e9%a1%ba%e5%ba%8f"></a>
+学习顺序
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTFT  →  采样  →  DTFT  →  DFT  →  STFT
+</span></span><span class="line"><span class="cl">  ↓                ↓                ↓
+</span></span><span class="line"><span class="cl">Laplace           ZT               CWT
+</span></span></code></pre></div><ul>
+<li>
+<p>CTFT: 先看连续正弦在频域长什么样</p>
+<ul>
+<li>CTFT 的加强版</li>
+</ul>
+</li>
+<li>
+<p>采样: 从 CTFT 过渡到 DTFT</p>
+</li>
+<li>
+<p>DTFT: 离散信号的完整频谱</p>
+<ul>
+<li>ZT: DTFT 的加强版</li>
+</ul>
+</li>
+<li>
+<p>DFT: 把 DTFT 采样成有限个点</p>
+<ul>
+<li>FFT: DFT的快速算法</li>
+</ul>
+</li>
+<li>
+<p>STFT: 看频率如何随时间变化</p>
+<ul>
+<li>CWT: 窗口可以缩放</li>
+</ul>
+</li>
+</ul>
+<h2 id="采样连续信号-离散信号">
+<a class="header-anchor" href="#%e9%87%87%e6%a0%b7%e8%bf%9e%e7%bb%ad%e4%bf%a1%e5%8f%b7-%e7%a6%bb%e6%95%a3%e4%bf%a1%e5%8f%b7"></a>
+采样(连续信号-&gt;离散信号)
+</h2><p><strong>连续信号</strong>: $x(t)=\sin(\Omega t)=\sin(2\pi f t)$
+-&gt; 模拟角频率: $\Omega$ (rad/s)
+-&gt; 模拟频率: $f$ (Hz)</p>
+<p><strong>离散信号</strong>: $x[n]=sin(\omega n)=sin(2\pi f_d n)$
+-&gt; 数字角频率: $\omega$ (rad)
+-&gt; 数字频率: $f_d$ (Hz)</p>
+<p><strong>采样频率</strong>: $f_s$
+<strong>采样间隔</strong>: $T$
+有 $T=1/f_s$
+-&gt; $t=nT$
+-&gt; $n=t/T$</p>
+<blockquote>
+<p>二者关系推导:
+$x[n]=x(nT)=sin(2π·f·n/f_s)=sin(ω·n)$</p>
+</blockquote>
+<p><strong>所以</strong>: $\bold{\omega=\Omega T=2\pi f/f_s}$</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/awa.png" alt="awa"></p>
+<h2 id="连续时间傅里叶变换---ctft">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---ctft"></a>
+连续时间傅里叶变换 - CTFT
+</h2><p>CTFT: Continuous-Time Fourier Transform: 连续时间傅里叶变换
+(连续时间信号: $x(t)$)
+</p>
+$$
+X(j\Omega)=\int_{-\infty}^{+\infty}x(t)e^{-j\Omega t}dt
+\\
+x(t)=\frac{1}{2\pi}\int_{-\infty}^{+\infty}X(j\Omega)e^{j\Omega t}d\Omega
+$$<ul>
+<li>$t$：连续时间，单位 s</li>
+<li>$Ω$：模拟角频率，单位 rad/s</li>
+<li>$X(jΩ)$：连续时间频谱</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/ctft_sin.png" alt="ctft_sin"></p>
+<h2 id="离散时间傅里叶变换---dtft">
+<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dtft"></a>
+离散时间傅里叶变换 - DTFT
+</h2><p>DTFT: Discrete-Time Fourier Transform: 离散时间傅里叶变换
+(离散时间信号: $x[n]$)
+</p>
+$$
+X(e^{j\omega})=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\omega n}
+\\
+x[n]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\omega})e^{j\omega n}d\omega
+$$<ul>
+<li>$n$：离散时间下标，整数</li>
+<li>$ω$：数字角频率，单位 rad/sample</li>
+<li>$X(e^{jω})$：离散时间信号的频谱</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/dtft_sin.png" alt="dtft_sin"></p>
+<h2 id="离散傅里叶变换---dft">
+<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dft"></a>
+离散傅里叶变换 - DFT
+</h2><p>DFT: Discrete Fourier Transform: 离散傅里叶变换
+(有限长离散序列: $x[0],x[1],...,x[N-1]$)
+</p>
+$$
+X[k]=\sum_{n=0}^{N-1}x[n]e^{-j\frac{2\pi}{N}kn}
+\\
+x[n]=\frac{1}{N}\sum_{k=0}^{N-1}X[k]e^{j\frac{2\pi}{N}kn}
+$$<ul>
+<li>$n$：时间下标，n = 0,1,&hellip;,N-1</li>
+<li>$k$：频率下标，k = 0,1,&hellip;,N-1</li>
+<li>$N$：DFT 点数</li>
+<li>$X[k]$：第 k 个频率点上的频谱值</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/dft_sin.png" alt="dft_sin"></p>
+<h2 id="短时傅里叶变换---stft">
+<a class="header-anchor" href="#%e7%9f%ad%e6%97%b6%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---stft"></a>
+短时傅里叶变换 - STFT
+</h2><p>STFT: Short-Time Fourier Transform: 短时傅里叶变换</p>
+<p>连续时间 STFT 定义为：
+</p>
+$$
+X(\tau, f)=\int_{-\infty}^{+\infty}x(t)w(t-\tau)e^{-j2\pi ft}dt
+$$<ul>
+<li>$x(t)$：原始连续信号</li>
+<li>$w(t-\tau)$：以 τ 为中心的窗函数</li>
+<li>$τ$：窗口所在的时间位置</li>
+<li>$f$：频率</li>
+<li>$X(τ,f)$：τ 时刻附近的频谱</li>
+</ul>
+<p>离散时间 STFT 定义为：
+</p>
+$$
+X[m,k]=\sum_{n=0}^{N-1}x[n+mH]w[n]e^{-j\frac{2\pi}{N}kn}
+$$<ul>
+<li>$m$：第 m 个窗口</li>
+<li>$k$：第 k 个频率点</li>
+<li>$N$：窗口长度 / DFT 点数</li>
+<li>$H$：hop length，窗口每次移动的步长</li>
+<li>$w[n]$：窗函数</li>
+<li>$X[m,k]$：第 m 个时间窗、第 k 个频率点的频谱值</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/stft_sin.png" alt="stft_sin"></p>
+<h2 id="拉普拉斯变换---laplace">
+<a class="header-anchor" href="#%e6%8b%89%e6%99%ae%e6%8b%89%e6%96%af%e5%8f%98%e6%8d%a2---laplace"></a>
+拉普拉斯变换 - Laplace
+</h2><blockquote>
+<p>CTFT：只看虚轴 jΩ 上的频率成分
+Laplace：看整个复平面 s = σ + jΩ</p>
+<p>CTFT 用的是：$e^{-j\Omega t}$
+Laplace 用的是：$e^{-st}$</p>
+</blockquote>
+<p>连续时间信号 $x(t)$ 的 Laplace 变换定义为：
+</p>
+$$
+X(s)=\int_{0}^{+\infty}x(t)e^{-st}dt
+\\
+x(t)=\mathcal{L}^{-1}\{X(s)\}
+$$<ul>
+<li>其中: $s=\sigma+j\Omega$</li>
+<li>s：复频率</li>
+<li>σ：实部，控制指数衰减或增长</li>
+<li>Ω：虚部，表示角频率</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/laplace_sin.png" alt="laplace_sin"></p>
+<h2 id="z变化---zt">
+<a class="header-anchor" href="#z%e5%8f%98%e5%8c%96---zt"></a>
+Z变化 - ZT
+</h2><blockquote>
+<p>Laplace：连续时间信号 → s 平面
+ZT：离散时间信号 → z 平面</p>
+</blockquote>
+<p>离散时间信号 $x[n]$ 的 Z 变换定义为：
+</p>
+$$
+X(z)=\sum_{n=-\infty}^{+\infty}x[n]z^{-n}
+$$<ul>
+<li>其中：$z=re^{j\omega}$</li>
+<li>DTFT 是 ZT 在单位圆上的特殊情况
+($z=e^{j\omega}$)</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>连续时间</th>
+          <th>离散时间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Laplace</td>
+          <td>ZT</td>
+      </tr>
+      <tr>
+          <td>CTFT</td>
+          <td>DTFT</td>
+      </tr>
+      <tr>
+          <td>$s=\sigma+j\Omega$</td>
+          <td>$z=re^{j\omega}$</td>
+      </tr>
+      <tr>
+          <td>虚轴 $j\Omega$</td>
+          <td>单位圆 $</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/zt_sin.png" alt="zt_sin"></p>
+<h2 id="连续小波变换---cwt">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e5%b0%8f%e6%b3%a2%e5%8f%98%e6%8d%a2---cwt"></a>
+连续小波变换 - CWT
+</h2><blockquote>
+<p>STFT：固定窗口做时间-频率分析
+↓
+问题：固定窗口不够灵活
+↓
+CWT：用可以缩放的小波做时间-频率分析</p>
+<p>-&gt; STFT 是“拿固定长度的窗去扫信号”；CWT 是“拿可伸缩的小波去扫信号”</p>
+</blockquote>
+<p>CWT: Continuous Wavelet Transform: 连续小波变换
+</p>
+$$
+W_x(a,b)=\frac{1}{\sqrt{a}}\int_{-\infty}^{+\infty}x(t)\psi^*\left(\frac{t-b}{a}\right)dt
+$$<ul>
+<li>$x(t)$：原始信号</li>
+<li>$\psi(t)$：母小波，mother wavelet</li>
+<li>$\psi^*(t)$：小波的复共轭</li>
+<li>$a$：尺度，scale</li>
+<li>$b$：平移位置，time shift</li>
+<li>$W_x(a,b)$：信号在尺度 $a$、时间 $b$ 附近的小波系数</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>对比</th>
+          <th>STFT</th>
+          <th>CWT</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>分析函数</td>
+          <td>固定窗函数 + 正弦波</td>
+          <td>可缩放小波</td>
+      </tr>
+      <tr>
+          <td>窗口长度</td>
+          <td>固定</td>
+          <td>随尺度变化</td>
+      </tr>
+      <tr>
+          <td>高频分析</td>
+          <td>仍用同样窗口</td>
+          <td>用短小波，时间定位好</td>
+      </tr>
+      <tr>
+          <td>低频分析</td>
+          <td>仍用同样窗口</td>
+          <td>用长小波，频率分辨率好</td>
+      </tr>
+      <tr>
+          <td>适合</td>
+          <td>稳定频率、短时频谱</td>
+          <td>瞬态、突变、多尺度信号</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/cwt_sin.png" alt="cwt_sin"></p>
+<h1 id="代码">
+<a class="header-anchor" href="#%e4%bb%a3%e7%a0%81"></a>
+代码
+</h1><h2 id="采样连续信号-离散信号-1">
+<a class="header-anchor" href="#%e9%87%87%e6%a0%b7%e8%bf%9e%e7%bb%ad%e4%bf%a1%e5%8f%b7-%e7%a6%bb%e6%95%a3%e4%bf%a1%e5%8f%b7-1"></a>
+采样(连续信号-&gt;离散信号)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">采样：从连续信号 x(t) 到离散信号 x[n]
+</span></span></span><span class="line"><span class="cl"><span class="s2">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">教学要点：
+</span></span></span><span class="line"><span class="cl"><span class="s2">  1. 连续信号 x(t)=sin(2π·f·t)，f 是模拟频率（Hz）
+</span></span></span><span class="line"><span class="cl"><span class="s2">  2. 以采样率 fs 采样，采样间隔 T=1/fs
+</span></span></span><span class="line"><span class="cl"><span class="s2">  3. 离散信号 x[n]=x(nT)=sin(2π·f·n/fs)=sin(ω·n)
+</span></span></span><span class="line"><span class="cl"><span class="s2">     数字角频率 ω = ΩT = 2π·f/fs  (rad/sample)
+</span></span></span><span class="line"><span class="cl"><span class="s2">  4. 左图：连续波形 + 采样点叠加，直观感受&#34;采样的物理意义&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">  5. 右图：纯离散的 x[n] stem 图，横轴变成整数 n
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 连续信号参数 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">f</span> <span class="o">=</span> <span class="mi">5</span>                      <span class="c1"># 模拟频率 5 Hz</span>
+</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">20</span>                    <span class="c1"># 采样率 20 Hz（每个周期采4个点）</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span>                 <span class="c1"># 采样间隔 T = 0.05s</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 模拟角频率 Ω 和数字角频率 ω</span>
+</span></span><span class="line"><span class="cl"><span class="n">Omega</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span>      <span class="c1"># Ω = 2πf，单位 rad/s</span>
+</span></span><span class="line"><span class="cl"><span class="n">omega</span> <span class="o">=</span> <span class="n">Omega</span> <span class="o">*</span> <span class="n">T</span>          <span class="c1"># ω = ΩT = 2πf/fs，单位 rad/sample</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 连续时间信号 x(t)</span>
+</span></span><span class="line"><span class="cl"><span class="n">t_ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_ct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">Omega</span> <span class="o">*</span> <span class="n">t_ct</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 离散时间信号 x[n]：在 t=nT 时刻的采样值</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">fs</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1"># n = 0,1,...,10</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>                 <span class="c1"># x[n] = sin(ωn)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 左图：连续波形 + 采样点，展示&#34;从曲线上取点&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_ct</span><span class="p">,</span> <span class="n">x_ct</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">T</span><span class="p">,</span> <span class="n">x_dt</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;C1-&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;C1o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x(t)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x(t) = sin(2π·</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">t)  +  sampling at fs=</span><span class="si">{</span><span class="n">fs</span><span class="si">}</span><span class="s1">Hz&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 右图：纯离散序列，横轴为整数 n</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x_dt</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;C1-&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;C1o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;n (sample)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x[n]&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="sa">f</span><span class="s1">&#39;x[n] = x(nT) = sin(ωn),  ω = 2π·</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fs</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="o">/</span><span class="n">fs</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">π rad/sample&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_dt</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Sampling: x(t) to x[n]&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;sampling.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plt.show()</span>
+</span></span></code></pre></div><h2 id="z变化---zt-1">
+<a class="header-anchor" href="#z%e5%8f%98%e5%8c%96---zt-1"></a>
+Z变化 - ZT
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">ZT：Z 变换
+</span></span></span><span class="line"><span class="cl"><span class="s2">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">教学要点：
+</span></span></span><span class="line"><span class="cl"><span class="s2">  1. ZT 用于分析离散时间信号和离散时间系统
+</span></span></span><span class="line"><span class="cl"><span class="s2">  2. ZT 变量 z = r e^</span><span class="si">{jω}</span><span class="s2">，是复数
+</span></span></span><span class="line"><span class="cl"><span class="s2">  3. DTFT 只看 z 平面上的单位圆 |z|=1
+</span></span></span><span class="line"><span class="cl"><span class="s2">  4. ZT 看整个 z 平面
+</span></span></span><span class="line"><span class="cl"><span class="s2">  5. 对因果正弦 x[n]=sin(ω0 n)u[n]，有：
+</span></span></span><span class="line"><span class="cl"><span class="s2">       X(z)=z sin(ω0)/(z² - 2z cos(ω0) + 1)
+</span></span></span><span class="line"><span class="cl"><span class="s2">  6. 极点位于 z=e^{±jω0}
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 信号参数 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">f0</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">omega0</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f0</span> <span class="o">/</span> <span class="n">fs</span>     <span class="c1"># ω0 = π/2 rad/sample</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 离散时间信号：因果正弦 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── z 平面网格 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">imag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">REAL</span><span class="p">,</span> <span class="n">IMAG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">imag</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">REAL</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">IMAG</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── Z 变换 ──</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># X(z) = z sin(ω0) / (z² - 2z cos(ω0) + 1)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 注意：z=0 附近可能出现数值问题，这里用 eps 防止除零显示爆炸</span>
+</span></span><span class="line"><span class="cl"><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">z</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">z</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 幅度，用 log 显示更清楚</span>
+</span></span><span class="line"><span class="cl"><span class="n">mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mag_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">mag</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 防止极点附近过亮导致图像不好看</span>
+</span></span><span class="line"><span class="cl"><span class="n">mag_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">mag_log</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 极点位置 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">poles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">omega0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">omega0</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 单位圆 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">unit_circle_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">unit_circle_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 画图 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 左图：离散因果正弦</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">linefmt</span><span class="o">=</span><span class="s1">&#39;C1-&#39;</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;C1o&#39;</span><span class="p">,</span> <span class="n">basefmt</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;n (sample)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x[n]&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="sa">f</span><span class="s1">&#39;x[n] = sin(ω0 n)u[n],  ω0 = 2π·</span><span class="si">{</span><span class="n">f0</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fs</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="o">/</span><span class="n">fs</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">π&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 右图：z 平面幅度</span>
+</span></span><span class="line"><span class="cl"><span class="n">im</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mag_log</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">real</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">real</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">imag</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">imag</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 画单位圆</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">unit_circle_x</span><span class="p">,</span> <span class="n">unit_circle_y</span><span class="p">,</span> <span class="s1">&#39;w--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;unit circle |z|=1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 画坐标轴</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 标记极点</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">poles</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">poles</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">linewidths</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">label</span><span class="o">=</span><span class="s1">&#39;poles&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Re(z)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Im(z)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Z-transform magnitude on z-plane: $|X(z)|$&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;log10 |X(z)|&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Z-transform of causal discrete-time sin signal&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;zt_sin.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plt.show()</span>
+</span></span></code></pre></div><h2 id="连续小波变换---cwt-1">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e5%b0%8f%e6%b3%a2%e5%8f%98%e6%8d%a2---cwt-1"></a>
+连续小波变换 - CWT
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">CWT：连续小波变换
+</span></span></span><span class="line"><span class="cl"><span class="s2">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">教学要点：
+</span></span></span><span class="line"><span class="cl"><span class="s2">  1. CWT 用于时间-频率分析，和 STFT 类似
+</span></span></span><span class="line"><span class="cl"><span class="s2">  2. STFT 使用固定长度窗口
+</span></span></span><span class="line"><span class="cl"><span class="s2">  3. CWT 使用可以缩放的小波
+</span></span></span><span class="line"><span class="cl"><span class="s2">  4. 小尺度 scale 小：对应高频，时间定位更准
+</span></span></span><span class="line"><span class="cl"><span class="s2">  5. 大尺度 scale 大：对应低频，频率分辨率更好
+</span></span></span><span class="line"><span class="cl"><span class="s2">  6. 本例使用 Morlet 小波分析一个频率随时间变化的 sin 信号
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 信号参数 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">fs</span> <span class="o">=</span> <span class="mi">200</span>                    <span class="c1"># 采样频率 200 Hz</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span> <span class="o">=</span> <span class="mf">2.0</span>                     <span class="c1"># 总时长 2 秒</span>
+</span></span><span class="line"><span class="cl"><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 构造频率随时间变化的信号 ──</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 0~1s: 5Hz</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 1~2s: 20Hz</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="n">t</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── Morlet 小波参数 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">w0</span> <span class="o">=</span> <span class="mf">6.0</span>                    <span class="c1"># Morlet 小波中心角频率，常用 6</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">morlet_wavelet</span><span class="p">(</span><span class="n">tau</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="mf">6.0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Morlet 母小波：
+</span></span></span><span class="line"><span class="cl"><span class="s2">        ψ(t) = π^(-1/4) exp(j w0 t) exp(-t^2/2)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.25</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">w0</span> <span class="o">*</span> <span class="n">tau</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">tau</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">cwt_morlet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="mf">6.0</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    用 Morlet 小波手写 CWT。
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    参数:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: 输入离散信号
+</span></span></span><span class="line"><span class="cl"><span class="s2">        fs: 采样频率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        freqs: 希望分析的频率数组，单位 Hz
+</span></span></span><span class="line"><span class="cl"><span class="s2">        w0: Morlet 小波中心角频率
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    返回:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        cwt_matrix: shape = (len(freqs), len(x))
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">cwt_matrix</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">freqs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Morlet 小波中，尺度 scale 和频率近似关系：</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># f ≈ w0 * fs / (2π * scale)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scale</span> <span class="o">=</span> <span class="n">w0</span> <span class="o">*</span> <span class="n">fs</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 小波长度取 ±4 个 scale</span>
+</span></span><span class="line"><span class="cl">        <span class="n">half_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">scale</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 避免小波长度过长，超过原始信号太多</span>
+</span></span><span class="line"><span class="cl">        <span class="n">half_width</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">half_width</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span><span class="p">,</span> <span class="n">half_width</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 缩放后的小波</span>
+</span></span><span class="line"><span class="cl">        <span class="n">wavelet</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">scale</span><span class="p">))</span> <span class="o">*</span> <span class="n">morlet_wavelet</span><span class="p">(</span><span class="n">tau</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="n">w0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># full 卷积，然后手动截取中间 N 个点</span>
+</span></span><span class="line"><span class="cl">        <span class="n">full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">wavelet</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">full</span><span class="p">)</span> <span class="o">-</span> <span class="n">N</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">coef</span> <span class="o">=</span> <span class="n">full</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">N</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">cwt_matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coef</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cwt_matrix</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── CWT 频率范围 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 计算 CWT ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">CWT</span> <span class="o">=</span> <span class="n">cwt_morlet</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">w0</span><span class="o">=</span><span class="n">w0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">CWT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 归一化，方便显示</span>
+</span></span><span class="line"><span class="cl"><span class="n">power</span> <span class="o">=</span> <span class="n">power</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">power</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ── 画图 ──</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 左图：时域信号</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;frequency changes at 1s&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t (s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;x(t)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Time-domain signal: 5Hz then 20Hz&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 右图：CWT 时频图</span>
+</span></span><span class="line"><span class="cl"><span class="n">im</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">power</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">freqs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">freqs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;frequency (Hz)&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CWT scalogram using Morlet wavelet&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;normalized |CWT|&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;CWT: multi-scale time-frequency analysis&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">             <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.92</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;cwt_sin.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plt.show()</span>
+</span></span></code></pre></div></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/%e4%bf%a1%e5%8f%b7"
+      data-aos="zoom-in"
+      >信号</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[雷达原理] 2.雷达基本原理"
+              class="lazyload"
+            /><a
+          href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"
+          aria-label="前一篇:[雷达原理] 2.雷达基本原理"
+          title="前一篇:[雷达原理] 2.雷达基本原理"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[雷达原理] 2.雷达基本原理</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[雷达原理] 3.雷达的工作频率、应用、发展"
+              class="lazyload"
+            /><a
+          href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/3.%E9%9B%B7%E8%BE%BE%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%A2%91%E7%8E%87/"
+          aria-label="后一篇:[雷达原理] 3.雷达的工作频率、应用、发展"
+          title="后一篇:[雷达原理] 3.雷达的工作频率、应用、发展"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[雷达原理] 3.雷达的工作频率、应用、发展</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;110.4k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;04:35</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#学习顺序">学习顺序</a>
+      <ul>
+        <li><a href="#采样连续信号-离散信号">采样(连续信号-&gt;离散信号)</a></li>
+        <li><a href="#连续时间傅里叶变换---ctft">连续时间傅里叶变换 - CTFT</a></li>
+        <li><a href="#离散时间傅里叶变换---dtft">离散时间傅里叶变换 - DTFT</a></li>
+        <li><a href="#离散傅里叶变换---dft">离散傅里叶变换 - DFT</a></li>
+        <li><a href="#短时傅里叶变换---stft">短时傅里叶变换 - STFT</a></li>
+        <li><a href="#拉普拉斯变换---laplace">拉普拉斯变换 - Laplace</a></li>
+        <li><a href="#z变化---zt">Z变化 - ZT</a></li>
+        <li><a href="#连续小波变换---cwt">连续小波变换 - CWT</a></li>
+      </ul>
+    </li>
+    <li><a href="#代码">代码</a>
+      <ul>
+        <li><a href="#采样连续信号-离散信号-1">采样(连续信号-&gt;离散信号)</a></li>
+        <li><a href="#z变化---zt-1">Z变化 - ZT</a></li>
+        <li><a href="#连续小波变换---cwt-1">连续小波变换 - CWT</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">101</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      19
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[信号] 通过sin理解信号",
+          url: "https:\/\/byzhrichard.github.io\/post\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/%E4%BF%A1%E5%8F%B7\/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7\/",
+          description: "\r学习顺序\rCTFT → 采样 → DTFT → DFT → STFT ↓ ↓ ↓ Laplace ZT CWT CTFT: 先看连续正弦在频域长什么样\nCTFT 的加强版 采样: 从 CTFT 过渡到 DTFT\nDTFT: 离散信号的完整频谱\nZT: DTFT 的加强版 DFT: 把 DTFT 采样成有限个点\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

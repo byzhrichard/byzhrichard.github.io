@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  [雷达原理] 绪论 | byzh
+  [雷达原理] 1.绪论 | byzh
 </title>
 <meta name="description" content="钻研学习中..."/><script>
   window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,7 +33,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="[雷达原理] 绪论 | byzh" />
+  <meta property="og:title" content="[雷达原理] 1.绪论 | byzh" />
   <meta
     property="og:description"
     content="钻研学习中..."
@@ -121,9 +121,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[雷达原理] 绪论"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[雷达原理] 1.绪论"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">[雷达原理] 绪论</h1>
+            <h1 data-aos="slide-up">[雷达原理] 1.绪论</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -171,12 +171,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">93</div>
+    <div>文章</div><div class="sidebar-state-number">101</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      18
+      19
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -369,7 +369,12 @@ $$<p>
 </p>
 $$
 10 \log_{10}\frac{1}{2}=-3 \text{ dB}
-$$<h4 id="4-目标速度测量">
+$$<blockquote>
+<p>所以功率的话, 对于<code>真值</code>和<code>分贝值</code>的转换, 是$10\log_{10}(x)$的关系, 反之$10^{\frac{x}{10}}$</p>
+<p>例如: $G_t$为1000, 则换算为分贝值是$10\log_{10}1000=30dB$</p>
+<p>例如: $G_t$为30dB, 则换算为真值是$10^{\frac{30}{10}}=1000$</p>
+</blockquote>
+<h4 id="4-目标速度测量">
 <a class="header-anchor" href="#4-%e7%9b%ae%e6%a0%87%e9%80%9f%e5%ba%a6%e6%b5%8b%e9%87%8f"></a>
 4. 目标速度测量
 </h4><p>多普勒效应: 雷达本身的回波信号的频率和主波发射信号的频率, 当目标径向运动时, 这两个频率存在一个频率差 $f_d$
@@ -457,15 +462,15 @@ $$<ul>
       </div><div class="article-nav-link-wrap right"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[雷达原理] 雷达基本原理"
+              alt="[雷达原理] 2.雷达基本原理"
               class="lazyload"
             /><a
           href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/2.%E9%9B%B7%E8%BE%BE%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"
-          aria-label="后一篇:[雷达原理] 雷达基本原理"
-          title="后一篇:[雷达原理] 雷达基本原理"
+          aria-label="后一篇:[雷达原理] 2.雷达基本原理"
+          title="后一篇:[雷达原理] 2.雷达基本原理"
         ></a>
         <div class="article-nav-caption">后一篇</div>
-        <h3 class="article-nav-title">[雷达原理] 雷达基本原理</h3>
+        <h3 class="article-nav-title">[雷达原理] 2.雷达基本原理</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -487,10 +492,10 @@ $$<ul>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;101.5k</span
+          >&nbsp;110.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;04:13</span>
+        <span class="icon-coffee">&nbsp;04:35</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -550,12 +555,12 @@ $$<ul>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">93</div>
+    <div>文章</div><div class="sidebar-state-number">101</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      18
+      19
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -672,7 +677,7 @@ $$<ul>
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "byzh",
-          title: "[雷达原理] 绪论",
+          title: "[雷达原理] 1.绪论",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86\/1.%E7%BB%AA%E8%AE%BA\/",
           description: "\r绪论\rradar: radio detection and ranging: 无线电探测和测距\n雷达的任务\r早期: 测距 现在: 测距, 角度, 速度, 形状\n雷达的基本组成\r天线: 发射信号, 接收回波 发射机: 产生射频信号 接收机: 接收信号(射频, 中频, 视频) 信号处理机: 提取目标的各种信息 终端显示设备 伺服系统, 同步设备 $$\rs_t(t) = A \\cos\\left(2\\pi f_0 t \u002b \\varphi\\right) = A \\cos\\left(\\omega_0 t \u002b \\varphi\\right)\r\\\\\rT=1\/f_0 \\quad …",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
