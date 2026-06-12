@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Else on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/else/</link>
+    <link>http://localhost:1313/categories/else/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/else/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/else/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>markdown表情</title>
-      <link>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</link>
+      <link>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
+      <guid>http://localhost:1313/post/else/markdown%E8%A1%A8%E6%83%85/</guid>
       <description>
         <![CDATA[<h1>markdown表情</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -412,7 +412,7 @@
   </tbody>
 </table>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>else</category>
@@ -423,10 +423,10 @@
 
     <item>
       <title>[else] paper</title>
-      <link>https://byzhrichard.github.io/post/else/paper/</link>
+      <link>http://localhost:1313/post/else/paper/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/else/paper/</guid>
+      <guid>http://localhost:1313/post/else/paper/</guid>
       <description>
         <![CDATA[<h1>[else] paper</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -467,7 +467,7 @@
 </table>
 <p>机器学习 / 神经网络:</p>
         
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>else</category>

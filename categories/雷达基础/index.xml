@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>雷达基础 on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
+    <link>http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/%E9%9B%B7%E8%BE%BE%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[雷达基础] 5.雷达发射机</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</link>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</guid>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</guid>
       <description>
         <![CDATA[<h1>[雷达基础] 5.雷达发射机</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -40,7 +40,7 @@
 <blockquote>
 <p>发射的是射频信号, 接收的也是射频信号: 多普勒对其的影响微乎其微</p>
         
-        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+        <hr><p>本文2026-06-10首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
       </description>
       
         <category>雷达基础</category>
@@ -51,10 +51,10 @@
 
     <item>
       <title>[雷达基础] 4.电子战与雷达</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</link>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</link>
       <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</guid>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/4.%E7%94%B5%E5%AD%90%E6%88%98%E4%B8%8E%E9%9B%B7%E8%BE%BE/</guid>
       <description>
         <![CDATA[<h1>[雷达基础] 4.电子战与雷达</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -105,7 +105,7 @@ W: warfare</p>
 4. 反隐身
 </h4>
         
-        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+        <hr><p>本文2026-06-10首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
       </description>
       
         <category>雷达基础</category>

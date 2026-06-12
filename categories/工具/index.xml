@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <link>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Wed, 03 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[工具] Python</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/python/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/python/</link>
       <pubDate>Wed, 03 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/python/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/python/</guid>
       <description>
         <![CDATA[<h1>[工具] Python</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -46,7 +46,7 @@ Python 解释器参数
 2. -u
 </h4><p><strong>stdout / stderr 尽量别缓冲，有东西就赶紧输出</strong></p>
         
-        <hr><p>本文2026-06-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-03</p>]]>
+        <hr><p>本文2026-06-03首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-03</p>]]>
       </description>
       
         <category>工具</category>
@@ -57,10 +57,10 @@ Python 解释器参数
 
     <item>
       <title>[工具] OpenCode</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/opencode/</link>
       <pubDate>Tue, 26 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/opencode/</guid>
       <description>
         <![CDATA[<h1>[工具] OpenCode</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -90,7 +90,7 @@ Python 解释器参数
 </span></span></code></pre></div><blockquote>
 <p>添加的model供应商, 在<code>%USERPROFILE%\.local\share\opencode</code></p>
         
-        <hr><p>本文2026-05-26首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
+        <hr><p>本文2026-05-26首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
       </description>
       
         <category>工具</category>
@@ -101,14 +101,18 @@ Python 解释器参数
 
     <item>
       <title>[工具] LaTex</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/latex/</link>
       <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/latex/</guid>
       <description>
         <![CDATA[<h1>[工具] LaTex</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="报告模版">
+          <h1 id="overleaf-设置">
+<a class="header-anchor" href="#overleaf-%e8%ae%be%e7%bd%ae"></a>
+Overleaf 设置
+</h1><p>File -&gt; Settings -&gt; Compiler: 把 <code>pdfLaTeX</code> 换成 <code>XeLaTeX</code></p>
+<h1 id="报告模版">
 <a class="header-anchor" href="#%e6%8a%a5%e5%91%8a%e6%a8%a1%e7%89%88"></a>
 报告模版
 </h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="line"><span class="cl"><span class="c">% ==============================
@@ -301,9 +305,41 @@ Python 解释器参数
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span> <span class="c">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">%%%%% 示例 %%%%%
+</span></span></span><span class="line"><span class="cl"><span class="c">% 代码块:
+</span></span></span><span class="line"><span class="cl"><span class="c">% \begin{minted}[linenos, frame=single, breaklines]{python}
+</span></span></span><span class="line"><span class="cl"><span class="c">% ...
+</span></span></span><span class="line"><span class="cl"><span class="c">% \end{minted}
+</span></span></span><span class="line"><span class="cl"><span class="c">%
+</span></span></span><span class="line"><span class="cl"><span class="c">% 图片:
+</span></span></span><span class="line"><span class="cl"><span class="c">% \begin{figure}[H]
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \centering
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \includegraphics[width=1\textwidth]{src/...}
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \caption{...}
+</span></span></span><span class="line"><span class="cl"><span class="c">% \end{figure}
+</span></span></span><span class="line"><span class="cl"><span class="c">% 无序:
+</span></span></span><span class="line"><span class="cl"><span class="c">% \begin{enumerate}
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">% \end{enumerate}
+</span></span></span><span class="line"><span class="cl"><span class="c">% 有序:
+</span></span></span><span class="line"><span class="cl"><span class="c">% \begin{itemize}
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item \textbf{} 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">%     \item 
+</span></span></span><span class="line"><span class="cl"><span class="c">% \end{itemize}
 </span></span></span></code></pre></div>
         
-        <hr><p>本文2026-05-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
+        <hr><p>本文2026-05-22首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
       </description>
       
         <category>工具</category>
@@ -314,10 +350,10 @@ Python 解释器参数
 
     <item>
       <title>[工具] uv</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/uv/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/uv/</guid>
       <description>
         <![CDATA[<h1>[工具] uv</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -331,7 +367,7 @@ Python 解释器参数
 <p>检查安装: <code>uv --version</code></p>
 <p>如果version无效, 则去添加环境变量, 路径大致为<code>C:\Users\...\AppData\Roaming\Python\Python311\Scripts</code>, 添加入Path中</p>
         
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>工具</category>
@@ -342,10 +378,10 @@ Python 解释器参数
 
     <item>
       <title>[工具] Typora</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/typora/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/typora/</guid>
       <description>
         <![CDATA[<h1>[工具] Typora</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -371,7 +407,7 @@ typora-plugin
 typora-community-plugin
 </h2><p><a href="https://github.com/typora-community-plugin/typora-community-plugin">https://github.com/typora-community-plugin/typora-community-plugin</a></p>
         
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
+        <hr><p>本文2026-05-21首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
       </description>
       
         <category>工具</category>
@@ -382,10 +418,10 @@ typora-community-plugin
 
     <item>
       <title>[工具] 命令行</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
       <description>
         <![CDATA[<h1>[工具] 命令行</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -398,7 +434,7 @@ typora-community-plugin
 </h1><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -409,10 +445,10 @@ typora-community-plugin
 
     <item>
       <title>[工具] vim</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/vim/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/vim/</guid>
       <description>
         <![CDATA[<h1>[工具] vim</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -424,7 +460,7 @@ typora-community-plugin
 打开, 在最下面添加一行<code>set number</code>就可以永久显示行号
 打开, 在最下面添加一行<code>set relativenumber</code>就可以永久显示相对行号</p>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -435,10 +471,10 @@ typora-community-plugin
 
     <item>
       <title>[工具] mermaid</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/mermaid/</guid>
       <description>
         <![CDATA[<h1>[工具] mermaid</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -463,7 +499,7 @@ B --> |是| C[执行]
 B --> |否| D[结束]
 </pre>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -474,10 +510,10 @@ B --> |否| D[结束]
 
     <item>
       <title>[工具] Espanso</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</link>
       <pubDate>Wed, 20 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/espanso/</guid>
       <description>
         <![CDATA[<h1>[工具] Espanso</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -535,7 +571,7 @@ B --> |否| D[结束]
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">replace</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;🔥&#34;</span><span class="w">
 </span></span></span></code></pre></div>
         
-        <hr><p>本文2026-05-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
+        <hr><p>本文2026-05-20首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-20</p>]]>
       </description>
       
         <category>工具</category>
@@ -546,10 +582,10 @@ B --> |否| D[结束]
 
     <item>
       <title>[工具] Obsidian</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
+      <link>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</link>
       <pubDate>Tue, 19 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
+      <guid>http://localhost:1313/post/%E5%B7%A5%E5%85%B7/obsidian/</guid>
       <description>
         <![CDATA[<h1>[工具] Obsidian</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -587,7 +623,7 @@ B --> |否| D[结束]
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
         
-        <hr><p>本文2026-05-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
+        <hr><p>本文2026-05-19首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-19</p>]]>
       </description>
       
         <category>工具</category>
