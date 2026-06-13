@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>byzh的博客</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://byzhrichard.github.io/post/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -12,21 +12,189 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
     
 
     <item>
+      <title>[信号] 函数-矩形窗</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%87%BD%E6%95%B0-%E7%9F%A9%E5%BD%A2%E7%AA%97/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%87%BD%E6%95%B0-%E7%9F%A9%E5%BD%A2%E7%AA%97/</guid>
+      <description>
+        <![CDATA[<h1>[信号] 函数-矩形窗</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="连续时间矩形窗">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%97%b6%e9%97%b4%e7%9f%a9%e5%bd%a2%e7%aa%97"></a>
+连续时间矩形窗
+</h2><p>设窗口宽度为 $T$，矩形窗可以写成：
+</p>
+$$
+w(t)=
+\begin{cases}
+1, & |t|\le \frac{T}{2}\\
+0, & |t|>\frac{T}{2}
+\end{cases}
+$$<p>
+也可以写成：
+</p>
+$$
+w(t)=\operatorname{rect}\left(\frac{t}{T}\right)
+$$<blockquote>
+<p><code>y = rect(x)</code>: 当 x &gt; 1/2 时, 为 0; 否则为 1</p>
+</blockquote>
+<h2 id="矩形窗的傅里叶变换">
+<a class="header-anchor" href="#%e7%9f%a9%e5%bd%a2%e7%aa%97%e7%9a%84%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2"></a>
+矩形窗的傅里叶变换
+</h2><p>矩形窗的傅里叶变换是 sinc 形状
+</p>
+        
+        <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数据集] 推荐系统数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] 推荐系统数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="推荐系统数据集">
+<a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+推荐系统数据集
+</h1><h2 id="movielens-100k">
+<a class="header-anchor" href="#movielens-100k"></a>
+MovieLens 100K
+</h2><p><a href="https://files.grouplens.org/datasets/movielens">https://files.grouplens.org/datasets/movielens</a></p>
+<p>主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐</p>
+<table>
+  <thead>
+      <tr>
+          <th>项目</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>数据集名称</td>
+          <td>MovieLens 100K</td>
+      </tr>
+      <tr>
+          <td>所属领域</td>
+          <td>推荐系统</td>
+      </tr>
+      <tr>
+          <td>数据类型</td>
+          <td>用户-电影评分数据</td>
+      </tr>
+      <tr>
+          <td>用户数量</td>
+          <td>943</td>
+      </tr>
+      <tr>
+          <td>电影数量</td>
+          <td>1682</td>
+      </tr>
+      <tr>
+          <td>评分数量</td>
+          <td>100,000</td>
+      </tr>
+      <tr>
+          <td>评分范围</td>
+          <td>1 到 5 分</td>
+      </tr>
+      <tr>
+          <td>反馈类型</td>
+          <td>显式反馈</td>
+      </tr>
+      <tr>
+          <td>常见任务</td>
+          <td>评分预测、Top-N 推荐、协同过滤、矩阵补全</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。</p>
+        
+        <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数据集] EEG数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] EEG数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="eeg数据集">
+<a class="header-anchor" href="#eeg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+EEG数据集
+</h1><h2 id="seed">
+<a class="header-anchor" href="#seed"></a>
+SEED
+</h2><p><a href="https://bcmi.sjtu.edu.cn/home/seed/">https://bcmi.sjtu.edu.cn/home/seed/</a></p>
+<p>SEED，全称一般称为 <strong>SJTU Emotion EEG Dataset</strong>，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。</p>
+        
+        <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] MathType</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mathtype/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mathtype/</guid>
+      <description>
+        <![CDATA[<h1>[工具] MathType</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="mathtype-上写-latex-公式">
+<a class="header-anchor" href="#mathtype-%e4%b8%8a%e5%86%99-latex-%e5%85%ac%e5%bc%8f"></a>
+MathType 上写 LaTeX 公式
+</h2><p>预置 -&gt; 工作区预置 -&gt; <code>允许从键盘输入Tex语言</code></p>
+        
+        <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[信号] 重建</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%8D%E5%BB%BA/</link>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%8D%E5%BB%BA/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%8D%E5%BB%BA/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%8D%E5%BB%BA/</guid>
       <description>
         <![CDATA[<h1>[信号] 重建</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -42,7 +210,40 @@
 </h4><p>如果满足奈奎斯特条件：
 </p>
         
-        <hr><p>本文2026-06-12首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
+        <hr><p>本文2026-06-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] 采样</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%87%E6%A0%B7/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%87%E6%A0%B7/</guid>
+      <description>
+        <![CDATA[<h1>[信号] 采样</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="采样">
+<a class="header-anchor" href="#%e9%87%87%e6%a0%b7"></a>
+采样
+</h2><p><strong>连续信号</strong>: $x(t)=\sin(\Omega t)=\sin(2\pi f t)$
+-&gt; 模拟角频率: $\Omega$ (rad/s)
+-&gt; 模拟频率: $f$ (Hz)</p>
+<p><strong>离散信号</strong>: $x[n]=sin(\omega n)=sin(2\pi f_d n)$
+-&gt; 数字角频率: $\omega$ (rad)
+-&gt; 数字频率: $f_d$ (Hz)</p>
+<p><strong>采样频率</strong>: $f_s$
+<strong>采样间隔</strong>: $T$
+有 $T=1/f_s$
+-&gt; $t=nT$
+-&gt; $n=t/T$</p>
+        
+        <hr><p>本文2026-06-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
       </description>
       
         <category>信号</category>
@@ -53,10 +254,10 @@
 
     <item>
       <title>[信号] ZT</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/zt/</link>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/zt/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/zt/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/zt/</guid>
       <description>
         <![CDATA[<h1>[信号] ZT</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -86,7 +287,7 @@ Z变化 - ZT
 </table>
 <p>DTFT 是 ZT 在<strong>单位圆</strong> $|z|=1$ 上的结果</p>
         
-        <hr><p>本文2026-06-12首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
+        <hr><p>本文2026-06-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
       </description>
       
         <category>信号</category>
@@ -97,10 +298,10 @@ Z变化 - ZT
 
     <item>
       <title>[信号] STFT</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/stft/</link>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/stft/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/stft/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/stft/</guid>
       <description>
         <![CDATA[<h1>[信号] STFT</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -112,7 +313,7 @@ STFT 进一步告诉你：<strong>这些频率分别在什么时候出现</stron
 (比如一个信号前 1 秒是 5 Hz，后 1 秒是 20 Hz)</p>
 <p>核心思想: 把信号切成一小段一小段，每一段分别做 DFT</p>
         
-        <hr><p>本文2026-06-12首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
+        <hr><p>本文2026-06-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
       </description>
       
         <category>信号</category>
@@ -122,46 +323,13 @@ STFT 进一步告诉你：<strong>这些频率分别在什么时候出现</stron
     
 
     <item>
-      <title>[x] y</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%87%E6%A0%B7/</link>
+      <title>[信号] CWT</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/cwt/</link>
       <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%87%87%E6%A0%B7/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/cwt/</guid>
       <description>
-        <![CDATA[<h1>[x] y</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="采样">
-<a class="header-anchor" href="#%e9%87%87%e6%a0%b7"></a>
-采样
-</h2><p><strong>连续信号</strong>: $x(t)=\sin(\Omega t)=\sin(2\pi f t)$
--&gt; 模拟角频率: $\Omega$ (rad/s)
--&gt; 模拟频率: $f$ (Hz)</p>
-<p><strong>离散信号</strong>: $x[n]=sin(\omega n)=sin(2\pi f_d n)$
--&gt; 数字角频率: $\omega$ (rad)
--&gt; 数字频率: $f_d$ (Hz)</p>
-<p><strong>采样频率</strong>: $f_s$
-<strong>采样间隔</strong>: $T$
-有 $T=1/f_s$
--&gt; $t=nT$
--&gt; $n=t/T$</p>
-        
-        <hr><p>本文2026-06-12首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
-      </description>
-      
-        <category>x</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[x] y</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/cwt/</link>
-      <pubDate>Fri, 12 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/cwt/</guid>
-      <description>
-        <![CDATA[<h1>[x] y</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[信号] CWT</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h2 id="连续小波变换---cwt">
 <a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e5%b0%8f%e6%b3%a2%e5%8f%98%e6%8d%a2---cwt"></a>
@@ -175,10 +343,10 @@ CWT：用可以缩放的小波去扫信号</p>
 </ul>
 <p>CWT 的想法是：</p>
         
-        <hr><p>本文2026-06-12首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
+        <hr><p>本文2026-06-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-12</p>]]>
       </description>
       
-        <category>x</category>
+        <category>信号</category>
       
     </item>
     
@@ -186,10 +354,10 @@ CWT：用可以缩放的小波去扫信号</p>
 
     <item>
       <title>[信号] Laplace</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</link>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</link>
       <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/laplace/</guid>
       <description>
         <![CDATA[<h1>[信号] Laplace</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -207,146 +375,7 @@ Laplace 看整个复平面 -&gt; Laplace 用的是 $e^{-st}$
 <p>Laplace:
 </p>
         
-        <hr><p>本文2026-06-11首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
-      </description>
-      
-        <category>信号</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] DTFT</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dtft/</link>
-      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dtft/</guid>
-      <description>
-        <![CDATA[<h1>[信号] DTFT</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="离散时间傅里叶变换---dtft">
-<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dtft"></a>
-离散时间傅里叶变换 - DTFT
-</h2><p>CTFT 是看连续信号有哪些频率
-DTFT 是看离散信号有哪些频率</p>
-<p>离散时间信号：
-</p>
-$$
-x[n]=\sin(\omega_0 n)=\sin(2\pi f_d n)
-$$<ul>
-<li>采 样频率: $f_s$</li>
-<li>$\omega_0=2\pi\frac{f_0}{f_s}$</li>
-</ul>
-<p>DTFT:
-</p>
-$$
-X(e^{j\omega})=\sum_{n=-\infty}^{+\infty}x[n]e^{-j\omega n}
-\\
-x[n]=\frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\omega})e^{j\omega n}d\omega
-$$<blockquote>
-<p><mark>DTFT 的频率变量 $\omega$ 仍然是<strong>连续变化的</strong> -&gt; 离散时间，不等于离散频率</mark></p>
-        
-        <hr><p>本文2026-06-11首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
-      </description>
-      
-        <category>信号</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] DFT</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dft/</link>
-      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/dft/</guid>
-      <description>
-        <![CDATA[<h1>[信号] DFT</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="离散傅里叶变换---dft">
-<a class="header-anchor" href="#%e7%a6%bb%e6%95%a3%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---dft"></a>
-离散傅里叶变换 - DFT
-</h2><p>DTFT 是理论上的连续频率谱 -&gt;  $\omega$ 可以是任意值
-DFT 是电脑真正能算的有限个频率点 -&gt; 只看 $N$ 个固定频率点 $\omega_0, \omega_1,..., \omega_{N-1}$
--&gt; DTFT 是离散信号的完整频谱，<mark>而 DFT 是把 DTFT 采样成有限个点</mark>
--&gt; 而 $X(e^{j\omega})$ 以 $2\pi$ 为周期, 所以 DFT 只需要在一个周期 $0\sim 2\pi$ 里取点
-</p>
-        
-        <hr><p>本文2026-06-11首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
-      </description>
-      
-        <category>信号</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] CTFT</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/ctft/</link>
-      <pubDate>Thu, 11 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/ctft/</guid>
-      <description>
-        <![CDATA[<h1>[信号] CTFT</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="连续时间傅里叶变换---ctft">
-<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%97%b6%e9%97%b4%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2---ctft"></a>
-连续时间傅里叶变换 - CTFT
-</h2><p><strong>一个连续时间信号里，到底含有哪些频率成分</strong></p>
-<p>CTFT 不关心信号“长什么样”，CTFT 关心的是：这个信号由哪些频率组成？</p>
-<p>连续时间信号：
-</p>
-        
-        <hr><p>本文2026-06-11首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
-      </description>
-      
-        <category>信号</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] 通过sin理解信号</title>
-      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/</link>
-      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E9%80%9A%E8%BF%87sin%E7%90%86%E8%A7%A3%E4%BF%A1%E5%8F%B7/</guid>
-      <description>
-        <![CDATA[<h1>[信号] 通过sin理解信号</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="学习顺序">
-<a class="header-anchor" href="#%e5%ad%a6%e4%b9%a0%e9%a1%ba%e5%ba%8f"></a>
-学习顺序
-</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CTFT  →  采样  →  DTFT  →  DFT  →  STFT
-</span></span><span class="line"><span class="cl">  ↓       ↓        ↓                ↓
-</span></span><span class="line"><span class="cl">Laplace  重建      ZT               CWT
-</span></span></code></pre></div><ul>
-<li>
-<p>CTFT: 先看连续正弦在频域长什么样</p>
-<ul>
-<li>CTFT 的加强版</li>
-</ul>
-</li>
-<li>
-<p>采样: 从 CTFT 过渡到 DTFT</p>
-</li>
-<li>
-<p>重建: 用 sinc chong&rsquo;j</p>
-</li>
-<li>
-<p>DTFT: 离散信号的完整频谱</p>
-<ul>
-<li>ZT: DTFT 的加强版</li>
-</ul>
-</li>
-<li>
-<p>DFT: 把 DTFT 采样成有限个点</p>
-        
-        <hr><p>本文2026-06-10首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+        <hr><p>本文2026-06-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-11</p>]]>
       </description>
       
         <category>信号</category>

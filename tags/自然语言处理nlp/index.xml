@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>自然语言处理NLP on byzh的博客</title>
-    <link>http://localhost:1313/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/</link>
+    <link>https://byzhrichard.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://byzhrichard.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 词向量模型GloVe</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 词向量模型GloVe</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -39,7 +39,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-28首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -50,10 +50,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] Transformer</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] Transformer</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -66,7 +66,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-28首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -77,10 +77,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] ELMo</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] ELMo</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -93,7 +93,7 @@
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
 <p>CSDN：https://blog.csdn.net/qq_54636039</p>
         
-        <hr><p>本文2026-05-28首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
+        <hr><p>本文2026-05-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-28</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
@@ -104,10 +104,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 词向量模型word2vec</title>
-      <link>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>http://localhost:1313/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 词向量模型word2vec</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -119,7 +119,7 @@
 📢个人导航
 </h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
         
-        <hr><p>本文2026-05-17首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
+        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
       </description>
       
         <category>DL_Net从入门到入土</category>
