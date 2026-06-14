@@ -12,12 +12,63 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[雷达原理] 雷达接收机</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/</link>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/</guid>
+      <description>
+        <![CDATA[<h1>[雷达原理] 雷达接收机</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="雷达接收机的组成和主要质量指标">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%9a%84%e7%bb%84%e6%88%90%e5%92%8c%e4%b8%bb%e8%a6%81%e8%b4%a8%e9%87%8f%e6%8c%87%e6%a0%87"></a>
+雷达接收机的组成和主要质量指标
+</h2>
+        
+        <hr><p>本文2026-06-14首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-14</p>]]>
+      </description>
+      
+        <category>雷达原理</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[雷达原理] 5.雷达发射机</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/5.%E9%9B%B7%E8%BE%BE%E5%8F%91%E5%B0%84%E6%9C%BA/</guid>
+      <description>
+        <![CDATA[<h1>[雷达原理] 5.雷达发射机</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="雷达发射机的任务和基本组成">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e5%8f%91%e5%b0%84%e6%9c%ba%e7%9a%84%e4%bb%bb%e5%8a%a1%e5%92%8c%e5%9f%ba%e6%9c%ac%e7%bb%84%e6%88%90"></a>
+雷达发射机的任务和基本组成
+</h1><h2 id="雷达发射机的任务">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e5%8f%91%e5%b0%84%e6%9c%ba%e7%9a%84%e4%bb%bb%e5%8a%a1"></a>
+雷达发射机的任务
+</h2><p>任务: 产生<strong>大功率</strong>, <strong>特定调制</strong>的<strong>射频</strong>信号</p>
+<blockquote>
+<p>发射的是射频信号, 接收的也是射频信号: 多普勒对其的影响微乎其微</p>
+        
+        <hr><p>本文2026-06-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-10</p>]]>
+      </description>
+      
+        <category>雷达原理</category>
+      
+    </item>
     
     
 
