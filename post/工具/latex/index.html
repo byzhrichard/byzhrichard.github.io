@@ -137,7 +137,9 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#overleaf-设置">Overleaf 设置</a></li>
+    <li><a href="#overleaf">Overleaf</a></li>
+    <li><a href="#tex-live">Tex Live</a></li>
+    <li><a href="#texstudio">TeXstudio</a></li>
     <li><a href="#报告模版">报告模版</a></li>
   </ul>
 </nav>
@@ -154,12 +156,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">112</div>
+    <div>文章</div><div class="sidebar-state-number">113</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      20
+      21
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -249,23 +251,36 @@
       >2026-05-22</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="overleaf-设置">
-<a class="header-anchor" href="#overleaf-%e8%ae%be%e7%bd%ae"></a>
-Overleaf 设置
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="overleaf">
+<a class="header-anchor" href="#overleaf"></a>
+Overleaf
 </h1><p>File -&gt; Settings -&gt; Compiler: 把 <code>pdfLaTeX</code> 换成 <code>XeLaTeX</code></p>
+<h1 id="tex-live">
+<a class="header-anchor" href="#tex-live"></a>
+Tex Live
+</h1><p>下载: <a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/</a></p>
+<h1 id="texstudio">
+<a class="header-anchor" href="#texstudio"></a>
+TeXstudio
+</h1><p>下载: <a href="https://texstudio.org/">https://texstudio.org/</a></p>
+<p>选项 -&gt; 设置TeXstudio -&gt; 构建 -&gt; 默认编辑器 换成 <code>XeLaTeX</code></p>
+<p>选项 -&gt; 设置TeXstudio -&gt; 快捷键 -&gt; 菜单 -&gt; Idefix -&gt; 注释或取消注释</p>
 <h1 id="报告模版">
 <a class="header-anchor" href="#%e6%8a%a5%e5%91%8a%e6%a8%a1%e7%89%88"></a>
 报告模版
 </h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="line"><span class="cl"><span class="c">% ==============================
-</span></span></span><span class="line"><span class="cl"><span class="c">% 1. 基础文档与中文支持（Overleaf专用，修复生僻字）
+</span></span></span><span class="line"><span class="cl"><span class="c">% 1. 基础文档与中文支持
 </span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% Overleaf专用 (修复生僻字)
 </span></span></span><span class="line"><span class="cl"><span class="k">\documentclass</span><span class="na">[UTF8,fontset=none]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">% Overleaf 原生预装 Noto 思源字体，完整支持“焜”等生僻字
-</span></span></span><span class="line"><span class="cl"><span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK SC<span class="nb">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK SC<span class="nb">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">\setCJKsansfont</span><span class="nb">{</span>Noto Sans CJK SC<span class="nb">}</span>
 </span></span><span class="line"><span class="cl"><span class="k">\setCJKmonofont</span><span class="nb">{</span>Noto Sans Mono CJK SC<span class="nb">}</span>
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">% TeXstudio专用
+</span></span></span><span class="line"><span class="cl"><span class="c">% \documentclass[UTF8]{ctexart}
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c">% ==============================
 </span></span></span><span class="line"><span class="cl"><span class="c">% 2. 页面布局与边距设置
 </span></span></span><span class="line"><span class="cl"><span class="c">% ==============================
@@ -538,10 +553,10 @@ Overleaf 设置
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;119.1k</span
+          >&nbsp;120.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;04:56</span>
+        <span class="icon-coffee">&nbsp;04:58</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -567,7 +582,9 @@ Overleaf 设置
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#overleaf-设置">Overleaf 设置</a></li>
+    <li><a href="#overleaf">Overleaf</a></li>
+    <li><a href="#tex-live">Tex Live</a></li>
+    <li><a href="#texstudio">TeXstudio</a></li>
     <li><a href="#报告模版">报告模版</a></li>
   </ul>
 </nav>
@@ -584,12 +601,12 @@ Overleaf 设置
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">112</div>
+    <div>文章</div><div class="sidebar-state-number">113</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      20
+      21
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -708,7 +725,7 @@ Overleaf 设置
           author: "byzh",
           title: "[工具] LaTex",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%B7%A5%E5%85%B7\/latex\/",
-          description: "\rOverleaf 设置\rFile -\u0026gt; Settings -\u0026gt; Compiler: 把 pdfLaTeX 换成 XeLaTeX\n报告模版\r% ============================== % 1. 基础文档与中文支持（Overleaf专用，修复生僻字） % ============================== \\documentclass[UTF8,fontset=none]{ctexart} % Overleaf 原生预装 Noto 思源字体，完整支持“焜”等生僻字 \\setCJKmainfont{Noto Serif CJK SC} …",
+          description: "\rOverleaf\rFile -\u0026gt; Settings -\u0026gt; Compiler: 把 pdfLaTeX 换成 XeLaTeX\nTex Live\r下载: https:\/\/mirrors.tuna.tsinghua.edu.cn\/CTAN\/systems\/texlive\/Images\/\nTeXstudio\r下载: https:\/\/texstudio.org\/\n选项 -\u0026gt; 设置TeXstudio -\u0026gt; 构建 -\u0026gt; 默认编辑器 换成 XeLaTeX\n选项 -\u0026gt; 设置TeXstudio -\u0026gt; 快捷键 -\u0026gt; 菜单 -\u0026gt; Idefix -\u0026gt; 注释或取 …",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
