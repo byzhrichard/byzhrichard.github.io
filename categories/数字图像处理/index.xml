@@ -12,12 +12,111 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 14 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数字图像处理] 4.图像编码</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/4.%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/4.%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81/</guid>
+      <description>
+        <![CDATA[<h1>[数字图像处理] 4.图像编码</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="图像编码">
+<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e7%bc%96%e7%a0%81"></a>
+图像编码
+</h1><h2 id="霍夫曼编码">
+<a class="header-anchor" href="#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81"></a>
+霍夫曼编码
+</h2><p>霍夫曼编码使用<strong>变长编码</strong>表对源符号（如文件中的一个字母）进行编码，出现机率的字母使用较短的编码，反之出现机率低的则使用较长的编码，这便使编码之后的字符串的平均长度降低，从而达到<strong>无损压缩数据</strong>的目的</p>
+        
+        <hr><p>本文2026-06-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-15</p>]]>
+      </description>
+      
+        <category>数字图像处理</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数字图像处理] 3.二值形态学</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/3.%E4%BA%8C%E5%80%BC%E5%BD%A2%E6%80%81%E5%AD%A6/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/3.%E4%BA%8C%E5%80%BC%E5%BD%A2%E6%80%81%E5%AD%A6/</guid>
+      <description>
+        <![CDATA[<h1>[数字图像处理] 3.二值形态学</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="二值形态学">
+<a class="header-anchor" href="#%e4%ba%8c%e5%80%bc%e5%bd%a2%e6%80%81%e5%ad%a6"></a>
+二值形态学
+</h1><p>数字形态学处理: 简化图像数据, 保持其基本的形状特性, 除去不相干的结构</p>
+<p>二值形态学的基本运算:</p>
+<ul>
+<li>膨胀</li>
+<li>腐蚀</li>
+<li>开操作和闭操作</li>
+<li>击中与击不中</li>
+</ul>
+<h2 id="腐蚀">
+<a class="header-anchor" href="#%e8%85%90%e8%9a%80"></a>
+腐蚀
+</h2><p>腐蚀：对二值图像中的对象进行“收缩”或“细化” -&gt; 去除物体之间的粘连，消除图像中的小颗粒噪声
+(去除了噪声，但压缩了图像)</p>
+        
+        <hr><p>本文2026-06-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-15</p>]]>
+      </description>
+      
+        <category>数字图像处理</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数字图像处理] 2.图像增强</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2.%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2.%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA/</guid>
+      <description>
+        <![CDATA[<h1>[数字图像处理] 2.图像增强</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="图像增强方法">
+<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e5%a2%9e%e5%bc%ba%e6%96%b9%e6%b3%95"></a>
+图像增强方法
+</h2><p>点处理:</p>
+<ul>
+<li>线性灰度变换</li>
+<li>线性灰度变换</li>
+<li><strong>直方图修正法</strong></li>
+</ul>
+<p>局部处理:</p>
+<ul>
+<li>局部平滑法</li>
+<li>领域平均法</li>
+<li>灰度最相近的K个邻点平均法</li>
+<li>超限像素平滑法</li>
+<li>中值滤波法</li>
+<li>空间低通滤波法</li>
+</ul>
+<p>全局处理:</p>
+        
+        <hr><p>本文2026-06-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-15</p>]]>
+      </description>
+      
+        <category>数字图像处理</category>
+      
+    </item>
     
     
 
