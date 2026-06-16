@@ -47,7 +47,7 @@
   <meta property="article:author" content="byzh" />
   <meta property="article:published_time" content="2026-05-22T00:00:00&#43;00:00" />
   <meta property="article:modified_time" content="2026-05-22T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.5b24cd48a99d403465a0e04f074e801ea192996fad807c3a40e0e8459e9ec49e.css" /><link
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.dd8a2c2ed287746b98e61c4bb98f1360ef8e94a7438a1189b63d23130f1d3964.css" /><link
     rel="preload"
     as="style"
     href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
@@ -120,7 +120,7 @@
       </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
-  <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a></nav></div>
 <header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] CycleGAN"><div id="header-outer">
     <div id="header-title"><span id="logo">
             <h1 data-aos="slide-up">[DL_Net从入门到入土] CycleGAN</h1>
@@ -196,7 +196,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">116</div>
+    <div>文章</div><div class="sidebar-state-number">117</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -814,10 +814,10 @@ $$<ul>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;122.1k</span
+          >&nbsp;122.3k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:04</span>
+        <span class="icon-coffee">&nbsp;05:05</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -902,7 +902,7 @@ $$<ul>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">116</div>
+    <div>文章</div><div class="sidebar-state-number">117</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -975,7 +975,21 @@ $$<ul>
         <div class="sidebar-toc-btn current"></div>
         <div class="sidebar-common-btn"></div>
       </div></nav>
-</div><script
+</div><div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" />
+        </div>
+      </div><script
     src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
     
     
@@ -1002,6 +1016,35 @@ $$<ul>
       aosInit();
     }
   </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+    var ALGOLIA_CONFIG = {
+      logo: '\/images\/algolia_logo.svg',
+      algolia: {
+        applicationID: "OL5A45Z4Q1",
+        apiKey: "1910d84d1d4a1a4d30b8ca375fa82cf6",
+        indexName: "my_blog",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": '搜索.....',
+          "hits_empty": '未发现与 「${query}」相关内容',
+          "hits_stats": '找到${hits}条结果（用时 ${time} ms）'
+        }
+      }
+    };
+  </script><script
+    src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"
+    defer
+    
+    
+    
+    integrity="sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S&#43;jQz7ZBtQXnsXmD&#43;9jDOOY4cL6dCPzlrk" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/@reimujs/instantsearch.js@4.57.0-beta.1/dist/instantsearch.production.min.js"
+    defer
+    
+    
+    
+    integrity="sha384-aagKMe8nkqaP2DYQc8kkYOL5l&#43;M5Q2WH/Uhr4teOh0Ybp0RZj0kUSDm45qPikMjK" crossorigin="anonymous"></script><script src="/js/algolia_search.js" integrity="" crossorigin="anonymous"  ></script><script>
   var setupFirework = () => {
     if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
       if (window.firework) {

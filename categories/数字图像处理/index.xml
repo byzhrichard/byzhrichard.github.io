@@ -12,12 +12,40 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 15 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数字图像处理] 5.图像的几何变换</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/5.%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/5.%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/</guid>
+      <description>
+        <![CDATA[<h1>[数字图像处理] 5.图像的几何变换</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="图像的几何变换">
+<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e7%9a%84%e5%87%a0%e4%bd%95%e5%8f%98%e6%8d%a2"></a>
+图像的几何变换
+</h1><p>目的: 通过几何变换产生某些特殊的结果，可简化图像处理过程，重要特征是<strong>仅改变像素位置，而不改变图像的像素值</strong></p>
+<h2 id="常见的变换形式矩阵">
+<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%98%e6%8d%a2%e5%bd%a2%e5%bc%8f%e7%9f%a9%e9%98%b5"></a>
+常见的变换形式矩阵
+</h2><p>$P_0(x_0,y_0)$ 转换后 $P(x,y)$
+</p>
+        
+        <hr><p>本文2026-06-16首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-16</p>]]>
+      </description>
+      
+        <category>数字图像处理</category>
+      
+    </item>
     
     
 
