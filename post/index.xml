@@ -12,12 +12,44 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 16 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数字图像处理] 6.图像特征与理解</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/</guid>
+      <description>
+        <![CDATA[<h1>[数字图像处理] 6.图像特征与理解</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="图像几何特征">
+<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e5%87%a0%e4%bd%95%e7%89%b9%e5%be%81"></a>
+图像几何特征
+</h2><p>几何特征：提取图像几何特征之前，常对图像进分割和二值化处理 -&gt; 处理成只有0和1两种值的黑白图像</p>
+<p>周长：用链码表示</p>
+<ul>
+<li>链码值为奇数时，长度为根号二</li>
+<li>链码值为偶数时，长度为一</li>
+</ul>
+<h2 id="图像形状特征">
+<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e5%bd%a2%e7%8a%b6%e7%89%b9%e5%be%81"></a>
+图像形状特征
+</h2><p>形状特征：边界链码、归一化链码、一阶差分链码</p>
+        
+        <hr><p>本文2026-06-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-17</p>]]>
+      </description>
+      
+        <category>数字图像处理</category>
+      
+    </item>
     
     
 
@@ -217,7 +249,16 @@ $$<p>
           <h2 id="雷达接收机的组成和主要质量指标">
 <a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%9a%84%e7%bb%84%e6%88%90%e5%92%8c%e4%b8%bb%e8%a6%81%e8%b4%a8%e9%87%8f%e6%8c%87%e6%a0%87"></a>
 雷达接收机的组成和主要质量指标
-</h2>
+</h2><p>任务: 不失真地放大所需的<strong>微弱信号</strong>, 抑制不需要的<strong>其他信号</strong></p>
+<p>微弱信号: 目标的回波信号signal</p>
+<p>其他信号:</p>
+<ul>
+<li>噪声noise -&gt; 信噪比: <code>S/N</code></li>
+<li>干扰jamming -&gt; 信干比: <code>S/J</code></li>
+<li>杂波clutter</li>
+</ul>
+<p>雷达能检测出来signal的条件:
+</p>
         
         <hr><p>本文2026-06-14首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-14</p>]]>
       </description>
@@ -272,102 +313,23 @@ $$<blockquote>
     
 
     <item>
-      <title>[数据集] 推荐系统数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <title>[工具] MathType</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mathtype/</link>
       <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/mathtype/</guid>
       <description>
-        <![CDATA[<h1>[数据集] 推荐系统数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[工具] MathType</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="推荐系统数据集">
-<a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-推荐系统数据集
-</h1><h2 id="movielens-100k">
-<a class="header-anchor" href="#movielens-100k"></a>
-MovieLens 100K
-</h2><p><a href="https://files.grouplens.org/datasets/movielens">https://files.grouplens.org/datasets/movielens</a></p>
-<p>主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐</p>
-<table>
-  <thead>
-      <tr>
-          <th>项目</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>数据集名称</td>
-          <td>MovieLens 100K</td>
-      </tr>
-      <tr>
-          <td>所属领域</td>
-          <td>推荐系统</td>
-      </tr>
-      <tr>
-          <td>数据类型</td>
-          <td>用户-电影评分数据</td>
-      </tr>
-      <tr>
-          <td>用户数量</td>
-          <td>943</td>
-      </tr>
-      <tr>
-          <td>电影数量</td>
-          <td>1682</td>
-      </tr>
-      <tr>
-          <td>评分数量</td>
-          <td>100,000</td>
-      </tr>
-      <tr>
-          <td>评分范围</td>
-          <td>1 到 5 分</td>
-      </tr>
-      <tr>
-          <td>反馈类型</td>
-          <td>显式反馈</td>
-      </tr>
-      <tr>
-          <td>常见任务</td>
-          <td>评分预测、Top-N 推荐、协同过滤、矩阵补全</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p>100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。</p>
+          <h2 id="mathtype-上写-latex-公式">
+<a class="header-anchor" href="#mathtype-%e4%b8%8a%e5%86%99-latex-%e5%85%ac%e5%bc%8f"></a>
+MathType 上写 LaTeX 公式
+</h2><p>预置 -&gt; 工作区预置 -&gt; <code>允许从键盘输入Tex语言</code></p>
         
         <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
       </description>
       
-        <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] EEG数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Sat, 13 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] EEG数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="eeg数据集">
-<a class="header-anchor" href="#eeg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-EEG数据集
-</h1><h2 id="seed">
-<a class="header-anchor" href="#seed"></a>
-SEED
-</h2><p><a href="https://bcmi.sjtu.edu.cn/home/seed/">https://bcmi.sjtu.edu.cn/home/seed/</a></p>
-<p>SEED，全称一般称为 <strong>SJTU Emotion EEG Dataset</strong>，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。</p>
-        
-        <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
-      </description>
-      
-        <category>数据集</category>
+        <category>工具</category>
       
     </item>
     

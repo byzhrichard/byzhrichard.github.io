@@ -149,9 +149,10 @@
         <li><a href="#gitignore语法"><code>.gitignore</code>语法</a></li>
         <li><a href="#github">Github</a>
           <ul>
-            <li><a href="#1-下载内容">1. 下载内容</a></li>
-            <li><a href="#2-关联远程仓库">2. 关联远程仓库</a></li>
-            <li><a href="#3-克隆远程仓库">3. 克隆远程仓库</a></li>
+            <li><a href="#1-下载内容-小文件">1. 下载内容 (小文件)</a></li>
+            <li><a href="#2-下载内容-大文件lfs">2. 下载内容 (大文件/LFS)</a></li>
+            <li><a href="#3-关联远程仓库">3. 关联远程仓库</a></li>
+            <li><a href="#4-克隆远程仓库">4. 克隆远程仓库</a></li>
           </ul>
         </li>
         <li><a href="#一键pull-add-commit-push">一键pull-add-commit-push</a></li>
@@ -177,7 +178,7 @@
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      21
+      20
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -358,26 +359,38 @@ ssh: <a href="mailto:git@swanhub.co">git@swanhub.co</a>/byzh/study_nets.git</p>
 <h2 id="github">
 <a class="header-anchor" href="#github"></a>
 Github
-</h2><h3 id="1-下载内容">
-<a class="header-anchor" href="#1-%e4%b8%8b%e8%bd%bd%e5%86%85%e5%ae%b9"></a>
-1. 下载内容
-</h3><p>在浏览仓库时的内容一般是以<code>github.com</code>开头的</p>
-<blockquote>
-<p><a href="https://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp">https://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp</a></p>
-</blockquote>
-<p>但这只是浏览仓库的, 不是真实文件的链接:</p>
-<ul>
-<li>需要手动改成<code>raw.githubusercontent.com</code>开头的</li>
-<li>还需要手动去掉blob</li>
-</ul>
-<blockquote>
-<p><a href="https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp">https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp</a></p>
-</blockquote>
+</h2><h3 id="1-下载内容-小文件">
+<a class="header-anchor" href="#1-%e4%b8%8b%e8%bd%bd%e5%86%85%e5%ae%b9-%e5%b0%8f%e6%96%87%e4%bb%b6"></a>
+1. 下载内容 (小文件)
+</h3><p><code>https://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp</code>
+-&gt;
+<code>https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp</code></p>
+<ol>
+<li><code>github.com</code> -&gt; <code>raw.githubusercontent.com</code></li>
+<li>去掉 <code>blob</code></li>
+</ol>
 <p>注意: 如果只是需要图床, 建议改成<code>https://byzhrichard.github.io/byzh/image1.webp</code>
-这样有CDN, 更稳定</p>
-<h3 id="2-关联远程仓库">
-<a class="header-anchor" href="#2-%e5%85%b3%e8%81%94%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
-2. 关联远程仓库
+(这样有CDN, 更稳定)</p>
+<blockquote>
+<p>Gitee: (&lt;10MB)</p>
+<ul>
+<li><code>raw.giteeusercontent.com</code></li>
+<li><code>blob</code> 换成 <code>raw</code></li>
+</ul>
+</blockquote>
+<h3 id="2-下载内容-大文件lfs">
+<a class="header-anchor" href="#2-%e4%b8%8b%e8%bd%bd%e5%86%85%e5%ae%b9-%e5%a4%a7%e6%96%87%e4%bb%b6lfs"></a>
+2. 下载内容 (大文件/LFS)
+</h3><p><code>https://github.com/AND-Q/HWDB1.1-/blob/main/HWDB1.1trn_gnt.zip</code>
+-&gt;
+<code>https://media.githubusercontent.com/media/AND-Q/HWDB1.1-/refs/heads/main/HWDB1.1trn_gnt.zip</code></p>
+<ol>
+<li><code>github.com</code> -&gt; <code>media.githubusercontent.com/media</code></li>
+<li><code>blob</code> -&gt; <code>refs/heads</code></li>
+</ol>
+<h3 id="3-关联远程仓库">
+<a class="header-anchor" href="#3-%e5%85%b3%e8%81%94%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
+3. 关联远程仓库
 </h3><p>关联远程仓库:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote add origin url
 </span></span><span class="line"><span class="cl">git push -u origin main   # -u后, 以后只需要输入git push
@@ -388,9 +401,9 @@ Github
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote -v
 </span></span></code></pre></div><p>取消关联:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git remote remove origin
-</span></span></code></pre></div><h3 id="3-克隆远程仓库">
-<a class="header-anchor" href="#3-%e5%85%8b%e9%9a%86%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
-3. 克隆远程仓库
+</span></span></code></pre></div><h3 id="4-克隆远程仓库">
+<a class="header-anchor" href="#4-%e5%85%8b%e9%9a%86%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"></a>
+4. 克隆远程仓库
 </h3><p>自动创建与远程仓库同名的文件夹: (最常用)</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone ssh
 </span></span></code></pre></div><p>直接克隆到当前文件夹: (不创建同名文件夹)</p>
@@ -463,10 +476,10 @@ Github
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;122.3k</span
+          >&nbsp;120.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:05</span>
+        <span class="icon-coffee">&nbsp;05:00</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -504,9 +517,10 @@ Github
         <li><a href="#gitignore语法"><code>.gitignore</code>语法</a></li>
         <li><a href="#github">Github</a>
           <ul>
-            <li><a href="#1-下载内容">1. 下载内容</a></li>
-            <li><a href="#2-关联远程仓库">2. 关联远程仓库</a></li>
-            <li><a href="#3-克隆远程仓库">3. 克隆远程仓库</a></li>
+            <li><a href="#1-下载内容-小文件">1. 下载内容 (小文件)</a></li>
+            <li><a href="#2-下载内容-大文件lfs">2. 下载内容 (大文件/LFS)</a></li>
+            <li><a href="#3-关联远程仓库">3. 关联远程仓库</a></li>
+            <li><a href="#4-克隆远程仓库">4. 克隆远程仓库</a></li>
           </ul>
         </li>
         <li><a href="#一键pull-add-commit-push">一键pull-add-commit-push</a></li>
@@ -532,7 +546,7 @@ Github
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      21
+      20
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

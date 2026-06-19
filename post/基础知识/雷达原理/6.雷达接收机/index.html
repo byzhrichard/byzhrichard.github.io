@@ -140,6 +140,7 @@
     <li>
       <ul>
         <li><a href="#雷达接收机的组成和主要质量指标">雷达接收机的组成和主要质量指标</a></li>
+        <li><a href="#超外差雷达接收机的组成">超外差雷达接收机的组成</a></li>
       </ul>
     </li>
   </ul>
@@ -162,7 +163,7 @@
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      21
+      20
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -255,7 +256,66 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="雷达接收机的组成和主要质量指标">
 <a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%9a%84%e7%bb%84%e6%88%90%e5%92%8c%e4%b8%bb%e8%a6%81%e8%b4%a8%e9%87%8f%e6%8c%87%e6%a0%87"></a>
 雷达接收机的组成和主要质量指标
-</h2></div>
+</h2><p>任务: 不失真地放大所需的<strong>微弱信号</strong>, 抑制不需要的<strong>其他信号</strong></p>
+<p>微弱信号: 目标的回波信号signal</p>
+<p>其他信号:</p>
+<ul>
+<li>噪声noise -&gt; 信噪比: <code>S/N</code></li>
+<li>干扰jamming -&gt; 信干比: <code>S/J</code></li>
+<li>杂波clutter</li>
+</ul>
+<p>雷达能检测出来signal的条件:
+</p>
+$$
+\frac{S}{N} \ge A
+$$<ul>
+<li>$A$: 门限</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>符号</th>
+          <th>名称</th>
+          <th>场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$P_d$</td>
+          <td>发现概率</td>
+          <td>有目标 → 检出目标</td>
+      </tr>
+      <tr>
+          <td>$1−P_d$</td>
+          <td>漏报概率</td>
+          <td>有目标 → 未检出目标</td>
+      </tr>
+      <tr>
+          <td>$P_{fa}$</td>
+          <td>虚警概率</td>
+          <td>无目标 → 误判有目标</td>
+      </tr>
+      <tr>
+          <td>$1−P_{fa}$</td>
+          <td>正确不发现概率</td>
+          <td>无目标 → 正确判无目标</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="超外差雷达接收机的组成">
+<a class="header-anchor" href="#%e8%b6%85%e5%a4%96%e5%b7%ae%e9%9b%b7%e8%be%be%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%9a%84%e7%bb%84%e6%88%90"></a>
+超外差雷达接收机的组成
+</h2><p>高频部分:</p>
+<ul>
+<li><code>T/R</code> (transmitter/receiver) 及 <code>接收机保护器</code></li>
+<li>低噪声高频高增益放大器</li>
+<li>混频器, 本振实现下变频</li>
+</ul>
+<p>中频部分及AGC:</p>
+<ul>
+<li></li>
+</ul>
+</div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -315,10 +375,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;122.3k</span
+          >&nbsp;120.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:05</span>
+        <span class="icon-coffee">&nbsp;05:00</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -347,6 +407,7 @@
     <li>
       <ul>
         <li><a href="#雷达接收机的组成和主要质量指标">雷达接收机的组成和主要质量指标</a></li>
+        <li><a href="#超外差雷达接收机的组成">超外差雷达接收机的组成</a></li>
       </ul>
     </li>
   </ul>
@@ -369,7 +430,7 @@
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      21
+      20
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -531,7 +592,7 @@
           author: "byzh",
           title: "[雷达原理] 6.雷达接收机",
           url: "https:\/\/byzhrichard.github.io\/post\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86\/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA\/",
-          description: "\r雷达接收机的组成和主要质量指标\r",
+          description: "\r雷达接收机的组成和主要质量指标\r任务: 不失真地放大所需的微弱信号, 抑制不需要的其他信号\n微弱信号: 目标的回波信号signal\n其他信号:\n噪声noise -\u0026gt; 信噪比: S\/N 干扰jamming -\u0026gt; 信干比: S\/J 杂波clutter 雷达能检测出来signal的条件: ",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

@@ -1,5 +1,11 @@
 [
   {
+    "objectID": "d3f4d7f950128086d5eea5adfb9291e11d55a357",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/",
+    "title": "[数字图像处理] 6.图像特征与理解","content": "\r图像几何特征\r几何特征：提取图像几何特征之前，常对图像进分割和二值化处理 -\u0026gt; 处理成只有0和1两种值的黑白图像\n周长：用链码表示\n链码值为奇数时，长度为根号二 链码值为偶数时，长度为一 图像形状特征\r形状特征：边界链码、归一化链码、一阶差分链码\n1. 边界链码\r利用具有特定长度和方向且相连的直线段来表示目标的边界\n四方向链码 八方向链码 有平移不变性，但起点改变后不具备唯一性\n![图片处理 (1)_compressed](图片处理 (1)_compressed.png)\n(一阶)差分 = 当前方向 − 前一个方向\n4 方向: 结果对 4 取模，保证落在 0~3 8 方向: 结果对 8 取模，保证落在 0~7 ![图片处理 (1)_compressed](图片处理 (1)_compressed-1781628705916-5.png)\n","date": "2026-06-17 00:00:00",
+    "updated": "2026-06-17 00:00:00"
+  }, 
+  {
     "objectID": "222c6d3776809c35158067a26379816a740248f8",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/5.%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/",
     "title": "[数字图像处理] 5.图像的几何变换","content": "\r图像的几何变换\r目的: 通过几何变换产生某些特殊的结果，可简化图像处理过程，重要特征是仅改变像素位置，而不改变图像的像素值\n常见的变换形式矩阵\r任意像素点: $P_0(x_0,y_0)$ 用矩阵 $T$ 转换为 $P(x,y)$ $$\rP=T \\cdot P_0 = T \\begin{bmatrix}\rx_0 \\\\\ry_0 \\\\\r1\r\\end{bmatrix}\r$$ “1” 是齐次坐标技巧，让**“平移”**也能用矩阵乘法表示\n向量形式 作用 (x, y) 只能缩放/旋转 (x, y, 1) 可以缩放 + 旋转 + 平移 复合变换: 上述旋转是按照坐标原点旋转，如果图像绕指定点 $(a,b)$ 旋转，则先要将坐标系平移到该点，再进旋转，然后将旋转后的图像平移回原来的坐标原点\n","date": "2026-06-16 00:00:00",
@@ -26,7 +32,7 @@
   {
     "objectID": "abf9cf5be2d2fbca29dd71ae211ae52cfb66e2b8",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/",
-    "title": "[雷达原理] 6.雷达接收机","content": "\r雷达接收机的组成和主要质量指标\r","date": "2026-06-14 00:00:00",
+    "title": "[雷达原理] 6.雷达接收机","content": "\r雷达接收机的组成和主要质量指标\r任务: 不失真地放大所需的微弱信号, 抑制不需要的其他信号\n微弱信号: 目标的回波信号signal\n其他信号:\n噪声noise -\u0026gt; 信噪比: S/N 干扰jamming -\u0026gt; 信干比: S/J 杂波clutter 雷达能检测出来signal的条件: $$\r\\frac{S}{N} \\ge A\r$$ $A$: 门限 符号 名称 场景 $P_d$ 发现概率 有目标 → 检出目标 $1−P_d$ 漏报概率 有目标 → 未检出目标 $P_{fa}$ 虚警概率 无目标 → 误判有目标 $1−P_{fa}$ 正确不发现概率 无目标 → 正确判无目标 超外差雷达接收机的组成\r高频部分:\nT/R (transmitter/receiver) 及 接收机保护器 低噪声高频高增益放大器 混频器, 本振实现下变频 中频部分及AGC:\n","date": "2026-06-14 00:00:00",
     "updated": "2026-06-14 00:00:00"
   }, 
   {
@@ -45,18 +51,6 @@
     "objectID": "eb5d907f0c35c36d9c577a9f7e74213c3e63fa16",
     "permalink": "/post/%E5%B7%A5%E5%85%B7/mathtype/",
     "title": "[工具] MathType","content": "\rMathType 上写 LaTeX 公式\r预置 -\u0026gt; 工作区预置 -\u0026gt; 允许从键盘输入Tex语言\n","date": "2026-06-13 00:00:00",
-    "updated": "2026-06-13 00:00:00"
-  }, 
-  {
-    "objectID": "a9ae1103997dc3ab96de2fe2db58e41cca1e651c",
-    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/",
-    "title": "[数据集] EEG数据集","content": "\rEEG数据集\rSEED\rhttps://bcmi.sjtu.edu.cn/home/seed/\nSEED，全称一般称为 SJTU Emotion EEG Dataset，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。\n它的核心思想是：\n让被试看电影片段 采集被试观看过程中的 EEG 信号 根据电影片段对应的情绪类别进行分类 也就是说，SEED 不是普通的图像、文本、推荐系统数据集，而是一个典型的：\n被试 - 试次 - EEG信号 - 情绪标签 类型的数据集。\n项目 内容 数据集名称 SEED 全称 SJTU Emotion EEG Dataset 所属领域 EEG、脑机接口、情感计算 数据类型 脑电 EEG 信号 被试数量 15 名被试 通道数量 62 个 EEG 通道 实验次数 每个被试 3 次实验 每次实验 15 个电影片段 / 15 个 trial 情绪类别 positive、neutral、negative 类别数量 3 类 反馈类型 情绪标签 常见任务 情绪识别、跨被试分类、跨会话分类、特征提取 SEED 主要记录了被试在观看电影片段时的 EEG 信号，并将每个电影片段对应到正性、中性、负性三种情绪类别。\n1. 数据集基本思想\rSEED 的实验方式比较直观：\n电影片段 -\u0026amp;gt; 诱发情绪 -\u0026amp;gt; 采集 EEG -\u0026amp;gt; 进行情绪分类 例如：\n被试看了一个正性情绪电影片段 系统采集这段时间内的 EEG 信号 该 trial 的标签就是 positive 也就是：\nEEG signal -\u0026amp;gt; positive EEG signal -\u0026amp;gt; neutral EEG signal -\u0026amp;gt; negative 这类数据就是 EEG 情绪识别里最经典的：\n脑电信号 - 情绪类别 2. 情绪类别\rSEED 是一个三分类情绪识别数据集，主要包含三种情绪：\n标签含义 英文 常见数值标签 正性情绪 positive 1 中性情绪 neutral 0 负性情绪 negative -1 也就是说，一个 EEG 样本的标签通常可以理解为：\n1 -\u0026amp;gt; 正性情绪 0 -\u0026amp;gt; 中性情绪 -1 -\u0026amp;gt; 负性情绪 在实际训练模型时，有些代码会把标签转换成：\npositive …","date": "2026-06-13 00:00:00",
-    "updated": "2026-06-13 00:00:00"
-  }, 
-  {
-    "objectID": "d8fc049e9ff3ce9c2397b5b3b2f114be7af3860f",
-    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/",
-    "title": "[数据集] 推荐系统数据集","content": "\r推荐系统数据集\rMovieLens 100K\rhttps://files.grouplens.org/datasets/movielens\n主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐\n项目 内容 数据集名称 MovieLens 100K 所属领域 推荐系统 数据类型 用户-电影评分数据 用户数量 943 电影数量 1682 评分数量 100,000 评分范围 1 到 5 分 反馈类型 显式反馈 常见任务 评分预测、Top-N 推荐、协同过滤、矩阵补全 100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。\n1. 核心评分文件 u.data\rMovieLens 100K 最核心的文件是 u.data，它包含全部 100,000 条评分记录。每一行通常由四个字段组成：\nuser_id item_id rating timestamp 含义如下：\n字段 含义 user_id 用户编号 item_id 电影编号 rating 用户对电影的评分，范围 1~5 timestamp 评分时间戳 例如一条记录可以理解为：\n用户 196 给电影 242 打了 3 分 也就是：\nuser_id = 196 item_id = 242 rating = 3 这类数据就是推荐系统里最经典的：\n用户 - 物品 - 评分 2. 用户信息 u.user\ru.user 中包含用户的人口统计信息，包括：\nuser_id | age | gender | occupation | zip_code 也就是：\n字段 含义 user_id 用户编号 age 年龄 gender 性别 occupation 职业 zip_code 邮政编码 这些信息可以作为推荐模型的辅助特征。\n3. 电影信息 u.item\ru.item 中包含电影的基本信息，包括电影标题、上映日期、IMDb 链接以及电影类型。电影类型使用 0/1 表示，例如 Action、Comedy、Drama、Sci-Fi 等；同一部电影可以属于多个类型。\n也就是说，一部电影可能同时是：\nAction = 1 Adventure = 1 Sci-Fi = 1 表示它既是动作片，又是冒险片，也是科幻片。\n","date": "2026-06-13 00:00:00",
     "updated": "2026-06-13 00:00:00"
   }, 
   {
@@ -344,7 +338,7 @@
   {
     "objectID": "2cd072acf60e055890d7b033689f33899aaef5b8",
     "permalink": "/post/%E5%B7%A5%E5%85%B7/git/",
-    "title": "[工具] Git","content": "\rurl\r网页: gitee.com/byzh-rc/study_pytorch ssh: git@gitee.com:byzh-rc/study_pytorch.git\n网页: swanhub.co/byzh/study_nets/tree/master ssh: git@swanhub.co/byzh/study_nets.git\n.gitignore\r1. 基础内容\r# 忽略 配置文件 | 虚拟环境 | 运行文件 **/.idea/ **/.vscode/ **/.opencode/ uv.lock **/.venv **/node_modules/ **/__pycache__ # 忽略 Jupyter 笔记本文件 *.ipynb # 忽略数据集等 *.pth *.pt *.npy *.npz *.pkl *.dat *.mat # 忽略图片视频文件 *.jpg *.png *.svg *.mp4 *.ts # 忽略压缩文件 *.7z *.zip *.rar *.tar *.gz *.h5 # 忽略测试文件 test1.* test2.* test3.* test4.* test5.* part_*/ !part_main/ 2. latex内容\r# latex相关 /*.aux /*.out /*.log /*.toc /*.gz /*.synctex /*.pdf .gitignore语法\r注释: #\n忽略: !\n通配符: *\n匹配任意长度字符\n递归通配: **/\n任意层级目录\n以/结尾: 表示目录 不以/结尾: 表示文件或目录\n以/开头: 代表是项目根目录下的, 而非所有目录下的 不以/开头: 代表所有目录下的, 相当于以**/开头\nGithub\r1. 下载内容\r在浏览仓库时的内容一般是以github.com开头的\nhttps://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp\n但这只是浏览仓库的, 不是真实文件的链接:\n需要手动改成raw.githubusercontent.com开头的 还需要手动去掉blob https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp\n注意: 如果只是需要图床, 建议改成https://byzhrichard.github.io/byzh/image1.webp 这样有CDN, 更稳定\n2. 关联远程仓库\r关联远程仓库:\ngit remote add origin url git push -u origin main # -u后, 以后只需要输入git push 本地强制覆盖云端: push加上-f (慎用)\n查看远程仓库:\ngit remote -v 取消关联:\ngit remote remove origin 3. 克隆远程仓库\r自动创建与远程仓库同名的文件夹: (最常用)\ngit clone ssh 直接克隆到当前文件夹: (不创建同名文件夹)\ngit clone ssh . 一键pull-add-commit-push\rcall git pull --rebase --autostash git add . git commit -m \u0026#39;awa\u0026#39; git push cmd /k ","date": "2026-05-19 00:00:00",
+    "title": "[工具] Git","content": "\rurl\r网页: gitee.com/byzh-rc/study_pytorch ssh: git@gitee.com:byzh-rc/study_pytorch.git\n网页: swanhub.co/byzh/study_nets/tree/master ssh: git@swanhub.co/byzh/study_nets.git\n.gitignore\r1. 基础内容\r# 忽略 配置文件 | 虚拟环境 | 运行文件 **/.idea/ **/.vscode/ **/.opencode/ uv.lock **/.venv **/node_modules/ **/__pycache__ # 忽略 Jupyter 笔记本文件 *.ipynb # 忽略数据集等 *.pth *.pt *.npy *.npz *.pkl *.dat *.mat # 忽略图片视频文件 *.jpg *.png *.svg *.mp4 *.ts # 忽略压缩文件 *.7z *.zip *.rar *.tar *.gz *.h5 # 忽略测试文件 test1.* test2.* test3.* test4.* test5.* part_*/ !part_main/ 2. latex内容\r# latex相关 /*.aux /*.out /*.log /*.toc /*.gz /*.synctex /*.pdf .gitignore语法\r注释: #\n忽略: !\n通配符: *\n匹配任意长度字符\n递归通配: **/\n任意层级目录\n以/结尾: 表示目录 不以/结尾: 表示文件或目录\n以/开头: 代表是项目根目录下的, 而非所有目录下的 不以/开头: 代表所有目录下的, 相当于以**/开头\nGithub\r1. 下载内容 (小文件)\rhttps://github.com/byzhrichard/byzhrichard.github.io/blob/main/byzh/image1.webp -\u0026gt; https://raw.githubusercontent.com/byzhrichard/byzhrichard.github.io/main/byzh/image1.webp\ngithub.com -\u0026gt; raw.githubusercontent.com 去掉 blob 注意: 如果只是需要图床, 建议改成https://byzhrichard.github.io/byzh/image1.webp (这样有CDN, 更稳定)\nGitee: (\u0026lt;10MB)\nraw.giteeusercontent.com blob 换成 raw 2. 下载内容 (大文件/LFS)\rhttps://github.com/AND-Q/HWDB1.1-/blob/main/HWDB1.1trn_gnt.zip -\u0026gt; https://media.githubusercontent.com/media/AND-Q/HWDB1.1-/refs/heads/main/HWDB1.1trn_gnt.zip\ngithub.com -\u0026gt; media.githubusercontent.com/media blob -\u0026gt; refs/heads 3. 关联远程仓库\r关联远程仓库:\ngit remote add origin url git push -u origin main # -u后, 以后只需要输入git push 本地强制覆盖云端: push加上-f (慎用)\n查看远程仓库:\ngit remote -v 取消关联:\ngit remote remove origin 4. 克隆远程仓库\r自动创建与远程仓库同名的文件夹: (最常用)\ngit clone ssh 直接克隆到当前文件夹: (不创建同名文件夹)\ngit clone ssh . 一键pull-add-commit-push\rcall git pull --rebase --autostash git add . git commit -m \u0026#39;awa\u0026#39; git push cmd /k ","date": "2026-05-19 00:00:00",
     "updated": "2026-05-19 00:00:00"
   }, 
   {
@@ -699,5 +693,11 @@
     "objectID": "bdbc4002234bd6f266de1e5e2fb5960afb33111b",
     "permalink": "/post/else/%E7%A1%AC%E4%BB%B6%E5%AF%B9%E6%AF%94/",
     "title": "","content": "\rGPU\r现代深度学习训练通常是：\nFP32: Floating Point 32-bit: 单精度浮点 FP16: Floating Point 16-bit: 半精度浮点 BF16: Brain Floating Point 16-bit: 脑浮点16 TF32: Tensor Float 32: 张量浮点32 显存带宽(Memory Bandwidth): GPU 和显存之间“搬数据”的速度\n深度学习很多时候不是“算不动”，而是数据喂不进去\n显存 FP32 显存带宽 NVIDIA GeForce RTX 4060 8 GB 15.1 TFLOPS 272 GB/s NVIDIA GeForce RTX 4090 24 GB 83 TFLOPS 1008 GB/s NVIDIA RTX A6000 48 GB 38.7 TFLOPS 768 GB/s ","date": "0001-01-01 00:00:00",
+    "updated": "0001-01-01 00:00:00"
+  }, 
+  {
+    "objectID": "5ca2ef569ee17c0e26e8423316f9da5cec2363dd",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/",
+    "title": "","content": "","date": "0001-01-01 00:00:00",
     "updated": "0001-01-01 00:00:00"
   }]
