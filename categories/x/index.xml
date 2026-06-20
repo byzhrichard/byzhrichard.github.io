@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>X on byzh的博客</title>
-    <link>https://byzhrichard.github.io/categories/x/</link>
+    <link>http://localhost:1313/categories/x/</link>
     <description>Recent content from byzh的博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -12,70 +12,27 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2026 00:00:00 +0000</lastBuildDate>
     
     
-    <atom:link href="https://byzhrichard.github.io/categories/x/index.xml" rel="self" type="application/rss&#43;xml" />
-    
-
-    
+    <atom:link href="http://localhost:1313/categories/x/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
-    <item>
-      <title>[x] y</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/jetbrains/</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/jetbrains/</guid>
-      <description>
-        <![CDATA[<h1>[x] y</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="插件">
-<a class="header-anchor" href="#%e6%8f%92%e4%bb%b6"></a>
-插件
-</h2><h4 id="1-chinese-simplified-language-pack">
-<a class="header-anchor" href="#1-chinese-simplified-language-pack"></a>
-1. Chinese (Simplified) Language Pack
-</h4><p>汉化</p>
-<h4 id="2-rainbow-brackets-lite">
-<a class="header-anchor" href="#2-rainbow-brackets-lite"></a>
-2. Rainbow Brackets Lite
-</h4><p>括号的颜色</p>
-<h4 id="3-translation">
-<a class="header-anchor" href="#3-translation"></a>
-3. Translation
-</h4><p>翻译</p>
-<h4 id="4-codegeex">
-<a class="header-anchor" href="#4-codegeex"></a>
-4. CodeGeeX
-</h4><p>用于对话</p>
-<h4 id="5-fitten-code">
-<a class="header-anchor" href="#5-fitten-code"></a>
-5. Fitten code
-</h4><p>用于补全</p>
-<p>下载链接: <a href="https://code.fittentech.com/#download">https://code.fittentech.com/#download</a></p>
-        
-        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
-      </description>
-      
-        <category>x</category>
-      
-    </item>
     
     
 
     <item>
       <title>[x] y</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/</link>
+      <link>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/</link>
       <pubDate>Mon, 25 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/</guid>
+      <guid>http://localhost:1313/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/</guid>
       <description>
         <![CDATA[<h1>[x] y</h1><p>作者：byzh（xxx@example.com）</p>
         
           
         
-        <hr><p>本文2026-05-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-25</p>]]>
+        <hr><p>本文2026-05-25首发于<a href='http://localhost:1313/'>byzh的博客</a>，最后修改于2026-05-25</p>]]>
       </description>
       
         <category>x</category>

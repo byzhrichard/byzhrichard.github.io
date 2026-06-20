@@ -22,13 +22,13 @@
     
 
     <item>
-      <title>[x] y</title>
+      <title>[工具] JetBrains</title>
       <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/jetbrains/</link>
       <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/jetbrains/</guid>
       <description>
-        <![CDATA[<h1>[x] y</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[工具] JetBrains</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h2 id="插件">
 <a class="header-anchor" href="#%e6%8f%92%e4%bb%b6"></a>
@@ -58,7 +58,7 @@
         <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
       </description>
       
-        <category>x</category>
+        <category>工具</category>
       
     </item>
     
@@ -106,6 +106,36 @@ X^{(2)}=\begin{bmatrix}
 $$<p>
 卷积核: (卷积核层数必须等于输入通道数)
 </p>
+        
+        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
+      </description>
+      
+        <category>DL从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL从入门到入土] 反卷积</title>
+      <link>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/</link>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/</guid>
+      <description>
+        <![CDATA[<h1>[DL从入门到入土] 反卷积</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="反卷积转置卷积-transposed-convolution">
+<a class="header-anchor" href="#%e5%8f%8d%e5%8d%b7%e7%a7%af%e8%bd%ac%e7%bd%ae%e5%8d%b7%e7%a7%af-transposed-convolution"></a>
+反卷积/转置卷积 transposed convolution
+</h1><p>反卷积不是“真正的卷积逆运算”, 只是<strong>一种“可学习的上采样方法”</strong></p>
+<blockquote>
+<p><strong>普通卷积</strong>（压缩）</p>
+<p>输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1 2 3
+</span></span><span class="line"><span class="cl">4 5 6
+</span></span><span class="line"><span class="cl">7 8 9
+</span></span></code></pre></div><p>kernel滑动 → 输出变小</p>
         
         <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
       </description>
@@ -338,39 +368,6 @@ HWDB
       </description>
       
         <category>数字图像处理</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] 离散化与周期延拓</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E7%A6%BB%E6%95%A3%E5%8C%96%E4%B8%8E%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93/</link>
-      <pubDate>Sun, 14 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E7%A6%BB%E6%95%A3%E5%8C%96%E4%B8%8E%E5%91%A8%E6%9C%9F%E5%BB%B6%E6%8B%93/</guid>
-      <description>
-        <![CDATA[<h1>[信号] 离散化与周期延拓</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="时域周期延拓频域离散化">
-<a class="header-anchor" href="#%e6%97%b6%e5%9f%9f%e5%91%a8%e6%9c%9f%e5%bb%b6%e6%8b%93%e9%a2%91%e5%9f%9f%e7%a6%bb%e6%95%a3%e5%8c%96"></a>
-时域周期延拓，频域离散化
-</h2><p>假设原来有一个连续信号：
-</p>
-$$
-x(t)
-$$<p>
-如果我们把它在时域中反复复制，变成周期信号：
-</p>
-$$
-x_p(t) = x(t) \text{ 周期重复}
-$$<p>
-那么它的频谱就不是连续的一整片了，而是变成一根一根的谱线</p>
-        
-        <hr><p>本文2026-06-14首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-14</p>]]>
-      </description>
-      
-        <category>信号</category>
       
     </item>
     

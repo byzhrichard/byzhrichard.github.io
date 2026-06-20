@@ -6,6 +6,12 @@
     "updated": "2026-06-20 00:00:00"
   }, 
   {
+    "objectID": "9053b50bcd3556de18815ab4ba9aa3b0550d5308",
+    "permalink": "/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/",
+    "title": "[DL从入门到入土] 反卷积","content": "\r反卷积/转置卷积 transposed convolution\r反卷积不是“真正的卷积逆运算”, 只是一种“可学习的上采样方法”\n普通卷积（压缩）\n输入：\n1 2 3 4 5 6 7 8 9 kernel滑动 → 输出变小\n反卷积\n在输入中“插空”, 比如 stride = 2：\n1 _ 2 _ 3 _ _ _ _ _ 4 _ 5 _ 6 _ _ _ _ _ 7 _ 8 _ 9 再做普通卷积: 用 kernel 去“覆盖 + 累加”\n普通卷积：$y = A x$ 反卷积是：$x' = A^T y$\n每个 pixel 不再是一个点, 而是一个“小patch的生成中心”\n假设 kernel = 2×2： $$\r\u003e \\begin{bmatrix}\r\u003e 1 \u0026 2 \\\\\r\u003e 3 \u0026 4\r\u003e \\end{bmatrix}\r\u003e $$ 输入： $$\r\u003e X =\r\u003e \\begin{bmatrix}\r\u003e 5\r\u003e \\end{bmatrix}\r\u003e $$ 反卷积：\n5 * kernel = [ [5, 10], [15, 20] ] 卷积核 W 是学出来的：\n学“边界怎么补” 学“轮廓怎么扩” 学“语义怎么传播” 1. 例子\r输入（单通道）: $$\rX =\r\\begin{bmatrix}\r1 \u0026 2 \\\\\r3 \u0026 4\r\\end{bmatrix}\r$$ 卷积核（kernel）: $$\rW =\r\\begin{bmatrix}\r1 \u0026 0 \\\\\r0 \u0026 1\r\\end{bmatrix}\r$$ stride = 1 padding = 0 反卷积的目的: 从 2×2 → 放大到 3×3\n初始化输出： $$\rY \\in \\mathbb{R}^{3 \\times 3} = 0\r$$ 处理$X(0,0)=1$:\n1 0 0 0 1 0 0 0 0 处理$X(0,1)=2$:\n0 2 0 0 0 2 0 0 0 处理$X(1,0)=3$:\n0 0 0 3 0 0 0 3 0 处理$X(1,1)=4$:\n0 0 0 0 4 0 0 0 4 叠加 -\u0026gt; 最终输出: $$\rY =\r\\begin{bmatrix}\r1 \u0026 2 \u0026 0 \\\\\r3 \u0026 5 \u0026 2 \\\\\r0 \u0026 3 \u0026 4\r\\end{bmatrix}\r$$","date": "2026-06-20 00:00:00",
+    "updated": "2026-06-20 00:00:00"
+  }, 
+  {
     "objectID": "54b13c071c4e079948a7455aa8c5df65632c4ece",
     "permalink": "/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF/",
     "title": "[DL从入门到入土] 卷积","content": "\r数值计算公式\r对输入特征图 $X$，卷积核 $W$，输出 $Y$： $$\rY(i,j) = \\sum_{c=1}^{C_{in}} \\sum_{u=0}^{K_h-1} \\sum_{v=0}^{K_w-1}\rX(i+u, j+v, c)\\cdot W(u,v,c)\r$$ 如果有 bias： $$\rY(i,j) += b\r$$\r1. 例子\r输入: $X \\in \\mathbb{R}^{3 \\times 3 \\times 2}$ $$\rX^{(1)}=\\begin{bmatrix}\r1 \u0026 2 \u0026 3 \\\\\r4 \u0026 5 \u0026 6 \\\\\r7 \u0026 8 \u0026 9\r\\end{bmatrix}\r,\\quad\rX^{(2)}=\\begin{bmatrix}\r1 \u0026 1 \u0026 1 \\\\\r1 \u0026 1 \u0026 1 \\\\\r1 \u0026 1 \u0026 1\r\\end{bmatrix}\r$$ 卷积核: (卷积核层数必须等于输入通道数) $$\rW^{(1)}=\\begin{bmatrix}\r1 \u0026 0 \\\\\r0 \u0026 -1\r\\end{bmatrix}\r,\\quad\rW^{(2)}=\\begin{bmatrix}\r0 \u0026 1 \\\\\r1 \u0026 0\r\\end{bmatrix}\r$$ -\u0026gt; 每个通道各算一个卷积，再相加 $$\r\\begin{align}\r\\text{通道一:}\\quad\u0026 1\\cdot1 + 2\\cdot0 + 4\\cdot0 + 5\\cdot(-1)\r= 1 - 5 = -4\r\\\\\r\\text{通道二:}\\quad\u0026 1\\cdot0 + 1\\cdot1 + 1\\cdot1 + 1\\cdot0 = 2\r\\\\\r\\text{结果:}\\quad\u0026 Y(0,0) = -4 + 2 = \\color{red}{-2}\r\\end{align}\r$$ 最终输出: $$\rY =\r\\begin{bmatrix}\r\\color{red}{-2} \u0026 -2 \\\\\r-2 \u0026 -2\r\\end{bmatrix}\r$$\rshape 计算公式\r$$\rH_{out} = \\left\\lfloor \\frac{H_{in} + 2P - K_h}{S} \\right\\rfloor + 1\r\\\\\rW_{out} = \\left\\lfloor \\frac{W_{in} + 2P - K_w}{S} \\right\\rfloor + 1\r$$ kernel：$K_h, K_w$ padding：$P$ stride：$S$ -\u0026gt; $C_{out} = \\text{卷积核个数}$\n1. 例子\r输入: $X \\in \\mathbb{R}^{32 \\times 32 \\times 3}$\n卷积设置:\nkernel: $K_h = 5, K_w = 5$ padding: $P = 2$ stride: $S = 1$ 输出通道数: $C_{out} = 16$ 高度: $$\rH_{out} = \\left\\lfloor \\frac{32 + 2 \\times 2 - 5}{1} \\right\\rfloor + 1= \\left\\lfloor 31 \\right\\rfloor + 1 = 32\r$$ 宽度: $$\rW_{out} = \\left\\lfloor \\frac{32 + 2 \\times 2 - 5}{1} \\right\\rfloor + 1\r= 32\r$$ 最终输出: $Y \\in \\mathbb{R}^{32 \\times 32 \\times 16}$\n结论:\npadding = 2：保持空间尺寸不变 stride = 1：不降采样 kernel = 5：局部感受野 filters = 16：提取 16 种特征 ","date": "2026-06-20 00:00:00",
@@ -14,7 +20,7 @@
   {
     "objectID": "d1bb22c8136b408b97332c4cf11744610a1cf725",
     "permalink": "/post/%E5%B7%A5%E5%85%B7/jetbrains/",
-    "title": "[x] y","content": "\r插件\r1. Chinese (Simplified) Language Pack\r汉化\n2. Rainbow Brackets Lite\r括号的颜色\n3. Translation\r翻译\n4. CodeGeeX\r用于对话\n5. Fitten code\r用于补全\n下载链接: https://code.fittentech.com/#download\n","date": "2026-06-20 00:00:00",
+    "title": "[工具] JetBrains","content": "\r插件\r1. Chinese (Simplified) Language Pack\r汉化\n2. Rainbow Brackets Lite\r括号的颜色\n3. Translation\r翻译\n4. CodeGeeX\r用于对话\n5. Fitten code\r用于补全\n下载链接: https://code.fittentech.com/#download\n","date": "2026-06-20 00:00:00",
     "updated": "2026-06-20 00:00:00"
   }, 
   {
@@ -266,7 +272,7 @@
   {
     "objectID": "c73c73c51006910745c19d420464b5fa0e30a2fe",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E7%BC%96%E7%A0%81/",
-    "title": "[x] y","content": "","date": "2026-05-25 00:00:00",
+    "title": "[数据结构与算法] 哈希编码","content": "","date": "2026-05-25 00:00:00",
     "updated": "2026-05-25 00:00:00"
   }, 
   {
@@ -300,12 +306,6 @@
     "updated": "2026-05-21 00:00:00"
   }, 
   {
-    "objectID": "3e15dc784afde62bfc3cfa5fc883e1ce091f8297",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/ae/",
-    "title": "[DL_Net 从入门到入土] 自编码器 AE","content": "\r[DL_Net 从入门到入土] 自编码器 AE\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料 or 源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rReducing the Dimensionality of Data with Neural Networks.\n🌱背景\rAE: AutoEncoder: 自编码器\nAE 由两个部分组成:\nAuto: 自动学习 Encoder: 编码器 -\u0026amp;gt; 让神经网络自动学习一种数据压缩与还原方式\n输入 x → Encoder → 隐变量 z → Decoder → 重建 x\u0026amp;#39; 1. 为什么需要自编码器\r在深度学习中，我们经常会遇到一个问题： 原始数据维度太高，但真正有用的信息可能只藏在其中一小部分结构里\n比如一张 MNIST 手写数字图片大小是 $28 \\times 28$，展开后就是 784 维向量 但对于识别一个数字来说，并不是每个像素都同等重要\n-\u0026amp;gt; 高维数据中通常存在更低维、更紧凑的表示\n和传统机器学习中的降维思想很像，比如 PCA\n方法 特点 PCA 线性降维 AE 可以通过神经网络学习非线性降维 2. 核心思想\rAE 训练时，希望模型输出的 $x\u0026#39;$ 尽可能接近原始输入 $x$\n训练目标: $\\min \\mathcal{L}(x, \\hat{x})$\n$x$：原始输入 $\\hat{x}$：重建结果 $\\mathcal{L}$：重建损失\nAE 不需要额外标签, 是一种典型的无监督学习 / 自监督学习方法\n⚙️架构(公式)\r输入 x ↓ Encoder ↓ 隐变量 z ↓ Decoder ↓ 重建结果 x\u0026amp;#39; 公式: $$\rz = f_\\theta(x)\r\\\\\r\\hat{x} = g_\\phi(z)\r$$ $f_\\theta$：Encoder，参数为 $\\theta$ $g_\\phi$：Decoder，参数为 $\\phi$ $z$：隐变量，也叫 latent vector / bottleneck representation $\\hat{x}$：重建结果 为什么叫 bottleneck: …","date": "2026-05-21 00:00:00",
-    "updated": "2026-05-21 00:00:00"
-  }, 
-  {
     "objectID": "fc8cce08ba213d5eb70de14afe7f22e9139ba1c3",
     "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/",
     "title": "[DL_Net从入门到入土] GAN","content": "\r[DL_Net从入门到入土] 生成对抗网络 GAN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rGenerative Adversarial Networks.\n🌱背景\rVAE的目标，是让模型学会数据分布，然后从这个分布中采样生成新数据\n但是 VAE 有一个常见问题: 生成结果容易偏模糊\n因为 VAE 通常使用像素级重建损失，例如 MSE 或 BCE -\u0026amp;gt; 这类损失会鼓励模型生成“平均结果”\n比如真实数据里有很多种写法的数字 8 模型可能学出一种比较平均、比较保守的 8 -\u0026amp;gt; 于是生成图片就容易糊\nGAN: Generative Adversarial Network: 生成对抗网络\nGAN不直接要求生成图片和某张真实图片逐像素接近，而是引入两个网络:\nGenerator：生成器 Discriminator：判别器 生成器 G：我要造假图，骗过判别器 判别器 D：我要分辨图片是真图还是假图 -\u0026amp;gt; 生成器 G 生成的图片越来越真实 判别器 D 越来越难判断图片真假\n⚙️架构(公式)\r随机噪声 z → Generator G → 生成样本 G(z) 真实样本 x → Discriminator D → 判断为真的概率 D(x) 生成样本 G(z) → Discriminator D → 判断为真的概率 D(G(z)) graph LR\rA[随机噪声 z] --\u0026gt; B[生成器 G]\rB --\u0026gt; C[\u0026#34;生成样本 G(z)\u0026#34;]\rD[真实样本 x] --\u0026gt; E[判别器 D]\rC --\u0026gt; E\rE --\u0026gt; F[输出真假概率]\rstyle B font-weight:bold\rstyle E font-weight:bold\r1. Generator 生成器\r生成器的输入通常是一个随机噪声 z, 服从标准正态分布 $$\rz \\sim N(0, I)\r$$ 生成器把这个噪声映射成一个样本 $G(z)$\n生成器的目标是：生成尽可能真实的样本，让判别器误以为它是真的\n2. Discriminator 判别器\r判别器的输入是一张图片， …","date": "2026-05-21 00:00:00",
@@ -315,6 +315,12 @@
     "objectID": "a1478eb1a88195b32cab1b5ce2605c0ce8445df2",
     "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/",
     "title": "[DL_Net从入门到入土] VAE","content": "\r[DL_Net从入门到入土] 变分自编码器 VAE\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rAuto-Encoding Variational Bayes.\n🌱背景\rVAE: Variational AutoEncoder: 变分自编码器\n传统 AE 有一个问题: 没有规定隐变量 $z$ 应该长什么样, 不要求隐空间具有良好的结构\n假设 AE 把三张图片编码成下面几个点：\n数字 1 → z = [1.0, 1.0] 数字 7 → z = [5.0, 5.0] 数字 9 → z = [20.0, 20.0] 这些点本身可以被 AE 的 Decoder 还原出来\n但是问题在于：如果我们随便采样一个点，比如 $z=[10.0,10.0]$，Decoder 不能生成一个合理的数字 因为 AE 训练时只见过 Encoder 生成出来的那些 $z$, 故而没有要求整个隐空间都连续、平滑、有意义\nVAE 想让隐空间变得更加规整\n普通 AE 是把输入编码成一个确定的点: $x→z$ 而 VAE 会把输入编码成一个概率分布: $x→μ,σ$\n约束这些分布都接近标准正态分布$\\mathcal{N}(0, I)$, 那么隐空间就会变得更加连续、规整\n对于一个输入 $x$，Encoder 不再输出一个固定的 $z$，而是输出一个分布的参数：\n$\\mu$：均值 $\\sigma$：标准差 然后再从这个分布中采样一个 $z$: $$ z \\sim \\mathcal{N}(\\mu, \\sigma^2) $$ 最后用 Decoder 把 $z$ 还原成 $\\hat{x}$: $$ \\hat{x} = g_\\phi(z) $$\r⚙️架构(公式)\r输入 x ↓ Encoder ↓ μ, logσ² !!! ↓ 重参数化采样 !!! ↓ 隐变量 z !!! ↓ Decoder ↓ 重建结果 x\u0026amp;#39; 1. Encoder\rAE 的 Encoder 是: $$ z = f_\\theta(x) $$ VAE 的 Encoder 是: $$ \\mu, \\log …","date": "2026-05-21 00:00:00",
+    "updated": "2026-05-21 00:00:00"
+  }, 
+  {
+    "objectID": "3e15dc784afde62bfc3cfa5fc883e1ce091f8297",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/ae/",
+    "title": "[DL_Net从入门到入土] 自编码器 AE","content": "\r[DL_Net 从入门到入土] 自编码器 AE\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料 or 源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rReducing the Dimensionality of Data with Neural Networks.\n🌱背景\rAE: AutoEncoder: 自编码器\nAE 由两个部分组成:\nAuto: 自动学习 Encoder: 编码器 -\u0026amp;gt; 让神经网络自动学习一种数据压缩与还原方式\n输入 x → Encoder → 隐变量 z → Decoder → 重建 x\u0026amp;#39; 1. 为什么需要自编码器\r在深度学习中，我们经常会遇到一个问题： 原始数据维度太高，但真正有用的信息可能只藏在其中一小部分结构里\n比如一张 MNIST 手写数字图片大小是 $28 \\times 28$，展开后就是 784 维向量 但对于识别一个数字来说，并不是每个像素都同等重要\n-\u0026amp;gt; 高维数据中通常存在更低维、更紧凑的表示\n和传统机器学习中的降维思想很像，比如 PCA\n方法 特点 PCA 线性降维 AE 可以通过神经网络学习非线性降维 2. 核心思想\rAE 训练时，希望模型输出的 $x\u0026#39;$ 尽可能接近原始输入 $x$\n训练目标: $\\min \\mathcal{L}(x, \\hat{x})$\n$x$：原始输入 $\\hat{x}$：重建结果 $\\mathcal{L}$：重建损失\nAE 不需要额外标签, 是一种典型的无监督学习 / 自监督学习方法\n⚙️架构(公式)\r输入 x ↓ Encoder ↓ 隐变量 z ↓ Decoder ↓ 重建结果 x\u0026amp;#39; 公式: $$\rz = f_\\theta(x)\r\\\\\r\\hat{x} = g_\\phi(z)\r$$ $f_\\theta$：Encoder，参数为 $\\theta$ $g_\\phi$：Decoder，参数为 $\\phi$ $z$：隐变量，也叫 latent vector / bottleneck representation $\\hat{x}$：重建结果 为什么叫 bottleneck: …","date": "2026-05-21 00:00:00",
     "updated": "2026-05-21 00:00:00"
   }, 
   {
