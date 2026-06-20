@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 28 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,11 +22,38 @@
     
 
     <item>
+      <title>[DL_Net从入门到入土] FCN</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/</link>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] FCN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-fcn">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-fcn"></a>
+[DL_Net从入门到入土] FCN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[DL_Net从入门到入土] 词向量模型GloVe</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/glove/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/glove/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 词向量模型GloVe</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -50,10 +77,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] Transformer</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/transformer/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/transformer/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] Transformer</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -77,10 +104,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] Self-Attention</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/self-attention/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/self-attention/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] Self-Attention</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -104,10 +131,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] ELMo</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/elmo/</link>
       <pubDate>Thu, 28 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/elmo/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] ELMo</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -131,10 +158,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] CycleGAN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/cyclegan/</link>
       <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/cyclegan/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] CycleGAN</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -158,10 +185,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] VAE</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] VAE</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -185,10 +212,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] GAN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/</link>
       <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] GAN</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -212,10 +239,10 @@
 
     <item>
       <title>[DL_Net从入门到入土] 长短期记忆网络LSTM</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/lstm/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/lstm/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 长短期记忆网络LSTM</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -238,43 +265,16 @@
 
     <item>
       <title>[DL_Net从入门到入土] 循环神经网络RNN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/rnn/</link>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/rnn/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/rnn/</guid>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/rnn/</guid>
       <description>
         <![CDATA[<h1>[DL_Net从入门到入土] 循环神经网络RNN</h1><p>作者：byzh（xxx@example.com）</p>
         
           <h1 id="dl_net从入门到入土-循环神经网络rnn">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%be%aa%e7%8e%af%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9crnn"></a>
 [DL_Net从入门到入土] 循环神经网络RNN
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-17</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] 网络中的网络NiN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] 网络中的网络NiN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-网络中的网络nin">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%bd%91%e7%bb%9c%e4%b8%ad%e7%9a%84%e7%bd%91%e7%bb%9cnin"></a>
-[DL_Net从入门到入土] 网络中的网络NiN
 </h1><h2 id="个人导航">
 <a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
 📢个人导航

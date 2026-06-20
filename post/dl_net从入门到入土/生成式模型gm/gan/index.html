@@ -1,0 +1,1048 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [DL_Net从入门到入土] GAN | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[DL_Net从入门到入土] GAN | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-05-21T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-21T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.dd8a2c2ed287746b98e61c4bb98f1360ef8e94a7438a1189b63d23130f1d3964.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] GAN"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[DL_Net从入门到入土] GAN</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-生成对抗网络-gan">[DL_Net从入门到入土] 生成对抗网络 GAN</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-generator-生成器">1. Generator 生成器</a></li>
+                <li><a href="#2-discriminator-判别器">2. Discriminator 判别器</a></li>
+                <li><a href="#3-目标函数">3. 目标函数</a></li>
+                <li><a href="#4-训练流程">4. 训练流程</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-生成效果清晰">1. 生成效果清晰</a></li>
+                <li><a href="#2-不需要显式建模数据分布">2. 不需要显式建模数据分布</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-训练不稳定">1. 训练不稳定</a></li>
+                <li><a href="#2-模式崩溃-mode-collapse">2. 模式崩溃 Mode Collapse</a></li>
+                <li><a href="#3-评价困难">3. 评价困难</a></li>
+                <li><a href="#4-对超参数敏感">4. 对超参数敏感</a></li>
+                <li><a href="#5-容易梯度消失">5. 容易梯度消失</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">123</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      21
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-05-21 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-05-21</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-05-21</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-生成对抗网络-gan">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%94%9f%e6%88%90%e5%af%b9%e6%8a%97%e7%bd%91%e7%bb%9c-gan"></a>
+[DL_Net从入门到入土] 生成对抗网络 GAN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Generative Adversarial Networks.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>VAE的目标，是让模型学会数据分布，然后从这个分布中采样生成新数据</p>
+<p>但是 VAE 有一个常见问题: 生成结果容易偏模糊</p>
+<p>因为 VAE 通常使用像素级重建损失，例如 MSE 或 BCE
+-&gt; 这类损失会鼓励模型生成“平均结果”</p>
+<blockquote>
+<p>比如真实数据里有很多种写法的数字 8
+模型可能学出一种比较平均、比较保守的 8
+-&gt; 于是生成图片就容易糊</p>
+</blockquote>
+<p>GAN: Generative Adversarial Network: 生成对抗网络</p>
+<p>GAN不直接要求生成图片和某张真实图片逐像素接近，而是引入两个网络:</p>
+<ul>
+<li><strong>Generator：生成器</strong></li>
+<li><strong>Discriminator：判别器</strong></li>
+</ul>
+<blockquote>
+<p>生成器 G：我要造假图，骗过判别器
+判别器 D：我要分辨图片是真图还是假图
+-&gt;
+生成器 G 生成的图片越来越真实
+判别器 D 越来越难判断图片真假</p>
+</blockquote>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">随机噪声 z → Generator G → 生成样本 G(z)
+</span></span><span class="line"><span class="cl">真实样本 x → Discriminator D → 判断为真的概率 D(x)
+</span></span><span class="line"><span class="cl">生成样本 G(z) → Discriminator D → 判断为真的概率 D(G(z))
+</span></span></code></pre></div><pre class="mermaid">
+  graph LR
+A[随机噪声 z] --> B[生成器 G]
+B --> C["生成样本 G(z)"]
+D[真实样本 x] --> E[判别器 D]
+C --> E
+E --> F[输出真假概率]
+
+style B font-weight:bold
+style E font-weight:bold
+</pre><h4 id="1-generator-生成器">
+<a class="header-anchor" href="#1-generator-%e7%94%9f%e6%88%90%e5%99%a8"></a>
+1. Generator 生成器
+</h4><p>生成器的输入通常是一个随机噪声 z, 服从标准正态分布
+</p>
+$$
+z \sim N(0, I)
+$$<p>
+生成器把这个噪声映射成一个样本 $G(z)$</p>
+<p>生成器的目标是：生成尽可能真实的样本，让判别器误以为它是真的</p>
+<h4 id="2-discriminator-判别器">
+<a class="header-anchor" href="#2-discriminator-%e5%88%a4%e5%88%ab%e5%99%a8"></a>
+2. Discriminator 判别器
+</h4><p>判别器的输入是一张图片，输出是一个概率 (这张图片是真实图片的概率)
+</p>
+$$
+D(x) ∈ [0, 1]
+$$<p>对于真实图片 x，判别器希望：$D(x) → 1$
+对于生成图片 G(z)，判别器希望：$D(G(z)) → 0$</p>
+<h4 id="3-目标函数">
+<a class="header-anchor" href="#3-%e7%9b%ae%e6%a0%87%e5%87%bd%e6%95%b0"></a>
+3. 目标函数
+</h4><p>经典目标函数：
+</p>
+$$
+\min_G \max_D V(D, G)
+$$<blockquote>
+<p>极小极大博弈:
+D 想最大化识别真假能力
+G 想最小化 D 的识别能力</p>
+</blockquote>
+<p>其中：
+</p>
+$$
+V(D, G) =
+\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)]
++
+\mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+$$<ul>
+<li>判别器 D 希望
+<ul>
+<li>最大化 $logD(x)$</li>
+<li>最大化 $log(1−D(G(z)))$</li>
+</ul>
+</li>
+<li>生成器 G 希望
+<ul>
+<li>最小化 $log(1−D(G(z)))$</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-训练流程">
+<a class="header-anchor" href="#4-%e8%ae%ad%e7%bb%83%e6%b5%81%e7%a8%8b"></a>
+4. 训练流程
+</h4><p><strong>第一步: 训练<code>判别器D</code> (固定G)</strong></p>
+<p>判别器损失可以写成：</p>
+$$
+L_D =
+-\mathbb{E}_{x \sim p_{data}(x)}[\log D(x)]-
+\mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+$$<p>
+<strong>第二步: 训练<code>生成器G</code> (固定D)</strong></p>
+<p>生成器损失可以写成：
+</p>
+$$
+L_G =
+-\mathbb{E}_{z \sim p_z(z)}[\log D(G(z))]
+$$<h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h4 id="1-生成效果清晰">
+<a class="header-anchor" href="#1-%e7%94%9f%e6%88%90%e6%95%88%e6%9e%9c%e6%b8%85%e6%99%b0"></a>
+1. 生成效果清晰
+</h4><p>相比 VAE，GAN 不直接依赖像素级重建损失。</p>
+<p>所以 GAN 生成的图像通常更加锐利、清晰</p>
+<h4 id="2-不需要显式建模数据分布">
+<a class="header-anchor" href="#2-%e4%b8%8d%e9%9c%80%e8%a6%81%e6%98%be%e5%bc%8f%e5%bb%ba%e6%a8%a1%e6%95%b0%e6%8d%ae%e5%88%86%e5%b8%83"></a>
+2. 不需要显式建模数据分布
+</h4><p>很多<strong>传统</strong>生成模型需要<strong>显式</strong>建模概率分布 $p(x)$
+但是真实世界的数据分布往往非常复杂!</p>
+<p>GAN 不直接写出真实数据分布的具体形式，而是通过判别器提供学习信号
+也就是说：<strong>GAN</strong> 可以<strong>隐式</strong>地学习复杂数据分布</p>
+<h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><h4 id="1-训练不稳定">
+<a class="header-anchor" href="#1-%e8%ae%ad%e7%bb%83%e4%b8%8d%e7%a8%b3%e5%ae%9a"></a>
+1. 训练不稳定
+</h4><p>GAN 是两个网络互相博弈，不是普通的单目标优化</p>
+<p>所以训练时可能出现:</p>
+<ul>
+<li>判别器太强 → 生成器学不到东西</li>
+<li>生成器太强 → 判别器失去作用</li>
+<li>两者震荡 → 损失不收敛</li>
+</ul>
+<p>但是 GAN 的 loss 不一定能直接反映生成质量:</p>
+<ul>
+<li>有时候 loss 看起来正常，图片很烂</li>
+<li>有时候 loss 看起来奇怪，图片反而不错</li>
+</ul>
+<h4 id="2-模式崩溃-mode-collapse">
+<a class="header-anchor" href="#2-%e6%a8%a1%e5%bc%8f%e5%b4%a9%e6%ba%83-mode-collapse"></a>
+2. 模式崩溃 Mode Collapse
+</h4><p>模式崩溃：生成器只学会生成少数几种样本，而不是覆盖整个真实数据分布</p>
+<h4 id="3-评价困难">
+<a class="header-anchor" href="#3-%e8%af%84%e4%bb%b7%e5%9b%b0%e9%9a%be"></a>
+3. 评价困难
+</h4><p>对于分类任务，我们可以用准确率
+对于回归任务，我们可以用 MSE
+但是对于生成模型，评价就比较麻烦!</p>
+<p>GAN 常用评价指标：</p>
+<ul>
+<li>IS: Inception Score</li>
+<li>FID: Fréchet Inception Distance</li>
+</ul>
+<p>但是这些指标也不是完美的</p>
+<h4 id="4-对超参数敏感">
+<a class="header-anchor" href="#4-%e5%af%b9%e8%b6%85%e5%8f%82%e6%95%b0%e6%95%8f%e6%84%9f"></a>
+4. 对超参数敏感
+</h4><h4 id="5-容易梯度消失">
+<a class="header-anchor" href="#5-%e5%ae%b9%e6%98%93%e6%a2%af%e5%ba%a6%e6%b6%88%e5%a4%b1"></a>
+5. 容易梯度消失
+</h4><p>当判别器 D 太强时，它可以轻松判断：</p>
+<ul>
+<li>真实图片 → 1</li>
+<li>生成图片 → 0</li>
+</ul>
+<p>此时对于生成器来说，梯度可能变得非常弱：
+生成器知道自己错了, 但是不知道该怎么改</p>
+<p>-&gt; 这会导致生成器训练困难</p>
+<h2 id="模型代码">
+<a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
+💻模型代码
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Generator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    生成器 Generator
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        z: 随机噪声向量
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, latent_dim]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        img: 生成图片
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, 1, 28, 28]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dim</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">img_dim</span><span class="o">=</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">img_dim</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">img</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Discriminator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    判别器 Discriminator
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        img: 图片
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, 1, 28, 28]
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        validity: 图片为真实图片的概率
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape = [batch_size, 1]
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_dim</span><span class="o">=</span><span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">img_dim</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">img_flat</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">validity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">img_flat</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">validity</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">latent_dim</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl">    <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">generator</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">latent_dim</span><span class="o">=</span><span class="n">latent_dim</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">discriminator</span> <span class="o">=</span> <span class="n">Discriminator</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fake_imgs</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputs</span> <span class="o">=</span> <span class="n">discriminator</span><span class="p">(</span><span class="n">fake_imgs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;随机噪声 z 的形状:&#34;</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;生成图片 fake_imgs 的形状:&#34;</span><span class="p">,</span> <span class="n">fake_imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;判别器输出 outputs 的形状:&#34;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >DL_Net从入门到入土</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[DL_Net从入门到入土] VAE"
+              class="lazyload"
+            /><a
+          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/"
+          aria-label="前一篇:[DL_Net从入门到入土] VAE"
+          title="前一篇:[DL_Net从入门到入土] VAE"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[DL_Net从入门到入土] VAE</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[DL_Net 从入门到入土] 自编码器 AE"
+              class="lazyload"
+            /><a
+          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/ae/"
+          aria-label="后一篇:[DL_Net 从入门到入土] 自编码器 AE"
+          title="后一篇:[DL_Net 从入门到入土] 自编码器 AE"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[DL_Net 从入门到入土] 自编码器 AE</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;127.7k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;05:18</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-生成对抗网络-gan">[DL_Net从入门到入土] 生成对抗网络 GAN</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-generator-生成器">1. Generator 生成器</a></li>
+                <li><a href="#2-discriminator-判别器">2. Discriminator 判别器</a></li>
+                <li><a href="#3-目标函数">3. 目标函数</a></li>
+                <li><a href="#4-训练流程">4. 训练流程</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-生成效果清晰">1. 生成效果清晰</a></li>
+                <li><a href="#2-不需要显式建模数据分布">2. 不需要显式建模数据分布</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-训练不稳定">1. 训练不稳定</a></li>
+                <li><a href="#2-模式崩溃-mode-collapse">2. 模式崩溃 Mode Collapse</a></li>
+                <li><a href="#3-评价困难">3. 评价困难</a></li>
+                <li><a href="#4-对超参数敏感">4. 对超参数敏感</a></li>
+                <li><a href="#5-容易梯度消失">5. 容易梯度消失</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">123</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      21
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" />
+        </div>
+      </div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+    var ALGOLIA_CONFIG = {
+      logo: '\/images\/algolia_logo.svg',
+      algolia: {
+        applicationID: "OL5A45Z4Q1",
+        apiKey: "1910d84d1d4a1a4d30b8ca375fa82cf6",
+        indexName: "my_blog",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": '搜索.....',
+          "hits_empty": '未发现与 「${query}」相关内容',
+          "hits_stats": '找到${hits}条结果（用时 ${time} ms）'
+        }
+      }
+    };
+  </script><script
+    src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"
+    defer
+    
+    
+    
+    integrity="sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S&#43;jQz7ZBtQXnsXmD&#43;9jDOOY4cL6dCPzlrk" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/@reimujs/instantsearch.js@4.57.0-beta.1/dist/instantsearch.production.min.js"
+    defer
+    
+    
+    
+    integrity="sha384-aagKMe8nkqaP2DYQc8kkYOL5l&#43;M5Q2WH/Uhr4teOh0Ybp0RZj0kUSDm45qPikMjK" crossorigin="anonymous"></script><script src="/js/algolia_search.js" integrity="" crossorigin="anonymous"  ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[DL_Net从入门到入土] GAN",
+          url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm\/gan\/",
+          description: "\r[DL_Net从入门到入土] 生成对抗网络 GAN\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.12.0/dist/mermaid.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-o&#43;g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.6/dist/purify.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla&#43;3" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt&#43;Y&#43;cBEb95og5cXKllnWKSELlzbx" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = '.mermaid'
+          const processElements = (callback) => {
+            const els = _$$(elementCode);
+            if (!els.length) return Promise.resolve();
+            
+            return new Promise((resolve, reject) => {
+              try {
+                els.forEach(callback);
+                resolve();
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const saveOriginalData = () => processElements(el => {
+            if (!el.getAttribute('data-original-code')) {
+              el.setAttribute('data-original-code', el.innerHTML);
+            }
+          });
+
+          const resetProcessed = () => processElements(el => {
+            const originalCode = el.getAttribute('data-original-code');
+            if (originalCode) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = DOMPurify.sanitize(originalCode);
+            }
+          });
+          const loadMermaid = async (theme) => {
+            window.mermaid.initialize({theme, startOnLoad: false})
+            await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
+            if (window.svgPanZoom) {
+              window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
+              window.__panZoomList = [];
+              _$$('.mermaid > svg').forEach(el => {
+                const bbox = el.getBBox();
+                el.setAttribute('height', Math.max(bbox.height, 80));
+                window.__panZoomList.push(window.svgPanZoom(el, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  center: true
+                }));
+              });
+              if (window.__resizeMermaidSvg) {
+                window.removeEventListener('resize', window.__resizeMermaidSvg);
+              }
+              window.__resizeMermaidSvg = () => {
+                try {
+                  window.__panZoomList.forEach(panZoom => {
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                  });
+                } catch {
+                  window.removeEventListener('resize', window.__resizeMermaidSvg);
+                  window.__panZoomList = [];
+                }
+              }
+              window.addEventListener('resize', window.__resizeMermaidSvg);
+            }
+          }
+          const initMermaid = async (theme) => {
+            try {
+              await saveOriginalData();
+              await resetProcessed();
+              await loadMermaid(theme);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
+            initMermaid(isDark ? 'dark' : 'default');
+          });
+
+          const mode = localStorage.getItem('dark_mode');
+          if (mode === 'auto') {
+            const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            initMermaid(osMode ? 'dark' : 'default');
+          } else {
+            initMermaid(mode === 'true' ? 'dark' : 'default');
+          }
+        }
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

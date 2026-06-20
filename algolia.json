@@ -1,5 +1,29 @@
 [
   {
+    "objectID": "ffd7e8f16353ec14ad58a0405b5825424508cd28",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/",
+    "title": "[DL_Net从入门到入土] FCN","content": "\r[DL_Net从入门到入土] FCN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rFully Convolutional Networks for Semantic Segmentation.\n🌱背景\r语义分割（Semantic Segmentation）：给图像里的每一个像素都分一个类别\n输入图像 输出结果 一张街景 每个像素标成：道路 / 人 / 车 / 建筑 普通分类任务：\n输入：一张图片 输出：一个标签 👉 “这是一只猫” 目标检测：\n输出：多个框 + 类别 👉 “猫在左边，狗在右边” 语义分割：\n输出：一张“同尺寸或近似尺寸”的图 每个像素都有类别 在 FCN 出现之前，语义分割任务基本是“patch-based classification”的天下\n把一张图像切成很多小块（patch） 每个 patch 丢进 CNN 做分类 再把结果拼回去形成分割图 问题很明显：\n计算重复严重 (相邻 patch 大量重叠 → 重复卷积) 空间信息利用差 (patch 级别分类 → 缺少全局结构) 输出分辨率低 (CNN 后面接 FC 层 → 固定尺寸输出) 于是就有一个很直接的问题：能不能让 CNN 直接输出“像素级预测图”？\nFCN: Fully Convolutional Networks: 把全连接层全部换成卷积层，让网络从“分类器”变成“密集预测器”\n标准 CNN：$Conv \\rightarrow Conv \\rightarrow FC \\rightarrow FC$\nFCN：$Conv \\rightarrow Conv \\rightarrow Conv \\rightarrow 1 \\times 1 Conv$\n⚙️架构(公式)\r1. FC → Conv 的等价变换\r假设输入是：$x \\in \\mathbb{R}^{H \\times W \\times C}$\n则全连接层: (展平后, 全相连) $$\ry = Wx + b,\\quad x \\in \\mathbb{R}^{H W C}\r$$ 则1x1Conv: (在每一个 …","date": "2026-06-20 00:00:00",
+    "updated": "2026-06-20 00:00:00"
+  }, 
+  {
+    "objectID": "54b13c071c4e079948a7455aa8c5df65632c4ece",
+    "permalink": "/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF/",
+    "title": "[DL从入门到入土] 卷积","content": "\r数值计算公式\r对输入特征图 $X$，卷积核 $W$，输出 $Y$： $$\rY(i,j) = \\sum_{c=1}^{C_{in}} \\sum_{u=0}^{K_h-1} \\sum_{v=0}^{K_w-1}\rX(i+u, j+v, c)\\cdot W(u,v,c)\r$$ 如果有 bias： $$\rY(i,j) += b\r$$\r1. 例子\r输入: $X \\in \\mathbb{R}^{3 \\times 3 \\times 2}$ $$\rX^{(1)}=\\begin{bmatrix}\r1 \u0026 2 \u0026 3 \\\\\r4 \u0026 5 \u0026 6 \\\\\r7 \u0026 8 \u0026 9\r\\end{bmatrix}\r,\\quad\rX^{(2)}=\\begin{bmatrix}\r1 \u0026 1 \u0026 1 \\\\\r1 \u0026 1 \u0026 1 \\\\\r1 \u0026 1 \u0026 1\r\\end{bmatrix}\r$$ 卷积核: (卷积核层数必须等于输入通道数) $$\rW^{(1)}=\\begin{bmatrix}\r1 \u0026 0 \\\\\r0 \u0026 -1\r\\end{bmatrix}\r,\\quad\rW^{(2)}=\\begin{bmatrix}\r0 \u0026 1 \\\\\r1 \u0026 0\r\\end{bmatrix}\r$$ -\u0026gt; 每个通道各算一个卷积，再相加 $$\r\\begin{align}\r\\text{通道一:}\\quad\u0026 1\\cdot1 + 2\\cdot0 + 4\\cdot0 + 5\\cdot(-1)\r= 1 - 5 = -4\r\\\\\r\\text{通道二:}\\quad\u0026 1\\cdot0 + 1\\cdot1 + 1\\cdot1 + 1\\cdot0 = 2\r\\\\\r\\text{结果:}\\quad\u0026 Y(0,0) = -4 + 2 = \\color{red}{-2}\r\\end{align}\r$$ 最终输出: $$\rY =\r\\begin{bmatrix}\r\\color{red}{-2} \u0026 -2 \\\\\r-2 \u0026 -2\r\\end{bmatrix}\r$$\rshape 计算公式\r$$\rH_{out} = \\left\\lfloor \\frac{H_{in} + 2P - K_h}{S} \\right\\rfloor + 1\r\\\\\rW_{out} = \\left\\lfloor \\frac{W_{in} + 2P - K_w}{S} \\right\\rfloor + 1\r$$ kernel：$K_h, K_w$ padding：$P$ stride：$S$ -\u0026gt; $C_{out} = \\text{卷积核个数}$\n1. 例子\r输入: $X \\in \\mathbb{R}^{32 \\times 32 \\times 3}$\n卷积设置:\nkernel: $K_h = 5, K_w = 5$ padding: $P = 2$ stride: $S = 1$ 输出通道数: $C_{out} = 16$ 高度: $$\rH_{out} = \\left\\lfloor \\frac{32 + 2 \\times 2 - 5}{1} \\right\\rfloor + 1= \\left\\lfloor 31 \\right\\rfloor + 1 = 32\r$$ 宽度: $$\rW_{out} = \\left\\lfloor \\frac{32 + 2 \\times 2 - 5}{1} \\right\\rfloor + 1\r= 32\r$$ 最终输出: $Y \\in \\mathbb{R}^{32 \\times 32 \\times 16}$\n结论:\npadding = 2：保持空间尺寸不变 stride = 1：不降采样 kernel = 5：局部感受野 filters = 16：提取 16 种特征 ","date": "2026-06-20 00:00:00",
+    "updated": "2026-06-20 00:00:00"
+  }, 
+  {
+    "objectID": "d1bb22c8136b408b97332c4cf11744610a1cf725",
+    "permalink": "/post/%E5%B7%A5%E5%85%B7/jetbrains/",
+    "title": "[x] y","content": "\r插件\r1. Chinese (Simplified) Language Pack\r汉化\n2. Rainbow Brackets Lite\r括号的颜色\n3. Translation\r翻译\n4. CodeGeeX\r用于对话\n5. Fitten code\r用于补全\n下载链接: https://code.fittentech.com/#download\n","date": "2026-06-20 00:00:00",
+    "updated": "2026-06-20 00:00:00"
+  }, 
+  {
+    "objectID": "4a34a511a5251cac6a2e179f8d71d6515719992f",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ocr%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] OCR数据集","content": "\rHWDB\r1. 数据集介绍\r官网: https://nlpr.ia.ac.cn/databases/handwriting/Download.html\n下载链接1: https://www.modelscope.cn/datasets/byzhrichard/HWDB 下载链接2: https://github.com/AND-Q/HWDB1.1-\n数据集全称: CASIA-HWDB1.1\n数据集中文全称: 中科院自动化所离线手写汉字数据集 1.1\n样本规模（train / test 数量）\ntrain: 897,758 test: 223,991 类别数量: 3,755 类\n2. 任务定义\r任务类型：多分类（Multi-class Classification）\n输入：单个离线手写汉字图像\nshape: 原始样本尺寸不统一，可表示为 (H, W)，其中 H 和 W 随样本变化 输出：该图像对应的汉字类别编号或汉字标签\n难点：\n类别数量多，共 3,755 个汉字类别，分类空间远大于 MNIST 等常见数据集。 不同书写者的书写风格差异较大，同一个汉字可能存在明显的笔画形态差异。 不同汉字之间可能具有相似的偏旁、结构或笔画，容易出现类间混淆。 原始 .gnt 文件中的图像尺寸并不完全一致，通常需要进行读取、缩放、归一化等预处理。 数据规模较大，直接一次性加载到内存中可能占用较多资源，因此常需要缓存、分片或按需读取。 3. 主要领域用途\r手写汉字图像分类 中文 OCR 模型训练与测试 4. 文件组成\rHWDB1.1trn_gnt: 训练集目录，包含多个 .gnt 文件\nHWDB1.1tst_gnt: 测试集目录，包含多个 .gnt 文件\n.gnt 文件：HWDB 使用的二进制数据文件，每个文件中连续存储多个手写汉字样本 5. 读取为pytorch数据集代码\r目录结构:\nHWDB_Dataset/ ├── create_dataset.py ├── gnt2png.py ├── HWDB/ │ ├── raw/ │ │ ├── HWDB1.1trn_gnt/ │ │ │ ├── 1001-c.gnt │ │ │ ├── 1002-c.gnt │ │ │ └── ... │ │ │ │ │ └── HWDB1.1tst_gnt/ │ │ ├── 1241-c.gnt │ …","date": "2026-06-19 00:00:00",
+    "updated": "2026-06-19 00:00:00"
+  }, 
+  {
     "objectID": "d3f4d7f950128086d5eea5adfb9291e11d55a357",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/",
     "title": "[数字图像处理] 6.图像特征与理解","content": "\r图像几何特征\r几何特征：提取图像几何特征之前，常对图像进分割和二值化处理 -\u0026gt; 处理成只有0和1两种值的黑白图像\n周长：用链码表示\n链码值为奇数时，长度为根号二 链码值为偶数时，长度为一 图像形状特征\r形状特征：边界链码、归一化链码、一阶差分链码\n1. 边界链码\r利用具有特定长度和方向且相连的直线段来表示目标的边界\n四方向链码 八方向链码 有平移不变性，但起点改变后不具备唯一性\n![图片处理 (1)_compressed](图片处理 (1)_compressed.png)\n(一阶)差分 = 当前方向 − 前一个方向\n4 方向: 结果对 4 取模，保证落在 0~3 8 方向: 结果对 8 取模，保证落在 0~7 ![图片处理 (1)_compressed](图片处理 (1)_compressed-1781628705916-5.png)\n","date": "2026-06-17 00:00:00",
@@ -51,6 +75,18 @@
     "objectID": "eb5d907f0c35c36d9c577a9f7e74213c3e63fa16",
     "permalink": "/post/%E5%B7%A5%E5%85%B7/mathtype/",
     "title": "[工具] MathType","content": "\rMathType 上写 LaTeX 公式\r预置 -\u0026gt; 工作区预置 -\u0026gt; 允许从键盘输入Tex语言\n","date": "2026-06-13 00:00:00",
+    "updated": "2026-06-13 00:00:00"
+  }, 
+  {
+    "objectID": "a9ae1103997dc3ab96de2fe2db58e41cca1e651c",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] EEG数据集","content": "\rEEG数据集\rSEED\rhttps://bcmi.sjtu.edu.cn/home/seed/\nSEED，全称一般称为 SJTU Emotion EEG Dataset，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。\n它的核心思想是：\n让被试看电影片段 采集被试观看过程中的 EEG 信号 根据电影片段对应的情绪类别进行分类 也就是说，SEED 不是普通的图像、文本、推荐系统数据集，而是一个典型的：\n被试 - 试次 - EEG信号 - 情绪标签 类型的数据集。\n项目 内容 数据集名称 SEED 全称 SJTU Emotion EEG Dataset 所属领域 EEG、脑机接口、情感计算 数据类型 脑电 EEG 信号 被试数量 15 名被试 通道数量 62 个 EEG 通道 实验次数 每个被试 3 次实验 每次实验 15 个电影片段 / 15 个 trial 情绪类别 positive、neutral、negative 类别数量 3 类 反馈类型 情绪标签 常见任务 情绪识别、跨被试分类、跨会话分类、特征提取 SEED 主要记录了被试在观看电影片段时的 EEG 信号，并将每个电影片段对应到正性、中性、负性三种情绪类别。\n1. 数据集基本思想\rSEED 的实验方式比较直观：\n电影片段 -\u0026amp;gt; 诱发情绪 -\u0026amp;gt; 采集 EEG -\u0026amp;gt; 进行情绪分类 例如：\n被试看了一个正性情绪电影片段 系统采集这段时间内的 EEG 信号 该 trial 的标签就是 positive 也就是：\nEEG signal -\u0026amp;gt; positive EEG signal -\u0026amp;gt; neutral EEG signal -\u0026amp;gt; negative 这类数据就是 EEG 情绪识别里最经典的：\n脑电信号 - 情绪类别 2. 情绪类别\rSEED 是一个三分类情绪识别数据集，主要包含三种情绪：\n标签含义 英文 常见数值标签 正性情绪 positive 1 中性情绪 neutral 0 负性情绪 negative -1 也就是说，一个 EEG 样本的标签通常可以理解为：\n1 -\u0026amp;gt; 正性情绪 0 -\u0026amp;gt; 中性情绪 -1 -\u0026amp;gt; 负性情绪 在实际训练模型时，有些代码会把标签转换成：\npositive …","date": "2026-06-13 00:00:00",
+    "updated": "2026-06-13 00:00:00"
+  }, 
+  {
+    "objectID": "d8fc049e9ff3ce9c2397b5b3b2f114be7af3860f",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] 推荐系统数据集","content": "\r推荐系统数据集\rMovieLens 100K\rhttps://files.grouplens.org/datasets/movielens\n主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐\n项目 内容 数据集名称 MovieLens 100K 所属领域 推荐系统 数据类型 用户-电影评分数据 用户数量 943 电影数量 1682 评分数量 100,000 评分范围 1 到 5 分 反馈类型 显式反馈 常见任务 评分预测、Top-N 推荐、协同过滤、矩阵补全 100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。\n1. 核心评分文件 u.data\rMovieLens 100K 最核心的文件是 u.data，它包含全部 100,000 条评分记录。每一行通常由四个字段组成：\nuser_id item_id rating timestamp 含义如下：\n字段 含义 user_id 用户编号 item_id 电影编号 rating 用户对电影的评分，范围 1~5 timestamp 评分时间戳 例如一条记录可以理解为：\n用户 196 给电影 242 打了 3 分 也就是：\nuser_id = 196 item_id = 242 rating = 3 这类数据就是推荐系统里最经典的：\n用户 - 物品 - 评分 2. 用户信息 u.user\ru.user 中包含用户的人口统计信息，包括：\nuser_id | age | gender | occupation | zip_code 也就是：\n字段 含义 user_id 用户编号 age 年龄 gender 性别 occupation 职业 zip_code 邮政编码 这些信息可以作为推荐模型的辅助特征。\n3. 电影信息 u.item\ru.item 中包含电影的基本信息，包括电影标题、上映日期、IMDb 链接以及电影类型。电影类型使用 0/1 表示，例如 Action、Comedy、Drama、Sci-Fi 等；同一部电影可以属于多个类型。\n也就是说，一部电影可能同时是：\nAction = 1 Adventure = 1 Sci-Fi = 1 表示它既是动作片，又是冒险片，也是科幻片。\n","date": "2026-06-13 00:00:00",
     "updated": "2026-06-13 00:00:00"
   }, 
   {
@@ -192,26 +228,26 @@
     "updated": "2026-05-29 00:00:00"
   }, 
   {
-    "objectID": "0db6ea99ce027826f3695bce7f2936f9d080f51a",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/elmo/",
+    "objectID": "97c26701015c1180daa067c31f93b1df977de31c",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/elmo/",
     "title": "[DL_Net从入门到入土] ELMo","content": "\r[DL_Net从入门到入土] ELMo\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rDeep contextualized word representations.\n🌱背景\rELMo: Embeddings from Language Models: 基于语言模型的动态词向量\nWord2Vec、GloVe的核心思想: 给每个单词学习一个固定的向量表示\nking -\u0026amp;gt; [0.21, -0.35, 0.78, \u0026amp;hellip;] apple -\u0026amp;gt; [0.42, 0.11, -0.09, \u0026amp;hellip;] 做到了让语义相近的词在向量空间中也更加接近\n但是这类传统词向量有一个非常明显的问题：多义词问题 传统静态词向量无法根据上下文区分不同语义\nELMo 的核心思想: 同一个词，在不同上下文中拥有不同的向量表示\n通过一个预训练语言模型，根据整个句子的上下文动态生成词向量\n传统词向量: word -\u0026amp;gt; 固定向量\nELMo: word + context -\u0026amp;gt; 动态向量\n⚙️架构(公式)\r输入句子 ↓ 字符级 CNN ↓ 双向 LSTM 语言模型 ↓ 不同层隐藏状态加权融合 ↓ 得到上下文化词向量 1. 输入表示\r对于一个句子：\nThe cat sat on the mat. 假设句子中有 $N$ 个 token：$(t_1, t_2, ..., t_N)$\n(传统词向量通常直接查 embedding table：$x_k = E[t_k]$) 但是 ELMo 使用的是字符级 CNN 来得到每个词的初始表示\n-\u0026amp;gt; ELMo 不只看词本身，还会看词内部的字符组成\n例如： playing 可以拆成字符 p l a y i n g 然后通过字符级 CNN 得到这个词的表示\n这样做有两个好处：\n可以缓解 OOV 问题 可以捕捉词形信息 比如模型没见过 unbelievable，但是它可以通过字符组成大致理解这个词的结构\n2. 双向语言模型\r普通的前向语言模型是：(模型从左往右读句子，根据前面的词预测当前词) $$ …","date": "2026-05-28 00:00:00",
     "updated": "2026-05-28 00:00:00"
   }, 
   {
-    "objectID": "944937597023263778df11a0242fed37dbfa812d",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/self-attention/",
+    "objectID": "956c2a2dbb4c848f6311a938a837e101edf5e26d",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/self-attention/",
     "title": "[DL_Net从入门到入土] Self-Attention","content": "\r[DL_Net从入门到入土] Self-Attention\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rAttention Is All You Need.\n🌱背景\rSelf-Attention: 自注意力机制\nTemporal Attention 的大致思想是：\nRNN/LSTM 先处理序列 得到每个时间步隐藏状态 然后 Attention 判断哪些时间步更重要 h1, h2, h3, ..., hT ↓ ↓ ↓ ↓ α1, α2, α3, ..., αT 但是 Temporal Attention 通常还有一个基础模型，比如 RNN/LSTM:\nTemporal Attention 负责选重点 RNN/LSTM 负责提取序列特征 Self-Attention希望不依赖 RNN/LSTM，也能让序列中的 token 互相交流信息\nSelf-Attention 的核心: 序列中的每个 token，都可以直接和其他 token 建立联系\nSelf-Attention 输出的不是一个向量，而是一个新的序列表示\nx1, x2, x3, x4 ↓ ↓ ↓ ↓ z1, z2, z3, z4 每个 $z_i$ 都融合了整个句子的上下文信息\n输入: I love deep learning\nTemporal Attention: 通常是一个整体表示去关注不同时间步 -\u0026amp;gt; 得到一个c: $c = \\sum_{t=1}^{T} \\alpha_t h_t$\nSelf-Attention: 每个 token 都会关注序列中的其他 token -\u0026amp;gt; I 看 I / love / deep / learning -\u0026amp;gt; love 看 I / love / deep / learning -\u0026amp;gt; deep 看 I / love / deep / learning -\u0026amp;gt; learning 看 I / love / deep / learning\n⚙️架构(公式)\r假设输入序列为：$X = (x_1, x_2, ..., x_n)$ …","date": "2026-05-28 00:00:00",
     "updated": "2026-05-28 00:00:00"
   }, 
   {
-    "objectID": "5e11d5cf215c81dc0c835a67622dc2e45fd75881",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/transformer/",
+    "objectID": "73790bfa416da90d4078a41739bee4202cc7f169",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/transformer/",
     "title": "[DL_Net从入门到入土] Transformer","content": "\r[DL_Net从入门到入土] Transformer\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rAttention Is All You Need.\n🌱背景\r核心思想: 不再依赖 RNN、LSTM、CNN，而是主要依赖 Attention 机制完成序列建模\n在 Transformer 出现之前，处理序列数据时常见做法是：\nRNN LSTM GRU Seq2Seq Seq2Seq + Attention ⚙️架构(公式)\rSource Sentence ↓ Embedding + Positional Encoding ↓ Encoder Layer × N ↓ Memory ↓ Decoder Layer × N ↓ Linear + Softmax ↓ Target Sentence Encoder 负责理解输入句子\nMulti-Head Self-Attention Feed Forward Network Decoder 负责根据 Encoder 的表示一步一步生成目标句子\nMasked Multi-Head Self-Attention Encoder-Decoder Attention Feed Forward Network Transformer 里面最核心的部分有：\nEmbedding Positional Encoding Scaled Dot-Product Attention Multi-Head Attention Feed Forward Network Residual Connection Layer Normalization Mask 1. Embedding\r输入文本一般不能直接送进神经网络，需要先把 token 转成向量\n假设一句话经过分词后为：我 爱 你 然后映射成 id：[3, 4, 5] 再经过 Embedding 层：[3, 4, 5] -\u0026gt; [x1, x2, x3] 其中每个 token 会变成一个 d_model 维向量 $x_i$\n如果 batch size 为 B，序列长度为 T，词向量维度为 d_model，那么输入形状为：(B, T)\n经过 Embedding 后变成：(B, T, d_model)\n2. 位置编码 (Positional Encoding)\rAttention 本身不知道词的顺序\n👍优点/创新点\r👎缺点\r💻模型代码\r💻项目实例\r","date": "2026-05-28 00:00:00",
     "updated": "2026-05-28 00:00:00"
   }, 
   {
-    "objectID": "ff43d0c7b9fd32fd826b4634cdd23c1fe6747ad1",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/glove/",
+    "objectID": "503e8b0e9fe2ddb11afb3d4fbe2fc4b54b777272",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/glove/",
     "title": "[DL_Net从入门到入土] 词向量模型GloVe","content": "\r[DL_Net从入门到入土] 词向量模型GloVe\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rGlobal Vectors for Word Representation.\n🌱背景\r在word2vec之后，自然语言处理中词向量的核心需求依然是「捕捉语义关联、解决维度灾难」 但word2vec存在一个关键局限：仅利用局部上下文信息，无法结合整个语料库的全局统计信息\n语料库中「单词共现频率」这一全局信息，恰恰是语义关联的重要体现\n比如“国王”和“王后”在语料中常与“皇室”“城堡”等词共现，共现频率远高于与“水果”类单词的共现\nGloVe应运而生，核心思路是：融合“全局共现统计信息”和“局部上下文预测”\n⚙️架构(公式)\rGloVe本质是「基于共现矩阵的全局对数双线性回归模型」，核心目标是学习词向量，让其能够拟合共现矩阵的全局统计信息，最终输出的词向量是模型训练过程中==学习到的权重矩阵==\n1. 共现矩阵\r假设语料库中所有单词构成词表V，定义共现矩阵X，其中X_ij 表示单词i和单词j在固定窗口内共同出现的次数 (比如窗口大小为5，即单词i前后各5个单词)\n共现矩阵是全局统计信息的核心载体，$X_{ij}$ 越大，说明单词i和单词j的语义关联越紧密\nGloVe的核心假设：对于任意三个单词 $i, j, k$，它们的词向量满足「比例关系」——$X_{ik} / X_{jk}$ 能够反映 $i$ 和 $j$ 相对于 $k$ 的语义差异\n比如$X_{\\text{国王-皇室}} / X_{\\text{王后-皇室}} ≈ 1$，而$X_{\\text{国王-水果}} / X_{\\text{王后-水果}} ≈ 1$，但$X_{\\text{国王-男性}} / X_{\\text{王后-男性}} ≫ 1$ -\u0026amp;gt; 国王比王后更容易和男性共现\n$X_{ij}$ 表示单词 $i$ 和单词 $j$ 的共现次数 $X_i = \\sum_k X_{ik}$ 表示单词 $i$ 和所有上下文词共现的总次数 $P_{ij} = P(j|i) = …","date": "2026-05-28 00:00:00",
     "updated": "2026-05-28 00:00:00"
   }, 
@@ -246,8 +282,8 @@
     "updated": "2026-05-24 00:00:00"
   }, 
   {
-    "objectID": "b24e4e5a77907250ae2ef3bbf79e00fa7fcd6ce9",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/cyclegan/",
+    "objectID": "5960e779a31468f7370b7a4656b1bb8ec1abe43a",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/cyclegan/",
     "title": "[DL_Net从入门到入土] CycleGAN","content": "\r[DL_Net从入门到入土] CycleGAN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rUnpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks.\n🌱背景\r普通 GAN 更偏向于：从随机噪声 z 生成一张图片\n例如：随机噪声 z → Generator → 生成图片\n而在实际任务中，我们更希望做的是把一种风格的图片转换成另一种风格的图片\n马 → 斑马 苹果 → 橙子 白天 → 黑夜 普通照片 → 梵高风格 夏天场景 → 冬天场景 这类任务叫做：Image-to-Image Translation：图像到图像转换\nPix2Pix 可以完成, 但需要成对数据 paired data 但是现实中, 成对数据很难收集, 故而采用CycleGAN\nCycleGAN 的核心优势：Unpaired Image-to-Image Translation：非成对图像转换\nCycleGAN 的核心思想：如果一张图片从 A 域转换到 B 域，再从 B 域转换回 A 域，应该还能变回原来的图片 -\u0026amp;gt; 称为 循环一致性(Cycle Consistency)\n⚙️架构(公式)\rgraph LR\rX[真实图片 x ∈ X] --\u0026gt; G[生成器 G: X -\u0026gt; Y]\rG --\u0026gt; FY[\u0026#34;生成图片 fake_y = G(x)\u0026#34;]\rFY --\u0026gt; DY[判别器 D_Y]\rDY --\u0026gt; OY[判断是否像真实 Y 域图片]\rFY --\u0026gt; F[生成器 F: Y -\u0026gt; X]\rF --\u0026gt; RX[\u0026#34;重建图片 rec_x = F(G(x))\u0026#34;]\rRX --\u0026gt; CX[\u0026#34;希望 rec_x ≈ x\u0026#34;]\rY[真实图片 y ∈ Y] --\u0026gt; F2[生成器 F: Y -\u0026gt; X]\rF2 --\u0026gt; FX[\u0026#34;生成图片 fake_x = F(y)\u0026#34;]\rFX --\u0026gt; DX[判别器 D_X]\rDX --\u0026gt; OX[判断是否像真实 X 域图片]\rFX --\u0026gt; G2[生成器 G: X -\u0026gt; Y] …","date": "2026-05-22 00:00:00",
     "updated": "2026-05-22 00:00:00"
   }, 
@@ -264,20 +300,20 @@
     "updated": "2026-05-21 00:00:00"
   }, 
   {
-    "objectID": "d6c4e935222ea6ca940a317b428f786f75f9f08b",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/ae/",
+    "objectID": "3e15dc784afde62bfc3cfa5fc883e1ce091f8297",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/ae/",
     "title": "[DL_Net 从入门到入土] 自编码器 AE","content": "\r[DL_Net 从入门到入土] 自编码器 AE\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料 or 源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rReducing the Dimensionality of Data with Neural Networks.\n🌱背景\rAE: AutoEncoder: 自编码器\nAE 由两个部分组成:\nAuto: 自动学习 Encoder: 编码器 -\u0026amp;gt; 让神经网络自动学习一种数据压缩与还原方式\n输入 x → Encoder → 隐变量 z → Decoder → 重建 x\u0026amp;#39; 1. 为什么需要自编码器\r在深度学习中，我们经常会遇到一个问题： 原始数据维度太高，但真正有用的信息可能只藏在其中一小部分结构里\n比如一张 MNIST 手写数字图片大小是 $28 \\times 28$，展开后就是 784 维向量 但对于识别一个数字来说，并不是每个像素都同等重要\n-\u0026amp;gt; 高维数据中通常存在更低维、更紧凑的表示\n和传统机器学习中的降维思想很像，比如 PCA\n方法 特点 PCA 线性降维 AE 可以通过神经网络学习非线性降维 2. 核心思想\rAE 训练时，希望模型输出的 $x\u0026#39;$ 尽可能接近原始输入 $x$\n训练目标: $\\min \\mathcal{L}(x, \\hat{x})$\n$x$：原始输入 $\\hat{x}$：重建结果 $\\mathcal{L}$：重建损失\nAE 不需要额外标签, 是一种典型的无监督学习 / 自监督学习方法\n⚙️架构(公式)\r输入 x ↓ Encoder ↓ 隐变量 z ↓ Decoder ↓ 重建结果 x\u0026amp;#39; 公式: $$\rz = f_\\theta(x)\r\\\\\r\\hat{x} = g_\\phi(z)\r$$ $f_\\theta$：Encoder，参数为 $\\theta$ $g_\\phi$：Decoder，参数为 $\\phi$ $z$：隐变量，也叫 latent vector / bottleneck representation $\\hat{x}$：重建结果 为什么叫 bottleneck: …","date": "2026-05-21 00:00:00",
     "updated": "2026-05-21 00:00:00"
   }, 
   {
-    "objectID": "cc1db02b73b5c5e492cb430780a69529fdaee657",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gan/",
+    "objectID": "fc8cce08ba213d5eb70de14afe7f22e9139ba1c3",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/",
     "title": "[DL_Net从入门到入土] GAN","content": "\r[DL_Net从入门到入土] 生成对抗网络 GAN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rGenerative Adversarial Networks.\n🌱背景\rVAE的目标，是让模型学会数据分布，然后从这个分布中采样生成新数据\n但是 VAE 有一个常见问题: 生成结果容易偏模糊\n因为 VAE 通常使用像素级重建损失，例如 MSE 或 BCE -\u0026amp;gt; 这类损失会鼓励模型生成“平均结果”\n比如真实数据里有很多种写法的数字 8 模型可能学出一种比较平均、比较保守的 8 -\u0026amp;gt; 于是生成图片就容易糊\nGAN: Generative Adversarial Network: 生成对抗网络\nGAN不直接要求生成图片和某张真实图片逐像素接近，而是引入两个网络:\nGenerator：生成器 Discriminator：判别器 生成器 G：我要造假图，骗过判别器 判别器 D：我要分辨图片是真图还是假图 -\u0026amp;gt; 生成器 G 生成的图片越来越真实 判别器 D 越来越难判断图片真假\n⚙️架构(公式)\r随机噪声 z → Generator G → 生成样本 G(z) 真实样本 x → Discriminator D → 判断为真的概率 D(x) 生成样本 G(z) → Discriminator D → 判断为真的概率 D(G(z)) graph LR\rA[随机噪声 z] --\u0026gt; B[生成器 G]\rB --\u0026gt; C[\u0026#34;生成样本 G(z)\u0026#34;]\rD[真实样本 x] --\u0026gt; E[判别器 D]\rC --\u0026gt; E\rE --\u0026gt; F[输出真假概率]\rstyle B font-weight:bold\rstyle E font-weight:bold\r1. Generator 生成器\r生成器的输入通常是一个随机噪声 z, 服从标准正态分布 $$\rz \\sim N(0, I)\r$$ 生成器把这个噪声映射成一个样本 $G(z)$\n生成器的目标是：生成尽可能真实的样本，让判别器误以为它是真的\n2. Discriminator 判别器\r判别器的输入是一张图片， …","date": "2026-05-21 00:00:00",
     "updated": "2026-05-21 00:00:00"
   }, 
   {
-    "objectID": "ff690ce6c31ad4b630e087065f9a8e8958e79941",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vae/",
+    "objectID": "a1478eb1a88195b32cab1b5ce2605c0ce8445df2",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/",
     "title": "[DL_Net从入门到入土] VAE","content": "\r[DL_Net从入门到入土] 变分自编码器 VAE\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rAuto-Encoding Variational Bayes.\n🌱背景\rVAE: Variational AutoEncoder: 变分自编码器\n传统 AE 有一个问题: 没有规定隐变量 $z$ 应该长什么样, 不要求隐空间具有良好的结构\n假设 AE 把三张图片编码成下面几个点：\n数字 1 → z = [1.0, 1.0] 数字 7 → z = [5.0, 5.0] 数字 9 → z = [20.0, 20.0] 这些点本身可以被 AE 的 Decoder 还原出来\n但是问题在于：如果我们随便采样一个点，比如 $z=[10.0,10.0]$，Decoder 不能生成一个合理的数字 因为 AE 训练时只见过 Encoder 生成出来的那些 $z$, 故而没有要求整个隐空间都连续、平滑、有意义\nVAE 想让隐空间变得更加规整\n普通 AE 是把输入编码成一个确定的点: $x→z$ 而 VAE 会把输入编码成一个概率分布: $x→μ,σ$\n约束这些分布都接近标准正态分布$\\mathcal{N}(0, I)$, 那么隐空间就会变得更加连续、规整\n对于一个输入 $x$，Encoder 不再输出一个固定的 $z$，而是输出一个分布的参数：\n$\\mu$：均值 $\\sigma$：标准差 然后再从这个分布中采样一个 $z$: $$ z \\sim \\mathcal{N}(\\mu, \\sigma^2) $$ 最后用 Decoder 把 $z$ 还原成 $\\hat{x}$: $$ \\hat{x} = g_\\phi(z) $$\r⚙️架构(公式)\r输入 x ↓ Encoder ↓ μ, logσ² !!! ↓ 重参数化采样 !!! ↓ 隐变量 z !!! ↓ Decoder ↓ 重建结果 x\u0026amp;#39; 1. Encoder\rAE 的 Encoder 是: $$ z = f_\\theta(x) $$ VAE 的 Encoder 是: $$ \\mu, \\log …","date": "2026-05-21 00:00:00",
     "updated": "2026-05-21 00:00:00"
   }, 
@@ -408,8 +444,8 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "ff35c107336dba44116c07f6c177f2c55c28ade4",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/seq2seq/",
+    "objectID": "b6198a1d25022c2cedb74aed82f30694dfd89b6c",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/seq2seq/",
     "title": "[DL_Net从入门到入土] Seq2Seq","content": "\r[DL_Net从入门到入土] Seq2Seq\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rSequence to Sequence Learning with Neural Networks.\nLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n🌱背景\rRNN, LSTM, GRU 往往更适合 输入一个序列, 输出一个类别\n但当遇到需要输出序列的时候, 就难办了\nSeq2Seq（Sequence to Sequence）: 先用一个**编码器（Encoder）把输入序列压缩成一个上下文表示，再用一个解码器（Decoder）**根据这个表示一步一步生成输出序列\nSeq2Seq 本质上就是一个 Encoder-Decoder 架构\n⚙️架构(公式)\r1. Encoder (把输入序列编码成上下文向量)\r给定输入序列： $$\rX = (x_1, x_2, \\dots, x_T)\r$$ Encoder 按时间步读取输入，更新隐藏状态： $$\rh_t = f_{\\text{enc}}(x_t, h_{t-1})\r$$ 如果使用的是 LSTM，还会同时维护细胞状态： $$\r(h_t, c_t) = f_{\\text{enc}}(x_t, h_{t-1}, c_{t-1})\r$$ 当整个输入序列读完后，最后一个隐藏状态（以及细胞状态）被看作整个输入序列的压缩表示$c$： $$\rc = h_T\r$$ 这里的 $c$ 常被称为：\ncontext vector 上下文向量 语义压缩表示 2. Decoder (根据上下文向量生成输出序列)\r把 Encoder 最终状态作为 Decoder 的初始状态： $$\rs_0 = c\r$$ 然后 Decoder 在第 $t$ 步根据：\n上一时刻输出token：$y_{t-1}$ 上一时刻隐藏状态：$s_{t-1}$ 来更新当前隐藏状态： $$\rs_t = f_{\\text{dec}}(y_{t-1}, s_{t-1})\r$$\r3. 映射\r再映射成当前时刻的输出概率分布： $$\rp(y_t \\mid y_{","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
@@ -426,20 +462,20 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "27a3ea16884fdc0fafa92b362f8a31f018e8e11d",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/resnet/",
+    "objectID": "d4b424cd8ebf0ca904212ee6d89de683ea0dfcfa",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/resnet/",
     "title": "[DL_Net从入门到入土] 残差网络ResNet","content": "\r[DL_Net从入门到入土] 残差网络ResNet\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rDeep Residual Learning for Image Recognition.\n🌱背景\r在 2014–2015 年，深度 CNN 进入“越深越好”的阶段：\nAlexNet：8 层 VGG：16–19 层 GoogLeNet：22 层 问题来了：当网络超过 20 层后，训练误差反而上升\n这不是过拟合，而是优化困难（degradation problem）\nresnet横空出世: 让网络学习“残差”，而不是直接学习映射\n传统网络： $$\r\u0026gt; H(x)=F(x)\r\u0026gt; $$ ResNet： $$\r\u0026gt; H(x) = F(x) + x\r\u0026gt; $$ ⚙️架构(公式)\r1. ==BasicBlock（ResNet18/34）==\rConv → BN → ReLU Conv → BN + Shortcut → ReLU $$\ry = \\text{ReLU}(F(x) + x)\r\\\\\rF(x) = W_2 \\sigma(W_1 x)\r$$\r2. ==Bottleneck（ResNet50/101/152）==\r当网络变得非常深时，使用瓶颈结构：\n1×1(降维) → 3×3(提取特征) → 1×1(升维) $$\rF(x) = W_3 \\sigma(W_2 \\sigma(W_1 x))\r$$\r3. ==Shortcut 类型==\r情况1：尺寸相同 $$\ry = F(x) + x\r$$ 情况2：尺寸不同（下采样） $$\ry = F(x) + W_s x\r\\\\\r\\color{purple}{W_s = 1\\times1 \\text{ Conv}}\r$$\n👍优点/创新点\r1. ==残差连接==（Skip Connection）\r允许梯度直接传播\n2. 可训练超深网络\r152 层首次成功训练\n3. 结构简洁但极强\r成为后续几乎所有视觉网络的基础(DenseNet, U-Net)\n为什么 ResNet 能训练 152 层\r残差网络的理论基础： $$ …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "3a94829ac90a68239ba8aff3cb7b1a46dcf88f3d",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/densenet/",
+    "objectID": "a702a45f5291eaed19fe4719a732be2852354fc9",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/densenet/",
     "title": "[DL_Net从入门到入土] 稠密连接网络DenseNet","content": "\r[DL_Net从入门到入土] 稠密连接网络DenseNet\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rDensely Connected Convolutional Networks.\n🌱背景\r在 ResNet 解决“退化问题”后，研究者提出一个更激进的问题： 如果残差连接有效，那么为什么不让每一层都和所有前面的层连接\nResNet 是：\nx = F(x) + x DenseNet 则是：稠密连接(Dense Connectivity)\nx0 x1 = H1(x0) x2 = H2([x0,x1]) x3 = H3([x0,x1,x2]) 核心思想: 通过“特征级拼接”实现极端特征复用\n不同于 ResNet 的“加法融合”： $$\ry = F(x) + x\r$$ DenseNet 使用“拼接”： $$\rx_l = H_l([x_0, x_1, ..., x_{l-1}])\r$$ $[ \\cdot ]$ 表示 concat\n$H_l$: Pre-Activation 结构: $BN \\rightarrow ReLU \\rightarrow Conv$\n每层输入维度不断增长\n⚙️架构(公式)\r1. Dense Block\r每层结构：\nBN → ReLU → Conv(1×1) BN → ReLU → Conv(3×3) 每一层产生 k 个通道： $$\rk = \\text{growth rate}\r$$ 若输入通道为 $C_0$，经过 L 层后： $$\rC_L = C_0 + kL\r$$ 这就是 DenseNet 的核心参数：Growth Rate（增长率）\n2. Transition Layer\r为防止通道爆炸，DenseNet 在 block 之间加入压缩层：\nBN → 1×1 Conv → 2×2 AvgPool 压缩公式： $$\rC\u0026#39; = \\theta C\r$$ $\\theta \\in (0,1]$, 常用 0.5\n3. DenseNet121 结构\rStem DenseBlock(6) Transition …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "34e743c4be58b44e6b806ca6de4fc8e9c2502669",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/word2vec/",
+    "objectID": "e1bf90f84db6262c7e3934afebc11aaab1ac9a33",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/word2vec/",
     "title": "[DL_Net从入门到入土] 词向量模型word2vec","content": "\r[DL_Net从入门到入土] 词向量模型word2vec\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rEfficient Estimation of Word Representations in Vector Space.\n🌱背景\r在自然语言处理中，最基础的问题之一就是如何让计算机理解文字\n对于人类而言，“猫”和“狗”具有一定语义相似性，但对于计算机来说，文字本质上只是符号\none-hot编码的问题:\n维度灾难(词表如果有 10 万词，就需要 10 万维向量) 无法表达语义关系(cat 与 dog 的距离, cat 与 apple 的距离) 不同词之间彼此独立，没有共享信息 -\u0026amp;gt; 能不能把单词映射到低维稠密向量空间，并且让“语义相近”的词距离更近 -\u0026amp;gt; 词向量Word Embedding\nword2vec 则是其中最经典、最具有里程碑意义的方法之一\n⚙️架构(公式)\rword2vec 本质上是一个“通过上下文预测单词”的浅层神经网络 训练完成后, 真正需要的不是预测模型, 而是其中学到的==词向量矩阵==\nword2vec 主要有两种结构：\n连续词袋模型: CBOW: Continuous Bag of Words 跳字模型: Skip-Gram 1. CBOW\r用“上下文单词的集合”预测“当前单词”\n不考虑上下文单词的顺序 -\u0026amp;gt; “词袋”的意思\n输入层：上下文的k个单词（比如左右各2个，共4个），每个单词用one-hot编码表示，维度为==[V, 1]== 隐藏层：将k个输入的one-hot向量分别与权重矩阵W（维度[V, N]，N是词向量维度，通常取50-300）相乘，得到k个==[N, 1]==的向量，再对这k个向量取平均值，得到隐藏层输出h（维度[N, 1]） 输出层：隐藏层输出h与权重矩阵W\u0026amp;rsquo;（维度[N, V]）相乘，得到维度[V, 1]的向量，再通过softmax函数归一化，得到每个单词作为“当前单词”的概率，目标是让真实当前单词的概率最大 $$\rh = \\frac{1}{k} …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
@@ -462,38 +498,38 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "d1b8b457529872253577142cb28029277a79410b",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/googlenet/",
+    "objectID": "d415d544d60abb230beb5a6229ac92c160b82a9e",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/googlenet/",
     "title": "[DL_Net从入门到入土] 含并行连结的网络GoogLeNet","content": "\r[DL_Net从入门到入土] 含并行连结的网络GoogLeNet\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rGoing Deeper with Convolutions.\n🌱背景\r在 2014–2015 年，CNN 已经进入“越深越强”的阶段\n当时面临的核心问题：网络越深 → 参数暴涨 → 计算量爆炸 → 过拟合风险增大\nVGG 19 层参数达到 1.4 亿\nGoogLeNet 在 22 层深度下参数量 ≈ 500万\n⚙️架构(公式)\r1. ==Inception v1模块==（并行卷积结构）\r由GoogLeNet提出, 为v1版本, 后续还有v2版本和v3版本和v4版本\n整体网络由多个 Inception block 堆叠而成\nConv → MaxPool → Inception × 9 → Global Average Pooling → Linear → Softmax 一个 Inception 包含 4 条并行路径：\n4条并行路径: 1×1 Conv 1×1 Conv → 3×3 Conv 1×1 Conv → 5×5 Conv 3×3 MaxPool → 1×1 Conv 最后(沿通道维拼接): Concat 2. ==1×1 卷积==的作用\r1×1 卷积：$Y = W X$\n本质：\n通道间线性组合 降维 减少计算量 3. 辅助分类器\rGoogLeNet 在中间层加入两个辅助输出\n训练时: $Loss = L_{main} + 0.3L_{aux1} + 0.3L_{aux2}$, 测试时丢弃\n作用：\n防止梯度消失 起到正则化作用 👍优点/创新点\r1. 并行结构（Multi-branch）\r第一次系统性引入==同层多尺度特征提取==\n之前 CNN 是串行结构\n2. 1×1 卷积大规模使用\r降低维度 + 提升非线性表达能力\n3. ==Global Average Pooling==\r代替全连接层：$FC → GAP$\n优点：\n参数更少 不易过拟合 4. 22层深度 + 极低参数量\r模型 参数量 AlexNet …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "4ac09b394e720d3f6b0fbdee0c7567f612194990",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lenet/",
+    "objectID": "1ca2060b9e23144e0b1151b26300dad2c06d8e5d",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/lenet/",
     "title": "[DL_Net从入门到入土] 卷积神经网络LeNet","content": "\r[DL_Net从入门到入土] 卷积神经网络LeNet\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rGradient-based learning applied to document recognition.\n🌱背景\r在 LeNet 出现之前，图像任务基本是“手工特征 + 传统分类器”：\n边缘检测(Edge Detection) 人工特征(HOG / SIFT) 降维PCA / 投影LDA 最后接 SVM / KNN 这些方法有一个致命问题：特征是人为设计的，模型本身不会“学特征”\nLeNet：第一次系统性地证明了：神经网络可以端到端地从原始图像中学习特征并完成分类\n手写数字识别（MNIST） 支票 / 邮政编码识别 但尚未跑赢传统方法\n⚙️架构(公式)\r1.输入层\r输入通常为灰度图像(channel=1)： $$\rX \\in \\mathbb{R}^{1 \\times 32 \\times 32}\r$$ MNIST 原始是 $28\\times28$ -\u0026amp;gt; LeNet 里通常 padding 到 $32\\times32$ 2.卷积层（Convolution）\r卷积的本质不是“滑窗”，而是局部连接 + 权值共享。\n对单通道输入，卷积可写为： $$\rY_{k}(i,j) = \\sum_{c}\\sum_{u,v} W_{k,c}(u,v)\\,X_c(i+u,j+v) + b_k\r$$ LeNet 中的特点：\n小卷积核（$5\\times5$） 通道数逐步增加 没有 padding（尺寸会缩小） 3.下采样层（Pooling）\rLeNet 使用的是 平均池化（Average Pooling）： $$\rY(i,j) = \\frac{1}{|R|}\\sum_{(u,v)\\in R} X(u,v)\r$$ 这里和现代 CNN 有明显区别：\n没有 MaxPool 平均池化 + 可学习参数（早期版本） 作用只有一个：降维 + 平移不变性\n4.全连接层（Fully Connected）\r经过两次 Conv + Pool 后，特征图被拉平成向量： …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "1615b1aa0635e4070bc0165efc4c53e30690a847",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gru/",
+    "objectID": "0464ff82a596e211395581f5f7bbdcc67730140e",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/gru/",
     "title": "[DL_Net从入门到入土] 门控循环单元GRU","content": "\r[DL_Net从入门到入土] 门控循环单元GRU\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n🌱背景\r经典 RNN 存在一个非常严重的问题：长序列训练时容易出现梯度消失 / 梯度爆炸\n因此 LSTM 被提出，用 三个门 + memory cell 来解决长期依赖问题\n但是 LSTM 结构较复杂：\n参数多 计算量大 推理较慢 -\u0026amp;gt; 一种更简单的结构：GRU（Gated Recurrent Unit）\n核心思想: 用更少的门控结构，实现接近 LSTM 的效果\nGRU 的主要改进：\n只有 两个门 不再单独维护 cell state 参数更少, 训练更快 ⚙️架构(公式)\r1. 更新门(Update Gate) + 重置门(Reset Gate)\r更新门控制：决定最终 hidden state 用多少新信息 $$\rz_t = \\sigma(W_{xz}x_t + W_{hz}h_{t-1} + b_z)\r$$ $z_t \\approx 1$ → 保留旧记忆 $z_t \\approx 0$ → 使用新信息 重置门控制：决定生成新状态时要不要参考历史 $$\rr_t = \\sigma(W_{xr}x_t + W_{hr}h_{t-1} + b_r)\r$$ $r_t \\approx 0$ → 忘掉过去信息 $r_t \\approx 1$ → 使用历史信息 2. 候选隐藏状态\r候选状态： $$\r\\tilde{h}_t = \\tanh(W_{xh}x_t + W_{hh}(r_t \\odot h_{t-1}) + b_h)\r$$ 注意：历史状态先经过 reset gate\n门负责“控制比例”，所以用 sigmoid -\u0026amp;gt; 限制在0~1 候选隐藏状态负责“产生内容”，所以用 tanh -\u0026amp;gt; 有正有负, 没有偏移问题\n3. 最终隐藏状态\r最终输 …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "c67286db8be4ac0cf79528140f40276fddc7494a",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/alexnet/",
+    "objectID": "447dab4f4b3fa99009647f3de47da1f63555c86a",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/alexnet/",
     "title": "[DL_Net从入门到入土] 深度卷积神经网络AlexNet","content": "\r[DL_Net从入门到入土] 深度卷积神经网络AlexNet\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rImageNet Classification with Deep Convolutional Neural Networks.\n🌱背景\rAlexNet 的核心意义不在于“用了 CNN”，而在于它首次证明: 在大数据 + GPU 条件下，深层 CNN 可以显著击败传统方法\n-\u0026amp;gt; 第一个把深度学习真正跑通并跑赢传统方法的系统工程\nAlexNet 作用于 ImageNet 2012：\nTop-5 error 从 ~26% 直接降到 ~15% 断层式领先，直接改变研究范式 ⚙️架构(公式)\rAlexNet 是一个 8 层可学习参数网络：\n5 个卷积层 3 个全连接层 整体结构可概括为： $$\r\\text{Input}\r\\rightarrow \\text{Conv} \\rightarrow \\text{ReLU} \\rightarrow \\text{LRN} \\rightarrow \\text{Pool}\r\\rightarrow \\cdots\r\\rightarrow \\text{FC} \\rightarrow \\text{Softmax}\r$$\r1. 输入\r原论文输入尺寸： $$\r3 \\times 227 \\times 227\r$$\r2. 卷积层\r标准二维卷积： $$\ry_{i,j,k} = \\sum_{c}\\sum_{u,v} w_{u,v,c,k} \\cdot x_{i+u,j+v,c} + b_k\r$$AlexNet 的关键不是公式，而是规模：\nConv1：$11 \\times 11$，stride=4 Conv2：$5 \\times 5$ Conv3–5：$3 \\times 3$ 3. 激活函数（ReLU）\r首次大规模使用 ReLU： $$\rf(x) = \\max(0, x)\r$$对比 tanh / sigmoid：\n避免梯度饱和 显著加快收敛速度 4. ==局部响应归一化（LRN）==\rAlexNet 特有（后续 …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
     "objectID": "398df1dbd790ed2f0e3ce29e422a2679b097f948",
     "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%91%E5%B1%95%E8%84%89%E7%BB%9C/",
-    "title": "[DL_Net从入门到入土] 神经网络发展脉络","content": "\r[DL_Net从入门到入土] 神经网络发展脉络\r个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n源头\r1. 感知机perceptron (1950)\r2. 多层神经网络MLP (1980)\r3. 反向传播backprop\rCNN系列\r1. LeNet (1998)\r首次将卷积、池化和权重共享系统性地用于端到端视觉识别，奠定 CNN 基本范式\nGradient-based learning applied to document recognition.\n2. AlexNet (2012)\r用 ReLU + GPU 训练的深层 CNN 在大规模数据上击败传统方法，开启深度学习时代\nImageNet Classification with Deep Convolutional Neural Networks.\n3. NiN (2013)\r在卷积层中引入 1×1 Conv/MLPConv，用“网络替代滤波器”显著增强特征表达能力\nNetwork In Network.\n4. VGG (2014)\r用统一的 3×3 小卷积堆叠证明“网络越深越有效”，建立深度可控的结构模板\nVery Deep Convolutional Networks for Large-Scale Image Recognition.\n5. GoogLeNet (2014)\r提出 Inception 模块，通过多尺度并行卷积在计算量可控下提升网络宽度\nGoing Deeper with Convolutions.\n6. ResNet (2015)\r引入残差连接解决深层网络退化问题，使百层以上网络可稳定训练\nDeep Residual Learning for Image Recognition.\n7. DenseNet (2016)\r通过特征级密集连接实现极致特征复用，强化梯度流并显著减少参数冗余\nDensely Connected Convolutional Networks.\nRNN系列(序列)\r1. RNN (1980)\rFinding Structure in Time.\n2. LSTM (1997)\rLong Short-Term Memory.\n3. GRU (2014)\rLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n4. Seq2Seq (2014)\rSequence to Sequence Learning with Neural Networks.\nLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n5. Temporal Attention (2014)\rNeural Machine Translation by Jointly Learning to Align and Translate.\n6. Self-Attention (2017)\rAttention Is All You Need.\n7. TCN (2018)\rAn Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling.\nCNN for 序列\r1.因果Causal Conv\r2.空洞Dilated Conv\r3.TCN\r4.WaveNet\r5.InceptionTime\r经典统计基线\r1.AR / MA / ARMA / ARI\r2.ETS\r3.状态空间模型\r4.Prophet\r自然语言处理NLP\r1. word2vec (2013)\r2. GloVe (2014)\r3. ELMo (2018)\r4. Transformer (2017)\r4. BERT (2018)\r5. GPT (2018)\r计算机视觉CV\r1. MobileNet (2017)\r2. ShuffleNet (2017)\r3. EfficientNet (2019)\r4. ViT (2020)\r5. Swin Transformer (2021)\r6. ConvNeXt (2022)\r7. CLIP (2021)\r8. Segment Anything (2023)\r强化学习Reinforcement Learning\r1. Q-learning (1989)\r2. DQN (2013)\r3. Policy Gradient (2014)\r4. A3C (2016)\r5. AlphaGo (2016)\r6. PPO (2017)\r生成式模型Generative Models\r1. AE (1986)\r2. VAE (2013)\r3. GAN (2014)\r4. CycleGAN (2017)\r5. StyleGAN (2018)\r6. Diffusion Model (2020)\r7. Autoregressive Model\r多模态Multimodal\r1. CLIP (2021)\r2. DALL·E (2021)\r3. GPT-4V (2023)\r4. Sora (2024)\r图神经网络Graph Neural Network\r1. GCN (2017)\r2. GAT (2018)\r3. GraphSAGE (2017)\r","date": "2026-05-17 00:00:00",
+    "title": "[DL_Net从入门到入土] 神经网络发展脉络","content": "\r[DL_Net从入门到入土] 神经网络发展脉络\r个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n源头\r1. 感知机perceptron (1950)\r2. 多层神经网络MLP (1980)\r3. 反向传播backprop\rCNN系列\r1. LeNet (1998)\r首次将卷积、池化和权重共享系统性地用于端到端视觉识别，奠定 CNN 基本范式\nGradient-based learning applied to document recognition.\n2. AlexNet (2012)\r用 ReLU + GPU 训练的深层 CNN 在大规模数据上击败传统方法，开启深度学习时代\nImageNet Classification with Deep Convolutional Neural Networks.\n3. NiN (2013)\r在卷积层中引入 1×1 Conv/MLPConv，用“网络替代滤波器”显著增强特征表达能力\nNetwork In Network.\n4. VGG (2014)\r用统一的 3×3 小卷积堆叠证明“网络越深越有效”，建立深度可控的结构模板\nVery Deep Convolutional Networks for Large-Scale Image Recognition.\n5. GoogLeNet (2014)\r提出 Inception 模块，通过多尺度并行卷积在计算量可控下提升网络宽度\nGoing Deeper with Convolutions.\n6. ResNet (2015)\r引入残差连接解决深层网络退化问题，使百层以上网络可稳定训练\nDeep Residual Learning for Image Recognition.\n7. DenseNet (2016)\r通过特征级密集连接实现极致特征复用，强化梯度流并显著减少参数冗余\nDensely Connected Convolutional Networks.\nRNN系列(序列)\r1. RNN (1980)\rFinding Structure in Time.\n2. LSTM (1997)\rLong Short-Term Memory.\n3. GRU (2014)\rLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n4. Seq2Seq (2014)\rSequence to Sequence Learning with Neural Networks.\nLearning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation.\n5. Temporal Attention (2014)\rNeural Machine Translation by Jointly Learning to Align and Translate.\n6. Self-Attention (2017)\rAttention Is All You Need.\n7. TCN (2018)\rAn Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling.\nCNN for 序列\r1.因果Causal Conv\r2.空洞Dilated Conv\r3.TCN\r4.WaveNet\r5.InceptionTime\r经典统计基线\r1.AR / MA / ARMA / ARI\r2.ETS\r3.状态空间模型\r4.Prophet\r自然语言处理NLP\r1. word2vec (2013)\r2. GloVe (2014)\r3. ELMo (2018)\r4. Transformer (2017)\r4. BERT (2018)\r5. GPT (2018)\r计算机视觉CV\r1. MobileNet (2017)\r2. ShuffleNet (2017)\r3. EfficientNet (2019)\r4. ViT (2020)\r5. Swin Transformer (2021)\r6. ConvNeXt (2022)\r7. CLIP (2021)\r8. Segment Anything (2023)\r语义/实例分割\rFCN (2014)\rU-Net (2015)\rDeepLab (2016+)\rMask R-CNN (2017)\rSegment Anything (2023)\r强化学习Reinforcement Learning\r1. Q-learning (1989)\r2. DQN (2013)\r3. Policy Gradient (2014)\r4. A3C (2016)\r5. AlphaGo (2016)\r6. PPO (2017)\r生成式模型Generative Models\r1. AE (1986)\r2. VAE (2013)\r3. GAN (2014)\r4. CycleGAN (2017)\r5. StyleGAN (2018)\r6. Diffusion Model (2020)\r7. Autoregressive Model\r多模态Multimodal\r1. CLIP (2021)\r2. DALL·E (2021)\r3. GPT-4V (2023)\r4. Sora (2024)\r图神经网络Graph Neural Network\r1. GCN (2017)\r2. GAT (2018)\r3. GraphSAGE (2017)\r","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "31426f07eeb34cc6d5309acae41f6a1107b41a61",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/vgg/",
+    "objectID": "a7d098cfabc54507c3eac56747111e69bd07b48d",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/vgg/",
     "title": "[DL_Net从入门到入土] 使用块的网络VGG","content": "\r[DL_Net从入门到入土] 使用块的网络VGG\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rVery Deep Convolutional Networks for Large-Scale Image Recognition.\n🌱背景\rAlexNet（2012）之后，大家发现 CNN “更深”通常更强，但当时“怎么加深”并不统一：\nAlexNet 用较大的卷积核（11×11、5×5） GoogLeNet 用 Inception（结构更复杂） 那时还没有 ResNet 的残差结构，深网络训练更难 VGG 提出的核心思想非常“工程化”：用简单、统一、可重复堆叠的卷积块，把网络堆深\n用大量 3×3 小卷积核替代大卷积核，并用**Block（块）**的方式组织网络 -\u0026amp;gt; 使结构更规整、易于扩展、易于迁移（也因此成为经典 backbone）\n⚙️架构(公式)\r1. VGG Block 的形式\r一个 VGG 块通常是： $$\r\\underbrace{(\\text{Conv }3\\times3 + \\text{ReLU}) \\times n}_{\\text{同一尺度下堆叠}} \\; \\rightarrow \\; \\text{MaxPool }2\\times2, s=2\r$$ 也就是：同分辨率下做多次 3×3 卷积，然后池化缩小一半。\n2. 为什么坚持用 3×3？\r用多个 3×3 叠加可以替代大卷积核，并且非线性更多：\n一个 5×5 卷积的感受野，可由两个 3×3 叠加得到 $3\\times3 \\;+\\; 3\\times3 \\Rightarrow 5\\times5 \\text{ 感受野}$ 一个 7×7 卷积的感受野，可由三个 3×3 叠加得到 $3\\times3 \\;+\\; 3\\times3 \\;+\\; 3\\times3 \\Rightarrow 7\\times7$ 好处：\n参数更少 非线性层（ReLU）更多 → 表达能力更强 结构统一，方便堆深 3. 典型的 VGG16 配置\r论文里用 “配置表” 表示（最常见是 VGG16 / …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
@@ -516,20 +552,20 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "37f2a08fa4e78626a08800e6610c96735badc325",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/nin/",
+    "objectID": "5fedbf7d0cc6ad03ac20705a6d581434d0f4e3a1",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Ccnn/nin/",
     "title": "[DL_Net从入门到入土] 网络中的网络NiN","content": "\r[DL_Net从入门到入土] 网络中的网络NiN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rNetwork In Network.\n🌱背景\r在 AlexNet（2012） 之后，CNN 的基本范式逐渐固化：卷积层 → 非线性 → 池化 → 全连接 但这种结构有两个明显问题：\n卷积层表达能力有限 标准卷积 = 对局部 patch 做 线性映射 通道间关系只能靠堆深网络“慢慢学” 全连接层参数量巨大 例如 AlexNet 中 FC 层参数占比超过 90% 易过拟合、显存和算力成本高 -\u0026amp;gt; NiN 的核心问题意识：\n为什么非线性只能放在层与层之间？ 为什么不能让卷积本身更像一个小网络？ ⚙️架构(公式)\r完整:\nMLPConv结构:\n1. MLPConv（卷积里的多层感知机）\rNiN 将一次卷积替换为一个 微型 MLP： $$\r\\mathbf{y}_{i,j} = f^{(n)}( \\cdots f^{(2)}( f^{(1)}(\\mathbf{x}_{i,j}) ) )\r$$ 其中：\n$\\mathbf{x}_{i,j}$：某个空间位置上的 通道向量 $f^{(l)}$：通常由 $1\\times1$ 卷积 + 非线性 组成 -\u0026amp;gt; 实现形式非常关键：MLPConv = 普通卷积 + 多层 1×1 卷积\n2. 全局平均池化（GAP）\rNiN 彻底移除了全连接层，用 全局平均池化： $$\ry_k = \\frac{1}{H \\times W} \\sum_{i,j} x_{i,j,k}\r$$ 作用：\n每个通道 → 一个类别得分 无可学习参数 强结构先验，降低过拟合 👍优点/创新点\r1. 卷积内部引入非线性（MLPConv）\r==1×1 卷积 ≠ 降维工具, 本质是 通道维度上的全连接== -\u0026amp;gt; 提升了局部特征的判别能力\n2. ==去全连接化（GAP）==\r用结构设计代替参数堆砌 分类结果与空间位置解耦(无关) 对尺度变化更鲁棒 3. 端到端的“网络嵌套网络”思想\r==从“堆层数”转向“提升单层表达力”的重要转折==\n💻代 …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "2864a4fdf57ded6e1da88dbf06fc36af0276584d",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/rnn/",
+    "objectID": "b3ef68779c5205987ad243051aa3f087e69d8cf1",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/rnn/",
     "title": "[DL_Net从入门到入土] 循环神经网络RNN","content": "\r[DL_Net从入门到入土] 循环神经网络RNN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rFinding Structure in Time.\nElman RNN\n🌱背景\r在 CNN 解决图像问题之后, 一个自然的问题出现了: 如果数据本身是“有时间顺序”的怎么办\n语音识别（Speech） 自然语言处理（NLP） 时间序列预测 金融信号 EEG / ECG 等生理信号 传统前馈神经网络（MLP / CNN）存在一个核心问题：默认样本之间是独立的（i.i.d）\n但现实中的序列数据具有：\n时间依赖性 上下文记忆 长短期相关结构 循环神经网络RNN: 让当前时刻的输出依赖于过去的信息\n⚙️架构(公式)\r1. ==共享权重参数==\r对每个时间步 $t$，RNN 使用同一套参数反复使用：\n输入到隐状态：$W_{xh}$ 隐状态到隐状态：$W_{hh}$ 隐状态到输出：$W_{hy}$ 意义：不管序列多长，参数量固定，模型泛化更稳定\n2. 隐状态 = 可学习的“记忆”\r$$ h_t = \\phi(W_{xh}x_t + W_{hh}h_{t-1} + b_h), \\quad y_t = \\psi(W_{hy}h_t + b_y) $$其中 ==$h_t$ 本质是对历史信息的压缩表达==\n👍优点/创新点\r1. 训练方式：BPTT\rRNN 的反向传播不是只在一层网络里传，而是沿时间展开传播梯度\n优点：可以学习时间依赖 难点：容易 梯度消失/爆炸 2. 变长序列建模\rRNN 直接按时间步循环，不强制要求固定长度\n3. ==同一结构支持多种任务映射==\rN↔N N↔1 1↔N 👎缺点\r1. 经典痛点：==长程依赖难学==（Vanishing/Exploding）\rRNN 由于递归乘 $W_{hh}$，梯度会出现：\n$\\lVert W_{hh}\\rVert \u0026lt; 1$ → 梯度消失（学不到远期依赖） $\\lVert W_{hh}\\rVert \u0026gt; 1$ → 梯度爆炸（训练不稳定） 🔍种类\r1. N vs N\r每个时间步都有输出 $y_t$\n适用： …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "1daa360df0246e444adffb285da68050d2ee86a6",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/lstm/",
+    "objectID": "8616336a727aaf531c7f874cb01de1851705ee34",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/lstm/",
     "title": "[DL_Net从入门到入土] 长短期记忆网络LSTM","content": "\r[DL_Net从入门到入土] 长短期记忆网络LSTM\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n@[TOC]\n📖参考资料\rLong Short-Term Memory.\n🌱背景\r经典 Elman RNN 有一个非常著名的问题：长程依赖（long-term dependency）难学\n当序列很长时，误差信号在反向传播中需要跨越很多个时间步传回去。 这会导致：\n$\\lVert W_{hh}\\rVert \u0026lt; 1$：梯度逐步衰减，出现梯度消失 $\\lVert W_{hh}\\rVert \u0026gt; 1$：梯度不断放大，出现梯度爆炸 LSTM 的核心思想是：不要让信息在隐状态中“硬记忆”，而是引入一条更稳定的记忆通路，并通过门控机制决定该记什么、忘什么、输出什么。\nLSTM 不再只维护一个简单的隐藏状态，而是同时维护：\n==细胞状态（cell state）：长期记忆== ==隐藏状态（hidden state）：当前输出相关的短期表示== 通过门控（gate）机制，LSTM 可以更稳定地保留长期信息，从而显著缓解普通 RNN 的长依赖问题\n⚙️架构(公式)\rLSTM 在每个时间步 $t$ 会接收：\n当前输入 $x_t$ 上一时刻隐藏状态 $h_{t-1}$ 上一时刻细胞状态 $c_{t-1}$ 通过三个门控来控制信息流动：\n遗忘门（forget gate）：决定丢弃多少旧记忆 输入门（input gate）：决定写入多少新信息 输出门（output gate）：决定当前输出多少记忆内容 1. 遗忘门 Forget Gate\r遗忘门决定旧记忆 $c_{t-1}$ 中哪些部分应该保留： $$\rf_t = \\sigma(W_f x_t + U_f h_{t-1} + b_f)\r$$ 其中：\n$f_t \\in (0,1)$ 如果某个位置接近 1，表示“保留” 如果某个位置接近 0，表示“遗忘” 2. 输入门 Input Gate\r输入门先决定“哪些位置允许写入新信息”： $$\ri_t = \\sigma(W_i x_t + U_i h_{t-1} + b_i)\r$$ 同时生成当 …","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
@@ -642,8 +678,8 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "8bef8a266ac3e5f421d66d2fae58fbfab8270e5d",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/temporal-attention/",
+    "objectID": "35d332fe49f5ab454c79b31f3ad0e6e3b1a664b7",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/temporal-attention/",
     "title": "[DL_Net从入门到入土] Temporal Attention","content": "\r[DL_Net从入门到入土] Temporal Attention\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rNeural Machine Translation by Jointly Learning to Align and Translate.\n🌱背景\rTemporal Attention: 时间注意力机制 (temporal: 时间步, 序列位置, token位置)\n例如一句话：I love deep learning, 可以看成一个具有四个时间步的序列：\nx1 = I x2 = love x3 = deep x4 = learning 因为不是每个词都一样重要, Temporal Attention就来解决这个问题\nTemporal Attention 的核心思想: 能够自动判断哪些时间步更重要\nRNN/LSTM 负责提取每个时间步的隐藏状态 Temporal Attention 负责给不同时间步分配不同权重\nh1, h2, h3, h4 ↓ ↓ ↓ ↓ α1, α2, α3, α4 最后对所有隐藏状态加权求和：$context = α_1h_1 + α_2h_2 + α_3h_3 + α_4h_4$\n⚙️架构(公式)\r假设输入序列为： $$\rX = (x_1, x_2, ..., x_T)\r$$ 经过 RNN/LSTM/GRU 后，可以得到每个时间步的隐藏状态： $$\rH = (h_1, h_2, ..., h_T)\r$$ $h_t \\in R^d$: 表示第 $t$ 个时间步的隐藏状态 Temporal Attention 的目标是为每个 $h_t$ 计算一个权重 $\\alpha_t$ -\u0026amp;gt; 权重越大，说明这个时间步越重要\n1. 计算注意力分数\r首先，对每个隐藏状态 $h_t$ 计算一个分数： $$\re_t = score(h_t)\r$$ 常见写法是： $$\re_t = v^T tanh(W h_t + b)\r$$ $W$ 是可学习参数 $b$ 是偏置 $v$ 是可学习向量 $e_t$ 表示第 $t$ 个 …","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
@@ -654,8 +690,8 @@
     "updated": "2026-01-01 00:00:00"
   }, 
   {
-    "objectID": "3d25560630aeb5663d33534571029b2770a27524",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/tcn/",
+    "objectID": "4b52135623f7c997b80e083625a994baeb9ca266",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/tcn/",
     "title": "[DL_Net从入门到入土] 时间卷积网络 TCN","content": "\r[DL_Net从入门到入土] 时间卷积网络 TCN\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rAn Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling.\n🌱背景\rTCN: Temporal Convolutional Network: 时间卷积网络\n序列建模一定要用 RNN 吗 -\u0026amp;gt; 不一定\nTCN 思路: 不用循环结构，而是用一维卷积来建模序列\nTCN 认为: 序列数据也可以看成一条一维信号\n-\u0026amp;gt; 因此，我们可以使用 Conv1d 来提取时间维度上的局部模式\n但是普通的一维卷积直接用在序列建模上还不够，因为它有几个问题：\n可能看到未来信息 感受野可能不够大 深层网络训练可能不稳定 所以 TCN 一般由以下几个核心结构组成：\nCausal Convolution，因果卷积 Dilated Convolution，膨胀卷积 / 空洞卷积 Residual Block，残差块 ⚙️架构(公式)\r输入序列 ↓ 因果卷积 ↓ 膨胀卷积扩大感受野 ↓ 残差连接稳定训练 ↓ 输出序列 / 分类结果 1. 因果卷积 Causal Convolution\r预测当前时间步时，只能看到当前和过去，不能看到未来 $$\ry_t = f(x_t, x_{t-1}, x_{t-2}, ...)\r$$ 普通卷积：\nx1 x2 x3 x4 x5 ↑ 可能看到左右两边 因果卷积：\nx1 x2 x3 x4 x5 ↑ 只能看到自己和左边 2. 膨胀卷积 Dilated Convolution\r普通卷积的卷积核大小为 3 时，一层只能看到 3 个位置附近的信息\n如果想看更长的历史，就需要堆很多层\n膨胀卷积的公式可以写成： $$\ry_t = \\sum_{i=0}^{k-1} w_i x_{t - d \\cdot i}\r$$ $k$：卷积核大小 $d$：膨胀系数 dilation $d=1$ 时，就是普通卷积 $d=2$ 时，每 …","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
@@ -678,8 +714,8 @@
     "updated": "2026-01-01 00:00:00"
   }, 
   {
-    "objectID": "0bb4d8f9f844546cd0220a8673c71890c8c20f9b",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/gpt/",
+    "objectID": "5b985e095e9c3e00b013b8673a256a469e094801",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/",
     "title": "","content": "","date": "0001-01-01 00:00:00",
     "updated": "0001-01-01 00:00:00"
   }, 

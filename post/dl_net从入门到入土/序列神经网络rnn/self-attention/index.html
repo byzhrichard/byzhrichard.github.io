@@ -1,0 +1,1168 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [DL_Net从入门到入土] Self-Attention | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[DL_Net从入门到入土] Self-Attention | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn/self-attention/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-05-28T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-05-28T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.dd8a2c2ed287746b98e61c4bb98f1360ef8e94a7438a1189b63d23130f1d3964.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] Self-Attention"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[DL_Net从入门到入土] Self-Attention</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-self-attention">[DL_Net从入门到入土] Self-Attention</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-qkv-的含义">1. Q、K、V 的含义</a></li>
+                <li><a href="#2-生成-qkv">2. 生成 Q、K、V</a></li>
+                <li><a href="#3-注意力分数">3. 注意力分数</a></li>
+                <li><a href="#4-除以">4. 除以 $sqrt(d_k)$</a></li>
+                <li><a href="#5-softmax-得到注意力权重">5. softmax 得到注意力权重 $A$</a></li>
+                <li><a href="#6-加权求和-value">6. 加权求和 Value</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-每个-token-都能直接看到其他-token">1. 每个 token 都能直接看到其他 token</a></li>
+                <li><a href="#2-并行能力强">2. 并行能力强</a></li>
+                <li><a href="#3-更灵活的上下文建模">3. 更灵活的上下文建模</a></li>
+                <li><a href="#4-适合作为通用模块">4. 适合作为通用模块</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-计算复杂度较高">1. 计算复杂度较高</a></li>
+                <li><a href="#2-本身没有顺序感">2. 本身没有顺序感</a></li>
+                <li><a href="#3-对数据规模比较敏感">3. 对数据规模比较敏感</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">123</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      21
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-05-28 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-05-28</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-05-28</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-self-attention">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-self-attention"></a>
+[DL_Net从入门到入土] Self-Attention
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>Attention Is All You Need.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><p>Self-Attention: 自注意力机制</p>
+<blockquote>
+<p>Temporal Attention 的大致思想是：</p>
+<ul>
+<li>RNN/LSTM 先处理序列</li>
+<li>得到每个时间步隐藏状态</li>
+<li>然后 Attention 判断哪些时间步更重要</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">h1, h2, h3, ..., hT
+</span></span><span class="line"><span class="cl"> ↓   ↓   ↓       ↓
+</span></span><span class="line"><span class="cl">α1, α2, α3, ..., αT
+</span></span></code></pre></div><p>但是 Temporal Attention 通常还有一个基础模型，比如 RNN/LSTM:</p>
+<ul>
+<li>Temporal Attention 负责选重点</li>
+<li>RNN/LSTM 负责提取序列特征</li>
+</ul>
+</blockquote>
+<p>Self-Attention希望<strong>不依赖 RNN/LSTM</strong>，也能让序列中的 token 互相交流信息</p>
+<p>Self-Attention 的核心: <strong>序列中的每个 token，都可以直接和其他 token 建立联系</strong></p>
+<p>Self-Attention 输出的不是一个向量，而是一个新的序列表示</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">x1, x2, x3, x4
+</span></span><span class="line"><span class="cl"> ↓   ↓   ↓   ↓
+</span></span><span class="line"><span class="cl">z1, z2, z3, z4
+</span></span></code></pre></div><p>每个 $z_i$ 都融合了整个句子的上下文信息</p>
+<blockquote>
+<p>输入: <code>I love deep learning</code></p>
+<p>Temporal Attention: 通常是一个整体表示去关注不同时间步
+-&gt; 得到一个c: $c = \sum_{t=1}^{T} \alpha_t h_t$</p>
+<p>Self-Attention: 每个 token 都会关注序列中的其他 token
+-&gt; I              看 I / love / deep / learning
+-&gt; love        看 I / love / deep / learning
+-&gt; deep       看 I / love / deep / learning
+-&gt; learning  看 I / love / deep / learning</p>
+</blockquote>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><p>假设输入序列为：$X = (x_1, x_2, ..., x_n)$</p>
+<p>其中每个 token 已经被转换成向量 -&gt; 将整个输入写成矩阵：$X \in R^{n \times d_{model}}$</p>
+<p>Self-Attention 会先把每个 token 映射成三个向量：</p>
+<ul>
+<li>Query (Q)</li>
+<li>Key (K)</li>
+<li>Value (V)</li>
+</ul>
+<h4 id="1-qkv-的含义">
+<a class="header-anchor" href="#1-qkv-%e7%9a%84%e5%90%ab%e4%b9%89"></a>
+1. Q、K、V 的含义
+</h4><ul>
+<li>Query: 我想查什么 (<span style="color:green;">当前 token</span> 提出的问题)</li>
+<li>Key: 我有什么索引 (<span style="color:red;">其他 token</span> 的匹配标签)</li>
+<li>Value: 我真正携带的信息 (<span style="color:red;">其他 token</span> 真正提供的内容)</li>
+</ul>
+<blockquote>
+<p>比如模型处理 <code>it</code> 时：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">it 的 Query:
+</span></span><span class="line"><span class="cl">我指代的是谁？
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">animal 的 Key:
+</span></span><span class="line"><span class="cl">我是一个可能被指代的名词。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">animal 的 Value:
+</span></span><span class="line"><span class="cl">我携带 animal 这个语义信息。
+</span></span></code></pre></div><p><mark>如果 it 的 Query 和 animal 的 Key 匹配度高，那么 it 就会从 animal 的 Value 中吸收更多信息。</mark></p>
+</blockquote>
+<h4 id="2-生成-qkv">
+<a class="header-anchor" href="#2-%e7%94%9f%e6%88%90-qkv"></a>
+2. 生成 Q、K、V
+</h4><p>输入矩阵 $X$ 经过三个不同的线性变换：
+</p>
+$$
+Q = XW_Q
+\\
+K = XW_K
+\\
+V = XW_V
+$$<ul>
+<li>$W_Q$ 是 Query 的投影矩阵</li>
+<li>$W_K$ 是 Key 的投影矩阵</li>
+<li>$W_V$ 是 Value 的投影矩阵</li>
+</ul>
+<p>得到：
+</p>
+$$
+Q \in R^{n \times d_q},K \in R^{n \times d_k},V \in R^{n \times d_v} \quad \text{其中：} d_q=d_k
+$$<blockquote>
+<p>因为 $Q$ 和 $K$ 要做点积，所以需要 $d_q=d_k$</p>
+<ul>
+<li>Q 和 K 是用来“算匹配分数”的，所以它俩维度必须一致</li>
+<li>V 是被取走的信息本身 (只是在注意力权重算完之后，被加权求和)</li>
+</ul>
+</blockquote>
+<h4 id="3-注意力分数">
+<a class="header-anchor" href="#3-%e6%b3%a8%e6%84%8f%e5%8a%9b%e5%88%86%e6%95%b0"></a>
+3. 注意力分数
+</h4><p>计算 Query 和 Key 的相似度：
+</p>
+$$
+QK^T
+$$<p>
+其中：
+</p>
+$$
+QK^T \in R^{n \times n}
+$$<p>
+这个矩阵可以理解为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">每个 token 对其他所有 token 的关注程度
+</span></span></code></pre></div><blockquote>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">     I    love  deep  learning
+</span></span><span class="line"><span class="cl">I       -     -     -       -
+</span></span><span class="line"><span class="cl">love    -     -     -       -
+</span></span><span class="line"><span class="cl">deep    -     -     -       -
+</span></span><span class="line"><span class="cl">learning-     -     -       -
+</span></span></code></pre></div></blockquote>
+<p>矩阵中第 $i$ 行第 $j$ 列表示：<code>第 i 个 token 对第 j 个 token 的关注分数</code></p>
+<h4 id="4-除以">
+<a class="header-anchor" href="#4-%e9%99%a4%e4%bb%a5"></a>
+4. 除以 $sqrt(d_k)$
+</h4><p>如果维度 $d_k$ 很大，点积的数值可能会变得很大
+数值太大时，softmax 容易进入饱和区间</p>
+<blockquote>
+<p>例如：
+<code>softmax([1, 2, 3])</code> 还比较平滑
+<code>softmax([10, 20, 30])</code> 结果会非常极端，最大的那个位置接近 1，其他位置接近 0
+-&gt; 这会导致训练不稳定</p>
+</blockquote>
+<p>所以 Transformer 使用缩放点积注意力：
+</p>
+$$
+\frac{QK^T}{\sqrt{d_k}}
+$$<h4 id="5-softmax-得到注意力权重">
+<a class="header-anchor" href="#5-softmax-%e5%be%97%e5%88%b0%e6%b3%a8%e6%84%8f%e5%8a%9b%e6%9d%83%e9%87%8d"></a>
+5. softmax 得到注意力权重 $A$
+</h4><p>对每一行做 softmax：</p>
+$$
+A = softmax \left( \frac{QK^T}{\sqrt{d_k}} \right)
+$$<p>其中：$A$ 就是<strong>注意力权重矩阵</strong></p>
+$$
+A \in R^{n \times n}
+$$<p><strong>每一行的权重和为 1</strong></p>
+<p><mark>第 $i$ 行表示: <code>第 i 个 token 对所有 token 的关注分布</code></mark></p>
+<h4 id="6-加权求和-value">
+<a class="header-anchor" href="#6-%e5%8a%a0%e6%9d%83%e6%b1%82%e5%92%8c-value"></a>
+6. 加权求和 Value
+</h4><p>用注意力权重对 Value 做加权求和：
+</p>
+$$
+Z = AV
+$$<p>
+完整公式为：
+</p>
+$$
+Attention(Q, K, V) = softmax \left( \frac{QK^T}{\sqrt{d_k}} \right)V
+$$<p>
+其中：
+</p>
+$$
+Z \in R^{n \times d_v}
+$$<p>
+<mark>$Z$​ 就是 Self-Attention 的输出</mark>, 它和输入一样, 仍然是一个<strong>序列</strong>表示</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入 X:
+</span></span><span class="line"><span class="cl">每个 token 主要是自己的原始表示
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">输出 Z:
+</span></span><span class="line"><span class="cl">每个 token 都融合了其他 token 的上下文信息
+</span></span></code></pre></div><h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h4 id="1-每个-token-都能直接看到其他-token">
+<a class="header-anchor" href="#1-%e6%af%8f%e4%b8%aa-token-%e9%83%bd%e8%83%bd%e7%9b%b4%e6%8e%a5%e7%9c%8b%e5%88%b0%e5%85%b6%e4%bb%96-token"></a>
+1. 每个 token 都能直接看到其他 token
+</h4><p>Self-Attention 让序列中任意两个位置都可以直接建立联系</p>
+<p>这比 RNN/LSTM 一步步传递信息更直接</p>
+<blockquote>
+<p>比如：<code>The animal that I saw yesterday was a dog.</code></p>
+<p><code>animal</code> 和 <code>dog</code> 虽然中间隔了很多词，但 Self-Attention 可以直接计算它们之间的关系</p>
+</blockquote>
+<h4 id="2-并行能力强">
+<a class="header-anchor" href="#2-%e5%b9%b6%e8%a1%8c%e8%83%bd%e5%8a%9b%e5%bc%ba"></a>
+2. 并行能力强
+</h4><p>Self-Attention 可以同时计算所有 token 之间的关系</p>
+<p>非常适合 GPU <strong>并行</strong>训练</p>
+<h4 id="3-更灵活的上下文建模">
+<a class="header-anchor" href="#3-%e6%9b%b4%e7%81%b5%e6%b4%bb%e7%9a%84%e4%b8%8a%e4%b8%8b%e6%96%87%e5%bb%ba%e6%a8%a1"></a>
+3. 更灵活的上下文建模
+</h4><p>在不同句子中，<code>apple</code> 会关注不同的上下文，从而得到不同的表示
+(这和 ELMo 的动态上下文化表示有相通之处)</p>
+<blockquote>
+<p>例如：</p>
+<ul>
+<li>Apple released a new phone.</li>
+<li>I ate an apple.</li>
+</ul>
+</blockquote>
+<h4 id="4-适合作为通用模块">
+<a class="header-anchor" href="#4-%e9%80%82%e5%90%88%e4%bd%9c%e4%b8%ba%e9%80%9a%e7%94%a8%e6%a8%a1%e5%9d%97"></a>
+4. 适合作为通用模块
+</h4><p>Self-Attention 不只能用于 NLP
+还可以用于：文本, 图像, 语音, 时间序列, 多模态数据</p>
+<blockquote>
+<p>例如 Vision Transformer 会把图片切成 patch，然后让不同 patch 之间做 Self-Attention</p>
+</blockquote>
+<h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><h4 id="1-计算复杂度较高">
+<a class="header-anchor" href="#1-%e8%ae%a1%e7%ae%97%e5%a4%8d%e6%9d%82%e5%ba%a6%e8%be%83%e9%ab%98"></a>
+1. 计算复杂度较高
+</h4><p>Self-Attention 要计算所有 token 两两之间的关系
+如果序列长度为 $n$，注意力矩阵大小为：$n \times n$
+所以复杂度大约是：$O(n^2)$</p>
+<p>-&gt; 当序列很长时，计算和显存开销都会很大</p>
+<h4 id="2-本身没有顺序感">
+<a class="header-anchor" href="#2-%e6%9c%ac%e8%ba%ab%e6%b2%a1%e6%9c%89%e9%a1%ba%e5%ba%8f%e6%84%9f"></a>
+2. 本身没有顺序感
+</h4><p>如果不加入位置信息，它无法区分：</p>
+<ul>
+<li>I love you</li>
+<li>You love I</li>
+</ul>
+<p>-&gt; 所以 Transformer 需要额外加入位置编码</p>
+<h4 id="3-对数据规模比较敏感">
+<a class="header-anchor" href="#3-%e5%af%b9%e6%95%b0%e6%8d%ae%e8%a7%84%e6%a8%a1%e6%af%94%e8%be%83%e6%95%8f%e6%84%9f"></a>
+3. 对数据规模比较敏感
+</h4><p>Self-Attention <strong>表达能力很强</strong>，但也意味着参数和计算量通常较大</p>
+<p>-&gt; 如果数据太少，模型容易<strong>过拟合</strong></p>
+<p>所以实际中常常需要：</p>
+<ul>
+<li>大规模预训练</li>
+<li>正则化</li>
+<li>dropout</li>
+<li>残差连接</li>
+<li>LayerNorm</li>
+</ul>
+<h2 id="模型代码">
+<a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
+💻模型代码
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">math</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">byzh.ai.Butils</span> <span class="kn">import</span> <span class="n">b_get_params</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># B: batch_size</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># T: 序列长度</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># D: d_model</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># dk: d_k</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_SelfAttention</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Self-Attention:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入一个序列 X
+</span></span></span><span class="line"><span class="cl"><span class="s2">        生成 Q、K、V
+</span></span></span><span class="line"><span class="cl"><span class="s2">        然后计算每个 token 对其他 token 的注意力
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (B, T, D)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        mask: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        out: (B, T, D)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        attn_weights: (B, T, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>    <span class="c1"># 输入的 token embedding 维度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># Q、K 的维度</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_v</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="c1"># V 的维度</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">d_k</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_k</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">d_v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_v</span> <span class="o">=</span> <span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_k</span> <span class="o">=</span> <span class="n">d_k</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">d_v</span> <span class="o">=</span> <span class="n">d_v</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q = XW_Q</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_Q</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># K = XW_K</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_K</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_k</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># V = XW_V</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">W_V</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">d_v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把输出重新映射回 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_v</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            x: (B, T, d_model)       token embedding 序列
+</span></span></span><span class="line"><span class="cl"><span class="s2">            mask: (B, T)             `非pad` 的位置为 True，`pad` 的位置为 False
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            out: (B, T, d_model)     Self-Attention 后的新序列表示
+</span></span></span><span class="line"><span class="cl"><span class="s2">            attn_weights: (B, T, T)  注意力权重矩阵
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 1) 生成 Q、K、V</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_Q</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_K</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W_V</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>     <span class="c1"># (B, T, dv)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 2) 计算注意力分数 QK^T</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># bmm: batch matrix multiplication</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Q: (B, T, dk)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># K.transpose(-2, -1): (B, dk, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">K</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>   <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 3) 除以 sqrt(d_k)，防止点积结果过大</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">d_k</span><span class="p">)</span>      <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 4) mask 掉 pad 位置</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask: (B, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask.unsqueeze(1): (B, 1, T)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 表示每个 query 都不能关注到 pad token</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">masked_fill</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1e9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 5) 对每一行做 softmax，得到注意力权重</span>
+</span></span><span class="line"><span class="cl">        <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>   <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 6) 用注意力权重对 V 加权求和</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">attn_weights</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>           <span class="c1"># (B, T, dv)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 7) 映射回 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>                   <span class="c1"># (B, T, d_model)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">B_SelfAttention_Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    基础版 Self-Attention 模型:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        token 序列 -&gt; embedding -&gt; Self-Attention -&gt; pooling -&gt; 分类
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        x: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        logits: (B, num_classes)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        attn_weights: (B, T, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pad_idx</span> <span class="o">=</span> <span class="n">pad_idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 把 “离散的 token id” 映射成 “连续的向量表示”</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">padding_idx</span><span class="o">=</span><span class="n">pad_idx</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 如果 embedding 维度和 d_model 不一样，就先投影到 d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">input_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_dim</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Self-Attention 核心模块</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">self_attention</span> <span class="o">=</span> <span class="n">B_SelfAttention</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_k</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">d_v</span><span class="o">=</span><span class="n">d_model</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 最后用序列的整体表示做分类</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输入:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            x: (B, T)
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">        输出:
+</span></span></span><span class="line"><span class="cl"><span class="s2">            logits: (B, num_classes)       每个类别的预测分数
+</span></span></span><span class="line"><span class="cl"><span class="s2">            attn_weights: (B, T, T)        每个 token 对其他 token 的注意力权重
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># mask 用来标记哪些位置不是 &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 非 pad 位置: True</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># pad 位置: False</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mask</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad_idx</span>                  <span class="c1"># (B, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                   <span class="c1"># (B, T, E)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_proj</span><span class="p">(</span><span class="n">emb</span><span class="p">)</span>                <span class="c1"># (B, T, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># Self-Attention:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 让每个 token 都和其他 token 计算关系</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span><span class="p">,</span> <span class="n">attn_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_attention</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">emb</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>                                         <span class="c1"># out: (B, T, D), attn_weights: (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 简单做一个 mean pooling</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 注意：这里不能直接 mean，因为有 pad</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 所以要把 pad 位置去掉</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mask_float</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>   <span class="c1"># (B, T, 1)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span> <span class="o">*</span> <span class="n">mask_float</span>                    <span class="c1"># (B, T, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 每个样本真实 token 的数量</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="n">mask_float</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>            <span class="c1"># (B, 1)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">length</span> <span class="o">=</span> <span class="n">length</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>              <span class="c1"># 防止除以 0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 对所有非 pad token 求平均，得到整个序列的表示</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pooled</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">length</span>          <span class="c1"># (B, D)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">pooled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">pooled</span><span class="p">)</span>                  <span class="c1"># (B, num_classes)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">logits</span><span class="p">,</span> <span class="n">attn_weights</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># vocab = {</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;pad&gt;&#34;: 0,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;bos&gt;&#34;: 1,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;&lt;eos&gt;&#34;: 2,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;I&#34;: 3,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;love&#34;: 4,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;deep&#34;: 5,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;learning&#34;: 6,</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     &#34;you&#34;: 7,</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># }</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x = torch.tensor([</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 5, 6, 2],    # I love deep learning &lt;eos&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#     [3, 4, 7, 2, 0],    # I love you &lt;eos&gt; &lt;pad&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ===== 超参数 =====</span>
+</span></span><span class="line"><span class="cl">    <span class="n">B</span> <span class="o">=</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="n">T</span> <span class="o">=</span> <span class="mi">7</span>                     <span class="c1"># 输入序列长度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">100</span>          <span class="c1"># 词表大小（包含特殊 token，如 &lt;pad&gt;, &lt;bos&gt;, &lt;eos&gt;）</span>
+</span></span><span class="line"><span class="cl">    <span class="n">emb_dim</span> <span class="o">=</span> <span class="mi">32</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d_model</span> <span class="o">=</span> <span class="mi">64</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_classes</span> <span class="o">=</span> <span class="mi">3</span>           <span class="c1"># 分类类别数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">B_SelfAttention_Model</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vocab_size</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">emb_dim</span><span class="o">=</span><span class="n">emb_dim</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d_model</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_classes</span><span class="o">=</span><span class="n">num_classes</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pad_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 随机生成输入序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 手动造几个 pad，模拟真实 batch 中的变长序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">logits</span><span class="p">,</span> <span class="n">attn_weights</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>        <span class="c1"># (B, num_classes)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">attn_weights</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (B, T, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 注意力矩阵每一行的和应该约等于 1</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">attn_weights</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># (B, T)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;参数量: </span><span class="si">{</span><span class="n">b_get_params</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span> <span class="c1"># 22_147</span>
+</span></span></code></pre></div><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2></div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >DL_Net从入门到入土</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[DL_Net从入门到入土] Transformer"
+              class="lazyload"
+            /><a
+          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/transformer/"
+          aria-label="前一篇:[DL_Net从入门到入土] Transformer"
+          title="前一篇:[DL_Net从入门到入土] Transformer"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[DL_Net从入门到入土] Transformer</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[DL_Net从入门到入土] ELMo"
+              class="lazyload"
+            /><a
+          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86nlp/elmo/"
+          aria-label="后一篇:[DL_Net从入门到入土] ELMo"
+          title="后一篇:[DL_Net从入门到入土] ELMo"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[DL_Net从入门到入土] ELMo</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;127.7k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;05:18</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-self-attention">[DL_Net从入门到入土] Self-Attention</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-qkv-的含义">1. Q、K、V 的含义</a></li>
+                <li><a href="#2-生成-qkv">2. 生成 Q、K、V</a></li>
+                <li><a href="#3-注意力分数">3. 注意力分数</a></li>
+                <li><a href="#4-除以">4. 除以 $sqrt(d_k)$</a></li>
+                <li><a href="#5-softmax-得到注意力权重">5. softmax 得到注意力权重 $A$</a></li>
+                <li><a href="#6-加权求和-value">6. 加权求和 Value</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-每个-token-都能直接看到其他-token">1. 每个 token 都能直接看到其他 token</a></li>
+                <li><a href="#2-并行能力强">2. 并行能力强</a></li>
+                <li><a href="#3-更灵活的上下文建模">3. 更灵活的上下文建模</a></li>
+                <li><a href="#4-适合作为通用模块">4. 适合作为通用模块</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-计算复杂度较高">1. 计算复杂度较高</a></li>
+                <li><a href="#2-本身没有顺序感">2. 本身没有顺序感</a></li>
+                <li><a href="#3-对数据规模比较敏感">3. 对数据规模比较敏感</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">123</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      21
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" />
+        </div>
+      </div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+    var ALGOLIA_CONFIG = {
+      logo: '\/images\/algolia_logo.svg',
+      algolia: {
+        applicationID: "OL5A45Z4Q1",
+        apiKey: "1910d84d1d4a1a4d30b8ca375fa82cf6",
+        indexName: "my_blog",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": '搜索.....',
+          "hits_empty": '未发现与 「${query}」相关内容',
+          "hits_stats": '找到${hits}条结果（用时 ${time} ms）'
+        }
+      }
+    };
+  </script><script
+    src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"
+    defer
+    
+    
+    
+    integrity="sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S&#43;jQz7ZBtQXnsXmD&#43;9jDOOY4cL6dCPzlrk" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/@reimujs/instantsearch.js@4.57.0-beta.1/dist/instantsearch.production.min.js"
+    defer
+    
+    
+    
+    integrity="sha384-aagKMe8nkqaP2DYQc8kkYOL5l&#43;M5Q2WH/Uhr4teOh0Ybp0RZj0kUSDm45qPikMjK" crossorigin="anonymous"></script><script src="/js/algolia_search.js" integrity="" crossorigin="anonymous"  ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[DL_Net从入门到入土] Self-Attention",
+          url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E5%BA%8F%E5%88%97%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn\/self-attention\/",
+          description: "\r[DL_Net从入门到入土] Self-Attention\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>
