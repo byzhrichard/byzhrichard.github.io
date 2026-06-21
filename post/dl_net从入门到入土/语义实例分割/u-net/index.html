@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-   | byzh
+  [DL_Net从入门到入土] U-Net | byzh
 </title>
 <meta name="description" content="钻研学习中..."/><script>
   window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,7 +33,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content=" | byzh" />
+  <meta property="og:title" content="[DL_Net从入门到入土] U-Net | byzh" />
   <meta
     property="og:description"
     content="钻研学习中..."
@@ -45,8 +45,8 @@
   />
   <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
   <meta property="article:author" content="byzh" />
-  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
-  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:published_time" content="2026-06-20T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-06-20T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.dd8a2c2ed287746b98e61c4bb98f1360ef8e94a7438a1189b63d23130f1d3964.css" /><link
     rel="preload"
     as="style"
@@ -121,9 +121,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt=""><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[DL_Net从入门到入土] U-Net"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">byzh的博客</h1>
+            <h1 data-aos="slide-up">[DL_Net从入门到入土] U-Net</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -135,7 +135,22 @@
       data-aos="fade-up"
     ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-u-net">[DL_Net从入门到入土] U-Net</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a></li>
+        <li><a href="#优点创新点">👍优点/创新点</a></li>
+        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
@@ -237,15 +252,88 @@
     class="article-date-link icon-calendar"
     data-aos="zoom-in"
   >
-    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
-      >0001-01-01</time
+    <time datetime="2026-06-20 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-06-20</time
     >
     <time style="display: none;" id="post-update-time"
-      >0001-01-01</time
+      >2026-06-20</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"></div>
-    <footer class="article-footer"><ul class="article-category-list"></ul>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="dl_net从入门到入土-u-net">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-u-net"></a>
+[DL_Net从入门到入土] U-Net
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+<p>注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码</p>
+<p>参考文章：各方资料</p>
+<p>[TOC]</p>
+<h2 id="参考资料">
+<a class="header-anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99"></a>
+📖参考资料
+</h2><p>U-Net: Convolutional Networks for Biomedical Image Segmentation.</p>
+<h2 id="背景">
+<a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
+🌱背景
+</h2><blockquote>
+<p>语义分割的目标：输入一张图像，输出一张像素级类别图</p>
+<ul>
+<li>$Input: (H, W, C)$</li>
+<li>$Output: (H, W, K)$</li>
+</ul>
+</blockquote>
+<p>FCN 的核心思想是：把分类 CNN 改造成全卷积网络，让它可以输出 dense prediction map</p>
+<p>但是 FCN 也有一个比较明显的问题：</p>
+<ul>
+<li>深层特征语义强，但是空间分辨率低</li>
+<li>浅层特征细节多，但是语义弱</li>
+</ul>
+<p>FCN 虽然使用了 skip connection，但是融合方式相对比较粗</p>
+<p><strong>能不能在恢复分辨率的时候，更充分地利用浅层特征中的空间细节? -&gt; U-Net</strong></p>
+<p>U-Net 的核心思想：编码器负责提取语义，解码器负责恢复分辨率，并通过 skip connection 把浅层细节直接拼接回来</p>
+<p>它的整体结构长得像一个字母 U：</p>
+<pre class="mermaid">
+  graph LR
+    A[Input Image] --> B[Encoder<br/>Downsampling]
+    B --> C[Bottleneck]
+    C --> D[Decoder<br/>Upsampling]
+    D --> E[Segmentation Map]
+
+    B -. skip connection .-> D
+</pre><p>更加直观地说：</p>
+<blockquote>
+<p>左边：不断下采样，提取高级语义
+右边：不断上采样，恢复空间分辨率
+中间：最深层 bottleneck
+横向：skip connection，把浅层细节传给解码器</p>
+</blockquote>
+<h2 id="架构公式">
+<a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
+⚙️架构(公式)
+</h2><h2 id="优点创新点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
+👍优点/创新点
+</h2><h2 id="缺点">
+<a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
+👎缺点
+</h2><h2 id="模型代码">
+<a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
+💻模型代码
+</h2><h2 id="项目实例">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
+💻项目实例
+</h2><p>略</p>
+</div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f"
+      data-aos="zoom-in"
+      >DL_Net从入门到入土</a
+    >
+    </li></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
 </footer>
   </div><nav
@@ -255,27 +343,27 @@
   ><div class="article-nav-link-wrap left"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt=""
+              alt="[DL从入门到入土] 反卷积"
               class="lazyload"
             /><a
-          href="/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/agentpromptllm/init/"
-          aria-label="前一篇:(no title)"
-          title="前一篇:(no title)"
+          href="/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/"
+          aria-label="前一篇:[DL从入门到入土] 反卷积"
+          title="前一篇:[DL从入门到入土] 反卷积"
         ></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">(no title)</h3>
+        <h3 class="article-nav-title">[DL从入门到入土] 反卷积</h3>
       </div><div class="article-nav-link-wrap right"><img
               data-src="/byzh/image1.webp"
               data-sizes="auto"
-              alt="[ML从入门到入土] XXX"
+              alt="[DL_Net从入门到入土] FCN"
               class="lazyload"
             /><a
-          href="/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/"
-          aria-label="后一篇:[ML从入门到入土] XXX"
-          title="后一篇:[ML从入门到入土] XXX"
+          href="/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/"
+          aria-label="后一篇:[DL_Net从入门到入土] FCN"
+          title="后一篇:[DL_Net从入门到入土] FCN"
         ></a>
         <div class="article-nav-caption">后一篇</div>
-        <h3 class="article-nav-title">[ML从入门到入土] XXX</h3>
+        <h3 class="article-nav-title">[DL_Net从入门到入土] FCN</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -297,10 +385,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;128.2k</span
+          >&nbsp;128.7k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:19</span>
+        <span class="icon-coffee">&nbsp;05:21</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -324,7 +412,22 @@
       </div><nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dl_net从入门到入土-u-net">[DL_Net从入门到入土] U-Net</a>
+      <ul>
+        <li><a href="#个人导航">📢个人导航</a></li>
+        <li><a href="#参考资料">📖参考资料</a></li>
+        <li><a href="#背景">🌱背景</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a></li>
+        <li><a href="#优点创新点">👍优点/创新点</a></li>
+        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#模型代码">💻模型代码</a></li>
+        <li><a href="#项目实例">💻项目实例</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div></div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
@@ -503,11 +606,116 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "byzh",
-          title: "",
+          title: "[DL_Net从入门到入土] U-Net",
           url: "https:\/\/byzhrichard.github.io\/post\/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F\/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2\/u-net\/",
-          description: "",
+          description: "\r[DL_Net从入门到入土] U-Net\r📢个人导航\r知乎：https:\/\/www.zhihu.com\/people\/byzh_rc\nCSDN：https:\/\/blog.csdn.net\/qq_54636039\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
+      </script><script
+    src="https://npm.webcache.cn/mermaid@11.12.0/dist/mermaid.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-o&#43;g/BxPwhi0C3RK7oQBxQuNimeafQ3GE/ST4iT2BxVI4Wzt60SH4pq9iXVYujjaS" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/dompurify@3.2.6/dist/purify.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-JEyTNhjM6R1ElGoJns4U2Ln4ofPcqzSsynQkmEc/KGy6336qAZl70tDLufbkla&#43;3" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"
+    
+    
+    data-pjax
+    
+    integrity="sha384-GGX4llYprEPGp9w5caepn95YWAEflHnsA5ewt&#43;Y&#43;cBEb95og5cXKllnWKSELlzbx" crossorigin="anonymous"></script><script data-pjax>
+        if (window.mermaid) {
+          
+          const elementCode = '.mermaid'
+          const processElements = (callback) => {
+            const els = _$$(elementCode);
+            if (!els.length) return Promise.resolve();
+            
+            return new Promise((resolve, reject) => {
+              try {
+                els.forEach(callback);
+                resolve();
+              } catch (error) {
+                reject(error);
+              }
+            });
+          };
+          const saveOriginalData = () => processElements(el => {
+            if (!el.getAttribute('data-original-code')) {
+              el.setAttribute('data-original-code', el.innerHTML);
+            }
+          });
+
+          const resetProcessed = () => processElements(el => {
+            const originalCode = el.getAttribute('data-original-code');
+            if (originalCode) {
+              el.removeAttribute('data-processed');
+              el.innerHTML = DOMPurify.sanitize(originalCode);
+            }
+          });
+          const loadMermaid = async (theme) => {
+            window.mermaid.initialize({theme, startOnLoad: false})
+            await window.mermaid.run({querySelector: elementCode, suppressErrors: true})
+            if (window.svgPanZoom) {
+              window.__panZoomList?.forEach(panZoom => {try {panZoom.destroy()} catch {}});
+              window.__panZoomList = [];
+              _$$('.mermaid > svg').forEach(el => {
+                const bbox = el.getBBox();
+                el.setAttribute('height', Math.max(bbox.height, 80));
+                window.__panZoomList.push(window.svgPanZoom(el, {
+                  zoomEnabled: true,
+                  controlIconsEnabled: true,
+                  fit: true,
+                  center: true
+                }));
+              });
+              if (window.__resizeMermaidSvg) {
+                window.removeEventListener('resize', window.__resizeMermaidSvg);
+              }
+              window.__resizeMermaidSvg = () => {
+                try {
+                  window.__panZoomList.forEach(panZoom => {
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                  });
+                } catch {
+                  window.removeEventListener('resize', window.__resizeMermaidSvg);
+                  window.__panZoomList = [];
+                }
+              }
+              window.addEventListener('resize', window.__resizeMermaidSvg);
+            }
+          }
+          const initMermaid = async (theme) => {
+            try {
+              await saveOriginalData();
+              await resetProcessed();
+              await loadMermaid(theme);
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          document.body.addEventListener('reimu:theme-set', (e) => {
+            const isDark = e.detail.isDark;
+            initMermaid(isDark ? 'dark' : 'default');
+          });
+
+          const mode = localStorage.getItem('dark_mode');
+          if (mode === 'auto') {
+            const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            initMermaid(osMode ? 'dark' : 'default');
+          } else {
+            initMermaid(mode === 'true' ? 'dark' : 'default');
+          }
+        }
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
           if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
@@ -520,7 +728,15 @@
           initPswp('.article-gallery', 'a.article-gallery-item');
         }
         pswp()
-      </script></div>
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
 </div><script
     src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
     

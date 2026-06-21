@@ -6,6 +6,12 @@
     "updated": "2026-06-20 00:00:00"
   }, 
   {
+    "objectID": "5b985e095e9c3e00b013b8673a256a469e094801",
+    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/",
+    "title": "[DL_Net从入门到入土] U-Net","content": "\r[DL_Net从入门到入土] U-Net\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rU-Net: Convolutional Networks for Biomedical Image Segmentation.\n🌱背景\r语义分割的目标：输入一张图像，输出一张像素级类别图\n$Input: (H, W, C)$ $Output: (H, W, K)$ FCN 的核心思想是：把分类 CNN 改造成全卷积网络，让它可以输出 dense prediction map\n但是 FCN 也有一个比较明显的问题：\n深层特征语义强，但是空间分辨率低 浅层特征细节多，但是语义弱 FCN 虽然使用了 skip connection，但是融合方式相对比较粗\n能不能在恢复分辨率的时候，更充分地利用浅层特征中的空间细节? -\u0026gt; U-Net\nU-Net 的核心思想：编码器负责提取语义，解码器负责恢复分辨率，并通过 skip connection 把浅层细节直接拼接回来\n它的整体结构长得像一个字母 U：\ngraph LR\rA[Input Image] --\u003e B[EncoderDownsampling]\rB --\u003e C[Bottleneck]\rC --\u003e D[DecoderUpsampling]\rD --\u003e E[Segmentation Map]\rB -. skip connection .-\u003e D\r更加直观地说：\n左边：不断下采样，提取高级语义 右边：不断上采样，恢复空间分辨率 中间：最深层 bottleneck 横向：skip connection，把浅层细节传给解码器\n⚙️架构(公式)\r👍优点/创新点\r👎缺点\r💻模型代码\r💻项目实例\r略\n","date": "2026-06-20 00:00:00",
+    "updated": "2026-06-20 00:00:00"
+  }, 
+  {
     "objectID": "9053b50bcd3556de18815ab4ba9aa3b0550d5308",
     "permalink": "/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/",
     "title": "[DL从入门到入土] 反卷积","content": "\r反卷积/转置卷积 transposed convolution\r反卷积不是“真正的卷积逆运算”, 只是一种“可学习的上采样方法”\n普通卷积（压缩）\n输入：\n1 2 3 4 5 6 7 8 9 kernel滑动 → 输出变小\n反卷积\n在输入中“插空”, 比如 stride = 2：\n1 _ 2 _ 3 _ _ _ _ _ 4 _ 5 _ 6 _ _ _ _ _ 7 _ 8 _ 9 再做普通卷积: 用 kernel 去“覆盖 + 累加”\n普通卷积：$y = A x$ 反卷积是：$x' = A^T y$\n每个 pixel 不再是一个点, 而是一个“小patch的生成中心”\n假设 kernel = 2×2： $$\r\u003e \\begin{bmatrix}\r\u003e 1 \u0026 2 \\\\\r\u003e 3 \u0026 4\r\u003e \\end{bmatrix}\r\u003e $$ 输入： $$\r\u003e X =\r\u003e \\begin{bmatrix}\r\u003e 5\r\u003e \\end{bmatrix}\r\u003e $$ 反卷积：\n5 * kernel = [ [5, 10], [15, 20] ] 卷积核 W 是学出来的：\n学“边界怎么补” 学“轮廓怎么扩” 学“语义怎么传播” 1. 例子\r输入（单通道）: $$\rX =\r\\begin{bmatrix}\r1 \u0026 2 \\\\\r3 \u0026 4\r\\end{bmatrix}\r$$ 卷积核（kernel）: $$\rW =\r\\begin{bmatrix}\r1 \u0026 0 \\\\\r0 \u0026 1\r\\end{bmatrix}\r$$ stride = 1 padding = 0 反卷积的目的: 从 2×2 → 放大到 3×3\n初始化输出： $$\rY \\in \\mathbb{R}^{3 \\times 3} = 0\r$$ 处理$X(0,0)=1$:\n1 0 0 0 1 0 0 0 0 处理$X(0,1)=2$:\n0 2 0 0 0 2 0 0 0 处理$X(1,0)=3$:\n0 0 0 3 0 0 0 3 0 处理$X(1,1)=4$:\n0 0 0 0 4 0 0 0 4 叠加 -\u0026gt; 最终输出: $$\rY =\r\\begin{bmatrix}\r1 \u0026 2 \u0026 0 \\\\\r3 \u0026 5 \u0026 2 \\\\\r0 \u0026 3 \u0026 4\r\\end{bmatrix}\r$$","date": "2026-06-20 00:00:00",
@@ -718,12 +724,6 @@
     "permalink": "/post/ml%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E6%A8%A1%E6%9D%BF/",
     "title": "[ML从入门到入土] XXX","content": "\r[ML从入门到入土] XXX\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\r🌱背景\r⚙️架构(公式)\r👍优点/创新点\r👎缺点\r💻模型代码\r💻项目实例\r","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
-  }, 
-  {
-    "objectID": "5b985e095e9c3e00b013b8673a256a469e094801",
-    "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/",
-    "title": "","content": "","date": "0001-01-01 00:00:00",
-    "updated": "0001-01-01 00:00:00"
   }, 
   {
     "objectID": "1ddf4af62df99424d38b713fcd76594c8b945aa6",
