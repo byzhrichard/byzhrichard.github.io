@@ -453,14 +453,66 @@ $$<ul>
 </p>
 $$
 F = F_{deep} + F_{shallow}
-$$<p>
-直观理解：</p>
+$$<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入图像:        H × W
+</span></span><span class="line"><span class="cl">pool3:          H/8  × W/8
+</span></span><span class="line"><span class="cl">pool4:          H/16 × W/16
+</span></span><span class="line"><span class="cl">pool5:          H/32 × W/32
+</span></span></code></pre></div><p>越往深层：</p>
 <ul>
-<li>深层：<strong>语义强</strong>，但粗</li>
-<li>浅层：<strong>细节强</strong>，但弱语义</li>
-<li>融合 → 又准又细</li>
+<li><strong>分辨率</strong>越来越低</li>
+<li><strong>语义</strong>越来越强</li>
 </ul>
-<h2 id="优点创新点">
+<p>-&gt; <strong>深层负责判断“是什么”,  浅层负责帮助判断“在哪里”</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>特征层</th>
+          <th>尺寸</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pool5</td>
+          <td>H/32</td>
+          <td>语义最强，但最粗</td>
+      </tr>
+      <tr>
+          <td>pool4</td>
+          <td>H/16</td>
+          <td>语义较强，细节稍好</td>
+      </tr>
+      <tr>
+          <td>pool3</td>
+          <td>H/8</td>
+          <td>细节更好，但语义较弱</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>FCN-32s 只用最深层特征：语义强，但是结果粗</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pool5 → score → 上采样 32 倍 → 输出
+</span></span></code></pre></div><p><strong>FCN-16s 不仅用 <code>pool5</code>，还融合 <code>pool4</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pool5 score:      H/32
+</span></span><span class="line"><span class="cl">      ↓ upsample ×2
+</span></span><span class="line"><span class="cl">                  H/16
+</span></span><span class="line"><span class="cl">pool4 score:      H/16
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">相加 → H/16 → upsample ×16 → H
+</span></span></code></pre></div><p><strong>FCN-8s 进一步融合 <code>pool3</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pool5 score:      H/32
+</span></span><span class="line"><span class="cl">      ↓ upsample ×2
+</span></span><span class="line"><span class="cl">                  H/16
+</span></span><span class="line"><span class="cl">pool4 score:      H/16
+</span></span><span class="line"><span class="cl">      ↓ 相加
+</span></span><span class="line"><span class="cl">                  H/16
+</span></span><span class="line"><span class="cl">      ↓ upsample ×2
+</span></span><span class="line"><span class="cl">                  H/8
+</span></span><span class="line"><span class="cl">pool3 score:      H/8
+</span></span><span class="line"><span class="cl">      ↓ 相加
+</span></span><span class="line"><span class="cl">                  H/8
+</span></span><span class="line"><span class="cl">      ↓ upsample ×8
+</span></span><span class="line"><span class="cl">                  H
+</span></span></code></pre></div><h2 id="优点创新点">
 <a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
 👍优点/创新点
 </h2><h4 id="1-端到端语义分割">
@@ -754,7 +806,7 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;128.7k</span
+          >&nbsp;128.9k</span
         >
         &nbsp;|&nbsp;
         <span class="icon-coffee">&nbsp;05:21</span>
