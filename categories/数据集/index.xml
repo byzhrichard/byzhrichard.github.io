@@ -71,62 +71,16 @@ HWDB
       <description>
         <![CDATA[<h1>[数据集] 推荐系统数据集</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="推荐系统数据集">
-<a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-推荐系统数据集
-</h1><h2 id="movielens-100k">
-<a class="header-anchor" href="#movielens-100k"></a>
-MovieLens 100K
-</h2><p><a href="https://files.grouplens.org/datasets/movielens">https://files.grouplens.org/datasets/movielens</a></p>
-<p>主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐</p>
-<table>
-  <thead>
-      <tr>
-          <th>项目</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>数据集名称</td>
-          <td>MovieLens 100K</td>
-      </tr>
-      <tr>
-          <td>所属领域</td>
-          <td>推荐系统</td>
-      </tr>
-      <tr>
-          <td>数据类型</td>
-          <td>用户-电影评分数据</td>
-      </tr>
-      <tr>
-          <td>用户数量</td>
-          <td>943</td>
-      </tr>
-      <tr>
-          <td>电影数量</td>
-          <td>1682</td>
-      </tr>
-      <tr>
-          <td>评分数量</td>
-          <td>100,000</td>
-      </tr>
-      <tr>
-          <td>评分范围</td>
-          <td>1 到 5 分</td>
-      </tr>
-      <tr>
-          <td>反馈类型</td>
-          <td>显式反馈</td>
-      </tr>
-      <tr>
-          <td>常见任务</td>
-          <td>评分预测、Top-N 推荐、协同过滤、矩阵补全</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p>100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。</p>
+          <h1 id="推荐系统">
+<a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f"></a>
+推荐系统
+</h1><p>推荐系统 = 在“用户 + 物品”的巨大空间里，预测你最可能喜欢的东西</p>
+<p>给定用户 $u$，在所有物品集合 $I$ 中，找一个排序：
+</p>
+$$
+i_1, i_2, ..., i_k = \arg\max_{i \in I} P(i \mid u)
+$$<p>
+-&gt; 输出 Top-K</p>
         
         <hr><p>本文2026-06-13首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-13</p>]]>
       </description>

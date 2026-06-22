@@ -137,15 +137,46 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#推荐系统">推荐系统</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-难点">1. 难点</a></li>
+                <li><a href="#2-主流方法">2. 主流方法</a></li>
+                <li><a href="#3-核心指标">3. 核心指标</a></li>
+                <li><a href="#4-弱泛化划分">4. 弱泛化划分</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#推荐系统数据集">推荐系统数据集</a>
       <ul>
+        <li><a href="#movielens-1m">MovieLens 1M</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#movielens-100k">MovieLens 100K</a>
           <ul>
             <li>
               <ul>
-                <li><a href="#1-核心评分文件-udata">1. 核心评分文件 <code>u.data</code></a></li>
-                <li><a href="#2-用户信息-uuser">2. 用户信息 <code>u.user</code></a></li>
-                <li><a href="#3-电影信息-uitem">3. 电影信息 <code>u.item</code></a></li>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -167,7 +198,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">124</div>
+    <div>文章</div><div class="sidebar-state-number">128</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -262,150 +293,514 @@
       >2026-06-13</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="推荐系统数据集">
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="推荐系统">
+<a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f"></a>
+推荐系统
+</h1><p>推荐系统 = 在“用户 + 物品”的巨大空间里，预测你最可能喜欢的东西</p>
+<p>给定用户 $u$，在所有物品集合 $I$ 中，找一个排序：
+</p>
+$$
+i_1, i_2, ..., i_k = \arg\max_{i \in I} P(i \mid u)
+$$<p>
+-&gt; 输出 Top-K</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">输入：你最近看了
+</span></span><span class="line"><span class="cl">- AI视频
+</span></span><span class="line"><span class="cl">- 机器学习课程
+</span></span><span class="line"><span class="cl">- PyTorch教程
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">输出推荐：
+</span></span><span class="line"><span class="cl">- “Transformer讲解视频”
+</span></span><span class="line"><span class="cl">- “SNN神经网络论文解读”
+</span></span><span class="line"><span class="cl">- “深度学习课程”
+</span></span></code></pre></div><h4 id="1-难点">
+<a class="header-anchor" href="#1-%e9%9a%be%e7%82%b9"></a>
+1. 难点
+</h4><ol>
+<li>信息爆炸 (用户:几亿, 物品:几千万～几十亿)</li>
+<li>用户行为是稀疏的 (看过 100 个视频, 但平台有 1,000,000 个视频)
+[空的 ≠ 不喜欢，只是“没见过”]</li>
+<li>反馈是隐含的 (从正样本 + 未知中推断偏好)</li>
+</ol>
+<h4 id="2-主流方法">
+<a class="header-anchor" href="#2-%e4%b8%bb%e6%b5%81%e6%96%b9%e6%b3%95"></a>
+2. 主流方法
+</h4><ul>
+<li>协同过滤(CF): 相似用户喜欢相似物品</li>
+<li>矩阵压缩技术 CSR</li>
+<li>矩阵分解(MF/SVD):
+<ul>
+<li>用户 = 一个向量</li>
+<li>物品 = 一个向量</li>
+<li>-&gt; 点积 = 匹配程度</li>
+</ul>
+</li>
+<li>深度学习方法:
+<ul>
+<li>VAE</li>
+<li>GCN</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-核心指标">
+<a class="header-anchor" href="#3-%e6%a0%b8%e5%bf%83%e6%8c%87%e6%a0%87"></a>
+3. 核心指标
+</h4><p><strong>Recall@K</strong>: 召回率
+(我喜欢的东西，有多少被推荐出来了？)
+</p>
+$$
+\text{Recall@K} =
+\frac{\#\text{Hit items in Top-K}}
+{\#\text{Relevant items}} =
+\frac{\text{Top-K 推荐中命中的数量}}
+{\text{用户实际喜欢的数量}}
+$$<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">真实喜欢：  A B C D
+</span></span><span class="line"><span class="cl">推荐Top10： B E F C G H I
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">命中：B, C → 2个
+</span></span></code></pre></div><p><strong>NDCG@K</strong>: 排序质量指标
+(推荐得好不好？好的是不是排在前面？)
+</p>
+$$
+\text{折损累积增益:}\quad DCG@K = \sum_{i=1}^K \frac{rel_i}{\log_2(i+1)}
+\\
+\text{理想折损累积增益:}\quad IDCG@K = \sum_{i=1}^K \frac{rel_i^*}{\log_2(i+1)}
+\\
+\text{排序质量指标:}\quad NDCG = \frac{DCG}{IDCG}
+$$<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">真实喜欢：A B C D [不管先后]
+</span></span><span class="line"><span class="cl">推荐Top5：A C B E F [有顺序]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">→ DCG@3 ≈ 1 + 0.63 + 0.5 = 2.13 (命中3个)
+</span></span><span class="line"><span class="cl">→ IDCG@3 = 1 + 0.63 + 0.5 = 2.13 (该真实喜欢情况下, 理想命中3个: A,B,C)
+</span></span><span class="line"><span class="cl">→ NDCG@3 = 1.0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">真实喜欢：A B C D [不管先后]
+</span></span><span class="line"><span class="cl">推荐Top5：B A E F G [有顺序]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">→ DCG@5 ≈ 1 + 0.63 = 1.63 (命中2个)
+</span></span><span class="line"><span class="cl">→ IDCG@5 = 1 + 0.63 + 0.5 + 0.43 = 2.56 (该真实喜欢情况下, 理想命中4个: A,)
+</span></span><span class="line"><span class="cl">→ NDCG@5 = 0.64
+</span></span></code></pre></div><p><strong>HitRate@K</strong>: 命中率
+(有没有至少推荐对一个？)
+</p>
+$$
+HitRate@K =
+\begin{cases}
+1, & \text{Top-K 有至少一个正样本}\\
+0, & \text{否则}
+\end{cases}
+$$<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">真实喜欢：A B C
+</span></span><span class="line"><span class="cl">推荐：     X Y A Z
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">→ Hit = 1
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>指标</th>
+          <th>关注点</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Recall@K</td>
+          <td>找回多少</td>
+          <td>全局覆盖</td>
+      </tr>
+      <tr>
+          <td>NDCG@K</td>
+          <td>排序质量</td>
+          <td><strong>最严格</strong></td>
+      </tr>
+      <tr>
+          <td>HitRate@K</td>
+          <td>是否命中</td>
+          <td><strong>最宽松</strong></td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="4-弱泛化划分">
+<a class="header-anchor" href="#4-%e5%bc%b1%e6%b3%9b%e5%8c%96%e5%88%92%e5%88%86"></a>
+4. 弱泛化划分
+</h4><p>弱泛化划分 = <strong>用“用户过去的行为”预测“这个用户未来的行为”</strong></p>
+<blockquote>
+<p>错误做法: 随机划分（强泛化）</p>
+</blockquote>
+<p>现实系统是：</p>
+<ul>
+<li>你今天看过什么</li>
+<li>明天推荐什么</li>
+</ul>
+<p>不是：</p>
+<ul>
+<li>随机猜你喜欢什么</li>
+</ul>
+<p>-&gt; 先按timestamp来排序, 再分出 80% train, 20% test</p>
+<h1 id="推荐系统数据集">
 <a class="header-anchor" href="#%e6%8e%a8%e8%8d%90%e7%b3%bb%e7%bb%9f%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
 推荐系统数据集
-</h1><h2 id="movielens-100k">
+</h1><h2 id="movielens-1m">
+<a class="header-anchor" href="#movielens-1m"></a>
+MovieLens 1M
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://grouplens.org/datasets/movielens/1m/">https://grouplens.org/datasets/movielens/1m/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://files.grouplens.org/datasets/movielens/ml-1m.zip">https://files.grouplens.org/datasets/movielens/ml-1m.zip</a></p>
+</li>
+<li>
+<p>数据集全称: MovieLens 1M Dataset</p>
+</li>
+<li>
+<p>数据集中文全称: MovieLens 百万级电影评分数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>用户数：6,040</li>
+<li>电影数：3,952</li>
+<li><strong>评分数：1,000,209（约 100 万条）</strong></li>
+</ul>
+</li>
+<li>
+<p>类别数量: 电影类型（Genres）约 18 类（如 Action / Comedy / Drama 等）</p>
+</li>
+</ul>
+<h4 id="2-任务定义">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89"></a>
+2. 任务定义
+</h4><ul>
+<li>任务类型：推荐系统（Top-K Recommendation）</li>
+<li>输入：(用户ID, 电影ID, 1~5评分, 时间戳)</li>
+<li>输出：Top-K推荐列表</li>
+<li>难点：
+<ul>
+<li>数据极度稀疏（&lt;5%）</li>
+<li>无显式负样本（未评分 ≠ 不喜欢）</li>
+<li>用户行为存在时间偏移</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94"></a>
+3. 主要领域用途
+</h4><ul>
+<li>协同过滤（CF）</li>
+<li>矩阵分解（MF / SVD）</li>
+<li>隐变量模型（VAE / Autoencoder）</li>
+<li>图神经网络推荐（GCN / GraphVAE）</li>
+<li>排序学习（Ranking / BPR）</li>
+</ul>
+<h4 id="4-文件组成">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90"></a>
+4. 文件组成
+</h4><p><code>users.dat</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">UserID::Gender::Age::Occupation::Zip-code
+</span></span></code></pre></div><p><code>movies.dat</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MovieID::Title::Genres
+</span></span></code></pre></div><p><code>ratings.dat</code>: 核心</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">UserID::MovieID::Rating::Timestamp
+</span></span></code></pre></div><h4 id="5-读取为pytorch数据集代码">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81"></a>
+5. 读取为pytorch数据集代码
+</h4><p>目录结构:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ML1M_Dataset/
+</span></span><span class="line"><span class="cl">├── create_dataset.py       
+</span></span><span class="line"><span class="cl">├── ml-1m/
+</span></span><span class="line"><span class="cl">│   ├── raw/            
+</span></span><span class="line"><span class="cl">│   │   ├── users.dat
+</span></span><span class="line"><span class="cl">│   │   ├── movies.dat
+</span></span><span class="line"><span class="cl">│   │   ├── ratings.dat
+</span></span><span class="line"><span class="cl">│   │   └── README
+</span></span></code></pre></div><p><code>create_dataset.py</code> 代码:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ML1MDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_path</span><span class="o">=</span><span class="s2">&#34;ml-1m&#34;</span><span class="p">,</span> <span class="n">implicit_threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">root_path</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">raw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="s2">&#34;raw&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_ratings</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess</span><span class="p">(</span><span class="n">implicit_threshold</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_mapping</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_csr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 1. load raw ratings</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_load_ratings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&#34;ratings.dat&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sep</span><span class="o">=</span><span class="s2">&#34;::&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">engine</span><span class="o">=</span><span class="s2">&#34;python&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;item&#34;</span><span class="p">,</span> <span class="s2">&#34;rating&#34;</span><span class="p">,</span> <span class="s2">&#34;timestamp&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ratings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2. implicit feedback</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;rating&#34;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&#34;timestamp&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ratings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 3. mapping</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_build_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">user2idx</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item2idx</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">user2idx</span><span class="p">,</span> <span class="n">item2idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 4. build CSR matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_build_csr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">row</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">        <span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">num_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">matrix</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">num_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># PyTorch API</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">        返回一个 user 的 interaction vector
+</span></span></span><span class="line"><span class="cl"><span class="s2">        shape: [num_items]
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># optional helper</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dataset</span> <span class="o">=</span> <span class="n">ML1MDataset</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Number of users:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">user2idx</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Number of items:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">item2idx</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Sample interaction vector shape:&#34;</span><span class="p">,</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="movielens-100k">
 <a class="header-anchor" href="#movielens-100k"></a>
 MovieLens 100K
-</h2><p><a href="https://files.grouplens.org/datasets/movielens">https://files.grouplens.org/datasets/movielens</a></p>
-<p>主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐</p>
-<table>
-  <thead>
-      <tr>
-          <th>项目</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>数据集名称</td>
-          <td>MovieLens 100K</td>
-      </tr>
-      <tr>
-          <td>所属领域</td>
-          <td>推荐系统</td>
-      </tr>
-      <tr>
-          <td>数据类型</td>
-          <td>用户-电影评分数据</td>
-      </tr>
-      <tr>
-          <td>用户数量</td>
-          <td>943</td>
-      </tr>
-      <tr>
-          <td>电影数量</td>
-          <td>1682</td>
-      </tr>
-      <tr>
-          <td>评分数量</td>
-          <td>100,000</td>
-      </tr>
-      <tr>
-          <td>评分范围</td>
-          <td>1 到 5 分</td>
-      </tr>
-      <tr>
-          <td>反馈类型</td>
-          <td>显式反馈</td>
-      </tr>
-      <tr>
-          <td>常见任务</td>
-          <td>评分预测、Top-N 推荐、协同过滤、矩阵补全</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p>100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部电影。</p>
-</blockquote>
-<h4 id="1-核心评分文件-udata">
-<a class="header-anchor" href="#1-%e6%a0%b8%e5%bf%83%e8%af%84%e5%88%86%e6%96%87%e4%bb%b6-udata"></a>
-1. 核心评分文件 <code>u.data</code>
-</h4><p>MovieLens 100K 最核心的文件是 <code>u.data</code>，它包含全部 100,000 条评分记录。每一行通常由四个字段组成：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">user_id    item_id    rating    timestamp
-</span></span></code></pre></div><p>含义如下：</p>
-<table>
-  <thead>
-      <tr>
-          <th>字段</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>user_id</code></td>
-          <td>用户编号</td>
-      </tr>
-      <tr>
-          <td><code>item_id</code></td>
-          <td>电影编号</td>
-      </tr>
-      <tr>
-          <td><code>rating</code></td>
-          <td>用户对电影的评分，范围 1~5</td>
-      </tr>
-      <tr>
-          <td><code>timestamp</code></td>
-          <td>评分时间戳</td>
-      </tr>
-  </tbody>
-</table>
-<p>例如一条记录可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户 196 给电影 242 打了 3 分
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">user_id = 196
-</span></span><span class="line"><span class="cl">item_id = 242
-</span></span><span class="line"><span class="cl">rating = 3
-</span></span></code></pre></div><p>这类数据就是推荐系统里最经典的：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">用户 - 物品 - 评分
-</span></span></code></pre></div><h4 id="2-用户信息-uuser">
-<a class="header-anchor" href="#2-%e7%94%a8%e6%88%b7%e4%bf%a1%e6%81%af-uuser"></a>
-2. 用户信息 <code>u.user</code>
-</h4><p><code>u.user</code> 中包含用户的人口统计信息，包括：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">user_id | age | gender | occupation | zip_code
-</span></span></code></pre></div><p>也就是：</p>
-<table>
-  <thead>
-      <tr>
-          <th>字段</th>
-          <th>含义</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>user_id</code></td>
-          <td>用户编号</td>
-      </tr>
-      <tr>
-          <td><code>age</code></td>
-          <td>年龄</td>
-      </tr>
-      <tr>
-          <td><code>gender</code></td>
-          <td>性别</td>
-      </tr>
-      <tr>
-          <td><code>occupation</code></td>
-          <td>职业</td>
-      </tr>
-      <tr>
-          <td><code>zip_code</code></td>
-          <td>邮政编码</td>
-      </tr>
-  </tbody>
-</table>
-<p>这些信息可以作为推荐模型的辅助特征。</p>
-<h4 id="3-电影信息-uitem">
-<a class="header-anchor" href="#3-%e7%94%b5%e5%bd%b1%e4%bf%a1%e6%81%af-uitem"></a>
-3. 电影信息 <code>u.item</code>
-</h4><p><code>u.item</code> 中包含电影的基本信息，包括电影标题、上映日期、IMDb 链接以及电影类型。电影类型使用 0/1 表示，例如 Action、Comedy、Drama、Sci-Fi 等；同一部电影可以属于多个类型。</p>
-<p>也就是说，一部电影可能同时是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Action = 1
-</span></span><span class="line"><span class="cl">Adventure = 1
-</span></span><span class="line"><span class="cl">Sci-Fi = 1
-</span></span></code></pre></div><p>表示它既是动作片，又是冒险片，也是科幻片。</p>
-</div>
+</h2><h4 id="1-数据集介绍-1">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d-1"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://grouplens.org/datasets/movielens/100k/">https://grouplens.org/datasets/movielens/100k/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://files.grouplens.org/datasets/movielens/ml-100k.zip">https://files.grouplens.org/datasets/movielens/ml-100k.zip</a></p>
+</li>
+<li>
+<p>数据集全称: MovieLens 100K Dataset</p>
+</li>
+<li>
+<p>数据集中文全称: MovieLens 十万级电影评分数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>用户数：943</li>
+<li>电影数：1,682</li>
+<li><strong>评分数：100,000（约 10 万条）</strong></li>
+</ul>
+</li>
+<li>
+<p>类别数量: 电影类型（Genres）19 类（如 Action / Comedy / Drama 等）</p>
+</li>
+</ul>
+<h4 id="2-任务定义-1">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89-1"></a>
+2. 任务定义
+</h4><ul>
+<li>任务类型：推荐系统（Top-K Recommendation）</li>
+<li>输入：(用户ID, 电影ID, 1~5评分, 时间戳)</li>
+<li>输出：Top-K推荐列表</li>
+<li>难点：
+<ul>
+<li>数据极度稀疏（&lt;6.3%）</li>
+<li>无显式负样本（未评分 ≠ 不喜欢）</li>
+<li>用户行为存在时间偏移</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途-1">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94-1"></a>
+3. 主要领域用途
+</h4><ul>
+<li>协同过滤（CF）</li>
+<li>矩阵分解（MF / SVD）</li>
+<li>隐变量模型（VAE / Autoencoder）</li>
+<li>图神经网络推荐（GCN / GraphVAE）</li>
+<li>排序学习（Ranking / BPR）</li>
+</ul>
+<h4 id="4-文件组成-1">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90-1"></a>
+4. 文件组成
+</h4><p><code>u.data</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">user_id \t item_id \t rating \t timestamp
+</span></span></code></pre></div><p><code>u.item</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">movie_id \t title \t release_date \t ... \t genre_0 \t ... \t genre_18
+</span></span></code></pre></div><p><code>u.user</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">user_id \t age \t gender \t occupation \t zip_code
+</span></span></code></pre></div><h4 id="5-读取为pytorch数据集代码-1">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81-1"></a>
+5. 读取为pytorch数据集代码
+</h4><p>目录结构:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ML100K_Dataset/
+</span></span><span class="line"><span class="cl">├── create_dataset.py
+</span></span><span class="line"><span class="cl">├── ml-100k/
+</span></span><span class="line"><span class="cl">│   ├── raw/
+</span></span><span class="line"><span class="cl">│   │   ├── u.data
+</span></span><span class="line"><span class="cl">│   │   ├── u.item
+</span></span><span class="line"><span class="cl">│   │   ├── u.user
+</span></span><span class="line"><span class="cl">│   │   └── README
+</span></span></code></pre></div><p><code>create_dataset.py</code> 代码:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ML100KDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_path</span><span class="o">=</span><span class="s2">&#34;ml-100k&#34;</span><span class="p">,</span> <span class="n">implicit_threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">root_path</span> <span class="o">=</span> <span class="n">root_path</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">raw_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="s2">&#34;raw&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_ratings</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preprocess</span><span class="p">(</span><span class="n">implicit_threshold</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_mapping</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_csr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 1. load raw ratings</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_load_ratings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_path</span><span class="p">,</span> <span class="s2">&#34;u.data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_path</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">sep</span><span class="o">=</span><span class="s2">&#34;</span><span class="se">\t</span><span class="s2">&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;item&#34;</span><span class="p">,</span> <span class="s2">&#34;rating&#34;</span><span class="p">,</span> <span class="s2">&#34;timestamp&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ratings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 2. implicit feedback</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;rating&#34;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ratings</span> <span class="o">=</span> <span class="n">ratings</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&#34;timestamp&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">ratings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 3. mapping</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_build_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">user_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">user2idx</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item2idx</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">j</span> <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">item_ids</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">user2idx</span><span class="p">,</span> <span class="n">item2idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 4. build CSR matrix</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">_build_csr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ratings</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">row</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;user&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">        <span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;item&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">num_users</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">num_items</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">matrix</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">num_items</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># PyTorch API</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># helper</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># -------------------------</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user2idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item2idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dataset</span> <span class="o">=</span> <span class="n">ML100KDataset</span><span class="p">(</span><span class="n">root_path</span><span class="o">=</span><span class="s2">&#34;ml-100k&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Users:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">user2idx</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Items:&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">item2idx</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Sample shape:&#34;</span><span class="p">,</span> <span class="n">dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -465,10 +860,10 @@ MovieLens 100K
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;128.9k</span
+          >&nbsp;134.2k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:21</span>
+        <span class="icon-coffee">&nbsp;05:33</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -494,15 +889,46 @@ MovieLens 100K
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#推荐系统">推荐系统</a>
+      <ul>
+        <li>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-难点">1. 难点</a></li>
+                <li><a href="#2-主流方法">2. 主流方法</a></li>
+                <li><a href="#3-核心指标">3. 核心指标</a></li>
+                <li><a href="#4-弱泛化划分">4. 弱泛化划分</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#推荐系统数据集">推荐系统数据集</a>
       <ul>
+        <li><a href="#movielens-1m">MovieLens 1M</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#movielens-100k">MovieLens 100K</a>
           <ul>
             <li>
               <ul>
-                <li><a href="#1-核心评分文件-udata">1. 核心评分文件 <code>u.data</code></a></li>
-                <li><a href="#2-用户信息-uuser">2. 用户信息 <code>u.user</code></a></li>
-                <li><a href="#3-电影信息-uitem">3. 电影信息 <code>u.item</code></a></li>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -524,7 +950,7 @@ MovieLens 100K
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">124</div>
+    <div>文章</div><div class="sidebar-state-number">128</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -691,7 +1117,7 @@ MovieLens 100K
           author: "byzh",
           title: "[数据集] 推荐系统数据集",
           url: "https:\/\/byzhrichard.github.io\/post\/%E6%95%B0%E6%8D%AE%E9%9B%86\/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E9%9B%86\/",
-          description: "\r推荐系统数据集\rMovieLens 100K\rhttps:\/\/files.grouplens.org\/datasets\/movielens\n主要记录了用户对电影的评分行为，常用于协同过滤、矩阵分解、评分预测、Top-N 推荐\n项目 内容 数据集名称 MovieLens 100K 所属领域 推荐系统 数据类型 用户-电影评分数据 用户数量 943 电影数量 1682 评分数量 100,000 评分范围 1 到 5 分 反馈类型 显式反馈 常见任务 评分预测、Top-N 推荐、协同过滤、矩阵补全 100,000 条评分，来自 943 个用户对 1682 部电影的评分，每个用户至少评价过 20 部 …",
+          description: "\r推荐系统\r推荐系统 = 在“用户 \u002b 物品”的巨大空间里，预测你最可能喜欢的东西\n给定用户 $u$，在所有物品集合 $I$ 中，找一个排序： $$\ri_1, i_2, ..., i_k = \\arg\\max_{i \\in I} P(i \\mid u)\r$$ -\u0026gt; 输出 Top-K\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

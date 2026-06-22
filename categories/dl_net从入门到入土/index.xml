@@ -12,12 +12,66 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] 图卷积网络GCN</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] 图卷积网络GCN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-图卷积网络gcn">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%9b%be%e5%8d%b7%e7%a7%af%e7%bd%91%e7%bb%9cgcn"></a>
+[DL_Net从入门到入土] 图卷积网络GCN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] GraphVAE</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] GraphVAE</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-graphvae">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-graphvae"></a>
+[DL_Net从入门到入土] GraphVAE
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
     
     
 
@@ -222,60 +276,6 @@
           <h1 id="dl_net-从入门到入土-自编码器-ae">
 <a class="header-anchor" href="#dl_net-%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-ae"></a>
 [DL_Net 从入门到入土] 自编码器 AE
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] VAE</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/vae/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] VAE</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-变分自编码器-vae">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%8f%98%e5%88%86%e8%87%aa%e7%bc%96%e7%a0%81%e5%99%a8-vae"></a>
-[DL_Net从入门到入土] 变分自编码器 VAE
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-05-21首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-21</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] GAN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/</link>
-      <pubDate>Thu, 21 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8Bgm/gan/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] GAN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-生成对抗网络-gan">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%94%9f%e6%88%90%e5%af%b9%e6%8a%97%e7%bd%91%e7%bb%9c-gan"></a>
-[DL_Net从入门到入土] 生成对抗网络 GAN
 </h1><h2 id="个人导航">
 <a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
 📢个人导航

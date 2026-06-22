@@ -12,12 +12,127 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 20 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] 图卷积网络GCN</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] 图卷积网络GCN</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-图卷积网络gcn">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%9b%be%e5%8d%b7%e7%a7%af%e7%bd%91%e7%bb%9cgcn"></a>
+[DL_Net从入门到入土] 图卷积网络GCN
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[DL_Net从入门到入土] GraphVAE</title>
+      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</guid>
+      <description>
+        <![CDATA[<h1>[DL_Net从入门到入土] GraphVAE</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="dl_net从入门到入土-graphvae">
+<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-graphvae"></a>
+[DL_Net从入门到入土] GraphVAE
+</h1><h2 id="个人导航">
+<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
+📢个人导航
+</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
+<p>CSDN：https://blog.csdn.net/qq_54636039</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>DL_Net从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI数学从入门到入土] 奇异值分解SVD</title>
+      <link>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/svd/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/svd/</guid>
+      <description>
+        <![CDATA[<h1>[AI数学从入门到入土] 奇异值分解SVD</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="奇异值分解svd">
+<a class="header-anchor" href="#%e5%a5%87%e5%bc%82%e5%80%bc%e5%88%86%e8%a7%a3svd"></a>
+奇异值分解SVD
+</h2><p>SVD: Singular Value Decomposition</p>
+<p>对任意矩阵 $A \in \mathbb{R}^{m \times n}$，SVD可以写成：
+</p>
+$$
+A = U \Sigma V^T
+$$<ul>
+<li>$U \in \mathbb{R}^{m \times m}$：左奇异向量（描述“行空间方向”）</li>
+<li>$\Sigma \in \mathbb{R}^{m \times n}$：对角矩阵（奇异值，从大到小排列）</li>
+<li>$V \in \mathbb{R}^{n \times n}$：右奇异向量（描述“列空间方向”）</li>
+</ul>
+<p>把 SVD 理解成三步几何变换：
+</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>AI数学从入门到入土</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[AI数学从入门到入土] 矩阵压缩技术</title>
+      <link>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/</guid>
+      <description>
+        <![CDATA[<h1>[AI数学从入门到入土] 矩阵压缩技术</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="矩阵压缩技术">
+<a class="header-anchor" href="#%e7%9f%a9%e9%98%b5%e5%8e%8b%e7%bc%a9%e6%8a%80%e6%9c%af"></a>
+矩阵压缩技术
+</h1><p>主要用于存储<strong>大规模稀疏矩阵</strong>——即大部分元素为 0 的矩阵</p>
+<h2 id="coocoordinate-format坐标格式">
+<a class="header-anchor" href="#coocoordinate-format%e5%9d%90%e6%a0%87%e6%a0%bc%e5%bc%8f"></a>
+COO（Coordinate Format，坐标格式）
+</h2><p>直接记录每个非零元素的：</p>
+        
+        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
+      </description>
+      
+        <category>AI数学从入门到入土</category>
+      
+    </item>
     
     
 
@@ -236,127 +351,6 @@ HWDB
       </description>
       
         <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数字图像处理] 6.图像特征与理解</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/</link>
-      <pubDate>Wed, 17 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/6.%E5%9B%BE%E5%83%8F%E7%89%B9%E5%BE%81%E4%B8%8E%E7%90%86%E8%A7%A3/</guid>
-      <description>
-        <![CDATA[<h1>[数字图像处理] 6.图像特征与理解</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="图像几何特征">
-<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e5%87%a0%e4%bd%95%e7%89%b9%e5%be%81"></a>
-图像几何特征
-</h2><p>几何特征：提取图像几何特征之前，常对图像进分割和二值化处理 -&gt; 处理成只有0和1两种值的黑白图像</p>
-<p>周长：用链码表示</p>
-<ul>
-<li>链码值为奇数时，长度为根号二</li>
-<li>链码值为偶数时，长度为一</li>
-</ul>
-<h2 id="图像形状特征">
-<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e5%bd%a2%e7%8a%b6%e7%89%b9%e5%be%81"></a>
-图像形状特征
-</h2><p>形状特征：边界链码、归一化链码、一阶差分链码</p>
-        
-        <hr><p>本文2026-06-17首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-17</p>]]>
-      </description>
-      
-        <category>数字图像处理</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数字图像处理] 5.图像的几何变换</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/5.%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/</link>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/5.%E5%9B%BE%E5%83%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2/</guid>
-      <description>
-        <![CDATA[<h1>[数字图像处理] 5.图像的几何变换</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="图像的几何变换">
-<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e7%9a%84%e5%87%a0%e4%bd%95%e5%8f%98%e6%8d%a2"></a>
-图像的几何变换
-</h1><p>目的: 通过几何变换产生某些特殊的结果，可简化图像处理过程，重要特征是<strong>仅改变像素位置，而不改变图像的像素值</strong></p>
-<h2 id="常见的变换形式矩阵">
-<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%98%e6%8d%a2%e5%bd%a2%e5%bc%8f%e7%9f%a9%e9%98%b5"></a>
-常见的变换形式矩阵
-</h2><p>任意像素点: $P_0(x_0,y_0)$ 用矩阵 $T$ 转换为 $P(x,y)$
-</p>
-        
-        <hr><p>本文2026-06-16首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-16</p>]]>
-      </description>
-      
-        <category>数字图像处理</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数字图像处理] 4.图像编码</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/4.%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/4.%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81/</guid>
-      <description>
-        <![CDATA[<h1>[数字图像处理] 4.图像编码</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="图像编码">
-<a class="header-anchor" href="#%e5%9b%be%e5%83%8f%e7%bc%96%e7%a0%81"></a>
-图像编码
-</h1><h2 id="霍夫曼编码">
-<a class="header-anchor" href="#%e9%9c%8d%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81"></a>
-霍夫曼编码
-</h2><p>霍夫曼编码使用<strong>变长编码</strong>表对源符号（如文件中的一个字母）进行编码，出现机率的字母使用较短的编码，反之出现机率低的则使用较长的编码，这便使编码之后的字符串的平均长度降低，从而达到<strong>无损压缩数据</strong>的目的</p>
-        
-        <hr><p>本文2026-06-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-15</p>]]>
-      </description>
-      
-        <category>数字图像处理</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数字图像处理] 3.二值形态学</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/3.%E4%BA%8C%E5%80%BC%E5%BD%A2%E6%80%81%E5%AD%A6/</link>
-      <pubDate>Mon, 15 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/3.%E4%BA%8C%E5%80%BC%E5%BD%A2%E6%80%81%E5%AD%A6/</guid>
-      <description>
-        <![CDATA[<h1>[数字图像处理] 3.二值形态学</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="二值形态学">
-<a class="header-anchor" href="#%e4%ba%8c%e5%80%bc%e5%bd%a2%e6%80%81%e5%ad%a6"></a>
-二值形态学
-</h1><p>数字形态学处理: 简化图像数据, 保持其基本的形状特性, 除去不相干的结构</p>
-<p>二值形态学的基本运算:</p>
-<ul>
-<li>膨胀</li>
-<li>腐蚀</li>
-<li>开操作和闭操作</li>
-<li>击中与击不中</li>
-</ul>
-<h2 id="腐蚀">
-<a class="header-anchor" href="#%e8%85%90%e8%9a%80"></a>
-腐蚀
-</h2><p>腐蚀：对二值图像中的对象进行“收缩”或“细化” -&gt; 去除物体之间的粘连，消除图像中的小颗粒噪声
-(去除了噪声，但压缩了图像)</p>
-        
-        <hr><p>本文2026-06-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-15</p>]]>
-      </description>
-      
-        <category>数字图像处理</category>
       
     </item>
     

@@ -151,10 +151,12 @@
                 <li><a href="#3-decoder">3. Decoder</a></li>
                 <li><a href="#4-重参数化技巧">4. 重参数化技巧</a></li>
                 <li><a href="#5-损失函数">5. 损失函数</a></li>
+                <li><a href="#6-elbo">6. ELBO</a></li>
               </ul>
             </li>
           </ul>
         </li>
+        <li><a href="#mathbbe_qzxlog-pxz">-&gt; 引入一个**“替代分布”**：(encoder) $$ q(z|x) $$ 然后把 $\log p(x)$ 改写成 $\log \int p(x|z)p(z)dz$ $$ \begin{align} \log \int p(x|z)p(z)dz&amp;=\log \int q(z|x)\frac{p(x|z)p(z)}{q(z|x)}dz \\ &amp;=\log \mathbb{E}_{q(z|x)}\left[\frac{p(x|z)p(z)}{q(z|x)}\right] \end{align} $$ 因为 <strong>log 是凹函数</strong>： $$ \log \mathbb{E}[X] \ge \mathbb{E}[\log X] $$ 所以： $$ \log p(x) \ge \mathbb{E}_{q(z|x)}\left[ \log \frac{p(x|z)p(z)}{q(z|x)} \right] $$ 拆开: $$ \text{第一项:}\quad \mathbb{E}_{q(z|x)}[\log p(x|z)] \\ \text{第二项:}\quad - KL(q(z|x)\|p(z)) $$ 最终 ELBO： $$ ELBO = \mathbb{E}_{q(z|x)}[\log p(x|z)]</a></li>
         <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
@@ -196,7 +198,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">124</div>
+    <div>文章</div><div class="sidebar-state-number">128</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -310,7 +312,7 @@
 <a class="header-anchor" href="#%e8%83%8c%e6%99%af"></a>
 🌱背景
 </h2><p>VAE: Variational AutoEncoder: 变分自编码器</p>
-<p>传统 AE 有一个问题: 没有规定隐变量 $z$ 应该长什么样, 不要求隐空间具有良好的结构</p>
+<p><strong>传统 AE 有一个问题: 没有规定隐变量 $z$ 应该长什么样, 不要求隐空间具有良好的结构</strong></p>
 <blockquote>
 <p>假设 AE 把三张图片编码成下面几个点：</p>
 <ul>
@@ -322,7 +324,7 @@
 <p>但是问题在于：如果我们<strong>随便采样一个点</strong>，比如 $z=[10.0,10.0]$，Decoder 不能生成一个合理的数字
 因为 AE 训练时只见过 Encoder 生成出来的那些 $z$, 故而<strong>没有要求整个隐空间都连续、平滑、有意义</strong></p>
 </blockquote>
-<p>VAE 想让隐空间变得更加规整</p>
+<p><mark>VAE 想让隐空间变得更加规整</mark></p>
 <p>普通 AE 是把输入编码成一个确定的点: $x→z$
 而 <strong>VAE 会把输入编码成一个概率分布</strong>: $x→μ,σ$</p>
 <p>约束这些分布都接近标准正态分布$\mathcal{N}(0, I)$, 那么隐空间就会变得更加连续、规整</p>
@@ -442,6 +444,59 @@ $$<table>
 <p>像 MNIST 这类像素范围在 $[0,1]$ 的图片，常用 BCE</p>
 </blockquote>
 <p>$\mathcal{L}_{KL}=-\frac{1}{2}\sum\left(1 + \log \sigma^2 - \mu^2 - \sigma^2\right)$</p>
+<h4 id="6-elbo">
+<a class="header-anchor" href="#6-elbo"></a>
+6. ELBO
+</h4><p>VAE真正想做的是：<strong>学数据的概率分布 $p(x)$</strong>
+</p>
+$$
+p(x) = \int p(x|z)p(z)dz
+$$<ul>
+<li>高维</li>
+<li>不可解析</li>
+<li>不可直接优化</li>
+</ul>
+<h2 id="mathbbe_qzxlog-pxz">
+<a class="header-anchor" href="#mathbbe_qzxlog-pxz"></a>
+-&gt; 引入一个**“替代分布”**：(encoder)
+$$
+q(z|x)
+$$
+然后把 $\log p(x)$ 改写成 $\log \int p(x|z)p(z)dz$
+$$
+\begin{align}
+\log \int p(x|z)p(z)dz&=\log \int q(z|x)\frac{p(x|z)p(z)}{q(z|x)}dz
+\\
+&=\log \mathbb{E}_{q(z|x)}\left[\frac{p(x|z)p(z)}{q(z|x)}\right]
+\end{align}
+$$
+因为 <strong>log 是凹函数</strong>：
+$$
+\log \mathbb{E}[X] \ge \mathbb{E}[\log X]
+$$
+所以：
+$$
+\log p(x) \ge
+\mathbb{E}_{q(z|x)}\left[
+\log \frac{p(x|z)p(z)}{q(z|x)}
+\right]
+$$
+拆开:
+$$
+\text{第一项:}\quad \mathbb{E}_{q(z|x)}[\log p(x|z)]
+\\
+\text{第二项:}\quad - KL(q(z|x)\|p(z))
+$$
+最终 ELBO：
+$$
+ELBO =
+\mathbb{E}_{q(z|x)}[\log p(x|z)]
+</h2><p>KL(q(z|x)|p(z))
+$$</p>
+<blockquote>
+<p>$Loss=−ELBO$</p>
+<p><mark>注意: VAE 的 loss 不是人为设计的，而是 ELBO 的负形式</mark></p>
+</blockquote>
 <h2 id="优点创新点">
 <a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
 👍优点/创新点
@@ -618,10 +673,10 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;128.9k</span
+          >&nbsp;134.2k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:21</span>
+        <span class="icon-coffee">&nbsp;05:33</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -661,10 +716,12 @@ $$<p>
                 <li><a href="#3-decoder">3. Decoder</a></li>
                 <li><a href="#4-重参数化技巧">4. 重参数化技巧</a></li>
                 <li><a href="#5-损失函数">5. 损失函数</a></li>
+                <li><a href="#6-elbo">6. ELBO</a></li>
               </ul>
             </li>
           </ul>
         </li>
+        <li><a href="#mathbbe_qzxlog-pxz">-&gt; 引入一个**“替代分布”**：(encoder) $$ q(z|x) $$ 然后把 $\log p(x)$ 改写成 $\log \int p(x|z)p(z)dz$ $$ \begin{align} \log \int p(x|z)p(z)dz&amp;=\log \int q(z|x)\frac{p(x|z)p(z)}{q(z|x)}dz \\ &amp;=\log \mathbb{E}_{q(z|x)}\left[\frac{p(x|z)p(z)}{q(z|x)}\right] \end{align} $$ 因为 <strong>log 是凹函数</strong>： $$ \log \mathbb{E}[X] \ge \mathbb{E}[\log X] $$ 所以： $$ \log p(x) \ge \mathbb{E}_{q(z|x)}\left[ \log \frac{p(x|z)p(z)}{q(z|x)} \right] $$ 拆开: $$ \text{第一项:}\quad \mathbb{E}_{q(z|x)}[\log p(x|z)] \\ \text{第二项:}\quad - KL(q(z|x)\|p(z)) $$ 最终 ELBO： $$ ELBO = \mathbb{E}_{q(z|x)}[\log p(x|z)]</a></li>
         <li><a href="#优点创新点">👍优点/创新点</a>
           <ul>
             <li>
@@ -706,7 +763,7 @@ $$<p>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">124</div>
+    <div>文章</div><div class="sidebar-state-number">128</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
