@@ -157,7 +157,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">131</div>
+    <div>文章</div><div class="sidebar-state-number">132</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -285,8 +285,8 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">unbind</span> <span class="s2">&#34;y&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2"> &#34;</span><span class="n">messagemode</span><span class="s2">&#34; // 全局聊天</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">alias</span> <span class="s2">&#34;fly_and_n&#34;</span> <span class="s2">&#34;say_team .fly; say_team .n&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;[&#34;</span> <span class="s2">&#34;fly_and_n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;-&#34;</span> <span class="s2">&#34;noclip&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;[&#34;</span> <span class="s2">&#34;say_team .clear&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;]&#34;</span> <span class="s2">&#34;say_team .rethrow&#34;</span> 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;,&#34;</span>  <span class="s2">&#34;+radialradio&#34;</span>  <span class="o">//</span> <span class="err">快捷聊天轮盘</span> 
@@ -299,12 +299,10 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F5&#34;</span> <span class="s2">&#34;say_team .pause&#34;</span>   <span class="o">//</span> <span class="err">暂停</span>
 </span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F6&#34;</span> <span class="s2">&#34;say_team .unpause&#34;</span> <span class="o">//</span> <span class="err">取消暂停</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F7&#34;</span> <span class="s2">&#34;say_team A!!!&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F8&#34;</span> <span class="s2">&#34;say_team B!!!&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">unbind</span> <span class="s2">&#34;F9&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">unbind</span> <span class="s2">&#34;F10&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F9&#34;</span> <span class="s2">&#34;say_team nice shot! 好枪! Хороший пистолет!&#34;</span> 
-</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F10&#34;</span> <span class="s2">&#34;say_team nice try! 可惜! жаль! เสียดายมาก! ざんねん! 아쉽다! Tiếc quá!&#34;</span> 
+</span></span><span class="line"><span class="cl"><span class="n">unbind</span> <span class="s2">&#34;F7&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">unbind</span> <span class="s2">&#34;F8&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F7&#34;</span> <span class="s2">&#34;say_team nice shot! 好枪! Хороший пистолет!&#34;</span> 
+</span></span><span class="line"><span class="cl"><span class="n">bind</span> <span class="s2">&#34;F8&#34;</span> <span class="s2">&#34;say_team nice try! 可惜! жаль! เสียดายมาก! ざんねん! 아쉽다! Tiếc quá!&#34;</span> 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">持枪视角</span><span class="p">(</span><span class="n">niko</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">viewmodel_fov</span> <span class="mi">68</span>
@@ -381,9 +379,8 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">snd_tensecondwarning_volume</span> <span class="mf">0.251906</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">其他设置</span>
-</span></span><span class="line"><span class="cl"><span class="n">r_fullscreen_gamma</span> <span class="mf">1.989329</span> <span class="o">//</span> <span class="err">亮度设为</span><span class="mi">100</span><span class="o">%</span>
 </span></span><span class="line"><span class="cl"><span class="n">con_enable</span> <span class="mi">1</span> <span class="o">//</span> <span class="err">允许控制台</span>
-</span></span><span class="line"><span class="cl"><span class="n">fps_max</span> <span class="mi">400</span> <span class="o">//</span> <span class="err">最大帧数限制</span><span class="p">(</span><span class="mi">0</span><span class="err">代表无限制</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">r_fullscreen_gamma</span> <span class="mf">1.989329</span> <span class="o">//</span> <span class="err">亮度设为</span><span class="mi">100</span><span class="o">%</span>
 </span></span><span class="line"><span class="cl"><span class="n">cl_hud_telemetry_frametime_show</span> <span class="mi">2</span> <span class="o">//</span> <span class="err">显示帧间时间及</span><span class="n">FPS</span><span class="p">(</span><span class="mi">0</span><span class="err">从不，</span><span class="mi">1</span><span class="err">如果条件恶劣，</span><span class="mi">2</span><span class="err">总是</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">cl_hud_telemetry_ping_show</span> <span class="mi">2</span> <span class="o">//</span> <span class="err">显示延迟</span><span class="p">(</span><span class="mi">0</span><span class="err">从不，</span><span class="mi">1</span><span class="err">如果条件恶劣，</span><span class="mi">2</span><span class="err">总是</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">cl_dm_buyrandomweapons</span> <span class="mi">0</span> <span class="o">//</span> <span class="err">关闭死斗随机买枪</span>
@@ -393,6 +390,7 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">cl_sniper_auto_rezoom</span> <span class="mi">1</span> <span class="o">//</span> <span class="err">开枪后狙击步枪自动重新开镜</span><span class="p">(</span><span class="mi">0</span><span class="err">否，</span><span class="mi">1</span><span class="err">是</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">cl_hud_color</span> <span class="mi">11</span> <span class="o">//</span> <span class="err">浅粉色</span><span class="n">UI</span>
 </span></span><span class="line"><span class="cl"><span class="n">rate</span> <span class="mi">786432</span> <span class="o">//</span> <span class="err">游戏最大流量带宽</span>
+</span></span><span class="line"><span class="cl"><span class="n">switchhandsleft</span> <span class="o">//</span> <span class="err">左手持枪</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">host_writeconfig</span> <span class="o">//</span> <span class="err">保存配置</span> <span class="err">自动执行</span>
 </span></span><span class="line"><span class="cl"><span class="n">echo</span> <span class="s2">&#34;[CFG] Loaded CS2 autoexec.cfg&#34;</span> <span class="o">//</span> <span class="err">控制台提示</span>
@@ -459,7 +457,7 @@ autoexec.cfg
           >&nbsp;135.7k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:37</span>
+        <span class="icon-coffee">&nbsp;05:38</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -505,7 +503,7 @@ autoexec.cfg
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">131</div>
+    <div>文章</div><div class="sidebar-state-number">132</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
