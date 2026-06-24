@@ -45,6 +45,29 @@
     
 
     <item>
+      <title>[Counter-Strike] 荒漠迷城</title>
+      <link>https://byzhrichard.github.io/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/</guid>
+      <description>
+        <![CDATA[<h1>[Counter-Strike] 荒漠迷城</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="匪家">
+<a class="header-anchor" href="#%e5%8c%aa%e5%ae%b6"></a>
+匪家
+</h1>
+        
+        <hr><p>本文2026-06-24首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-24</p>]]>
+      </description>
+      
+        <category>Counter-Strike</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[DL_Net从入门到入土] 图卷积网络GCN</title>
       <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</link>
       <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
@@ -296,33 +319,6 @@ $$<p>
           <h1 id="dl_net从入门到入土-u-net">
 <a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-u-net"></a>
 [DL_Net从入门到入土] U-Net
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] FCN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/fcn/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] FCN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-fcn">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-fcn"></a>
-[DL_Net从入门到入土] FCN
 </h1><h2 id="个人导航">
 <a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
 📢个人导航
