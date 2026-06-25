@@ -1,5 +1,17 @@
 [
   {
+    "objectID": "301d3a8681718e4d508372affa32659cfdac47e5",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] ECG数据集","content": "\rECG数据集\rECG: electrocardiogram: 心电图\n","date": "2026-06-25 00:00:00",
+    "updated": "2026-06-25 00:00:00"
+  }, 
+  {
+    "objectID": "b5c115f422065cdabd8e08e8652c2fd1eaace59f",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/emg%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] EMG数据集","content": "\rEMG数据集\rEMG: Electromyogram: 肌电图\n","date": "2026-06-25 00:00:00",
+    "updated": "2026-06-25 00:00:00"
+  }, 
+  {
     "objectID": "3f79d266e0d756b69aea15da26078f0104a03ea5",
     "permalink": "/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/",
     "title": "[Counter-Strike] 荒漠迷城","content": "\r匪家\r","date": "2026-06-24 00:00:00",
@@ -44,7 +56,7 @@
   {
     "objectID": "5b985e095e9c3e00b013b8673a256a469e094801",
     "permalink": "/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/",
-    "title": "[DL_Net从入门到入土] U-Net","content": "\r[DL_Net从入门到入土] U-Net\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rU-Net: Convolutional Networks for Biomedical Image Segmentation.\n🌱背景\r语义分割的目标：输入一张图像，输出一张像素级类别图\n$Input: (H, W, C)$ $Output: (H, W, K)$ FCN 的核心思想是：把分类 CNN 改造成全卷积网络，让它可以输出 dense prediction map\n但是 FCN 也有一个比较明显的问题：\n深层特征语义强，但是空间分辨率低 浅层特征细节多，但是语义弱 FCN 虽然使用了 skip connection，但是融合方式相对比较粗\n能不能在恢复分辨率的时候，更充分地利用浅层特征中的空间细节? -\u0026gt; U-Net\nU-Net 的核心思想：编码器负责提取语义，解码器负责恢复分辨率，并通过 skip connection 把浅层细节直接拼接回来\n它的整体结构长得像一个字母 U：\ngraph LR\rA[Input Image] --\u003e B[EncoderDownsampling]\rB --\u003e C[Bottleneck]\rC --\u003e D[DecoderUpsampling]\rD --\u003e E[Segmentation Map]\rB -. skip connection .-\u003e D\r更加直观地说：\n左边：不断下采样，提取高级语义 右边：不断上采样，恢复空间分辨率 中间：最深层 bottleneck 横向：skip connection，把浅层细节传给解码器\n⚙️架构(公式)\r👍优点/创新点\r👎缺点\r💻模型代码\r💻项目实例\r略\n","date": "2026-06-20 00:00:00",
+    "title": "[DL_Net从入门到入土] U-Net","content": "\r[DL_Net从入门到入土] U-Net\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\rU-Net: Convolutional Networks for Biomedical Image Segmentation.\n🌱背景\r语义分割的目标：输入一张图像，输出一张像素级类别图\n$Input: (H, W, C)$ $Output: (H, W, K)$ FCN 的核心思想是：把分类 CNN 改造成全卷积网络，让它可以输出 dense prediction map\n但是 FCN 也有一个比较明显的问题：\n深层特征语义强，但是空间分辨率低 浅层特征细节多，但是语义弱 FCN 虽然使用了 skip connection，但是融合方式相对比较粗\n能不能在恢复分辨率的时候，更充分地利用浅层特征中的空间细节? -\u0026amp;gt; U-Net\nU-Net 的核心思想：编码器负责提取语义，解码器负责恢复分辨率，并通过 skip connection 把浅层细节直接拼接回来\n它的整体结构长得像一个字母 U：\ngraph LR\rA[Input Image] --\u0026gt; B[EncoderDownsampling]\rB --\u0026gt; C[Bottleneck]\rC --\u0026gt; D[DecoderUpsampling]\rD --\u0026gt; E[Segmentation Map]\rB -. skip connection .-\u0026gt; D\r更加直观地说：\n左边：不断下采样，提取高级语义 右边：不断上采样，恢复空间分辨率 中间：最深层 bottleneck 横向：skip connection，把浅层细节传给解码器\n⚙️架构(公式)\r1. Encoder（下采样）\r每一层通常包含： $$\rConv(3\\times3) \\rightarrow ReLU \\rightarrow Conv(3\\times3) \\rightarrow ReLU \\rightarrow Pool\r$$ 特点：\n分辨率 ↓ 通道数 ↑ 语义增强 2. Decoder（上采样）\r每一层： $$\rUpConv …","date": "2026-06-20 00:00:00",
     "updated": "2026-06-20 00:00:00"
   }, 
   {
@@ -128,7 +140,7 @@
   {
     "objectID": "a9ae1103997dc3ab96de2fe2db58e41cca1e651c",
     "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/eeg%E6%95%B0%E6%8D%AE%E9%9B%86/",
-    "title": "[数据集] EEG数据集","content": "\rEEG数据集\rSEED\rhttps://bcmi.sjtu.edu.cn/home/seed/\nSEED，全称一般称为 SJTU Emotion EEG Dataset，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。\n它的核心思想是：\n让被试看电影片段 采集被试观看过程中的 EEG 信号 根据电影片段对应的情绪类别进行分类 也就是说，SEED 不是普通的图像、文本、推荐系统数据集，而是一个典型的：\n被试 - 试次 - EEG信号 - 情绪标签 类型的数据集。\n项目 内容 数据集名称 SEED 全称 SJTU Emotion EEG Dataset 所属领域 EEG、脑机接口、情感计算 数据类型 脑电 EEG 信号 被试数量 15 名被试 通道数量 62 个 EEG 通道 实验次数 每个被试 3 次实验 每次实验 15 个电影片段 / 15 个 trial 情绪类别 positive、neutral、negative 类别数量 3 类 反馈类型 情绪标签 常见任务 情绪识别、跨被试分类、跨会话分类、特征提取 SEED 主要记录了被试在观看电影片段时的 EEG 信号，并将每个电影片段对应到正性、中性、负性三种情绪类别。\n1. 数据集基本思想\rSEED 的实验方式比较直观：\n电影片段 -\u0026amp;gt; 诱发情绪 -\u0026amp;gt; 采集 EEG -\u0026amp;gt; 进行情绪分类 例如：\n被试看了一个正性情绪电影片段 系统采集这段时间内的 EEG 信号 该 trial 的标签就是 positive 也就是：\nEEG signal -\u0026amp;gt; positive EEG signal -\u0026amp;gt; neutral EEG signal -\u0026amp;gt; negative 这类数据就是 EEG 情绪识别里最经典的：\n脑电信号 - 情绪类别 2. 情绪类别\rSEED 是一个三分类情绪识别数据集，主要包含三种情绪：\n标签含义 英文 常见数值标签 正性情绪 positive 1 中性情绪 neutral 0 负性情绪 negative -1 也就是说，一个 EEG 样本的标签通常可以理解为：\n1 -\u0026amp;gt; 正性情绪 0 -\u0026amp;gt; 中性情绪 -1 -\u0026amp;gt; 负性情绪 在实际训练模型时，有些代码会把标签转换成：\npositive …","date": "2026-06-13 00:00:00",
+    "title": "[数据集] EEG数据集","content": "\rEEG数据集\rEEG: electroencephalogram: 脑电图\nSEED\rhttps://bcmi.sjtu.edu.cn/home/seed/\nSEED，全称一般称为 SJTU Emotion EEG Dataset，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。\n它的核心思想是：\n让被试看电影片段 采集被试观看过程中的 EEG 信号 根据电影片段对应的情绪类别进行分类 也就是说，SEED 不是普通的图像、文本、推荐系统数据集，而是一个典型的：\n被试 - 试次 - EEG信号 - 情绪标签 类型的数据集。\n项目 内容 数据集名称 SEED 全称 SJTU Emotion EEG Dataset 所属领域 EEG、脑机接口、情感计算 数据类型 脑电 EEG 信号 被试数量 15 名被试 通道数量 62 个 EEG 通道 实验次数 每个被试 3 次实验 每次实验 15 个电影片段 / 15 个 trial 情绪类别 positive、neutral、negative 类别数量 3 类 反馈类型 情绪标签 常见任务 情绪识别、跨被试分类、跨会话分类、特征提取 SEED 主要记录了被试在观看电影片段时的 EEG 信号，并将每个电影片段对应到正性、中性、负性三种情绪类别。\n1. 数据集基本思想\rSEED 的实验方式比较直观：\n电影片段 -\u0026amp;gt; 诱发情绪 -\u0026amp;gt; 采集 EEG -\u0026amp;gt; 进行情绪分类 例如：\n被试看了一个正性情绪电影片段 系统采集这段时间内的 EEG 信号 该 trial 的标签就是 positive 也就是：\nEEG signal -\u0026amp;gt; positive EEG signal -\u0026amp;gt; neutral EEG signal -\u0026amp;gt; negative 这类数据就是 EEG 情绪识别里最经典的：\n脑电信号 - 情绪类别 2. 情绪类别\rSEED 是一个三分类情绪识别数据集，主要包含三种情绪：\n标签含义 英文 常见数值标签 正性情绪 positive 1 中性情绪 neutral 0 负性情绪 negative -1 也就是说，一个 EEG 样本的标签通常可以理解为：\n1 -\u0026amp;gt; 正性情绪 0 -\u0026amp;gt; 中性情绪 -1 -\u0026amp;gt; 负性情绪 在实际 …","date": "2026-06-13 00:00:00",
     "updated": "2026-06-13 00:00:00"
   }, 
   {

@@ -142,9 +142,37 @@
         <li><a href="#个人导航">📢个人导航</a></li>
         <li><a href="#参考资料">📖参考资料</a></li>
         <li><a href="#背景">🌱背景</a></li>
-        <li><a href="#架构公式">⚙️架构(公式)</a></li>
-        <li><a href="#优点创新点">👍优点/创新点</a></li>
-        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-encoder下采样">1. Encoder（下采样）</a></li>
+                <li><a href="#2-decoder上采样">2. Decoder（上采样）</a></li>
+                <li><a href="#3-concat">3. Concat</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-强保真空间恢复">1. 强保真空间恢复</a></li>
+                <li><a href="#2-小数据友好">2. 小数据友好</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-显存消耗大">1. 显存消耗大</a></li>
+                <li><a href="#2-语义融合方式简单">2. 语义融合方式简单</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#模型代码">💻模型代码</a></li>
         <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
@@ -164,7 +192,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">133</div>
+    <div>文章</div><div class="sidebar-state-number">135</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -312,16 +340,220 @@
 <h2 id="架构公式">
 <a class="header-anchor" href="#%e6%9e%b6%e6%9e%84%e5%85%ac%e5%bc%8f"></a>
 ⚙️架构(公式)
-</h2><h2 id="优点创新点">
+</h2><h4 id="1-encoder下采样">
+<a class="header-anchor" href="#1-encoder%e4%b8%8b%e9%87%87%e6%a0%b7"></a>
+1. Encoder（下采样）
+</h4><p>每一层通常包含：
+</p>
+$$
+Conv(3\times3) \rightarrow ReLU \rightarrow Conv(3\times3) \rightarrow ReLU \rightarrow Pool
+$$<p>
+特点：</p>
+<ul>
+<li>分辨率 ↓</li>
+<li>通道数 ↑</li>
+<li>语义增强</li>
+</ul>
+<h4 id="2-decoder上采样">
+<a class="header-anchor" href="#2-decoder%e4%b8%8a%e9%87%87%e6%a0%b7"></a>
+2. Decoder（上采样）
+</h4><p>每一层：
+</p>
+$$
+UpConv \rightarrow Concat(skip) \rightarrow Conv \rightarrow Conv
+$$<ul>
+<li>$[...,...]$ 表示 <strong>channel concat</strong></li>
+<li>skip feature 来自 encoder 对应层</li>
+</ul>
+<h4 id="3-concat">
+<a class="header-anchor" href="#3-concat"></a>
+3. Concat
+</h4><p>U-Net 的关键变化：
+</p>
+$$
+F_{fusion} = concat(F_{encoder}, F_{decoder})
+$$<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>融合方式 - Skip Connection</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FCN</td>
+          <td>element-wise <strong>sum</strong></td>
+      </tr>
+      <tr>
+          <td>U-Net</td>
+          <td>channel-wise <strong>concat</strong></td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>add: <code>y=x1+x2</code>
+-&gt; <strong>信息混合不可逆</strong></li>
+<li>concat: <code>y=[x1,x2]</code>
+-&gt; <strong>信息保留更完整</strong> -&gt; decoder 可以“自己学怎么用浅层信息”</li>
+</ul>
+<blockquote>
+<p>FCN：把深层语义“粗暴加回去”</p>
+<p>U-Net：把浅层细节“完整带回来再重新融合”</p>
+</blockquote>
+<h2 id="优点创新点">
 <a class="header-anchor" href="#%e4%bc%98%e7%82%b9%e5%88%9b%e6%96%b0%e7%82%b9"></a>
 👍优点/创新点
-</h2><h2 id="缺点">
+</h2><h4 id="1-强保真空间恢复">
+<a class="header-anchor" href="#1-%e5%bc%ba%e4%bf%9d%e7%9c%9f%e7%a9%ba%e9%97%b4%e6%81%a2%e5%a4%8d"></a>
+1. 强保真空间恢复
+</h4><p>skip connection 直接传递高分辨率特征</p>
+<h4 id="2-小数据友好">
+<a class="header-anchor" href="#2-%e5%b0%8f%e6%95%b0%e6%8d%ae%e5%8f%8b%e5%a5%bd"></a>
+2. 小数据友好
+</h4><ul>
+<li>参数效率高</li>
+<li>inductive bias 强 (归纳偏置)</li>
+</ul>
+<h2 id="缺点">
 <a class="header-anchor" href="#%e7%bc%ba%e7%82%b9"></a>
 👎缺点
-</h2><h2 id="模型代码">
+</h2><h4 id="1-显存消耗大">
+<a class="header-anchor" href="#1-%e6%98%be%e5%ad%98%e6%b6%88%e8%80%97%e5%a4%a7"></a>
+1. 显存消耗大
+</h4><p>concat 会导致 channel doubling</p>
+<h4 id="2-语义融合方式简单">
+<a class="header-anchor" href="#2-%e8%af%ad%e4%b9%89%e8%9e%8d%e5%90%88%e6%96%b9%e5%bc%8f%e7%ae%80%e5%8d%95"></a>
+2. 语义融合方式简单
+</h4><p>只是 concat + conv，没有显式 attention</p>
+<h2 id="模型代码">
 <a class="header-anchor" href="#%e6%a8%a1%e5%9e%8b%e4%bb%a3%e7%a0%81"></a>
 💻模型代码
-</h2><h2 id="项目实例">
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 基本卷积模块（Conv + ReLU ×2）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">DoubleConv</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    两次 3x3 Conv + ReLU
+</span></span></span><span class="line"><span class="cl"><span class="s2">    U-Net 的基本构建单元
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">DoubleConv</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># U-Net 主体结构</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">UNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">UNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># -------- Encoder（下采样）--------</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enc1</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enc2</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enc3</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">enc4</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 下采样（2x2 maxpool）</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># -------- Bottleneck（最深层）--------</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">bottleneck</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># -------- Decoder（上采样）--------</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">up4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dec4</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">up3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dec3</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">up2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dec2</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">up1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">dec1</span> <span class="o">=</span> <span class="n">DoubleConv</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># -------- 输出层 --------</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">out_conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Encoder path</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>          <span class="c1"># 64 channels</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>  <span class="c1"># 128 channels</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc3</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>  <span class="c1"># 256 channels</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">enc4</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">x3</span><span class="p">))</span>  <span class="c1"># 512 channels</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Bottleneck</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bottleneck</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">x4</span><span class="p">))</span>  <span class="c1"># 1024 channels</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Decoder path + Skip Connection</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ---- 8s level ----</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">up4</span><span class="p">(</span><span class="n">x5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d4</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">d4</span><span class="p">,</span> <span class="n">x4</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># skip connection (concat)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dec4</span><span class="p">(</span><span class="n">d4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ---- 16s level ----</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">up3</span><span class="p">(</span><span class="n">d4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">d3</span><span class="p">,</span> <span class="n">x3</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dec3</span><span class="p">(</span><span class="n">d3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ---- 32s level ----</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">up2</span><span class="p">(</span><span class="n">d3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">d2</span><span class="p">,</span> <span class="n">x2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dec2</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># ---- final level ----</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">up1</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">d1</span><span class="p">,</span> <span class="n">x1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">d1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dec1</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 输出 segmentation map</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_conv</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">out</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 简单 random 测试 main</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># =========================</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 随机输入：</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># batch_size=1, RGB image 256x256</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 初始化模型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">UNet</span><span class="p">(</span><span class="n">num_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># forward</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 输出 shape</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Input shape :&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Output shape:&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="项目实例">
 <a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e5%ae%9e%e4%be%8b"></a>
 💻项目实例
 </h2><p>略</p>
@@ -385,10 +617,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;135.7k</span
+          >&nbsp;136.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:39</span>
+        <span class="icon-coffee">&nbsp;05:42</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -419,9 +651,37 @@
         <li><a href="#个人导航">📢个人导航</a></li>
         <li><a href="#参考资料">📖参考资料</a></li>
         <li><a href="#背景">🌱背景</a></li>
-        <li><a href="#架构公式">⚙️架构(公式)</a></li>
-        <li><a href="#优点创新点">👍优点/创新点</a></li>
-        <li><a href="#缺点">👎缺点</a></li>
+        <li><a href="#架构公式">⚙️架构(公式)</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-encoder下采样">1. Encoder（下采样）</a></li>
+                <li><a href="#2-decoder上采样">2. Decoder（上采样）</a></li>
+                <li><a href="#3-concat">3. Concat</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#优点创新点">👍优点/创新点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-强保真空间恢复">1. 强保真空间恢复</a></li>
+                <li><a href="#2-小数据友好">2. 小数据友好</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#缺点">👎缺点</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-显存消耗大">1. 显存消耗大</a></li>
+                <li><a href="#2-语义融合方式简单">2. 语义融合方式简单</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li><a href="#模型代码">💻模型代码</a></li>
         <li><a href="#项目实例">💻项目实例</a></li>
       </ul>
@@ -441,7 +701,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">133</div>
+    <div>文章</div><div class="sidebar-state-number">135</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>

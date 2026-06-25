@@ -12,12 +12,58 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 24 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数据集] EMG数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/emg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/emg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] EMG数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="emg数据集">
+<a class="header-anchor" href="#emg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+EMG数据集
+</h1><p>EMG: Electro<strong>myo</strong>gram: 肌电图</p>
+        
+        <hr><p>本文2026-06-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-25</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数据集] ECG数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] ECG数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="ecg数据集">
+<a class="header-anchor" href="#ecg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+ECG数据集
+</h1><p>ECG: electro<strong>cardio</strong>gram: 心电图</p>
+        
+        <hr><p>本文2026-06-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-25</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
     
     
 
@@ -272,63 +318,6 @@ $$<p>
       </description>
       
         <category>DL从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL从入门到入土] 反卷积</title>
-      <link>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8F%8D%E5%8D%B7%E7%A7%AF/</guid>
-      <description>
-        <![CDATA[<h1>[DL从入门到入土] 反卷积</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="反卷积转置卷积-transposed-convolution">
-<a class="header-anchor" href="#%e5%8f%8d%e5%8d%b7%e7%a7%af%e8%bd%ac%e7%bd%ae%e5%8d%b7%e7%a7%af-transposed-convolution"></a>
-反卷积/转置卷积 transposed convolution
-</h1><p>反卷积不是“真正的卷积逆运算”, 只是<strong>一种“可学习的上采样方法”</strong></p>
-<blockquote>
-<p><strong>普通卷积</strong>（压缩）</p>
-<p>输入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1 2 3
-</span></span><span class="line"><span class="cl">4 5 6
-</span></span><span class="line"><span class="cl">7 8 9
-</span></span></code></pre></div><p>kernel滑动 → 输出变小</p>
-        
-        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
-      </description>
-      
-        <category>DL从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] U-Net</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E8%AF%AD%E4%B9%89%E5%AE%9E%E4%BE%8B%E5%88%86%E5%89%B2/u-net/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] U-Net</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-u-net">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-u-net"></a>
-[DL_Net从入门到入土] U-Net
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
       
     </item>
     
