@@ -1,5 +1,11 @@
 [
   {
+    "objectID": "dbf70f82894dc18225f6d7db2af7107f2345f5e5",
+    "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86/",
+    "title": "[数据集] 语义分割数据集","content": "\r语义分割数据集\rMSRC-V2数据集\r1. 数据集介绍\r官网:\n下载链接:\n数据集全称: Microsoft Research Cambridge Object Recognition Dataset V2\n数据集中文全称: 微软研究院剑桥目标识别数据集 V2\n样本规模（train / test 数量）\n总样本数：591 张图像 Train / Test：约 276 / 275（不同论文可能略有差异） 类别数量\n21 个语义类别（常用设置） 部分设置包含 “void / background” 类 2. 任务定义\r任务类型：多分类语义分割（Multi-class Semantic Segmentation） 输入：RGB 自然图像（尺寸不固定，通常为中等分辨率） 输出：与输入图像同尺寸的像素级类别标签图（label map） 难点： 类别间视觉差异较小（例如 tree / grass / sky） 背景复杂且类别共现频繁 类内形态变化较大（如 car、building） 标注精度有限（早期数据集标签较粗糙） 类别不均衡（部分类别样本较少） 3. 主要领域用途\r语义分割算法基准测试（经典 early benchmark）\nFCN / SegNet / U-Net 等模型早期验证数据集\n小规模快速实验与模型对比\n多类别像素分类任务教学与入门研究\n图像理解与场景解析（scene understanding）\n4. 文件组成\rimages/\n原始 RGB 图像（.bmp / .jpg） ground_truth / labels/\n像素级标注图（通常为 indexed image） metadata /\n类别名称列表（class names） 类别映射关系（label mapping） train/test split 文件（有些版本提供）\ntrain.txt test.txt 5. 读取为pytorch数据集代码\r略\n","date": "2026-06-27 00:00:00",
+    "updated": "2026-06-27 00:00:00"
+  }, 
+  {
     "objectID": "301d3a8681718e4d508372affa32659cfdac47e5",
     "permalink": "/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/",
     "title": "[数据集] ECG数据集","content": "\rECG数据集\rECG: electrocardiogram: 心电图\n","date": "2026-06-25 00:00:00",

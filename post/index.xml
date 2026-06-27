@@ -12,12 +12,55 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数据集] 语义分割数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] 语义分割数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="语义分割数据集">
+<a class="header-anchor" href="#%e8%af%ad%e4%b9%89%e5%88%86%e5%89%b2%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+语义分割数据集
+</h1><h2 id="msrc-v2数据集">
+<a class="header-anchor" href="#msrc-v2%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+MSRC-V2数据集
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网:</p>
+</li>
+<li>
+<p>下载链接:</p>
+</li>
+<li>
+<p>数据集全称: Microsoft Research Cambridge Object Recognition Dataset V2</p>
+</li>
+<li>
+<p>数据集中文全称: 微软研究院剑桥目标识别数据集 V2</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+        
+        <hr><p>本文2026-06-27首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-27</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
     
     
 
@@ -266,58 +309,6 @@ COO（Coordinate Format，坐标格式）
       </description>
       
         <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL从入门到入土] 卷积</title>
-      <link>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF/</link>
-      <pubDate>Sat, 20 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%8D%B7%E7%A7%AF/</guid>
-      <description>
-        <![CDATA[<h1>[DL从入门到入土] 卷积</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="数值计算公式">
-<a class="header-anchor" href="#%e6%95%b0%e5%80%bc%e8%ae%a1%e7%ae%97%e5%85%ac%e5%bc%8f"></a>
-数值计算公式
-</h2><p>对输入特征图 $X$，卷积核 $W$，输出 $Y$：
-</p>
-$$
-Y(i,j) = \sum_{c=1}^{C_{in}} \sum_{u=0}^{K_h-1} \sum_{v=0}^{K_w-1}
-X(i+u, j+v, c)\cdot W(u,v,c)
-$$<p>
-如果有 bias：
-</p>
-$$
-Y(i,j) += b
-$$<h4 id="1-例子">
-<a class="header-anchor" href="#1-%e4%be%8b%e5%ad%90"></a>
-1. 例子
-</h4><p>输入: $X \in \mathbb{R}^{3 \times 3 \times 2}$
-</p>
-$$
-X^{(1)}=\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{bmatrix}
-,\quad
-X^{(2)}=\begin{bmatrix}
-1 & 1 & 1 \\
-1 & 1 & 1 \\
-1 & 1 & 1
-\end{bmatrix}
-$$<p>
-卷积核: (卷积核层数必须等于输入通道数)
-</p>
-        
-        <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
-      </description>
-      
-        <category>DL从入门到入土</category>
       
     </item>
     
