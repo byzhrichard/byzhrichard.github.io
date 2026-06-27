@@ -139,7 +139,7 @@
   <ul>
     <li><a href="#语义分割数据集">语义分割数据集</a>
       <ul>
-        <li><a href="#msrc-v2数据集">MSRC-V2数据集</a>
+        <li><a href="#msrc-v2">MSRC-V2</a>
           <ul>
             <li>
               <ul>
@@ -148,6 +148,19 @@
                 <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
                 <li><a href="#4-文件组成">4. 文件组成</a></li>
                 <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#bsds500">BSDS500</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -169,7 +182,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">136</div>
+    <div>文章</div><div class="sidebar-state-number">137</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -267,9 +280,9 @@
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="语义分割数据集">
 <a class="header-anchor" href="#%e8%af%ad%e4%b9%89%e5%88%86%e5%89%b2%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
 语义分割数据集
-</h1><h2 id="msrc-v2数据集">
-<a class="header-anchor" href="#msrc-v2%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-MSRC-V2数据集
+</h1><h2 id="msrc-v2">
+<a class="header-anchor" href="#msrc-v2"></a>
+MSRC-V2
 </h2><h4 id="1-数据集介绍">
 <a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
 1. 数据集介绍
@@ -351,6 +364,110 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
 <a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81"></a>
 5. 读取为pytorch数据集代码
 </h4><p>略</p>
+<h2 id="bsds500">
+<a class="header-anchor" href="#bsds500"></a>
+BSDS500
+</h2><h4 id="1-数据集介绍-1">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d-1"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/segbench/">https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/segbench/</a></p>
+</li>
+<li>
+<p>下载链接:</p>
+</li>
+<li>
+<p>数据集全称: Berkeley Segmentation Dataset and Benchmark 500</p>
+</li>
+<li>
+<p>(如有)数据集中文全称: 伯克利图像分割数据集 500</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>Train：200 张</li>
+<li>Validation：100 张</li>
+<li>Test：200 张</li>
+</ul>
+</li>
+<li>
+<p>类别数量: 无固定语义类别数</p>
+</li>
+</ul>
+<h4 id="2-任务定义-1">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89-1"></a>
+2. 任务定义
+</h4><ul>
+<li>
+<p>任务类型</p>
+<ul>
+<li>图像分割（Image Segmentation）
+更准确说：<strong>边界检测 + 区域分割（Contour-based segmentation）</strong></li>
+<li>不同于语义分割（Semantic Segmentation）</li>
+</ul>
+</li>
+<li>
+<p>输入：RGB 自然图像</p>
+</li>
+<li>
+<p>输出：多个人工标注的分割结果（每张图通常有 3–5 个 ground truth segmentation）</p>
+</li>
+<li>
+<p>难点：</p>
+<ul>
+<li>多个“正确答案”（one-to-many 标注）</li>
+<li>人类标注主观性强</li>
+<li>目标不是语义类别，而是“区域一致性”</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途-1">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94-1"></a>
+3. 主要领域用途
+</h4><p>图像分割算法评估基准（经典 benchmark）</p>
+<p>边缘检测（Edge detection）</p>
+<p>无监督 / 弱监督分割方法验证</p>
+<p>图像超像素（Superpixel）算法评估</p>
+<p>早期 CV 方法（Normalized Cuts / Graph-based segmentation）</p>
+<p>深度学习分割模型对比测试（如 U-Net / FCN 的辅助实验）</p>
+<h4 id="4-文件组成-1">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90-1"></a>
+4. 文件组成
+</h4><p>images/</p>
+<ul>
+<li>所有原始 RGB 图像（500 张）</li>
+</ul>
+<p>groundTruth/</p>
+<ul>
+<li>每张图像对应多个人工分割标注</li>
+<li>通常结构：
+<ul>
+<li>image_0001.mat</li>
+<li>image_0002.mat</li>
+</ul>
+</li>
+<li>每个 mat 中包含多个 segmentation masks</li>
+</ul>
+<p>boundaries/（部分版本）</p>
+<ul>
+<li>边缘标注图（boundary maps）</li>
+</ul>
+<p>splittings/</p>
+<ul>
+<li>train.txt</li>
+<li>val.txt</li>
+<li>test.txt</li>
+</ul>
+<p>metadata/</p>
+<ul>
+<li>图像索引信息</li>
+<li>标注统计信息</li>
+</ul>
+<h4 id="5-读取为pytorch数据集代码-1">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81-1"></a>
+5. 读取为pytorch数据集代码
+</h4><p>略</p>
 </div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -378,6 +495,18 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
         ></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">[数据集] ECG数据集</h3>
+      </div><div class="article-nav-link-wrap right"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[数据集] 时序预测数据集"
+              class="lazyload"
+            /><a
+          href="/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E6%95%B0%E6%8D%AE%E9%9B%86/"
+          aria-label="后一篇:[数据集] 时序预测数据集"
+          title="后一篇:[数据集] 时序预测数据集"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">[数据集] 时序预测数据集</h3>
       </div></nav></article></section>
         </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
@@ -399,10 +528,10 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;137.1k</span
+          >&nbsp;138.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:44</span>
+        <span class="icon-coffee">&nbsp;05:47</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -430,7 +559,7 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
   <ul>
     <li><a href="#语义分割数据集">语义分割数据集</a>
       <ul>
-        <li><a href="#msrc-v2数据集">MSRC-V2数据集</a>
+        <li><a href="#msrc-v2">MSRC-V2</a>
           <ul>
             <li>
               <ul>
@@ -439,6 +568,19 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
                 <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
                 <li><a href="#4-文件组成">4. 文件组成</a></li>
                 <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#bsds500">BSDS500</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -460,7 +602,7 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">136</div>
+    <div>文章</div><div class="sidebar-state-number">137</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -627,7 +769,7 @@ Train / Test：约 276 / 275（不同论文可能略有差异）</li>
           author: "byzh",
           title: "[数据集] 语义分割数据集",
           url: "https:\/\/byzhrichard.github.io\/post\/%E6%95%B0%E6%8D%AE%E9%9B%86\/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86\/",
-          description: "\r语义分割数据集\rMSRC-V2数据集\r1. 数据集介绍\r官网:\n下载链接:\n数据集全称: Microsoft Research Cambridge Object Recognition Dataset V2\n数据集中文全称: 微软研究院剑桥目标识别数据集 V2\n样本规模（train \/ test 数量）\n",
+          description: "\r语义分割数据集\rMSRC-V2\r1. 数据集介绍\r官网:\n下载链接:\n数据集全称: Microsoft Research Cambridge Object Recognition Dataset V2\n数据集中文全称: 微软研究院剑桥目标识别数据集 V2\n样本规模（train \/ test 数量）\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
