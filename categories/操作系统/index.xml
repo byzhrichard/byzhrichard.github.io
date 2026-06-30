@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>操作系统 on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[操作系统] 图片格式</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</guid>
+      <description>
+        <![CDATA[<h1>[操作系统] 图片格式</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="图片格式">
+<a class="header-anchor" href="#%e5%9b%be%e7%89%87%e6%a0%bc%e5%bc%8f"></a>
+图片格式
+</h1><h2 id="分类">
+<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
+分类
+</h2><h4 id="1-位图raster-image像素型最常见">
+<a class="header-anchor" href="#1-%e4%bd%8d%e5%9b%beraster-image%e5%83%8f%e7%b4%a0%e5%9e%8b%e6%9c%80%e5%b8%b8%e8%a7%81"></a>
+1. 位图（Raster Image）——像素型（最常见）
+</h4><ul>
+<li>JPEG</li>
+<li>PNG</li>
+<li>GIF</li>
+<li>WebP</li>
+<li>BMP</li>
+<li>TIFF</li>
+</ul>
+<h4 id="2-矢量图vector-image数学型">
+<a class="header-anchor" href="#2-%e7%9f%a2%e9%87%8f%e5%9b%bevector-image%e6%95%b0%e5%ad%a6%e5%9e%8b"></a>
+2. 矢量图（Vector Image）——数学型
+</h4><p>不是像素，而是公式：</p>
+        
+        <hr><p>本文2026-06-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-30</p>]]>
+      </description>
+      
+        <category>操作系统</category>
+      
+    </item>
+    
+  </channel>
+</rss>

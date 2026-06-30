@@ -12,12 +12,108 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[操作系统] 图片格式</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</guid>
+      <description>
+        <![CDATA[<h1>[操作系统] 图片格式</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="图片格式">
+<a class="header-anchor" href="#%e5%9b%be%e7%89%87%e6%a0%bc%e5%bc%8f"></a>
+图片格式
+</h1><h2 id="分类">
+<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
+分类
+</h2><h4 id="1-位图raster-image像素型最常见">
+<a class="header-anchor" href="#1-%e4%bd%8d%e5%9b%beraster-image%e5%83%8f%e7%b4%a0%e5%9e%8b%e6%9c%80%e5%b8%b8%e8%a7%81"></a>
+1. 位图（Raster Image）——像素型（最常见）
+</h4><ul>
+<li>JPEG</li>
+<li>PNG</li>
+<li>GIF</li>
+<li>WebP</li>
+<li>BMP</li>
+<li>TIFF</li>
+</ul>
+<h4 id="2-矢量图vector-image数学型">
+<a class="header-anchor" href="#2-%e7%9f%a2%e9%87%8f%e5%9b%bevector-image%e6%95%b0%e5%ad%a6%e5%9e%8b"></a>
+2. 矢量图（Vector Image）——数学型
+</h4><p>不是像素，而是公式：</p>
+        
+        <hr><p>本文2026-06-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-30</p>]]>
+      </description>
+      
+        <category>操作系统</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] Microsoft_Word</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/microsoft_word/</link>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/microsoft_word/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Microsoft_Word</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="microsoft_word">
+<a class="header-anchor" href="#microsoft_word"></a>
+Microsoft_Word
+</h1><h2 id="因为表格导致空白页">
+<a class="header-anchor" href="#%e5%9b%a0%e4%b8%ba%e8%a1%a8%e6%a0%bc%e5%af%bc%e8%87%b4%e7%a9%ba%e7%99%bd%e9%a1%b5"></a>
+因为表格导致空白页
+</h2><p>字号设置为 <code>1</code></p>
+        
+        <hr><p>本文2026-06-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-29</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[信号] 带宽</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%B8%A6%E5%AE%BD/</link>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%B8%A6%E5%AE%BD/</guid>
+      <description>
+        <![CDATA[<h1>[信号] 带宽</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="带宽">
+<a class="header-anchor" href="#%e5%b8%a6%e5%ae%bd"></a>
+带宽
+</h2><p>傅里叶思想: 任何信号都可以分解为不同频率的正弦波
+-&gt; 带宽就是这些频率分量“从最低到最高”的跨度</p>
+<p>带宽 = 频谱“显著能量范围”的宽度</p>
+<ul>
+<li>理论: $B=f_{max}-f_{min}$</li>
+<li>工程: <code>3 dB 带宽</code>: 功率下降到一半（-3dB）对应的频率范围</li>
+</ul>
+<p>带宽就是信号在频域中“占据的频率宽度”，决定了信号变化速度和信息容量</p>
+        
+        <hr><p>本文2026-06-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-28</p>]]>
+      </description>
+      
+        <category>信号</category>
+      
+    </item>
     
     
 
@@ -140,6 +236,27 @@ EMG数据集
 <a class="header-anchor" href="#ecg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
 ECG数据集
 </h1><p>ECG: electro<strong>cardio</strong>gram: 心电图</p>
+<h2 id="ptb-xl">
+<a class="header-anchor" href="#ptb-xl"></a>
+PTB-XL
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://physionet.org/content/ptb-xl/1.0.3/">https://physionet.org/content/ptb-xl/1.0.3/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://physionet.org/content/ptb-xl/get-zip/1.0.3/">https://physionet.org/content/ptb-xl/get-zip/1.0.3/</a></p>
+</li>
+<li>
+<p>数据集全称: PTB-XL, a large publicly available electrocardiography dataset</p>
+</li>
+<li>
+<p>(如有)数据集中文全称: PTB-XL 心电图大规模公开数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
         
         <hr><p>本文2026-06-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-25</p>]]>
       </description>
@@ -218,94 +335,6 @@ ECG数据集
       </description>
       
         <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] GraphVAE</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</link>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/graphvae/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] GraphVAE</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-graphvae">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-graphvae"></a>
-[DL_Net从入门到入土] GraphVAE
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[AI数学从入门到入土] 奇异值分解SVD</title>
-      <link>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd/</link>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd/</guid>
-      <description>
-        <![CDATA[<h1>[AI数学从入门到入土] 奇异值分解SVD</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="奇异值分解svd">
-<a class="header-anchor" href="#%e5%a5%87%e5%bc%82%e5%80%bc%e5%88%86%e8%a7%a3svd"></a>
-奇异值分解SVD
-</h2><p>SVD: Singular Value Decomposition</p>
-<p>对任意矩阵 $A \in \mathbb{R}^{m \times n}$，SVD可以写成：
-</p>
-$$
-A = U \Sigma V^T
-$$<ul>
-<li>$U \in \mathbb{R}^{m \times m}$：左奇异向量（描述“行空间方向”）</li>
-<li>$\Sigma \in \mathbb{R}^{m \times n}$：对角矩阵（奇异值，从大到小排列）</li>
-<li>$V \in \mathbb{R}^{n \times n}$：右奇异向量（描述“列空间方向”）</li>
-</ul>
-<p>把 SVD 理解成三步几何变换：
-</p>
-        
-        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
-      </description>
-      
-        <category>AI数学从入门到入土</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[AI数学从入门到入土] 矩阵压缩技术</title>
-      <link>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/ai%E6%95%B0%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/</guid>
-      <description>
-        <![CDATA[<h1>[AI数学从入门到入土] 矩阵压缩技术</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="矩阵压缩技术">
-<a class="header-anchor" href="#%e7%9f%a9%e9%98%b5%e5%8e%8b%e7%bc%a9%e6%8a%80%e6%9c%af"></a>
-矩阵压缩技术
-</h1><p>主要用于存储<strong>大规模稀疏矩阵</strong>——即大部分元素为 0 的矩阵</p>
-<h2 id="coocoordinate-format坐标格式">
-<a class="header-anchor" href="#coocoordinate-format%e5%9d%90%e6%a0%87%e6%a0%bc%e5%bc%8f"></a>
-COO（Coordinate Format，坐标格式）
-</h2><p>直接记录每个非零元素的：</p>
-        
-        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
-      </description>
-      
-        <category>AI数学从入门到入土</category>
       
     </item>
     

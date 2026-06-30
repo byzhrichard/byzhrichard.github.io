@@ -137,7 +137,23 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#ecg数据集">ECG数据集</a></li>
+    <li><a href="#ecg数据集">ECG数据集</a>
+      <ul>
+        <li><a href="#ptb-xl">PTB-XL</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -153,12 +169,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">137</div>
+    <div>文章</div><div class="sidebar-state-number">139</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      20
+      21
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -252,7 +268,118 @@
 <a class="header-anchor" href="#ecg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
 ECG数据集
 </h1><p>ECG: electro<strong>cardio</strong>gram: 心电图</p>
-</div>
+<h2 id="ptb-xl">
+<a class="header-anchor" href="#ptb-xl"></a>
+PTB-XL
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://physionet.org/content/ptb-xl/1.0.3/">https://physionet.org/content/ptb-xl/1.0.3/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://physionet.org/content/ptb-xl/get-zip/1.0.3/">https://physionet.org/content/ptb-xl/get-zip/1.0.3/</a></p>
+</li>
+<li>
+<p>数据集全称: PTB-XL, a large publicly available electrocardiography dataset</p>
+</li>
+<li>
+<p>(如有)数据集中文全称: PTB-XL 心电图大规模公开数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>总样本数：<strong>21,837 条 12导联 ECG</strong></li>
+<li>每条长度：<strong>10 秒</strong></li>
+<li>采样率：<strong>500 Hz（原始）/ 100 Hz（降采样版本）</strong></li>
+<li>常见划分（官方推荐）：
+<ul>
+<li>Train: ~17,000+</li>
+<li>Test: ~4,000+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>类别数量</p>
+<ul>
+<li>5 大超级类别（superclasses）</li>
+<li>71 个细粒度诊断标签（subclasses）</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-任务定义">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89"></a>
+2. 任务定义
+</h4><ul>
+<li>
+<p>任务类型：多分类（Multi-class Classification）</p>
+</li>
+<li>
+<p>输入：$X \in \mathbb{R}^{12 \times T}$</p>
+<ul>
+<li>12导联 ECG 信号</li>
+<li>T = 1000（100Hz版本）或 5000（500Hz版本）</li>
+</ul>
+</li>
+<li>
+<p>输出：$y \in \{0,1\}^{71}$ 或 $y \in \{0,1\}^{5}$</p>
+</li>
+<li>
+<p>难点：</p>
+<ul>
+<li>多标签共存（一个心电图可能多个病理）</li>
+<li>类别极度不平衡（long-tail distribution）</li>
+<li>导联间强相关 + 冗余信息</li>
+<li>噪声 + 个体差异大</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94"></a>
+3. 主要领域用途
+</h4><p>心电图自动诊断（ECG diagnosis）</p>
+<p>心律失常检测（Arrhythmia detection）</p>
+<p>临床辅助决策系统（CDSS）</p>
+<p>深度学习时序建模研究</p>
+<p>多标签医疗信号分类 benchmark</p>
+<p>自监督 ECG 表征学习（contrastive learning）</p>
+<h4 id="4-文件组成">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90"></a>
+4. 文件组成
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ptbxl/
+</span></span><span class="line"><span class="cl">├── records100/        # 100 Hz ECG信号
+</span></span><span class="line"><span class="cl">│   ├── 00000/...
+</span></span><span class="line"><span class="cl">│   ├── 01000/...
+</span></span><span class="line"><span class="cl">├── records500/        # 500 Hz ECG信号
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├── ptbxl_database.csv # 核心标签与元数据
+</span></span><span class="line"><span class="cl">├── scp_statements.csv # 标签映射（SNOMED → superclass）
+</span></span><span class="line"><span class="cl">├── metadata.csv       # 记录病人信息
+</span></span></code></pre></div><h4 id="5-读取为pytorch数据集代码">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81"></a>
+5. 读取为pytorch数据集代码
+</h4><p>目录结构: (以HWDB为例)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">HWDB_Dataset/
+</span></span><span class="line"><span class="cl">├── create_dataset.py (处理并得到pytorch的Dataset)
+</span></span><span class="line"><span class="cl">├── gnt2png.py (如果需要的话)
+</span></span><span class="line"><span class="cl">├── HWDB/
+</span></span><span class="line"><span class="cl">│   ├── raw/ (原始数据应放在raw里)
+</span></span><span class="line"><span class="cl">│   │   ├── HWDB1.1trn_gnt/
+</span></span><span class="line"><span class="cl">│   │   │   ├── 1001-c.gnt
+</span></span><span class="line"><span class="cl">│   │   │   ├── 1002-c.gnt
+</span></span><span class="line"><span class="cl">│   │   │   └── ...
+</span></span><span class="line"><span class="cl">│   │   │
+</span></span><span class="line"><span class="cl">│   │   └── HWDB1.1tst_gnt/
+</span></span><span class="line"><span class="cl">│   │       ├── 1241-c.gnt
+</span></span><span class="line"><span class="cl">│   │       ├── 1242-c.gnt
+</span></span><span class="line"><span class="cl">│   │       └── ...
+</span></span></code></pre></div><p><code>create_dataset.py</code> 代码:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">xxx</span>
+</span></span></code></pre></div><p><code>gnt2png.py</code> 代码:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">xxx</span>
+</span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -312,10 +439,10 @@ ECG数据集
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;138.6k</span
+          >&nbsp;140.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;05:47</span>
+        <span class="icon-coffee">&nbsp;05:51</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -341,7 +468,23 @@ ECG数据集
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#ecg数据集">ECG数据集</a></li>
+    <li><a href="#ecg数据集">ECG数据集</a>
+      <ul>
+        <li><a href="#ptb-xl">PTB-XL</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -357,12 +500,12 @@ ECG数据集
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">137</div>
+    <div>文章</div><div class="sidebar-state-number">139</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      20
+      21
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -524,7 +667,7 @@ ECG数据集
           author: "byzh",
           title: "[数据集] ECG数据集",
           url: "https:\/\/byzhrichard.github.io\/post\/%E6%95%B0%E6%8D%AE%E9%9B%86\/ecg%E6%95%B0%E6%8D%AE%E9%9B%86\/",
-          description: "\rECG数据集\rECG: electrocardiogram: 心电图\n",
+          description: "\rECG数据集\rECG: electrocardiogram: 心电图\nPTB-XL\r1. 数据集介绍\r官网: https:\/\/physionet.org\/content\/ptb-xl\/1.0.3\/\n下载链接: https:\/\/physionet.org\/content\/ptb-xl\/get-zip\/1.0.3\/\n数据集全称: PTB-XL, a large publicly available electrocardiography dataset\n(如有)数据集中文全称: PTB-XL 心电图大规模公开数据集\n样本规模（train \/ test 数量）\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
