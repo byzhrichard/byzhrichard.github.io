@@ -1,0 +1,800 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  [高等数学] 1.函数的极限 | byzh
+</title>
+<meta name="description" content="钻研学习中..."/><script>
+  window.siteConfig = JSON.parse("{\"anchor\":{\"auto\":{\"enable\":false,\"length\":60},\"explicit\":{\"enable\":false,\"marker\":\"{#anchor-\",\"prefix\":\"anchor-\"}},\"anchor_icon\":null,\"base\":\"https://byzhrichard.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":20},\"icon_font\":\"4552607_ex15nbittbh\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
+  <meta property="og:title" content="[高等数学] 1.函数的极限 | byzh" />
+  <meta
+    property="og:description"
+    content="钻研学习中..."
+  />
+  <meta property="og:url" content="https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/" />
+  <meta
+    property="og:site_name"
+    content="byzh的博客"
+  />
+  <meta property="og:image" content="https://byzhrichard.github.io/images/banner.webp" />
+  <meta property="article:author" content="byzh" />
+  <meta property="article:published_time" content="2026-07-02T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="2026-07-02T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" /><meta name="twitter:image" content="https://byzhrichard.github.io/images/banner.webp" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.dd8a2c2ed287746b98e61c4bb98f1360ef8e94a7438a1189b63d23130f1d3964.css" /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.24/dist/katex.min.css"
+    integrity="sha384-tTgKLjMYmJr94v8qu2PE5MUGSMbyN2xiH266JUB3gpm8vnnJywd1dWSOEfrFz&#43;YI" crossorigin="anonymous"
+    onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    
+    
+    
+    
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">钻研学习中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><a class="main-nav-link-wrap" href="/"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">首页</span>
+      </a><a class="main-nav-link-wrap" href="/archives"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">归档</span>
+      </a><a class="main-nav-link-wrap" href="/about"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">关于</span>
+      </a><a class="main-nav-link-wrap" href="/friend"><div class='main-nav-icon icon rotate'>&#xe62b;</div><span class="main-nav-link">友链</span>
+      </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a></nav></div>
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="[高等数学] 1.函数的极限"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">[高等数学] 1.函数的极限</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#型">$\frac{0}{0}$型</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-洛必达法则">1. <mark>洛必达法则</mark></a></li>
+                <li><a href="#2-等价无穷小">2. 等价无穷小</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#型-1">$\frac{\infty}{\infty}$型</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-洛必达法则-1">1. <mark>洛必达法则</mark></a></li>
+                <li><a href="#2-抓大头">2. 抓大头</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#型-2">$0 \cdot \infty$型</a></li>
+        <li><a href="#型-3">$\infty-\infty$型</a></li>
+        <li><a href="#型-4">$1^{\infty}$型</a></li>
+        <li><a href="#型-5">$0^0$型</a></li>
+        <li><a href="#型-6">$\infty^0$型</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">144</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      22
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2026-07-02 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >2026-07-02</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2026-07-02</time
+    >
+  </span></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="型">
+<a class="header-anchor" href="#%e5%9e%8b"></a>
+$\frac{0}{0}$型
+</h2><h4 id="1-洛必达法则">
+<a class="header-anchor" href="#1-%e6%b4%9b%e5%bf%85%e8%be%be%e6%b3%95%e5%88%99"></a>
+1. <mark>洛必达法则</mark>
+</h4><p>对分子分母同时求导</p>
+<ul>
+<li>越求导越复杂的, 就不要继续洛必达了</li>
+</ul>
+<blockquote>
+$$
+> \lim_{x \to 0} \frac{1-\cos x}{2x^2}
+> = \lim_{x \to 0} \frac{\sin x}{4x}
+> = \lim_{x \to 0} \frac{(\sin x)'}{(4x)'}
+> = \lim_{x \to 0} \frac{\cos x}{4}
+> = \frac{1}{4}
+> $$</blockquote>
+<h4 id="2-等价无穷小">
+<a class="header-anchor" href="#2-%e7%ad%89%e4%bb%b7%e6%97%a0%e7%a9%b7%e5%b0%8f"></a>
+2. 等价无穷小
+</h4><p>当 $x \to 0$ 时:</p>
+<ul>
+<li>$\sin x、\arcsin x、\tan x、\arctan x、e^{x}-1、\ln(1+x) \color{orange}\sim\color{black} x$</li>
+<li>$1-\cos x \color{orange}\sim\color{black} \dfrac{1}{2}x^2$</li>
+<li>$(1+x)^{\alpha}-1 \color{orange}\sim\color{black} \alpha x$</li>
+</ul>
+<p>一般建议在乘除法里用</p>
+<blockquote>
+$$
+> \lim_{x \to 0}\frac{x-\sin x}{x-x\cos x}=\lim_{x \to 0}\frac{x-\sin x}{\frac{1}{2}x^3}=\lim_{x \to 0}\frac{1-\cos x}{\frac{3}{2}x^2}=\lim_{x \to 0}\frac{\frac{1}{2}x^2}{\frac{3}{2}x^2}=\frac{1}{3}
+> $$</blockquote>
+<h2 id="型-1">
+<a class="header-anchor" href="#%e5%9e%8b-1"></a>
+$\frac{\infty}{\infty}$型
+</h2><h4 id="1-洛必达法则-1">
+<a class="header-anchor" href="#1-%e6%b4%9b%e5%bf%85%e8%be%be%e6%b3%95%e5%88%99-1"></a>
+1. <mark>洛必达法则</mark>
+</h4><p>略</p>
+<h4 id="2-抓大头">
+<a class="header-anchor" href="#2-%e6%8a%93%e5%a4%a7%e5%a4%b4"></a>
+2. 抓大头
+</h4><p>只保留增长速度最快的项, 忽略其他项
+(本质还是洛必达)</p>
+<blockquote>
+$$
+> \lim_{x \to +\infty} \frac{x^2 + x + 1}{2x^2 + 3x}
+> = \lim_{x \to +\infty} \frac{x^2}{2x^2}
+> = \frac{1}{2}
+> $$</blockquote>
+<blockquote>
+$$
+> \lim_{x \to +\infty} \frac{x^2 + x + 1 + \ln x}{2x^2 + 3x + e^x}
+> = \lim_{x \to +\infty} \frac{x^2}{e^x}
+> = 0
+> $$</blockquote>
+<h2 id="型-2">
+<a class="header-anchor" href="#%e5%9e%8b-2"></a>
+$0 \cdot \infty$型
+</h2><ul>
+<li>转换成$\frac{0}{0}$型</li>
+<li>转换成$\frac{\infty}{\infty}$型</li>
+</ul>
+<blockquote>
+$$
+> \lim_{x \to +\infty} \frac{1}{x} \cdot \ln(x^2 + 1)
+> = \lim_{x \to +\infty} \frac{\ln(x^2 + 1)}{x}
+> $$</blockquote>
+<h2 id="型-3">
+<a class="header-anchor" href="#%e5%9e%8b-3"></a>
+$\infty-\infty$型
+</h2><ul>
+<li>转换成$\frac{0}{0}$型</li>
+<li>转换成$\frac{\infty}{\infty}$型</li>
+</ul>
+<p>方法:</p>
+<ol>
+<li>有理化
+(适用于<code>含根式</code>)</li>
+<li>通分
+(适用于<code>分式之差</code>)</li>
+<li>换元<code>t</code>
+(适用于<code>既有x又有1/x</code>)</li>
+</ol>
+<blockquote>
+$$
+> \begin{align}
+> \lim_{x \to +\infty} \left(\sqrt{x^2+x} - x\right)
+> &= \lim_{x \to +\infty} \frac{\left(\sqrt{x^2+x}-x\right)\left(\sqrt{x^2+x}+x\right)}{\sqrt{x^2+x}+x} \\
+> &= \lim_{x \to +\infty} \frac{\left(\sqrt{x^2+x}\right)^2 - x^2}{\sqrt{x^2+x}+x} \\
+> &= \lim_{x \to +\infty} \frac{x}{x\sqrt{1+\frac{1}{x}}+x} \\
+> &= \lim_{x \to +\infty} \frac{1}{\sqrt{1+\frac{1}{x}}+1} \\
+> &= \frac{1}{2}
+> \end{align}
+> $$</blockquote>
+<blockquote>
+$$
+> \begin{align}
+> \lim_{x \to 1} \left( \frac{1}{1-x} - \frac{2}{1-x^2} \right)
+> &= \lim_{x \to 1} \left( \frac{1+x}{(1-x)(1+x)} - \frac{2}{(1-x)(1+x)} \right) \\
+> &= \lim_{x \to 1} \frac{-(1-x)}{(1-x)(1+x)} \\
+> &= \lim_{x \to 1} \frac{-1}{1+x} \\
+> &= -\frac{1}{2}
+> \end{align}
+> $$</blockquote>
+<blockquote>
+$$
+> \begin{align}
+> \lim_{x \to +\infty} \left[(x+1) - x e^{\frac{1}{x}}\right]
+> &= \lim_{t \to 0^+} \left[\left(\frac{1}{t} + 1\right) - \frac{1}{t} e^{t}\right] \\
+> &= \lim_{t \to 0^+} \left( \frac{1}{t} + \frac{t}{t} - \frac{e^t}{t} \right) \\
+> &= \lim_{t \to 0^+} \frac{1 + t - e^t}{t} \\
+> &= \lim_{t \to 0^+} \frac{0 + 1 - e^t}{1} \\
+> &= \lim_{t \to 0^+} \left(1 - e^t\right) \\
+> &= 0
+> \end{align}
+> $$</blockquote>
+<h2 id="型-4">
+<a class="header-anchor" href="#%e5%9e%8b-4"></a>
+$1^{\infty}$型
+</h2><p>核心公式:
+</p>
+$$
+\lim_{x \to \square} f(x)^{g(x)} = e^{\displaystyle \lim_{x \to \square} \big[f(x)-1\big] \cdot g(x)}
+$$<blockquote>
+<p>$$
+\begin{align*}
+\lim_{x \to 0} \left[ \frac{\ln(1+x)}{x} \right]^{\frac{1}{x}}
+&amp;= e^{\displaystyle \lim_{x \to 0} \left[ \frac{\ln(1+x)}{x} - 1 \right] \cdot \frac{1}{x}} \
+&amp;= e^{\displaystyle \lim_{x \to 0} \frac{\ln(1+x)-x}{x^2}} \
+&amp;= e^{\displaystyle \lim_{x \to 0} \frac{\frac{1}{1+x} - 1}{2x}} \</p>
+<p>&amp;= e^{\displaystyle \lim_{x \to 0} \frac{\frac{-x}{1+x}}{2x}} \
+&amp;= e^{\displaystyle \lim_{x \to 0} \frac{-1}{2(1+x)}} \
+&amp;= e^{-\frac{1}{2}}
+\end{align*}
+$$</p>
+</blockquote>
+<h2 id="型-5">
+<a class="header-anchor" href="#%e5%9e%8b-5"></a>
+$0^0$型
+</h2><p>核心公式:
+</p>
+$$
+\lim_{x \to \square} f(x)^{g(x)} = e^{\displaystyle \lim_{x \to \square} g(x)\cdot \ln f(x)}
+$$<blockquote>
+$$
+> \begin{align}
+> \lim_{x \to 0^+} \left(1-e^{-x}\right)^{\frac{1}{\ln x}}
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{1}{\ln x} \cdot \ln\left(1-e^{-x}\right)} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{\ln\left(1-e^{-x}\right)}{\ln x}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{\dfrac{e^{-x}}{1-e^{-x}}}{\dfrac{1}{x}}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{x e^{-x}}{1-e^{-x}}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{x e^{-x}}{x}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} e^{-x}} \\
+> &= e
+> \end{align}
+> $$</blockquote>
+<h2 id="型-6">
+<a class="header-anchor" href="#%e5%9e%8b-6"></a>
+$\infty^0$型
+</h2><p>核心公式:
+</p>
+$$
+\lim_{x \to \square} f(x)^{g(x)} = e^{\displaystyle \lim_{x \to \square} g(x)\cdot \ln f(x)}
+$$<blockquote>
+$$
+> \begin{align}
+> \lim_{x \to 0^+} \left( \frac{1}{\sin x} \right)^x
+> &= e^{\displaystyle \lim_{x \to 0^+} x \cdot \ln \frac{1}{\sin x}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} x \cdot (\ln 1 - \ln\sin x)} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} -x \cdot \ln\sin x} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{\ln\sin x}{-\frac{1}{x}}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{\frac{\cos x}{\sin x}}{\frac{1}{x^2}}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{x^2 \cos x}{\sin x}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} \frac{x^2 \cos x}{x}} \\
+> &= e^{\displaystyle \lim_{x \to 0^+} x\cos x} \\
+> &= 1
+> \end{align}
+> $$</blockquote>
+</div>
+    <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
+    <a
+      class="article-category-link"
+      href="/categories/%e9%ab%98%e7%ad%89%e6%95%b0%e5%ad%a6"
+      data-aos="zoom-in"
+      >高等数学</a
+    >
+    </li></ul>
+<ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+              data-src="/byzh/image1.webp"
+              data-sizes="auto"
+              alt="[高等数学] 2.数列的极限"
+              class="lazyload"
+            /><a
+          href="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/"
+          aria-label="前一篇:[高等数学] 2.数列的极限"
+          title="前一篇:[高等数学] 2.数列的极限"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">[高等数学] 2.数列的极限</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2023-2026<span class="footer-info-sep rotate"></span>byzh
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp;Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;141.8k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;05:57</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#型">$\frac{0}{0}$型</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-洛必达法则">1. <mark>洛必达法则</mark></a></li>
+                <li><a href="#2-等价无穷小">2. 等价无穷小</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#型-1">$\frac{\infty}{\infty}$型</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-洛必达法则-1">1. <mark>洛必达法则</mark></a></li>
+                <li><a href="#2-抓大头">2. 抓大头</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#型-2">$0 \cdot \infty$型</a></li>
+        <li><a href="#型-3">$\infty-\infty$型</a></li>
+        <li><a href="#型-4">$1^{\infty}$型</a></li>
+        <li><a href="#型-5">$0^0$型</a></li>
+        <li><a href="#型-6">$\infty^0$型</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="byzh"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">byzh</div>
+  <div class="sidebar-description">钻研学习中...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">144</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      22
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">4</div>
+  </a>
+</div>
+<div class="sidebar-social" ><div class="icon-bilibili sidebar-social-icon">
+        <a
+          href="https://space.bilibili.com/98976703"
+          itemprop="url"
+          target="_blank"
+          aria-label="bilibili"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-email sidebar-social-icon">
+        <a
+          href="23009201388@stu.xidian.edu.cn"
+          itemprop="url"
+          target="_blank"
+          aria-label="email"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-github sidebar-social-icon">
+        <a
+          href="https://github.com/byzhrichard"
+          itemprop="url"
+          target="_blank"
+          aria-label="github"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div><div class="icon-zhihu sidebar-social-icon">
+        <a
+          href="https://www.zhihu.com/people/byzh_rc"
+          itemprop="url"
+          target="_blank"
+          aria-label="zhihu"
+          rel="noopener nofollow noreferrer"
+        ></a>
+      </div></div><div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a><div class='sidebar-menu-icon icon rotate'>&#xe62b;</div><div class="sidebar-menu-link">友链</div>
+    </div></div></div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" />
+        </div>
+      </div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    
+    
+    
+    
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    
+    
+    
+    
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous"  ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous"  ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax ></script><script>
+    var ALGOLIA_CONFIG = {
+      logo: '\/images\/algolia_logo.svg',
+      algolia: {
+        applicationID: "OL5A45Z4Q1",
+        apiKey: "1910d84d1d4a1a4d30b8ca375fa82cf6",
+        indexName: "my_blog",
+        hits: {
+          "per_page": parseInt("10")
+        },
+        labels: {
+          "input_placeholder": '搜索.....',
+          "hits_empty": '未发现与 「${query}」相关内容',
+          "hits_stats": '找到${hits}条结果（用时 ${time} ms）'
+        }
+      }
+    };
+  </script><script
+    src="https://npm.webcache.cn/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"
+    defer
+    
+    
+    
+    integrity="sha384-xvLS0jfKuoREs7pqkRI/OI8GcqohO5S&#43;jQz7ZBtQXnsXmD&#43;9jDOOY4cL6dCPzlrk" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/@reimujs/instantsearch.js@4.57.0-beta.1/dist/instantsearch.production.min.js"
+    defer
+    
+    
+    
+    integrity="sha384-aagKMe8nkqaP2DYQc8kkYOL5l&#43;M5Q2WH/Uhr4teOh0Ybp0RZj0kUSDm45qPikMjK" crossorigin="anonymous"></script><script src="/js/algolia_search.js" integrity="" crossorigin="anonymous"  ></script><script>
+  var setupFirework = () => {
+    if (! false  || !window.matchMedia('(max-width: 768px)').matches) {
+      if (window.firework) {
+        const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+        options.excludeElements = options.excludeelements;
+        delete options.excludeelements;
+        window.firework(options);
+      }
+    }
+  }
+</script><script
+    src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js"
+    defer
+    
+    
+    onload="setupFirework()"
+    integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8&#43;pUoWX8n1rgq282T" crossorigin="anonymous"></script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "byzh",
+          title: "[高等数学] 1.函数的极限",
+          url: "https:\/\/byzhrichard.github.io\/post\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6\/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90\/",
+          description: "\r$\\frac{0}{0}$型\r1. 洛必达法则\r对分子分母同时求导\n越求导越复杂的, 就不要继续洛必达了 $$\r\u003e \\lim_{x \\to 0} \\frac{1-\\cos x}{2x^2}\r\u003e = \\lim_{x \\to 0} \\frac{\\sin x}{4x}\r\u003e = \\lim_{x \\to 0} \\frac{(\\sin x)\u0027}{(4x)\u0027}\r\u003e = \\lim_{x \\to 0} \\frac{\\cos x}{4}\r\u003e = \\frac{1}{4}\r\u003e $$ 2. 等价无穷小\r当 $x \\to 0$ 时:\n",
+          cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+        }
+        pswp()
+      </script><script data-pjax>
+          window.MathJax = JSON.parse("[{\"loader\":{\"load\":[\"input/asciimath\",\"[tex]/noerrors\"]},\"options\":{\"ignoreHtmlClass\":\"tex2jax_ignore\",\"processHtmlClass\":\"tex2jax_process\",\"skipHtmlTags\":[\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"]},\"tex\":{\"autoload\":{\"color\":[],\"colorv2\":[\"color\"]},\"displayMath\":[[\"$$\",\"$$\"],[\"\\\\\\\\[\",\"\\\\\\\\]\"]],\"inlineMath\":[[\"$\",\"$\"],[\"\\\\\\\\(\",\"\\\\\\\\)\"]],\"packages\":{\"[+]\":[\"noerrors\"]},\"processEnvironments\":true,\"processEscapes\":true,\"tags\":\"ams\",\"useLabelIds\":true}}]")[0];
+        </script><script
+    src="https://npm.webcache.cn/mathjax@3.2.2/es5/tex-mml-chtml.js"
+    defer
+    
+    data-pjax
+    
+    integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous"></script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    
+    async
+    
+    
+    integrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

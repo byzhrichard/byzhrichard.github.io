@@ -12,12 +12,200 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 30 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[高等数学] 5.隐函数求导</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 5.隐函数求导</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="隐函数求导">
+<a class="header-anchor" href="#%e9%9a%90%e5%87%bd%e6%95%b0%e6%b1%82%e5%af%bc"></a>
+隐函数求导
+</h2>
+        
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 4.函数的可导性</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 4.函数的可导性</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="连续不一定可导-可导一定连续">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e4%b8%8d%e4%b8%80%e5%ae%9a%e5%8f%af%e5%af%bc-%e5%8f%af%e5%af%bc%e4%b8%80%e5%ae%9a%e8%bf%9e%e7%bb%ad"></a>
+<mark>连续不一定可导, 可导一定连续</mark>
+</h2><h2 id="可导性">
+<a class="header-anchor" href="#%e5%8f%af%e5%af%bc%e6%80%a7"></a>
+可导性
+</h2><p>判断 $f(x)$ 在 $x=a$ 处是否可导:</p>
+<ol>
+<li>判断 $f(x)$ 在 $x=a$ 处是否连续</li>
+<li>若连续, 且$f_{-}'(0)=f_{+}'(0)$</li>
+</ol>
+<p>则得证</p>
+<h2 id="基本求导公式">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e6%b1%82%e5%af%bc%e5%85%ac%e5%bc%8f"></a>
+基本求导公式
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/image-20260702221111509.png" alt="image-20260702221111509"></p>
+        
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 3.函数的连续性</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 3.函数的连续性</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="连续性">
+<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%80%a7"></a>
+连续性
+</h2><p>证明 $f(x)$ 在 $x=a$ 处连续:</p>
+<p>若 $\displaystyle\lim_{x \to a^-} f(x) = \displaystyle\lim_{x \to a^+} f(x) = f(a)$ -&gt; 则得证</p>
+<h2 id="间断点">
+<a class="header-anchor" href="#%e9%97%b4%e6%96%ad%e7%82%b9"></a>
+间断点
+</h2><p>也就是不连续</p>
+<h4 id="1-第一类间断点左右极限都存在">
+<a class="header-anchor" href="#1-%e7%ac%ac%e4%b8%80%e7%b1%bb%e9%97%b4%e6%96%ad%e7%82%b9%e5%b7%a6%e5%8f%b3%e6%9e%81%e9%99%90%e9%83%bd%e5%ad%98%e5%9c%a8"></a>
+1. 第一类间断点(左右极限都存在)
+</h4><ul>
+<li>可去间断点: $\displaystyle\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x) \neq f(x_0)$</li>
+<li>跳跃间断点: $\displaystyle\lim_{x \to x_0^-} f(x) \neq \lim_{x \to x_0^+} f(x)$</li>
+</ul>
+<h4 id="2-第二类间断点左右极限至少有一个不存在">
+<a class="header-anchor" href="#2-%e7%ac%ac%e4%ba%8c%e7%b1%bb%e9%97%b4%e6%96%ad%e7%82%b9%e5%b7%a6%e5%8f%b3%e6%9e%81%e9%99%90%e8%87%b3%e5%b0%91%e6%9c%89%e4%b8%80%e4%b8%aa%e4%b8%8d%e5%ad%98%e5%9c%a8"></a>
+2. 第二类间断点(左右极限至少有一个不存在)
+</h4><ul>
+<li>无穷间断点: $\displaystyle\lim_{x \to x_0^-}f(x)$、$\displaystyle\lim_{x \to x_0^+}f(x)$ 至少有一个为 $\infty$</li>
+<li>振荡间断点: $\displaystyle\lim_{x \to x_0^-}f(x)$、$\displaystyle\lim_{x \to x_0^+}f(x)$ 都不为 $\infty$, 但至少有一个因振荡而无法确定具体数值</li>
+</ul>
+        
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 2.数列的极限</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 2.数列的极限</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="夹逼定理">
+<a class="header-anchor" href="#%e5%a4%b9%e9%80%bc%e5%ae%9a%e7%90%86"></a>
+夹逼定理
+</h2><h4 id="1-数列型">
+<a class="header-anchor" href="#1-%e6%95%b0%e5%88%97%e5%9e%8b"></a>
+1. 数列型
+</h4><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/image-20260702200517681.png" alt="image-20260702200517681"></p>
+<p>找分母里的非主导项, 以此统一分母又不影响结果</p>
+<ul>
+<li>上界: 其最小</li>
+<li>下界: 其最大</li>
+</ul>
+<blockquote>
+$$
+> \lim_{n \to \infty} \left( \frac{1}{n^2+1} + \frac{2}{n^2+2} + \dots + \frac{n}{n^2+n} \right)
+> $$<p>上界:
+</p>
+$$
+> \begin{align*}
+> \lim_{n \to \infty} \left( \frac{1}{n^2+1} + \frac{2}{n^2+1} + \dots + \frac{n}{n^2+1} \right)
+> &= \lim_{n \to \infty} \frac{1+2+\dots+n}{n^2+1} \\
+> &= \lim_{n \to \infty} \frac{\dfrac{n(1+n)}{2}}{n^2+1} \\
+> &= \lim_{n \to \infty} \frac{n+n^2}{2n^2+2} \\
+> &= ... = \frac{1}{2}
+> \end{align*}
+> $$<p>
+下界:
+</p>
+        
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 1.函数的极限</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 1.函数的极限</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="型">
+<a class="header-anchor" href="#%e5%9e%8b"></a>
+$\frac{0}{0}$型
+</h2><h4 id="1-洛必达法则">
+<a class="header-anchor" href="#1-%e6%b4%9b%e5%bf%85%e8%be%be%e6%b3%95%e5%88%99"></a>
+1. <mark>洛必达法则</mark>
+</h4><p>对分子分母同时求导</p>
+<ul>
+<li>越求导越复杂的, 就不要继续洛必达了</li>
+</ul>
+<blockquote>
+$$
+> \lim_{x \to 0} \frac{1-\cos x}{2x^2}
+> = \lim_{x \to 0} \frac{\sin x}{4x}
+> = \lim_{x \to 0} \frac{(\sin x)'}{(4x)'}
+> = \lim_{x \to 0} \frac{\cos x}{4}
+> = \frac{1}{4}
+> $$</blockquote>
+<h4 id="2-等价无穷小">
+<a class="header-anchor" href="#2-%e7%ad%89%e4%bb%b7%e6%97%a0%e7%a9%b7%e5%b0%8f"></a>
+2. 等价无穷小
+</h4><p>当 $x \to 0$ 时:</p>
+        
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
     
     
 
@@ -195,146 +383,6 @@ Jena Climate 2009–2016
       </description>
       
         <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] EMG数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/emg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Thu, 25 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/emg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] EMG数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="emg数据集">
-<a class="header-anchor" href="#emg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-EMG数据集
-</h1><p>EMG: Electro<strong>myo</strong>gram: 肌电图</p>
-        
-        <hr><p>本文2026-06-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-25</p>]]>
-      </description>
-      
-        <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] ECG数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Thu, 25 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/ecg%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] ECG数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="ecg数据集">
-<a class="header-anchor" href="#ecg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-ECG数据集
-</h1><p>ECG: electro<strong>cardio</strong>gram: 心电图</p>
-<h2 id="ptb-xl">
-<a class="header-anchor" href="#ptb-xl"></a>
-PTB-XL
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网: <a href="https://physionet.org/content/ptb-xl/1.0.3/">https://physionet.org/content/ptb-xl/1.0.3/</a></p>
-</li>
-<li>
-<p>下载链接: <a href="https://physionet.org/content/ptb-xl/get-zip/1.0.3/">https://physionet.org/content/ptb-xl/get-zip/1.0.3/</a></p>
-</li>
-<li>
-<p>数据集全称: PTB-XL, a large publicly available electrocardiography dataset</p>
-</li>
-<li>
-<p>(如有)数据集中文全称: PTB-XL 心电图大规模公开数据集</p>
-</li>
-<li>
-<p>样本规模（train / test 数量）</p>
-        
-        <hr><p>本文2026-06-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-25</p>]]>
-      </description>
-      
-        <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] PotPlayer</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/potplayer/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/potplayer/</guid>
-      <description>
-        <![CDATA[<h1>[工具] PotPlayer</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="截图">
-<a class="header-anchor" href="#%e6%88%aa%e5%9b%be"></a>
-截图
-</h2><p>右键-&gt;视频-&gt;图像截取-&gt;截存当前源画面</p>
-        
-        <hr><p>本文2026-06-24首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-24</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[Counter-Strike] 荒漠迷城</title>
-      <link>https://byzhrichard.github.io/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/</link>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/</guid>
-      <description>
-        <![CDATA[<h1>[Counter-Strike] 荒漠迷城</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="匪家">
-<a class="header-anchor" href="#%e5%8c%aa%e5%ae%b6"></a>
-匪家
-</h1>
-        
-        <hr><p>本文2026-06-24首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-24</p>]]>
-      </description>
-      
-        <category>Counter-Strike</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL_Net从入门到入土] 图卷积网络GCN</title>
-      <link>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</link>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl_net%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/gcn/</guid>
-      <description>
-        <![CDATA[<h1>[DL_Net从入门到入土] 图卷积网络GCN</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl_net从入门到入土-图卷积网络gcn">
-<a class="header-anchor" href="#dl_net%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e5%9b%be%e5%8d%b7%e7%a7%af%e7%bd%91%e7%bb%9cgcn"></a>
-[DL_Net从入门到入土] 图卷积网络GCN
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-06-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-22</p>]]>
-      </description>
-      
-        <category>DL_Net从入门到入土</category>
       
     </item>
     
