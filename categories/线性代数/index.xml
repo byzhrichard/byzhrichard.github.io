@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>线性代数 on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[线性代数] 1.行列式</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/</guid>
+      <description>
+        <![CDATA[<h1>[线性代数] 1.行列式</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="行列式">
+<a class="header-anchor" href="#%e8%a1%8c%e5%88%97%e5%bc%8f"></a>
+行列式
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/image-20260703220900900.png" alt="image-20260703220900900"></p>
+<p>特性:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/image-20260703221023068.png" alt="image-20260703221023068"></p>
+<h2 id="全排列和对换">
+<a class="header-anchor" href="#%e5%85%a8%e6%8e%92%e5%88%97%e5%92%8c%e5%af%b9%e6%8d%a2"></a>
+全排列和对换
+</h2><p>排列的<strong>逆序数</strong>: <code>sum(其前面比自己大的数的个数)</code></p>
+<ul>
+<li>为奇数 -&gt; 奇排列</li>
+<li>为偶数 -&gt; 偶排列</li>
+</ul>
+<p>-&gt; 一个排列, 经过一次对换后, 其奇偶性会改变</p>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>线性代数</category>
+      
+    </item>
+    
+  </channel>
+</rss>

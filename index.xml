@@ -48,6 +48,40 @@
     
 
     <item>
+      <title>[线性代数] 1.行列式</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/</guid>
+      <description>
+        <![CDATA[<h1>[线性代数] 1.行列式</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="行列式">
+<a class="header-anchor" href="#%e8%a1%8c%e5%88%97%e5%bc%8f"></a>
+行列式
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/image-20260703220900900.png" alt="image-20260703220900900"></p>
+<p>特性:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/image-20260703221023068.png" alt="image-20260703221023068"></p>
+<h2 id="全排列和对换">
+<a class="header-anchor" href="#%e5%85%a8%e6%8e%92%e5%88%97%e5%92%8c%e5%af%b9%e6%8d%a2"></a>
+全排列和对换
+</h2><p>排列的<strong>逆序数</strong>: <code>sum(其前面比自己大的数的个数)</code></p>
+<ul>
+<li>为奇数 -&gt; 奇排列</li>
+<li>为偶数 -&gt; 偶排列</li>
+</ul>
+<p>-&gt; 一个排列, 经过一次对换后, 其奇偶性会改变</p>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>线性代数</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[高等数学] 9.凹凸性与拐点</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/</link>
       <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
@@ -149,15 +183,82 @@ $$<p>
     
 
     <item>
-      <title>[高等数学] 14.变上限积分</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/</link>
+      <title>[高等数学] 15.积分与面积体积</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/</link>
       <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/</guid>
       <description>
-        <![CDATA[<h1>[高等数学] 14.变上限积分</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 15.积分与面积体积</h1><p>作者：byzh（xxx@example.com）</p>
         
-          
+          <h2 id="定积分求面积x型">
+<a class="header-anchor" href="#%e5%ae%9a%e7%a7%af%e5%88%86%e6%b1%82%e9%9d%a2%e7%a7%afx%e5%9e%8b"></a>
+定积分求面积(X型)
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205536443.png" alt="image-20260703205536443"></p>
+<p>如果交叉, 则分别计算</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205558629.png" alt="image-20260703205558629"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205442550.png" alt="image-20260703205442550"></p>
+</blockquote>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205459309.png" alt="image-20260703205459309"></p>
+</blockquote>
+<h2 id="定积分求面积y型">
+<a class="header-anchor" href="#%e5%ae%9a%e7%a7%af%e5%88%86%e6%b1%82%e9%9d%a2%e7%a7%afy%e5%9e%8b"></a>
+定积分求面积(Y型)
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205806061.png" alt="image-20260703205806061"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/image-20260703205915715.png" alt="image-20260703205915715"></p>
+</blockquote>
+<h2 id="定积分求旋转体的体积">
+<a class="header-anchor" href="#%e5%ae%9a%e7%a7%af%e5%88%86%e6%b1%82%e6%97%8b%e8%bd%ac%e4%bd%93%e7%9a%84%e4%bd%93%e7%a7%af"></a>
+定积分求旋转体的体积
+</h2>$$
+V = \int_{a}^{b} \left( \int_{c}^{d} 2\pi \cdot \text{距离} \, dx \right) dy
+$$<p>若转轴为 $Ax+By+C=0$, 则点 $(x,y)$ 到转轴的距离为: $\displaystyle\frac{Ax+By+C}{\sqrt{A^2+B^2}}$</p>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 14.变限积分</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E9%99%90%E7%A7%AF%E5%88%86/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E9%99%90%E7%A7%AF%E5%88%86/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 14.变限积分</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="变限积分">
+<a class="header-anchor" href="#%e5%8f%98%e9%99%90%e7%a7%af%e5%88%86"></a>
+变限积分
+</h2><p>原理:
+</p>
+$$
+\int_{a}^{x} f(t) \, dt = F(x) - F(a)
+$$<p>
+基本形式:
+</p>
+$$
+\left[ \int_{a}^{x} f(t) \, dt \right]' = f(x)
+$$<p>
+复杂形式:
+</p>
+$$
+\left[ \int_{a}^{\varphi(x)} f(t) \, dt \right]' = f\big[\varphi(x)\big] \cdot \big[\varphi(x)\big]'
+$$<p>
+一般形式:
+</p>
+$$
+\left[ \int_{\varphi_{1}(x)}^{\varphi_{2}(x)} f(t) \, dt \right]' = f\big[\varphi_{2}(x)\big] \cdot \big[\varphi_{2}(x)\big]' - f\big[\varphi_{1}(x)\big] \cdot \big[\varphi_{1}(x)\big]'
+$$<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E9%99%90%E7%A7%AF%E5%88%86/image-20260703204200085.png" alt="image-20260703204200085"></p>
         
         <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
@@ -272,79 +373,6 @@ $$<ul>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/image-20260703131059901.png" alt="image-20260703131059901"></p>
         
         <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 10.曲率及曲率半径</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/</link>
-      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 10.曲率及曲率半径</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="曲率及曲率半径">
-<a class="header-anchor" href="#%e6%9b%b2%e7%8e%87%e5%8f%8a%e6%9b%b2%e7%8e%87%e5%8d%8a%e5%be%84"></a>
-曲率及曲率半径
-</h2><p>曲率$K$:
-</p>
-$$
-K = \frac{|y''|}{\left[1+(y')^2\right]^{\frac{3}{2}}}
-$$<p>
-曲率半径$\rho$:
-</p>
-$$
-\rho = \frac{1}{K}
-$$<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/image-20260703125959060.png" alt="image-20260703125959060"></p>
-</blockquote>
-        
-        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 6.参数方程求导</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 6.参数方程求导</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="参数方程求导">
-<a class="header-anchor" href="#%e5%8f%82%e6%95%b0%e6%96%b9%e7%a8%8b%e6%b1%82%e5%af%bc"></a>
-参数方程求导
-</h2><p>参数方程有 <code>x, y, t</code></p>
-<ul>
-<li>要求 $\frac{dy}{dx}$</li>
-<li>只要求 $\frac{dy}{dt}$ 和 $\frac{dx}{dt}$</li>
-<li>于是 $\displaystyle{\frac{dy}{dx}=\frac{dy}{dt} / \frac{dx}{dt}}$</li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703000542084.png" alt="image-20260703000542084"></p>
-</blockquote>
-<p>因为 $\frac{dy}{dx}$ 是用 t 来表示的式子, 所以<strong>若要求二阶导</strong>, 不能直接用一阶导对 x 求导
-</p>
-$$
-\frac{d^2 y}{dx^2}
-= \frac{d\left(\dfrac{dy}{dx}\right)}{dx}
-= \frac{\color{red}\dfrac{d\left(\dfrac{dy}{dx}\right)}{dt}}{\color{green}\dfrac{dx}{dt}}
-$$<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703001428799.png" alt="image-20260703001428799"></p>
-        
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
       </description>
       
         <category>高等数学</category>

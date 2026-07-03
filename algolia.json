@@ -24,9 +24,15 @@
     "updated": "2026-07-03 00:00:00"
   }, 
   {
-    "objectID": "fbfca72643ee85f2614edfa4251a12f6a2cb0875",
-    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/",
-    "title": "[高等数学] 14.变上限积分","content": "","date": "2026-07-03 00:00:00",
+    "objectID": "def547f8e843f5c512dd9dc5088c8772308f9dfe",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E9%99%90%E7%A7%AF%E5%88%86/",
+    "title": "[高等数学] 14.变限积分","content": "\r变限积分\r原理: $$\r\\int_{a}^{x} f(t) \\, dt = F(x) - F(a)\r$$ 基本形式: $$\r\\left[ \\int_{a}^{x} f(t) \\, dt \\right]' = f(x)\r$$ 复杂形式: $$\r\\left[ \\int_{a}^{\\varphi(x)} f(t) \\, dt \\right]' = f\\big[\\varphi(x)\\big] \\cdot \\big[\\varphi(x)\\big]'\r$$ 一般形式: $$\r\\left[ \\int_{\\varphi_{1}(x)}^{\\varphi_{2}(x)} f(t) \\, dt \\right]' = f\\big[\\varphi_{2}(x)\\big] \\cdot \\big[\\varphi_{2}(x)\\big]' - f\\big[\\varphi_{1}(x)\\big] \\cdot \\big[\\varphi_{1}(x)\\big]'\r$$ 无关变量可以提到外面\n还可以用到换元的知识\n","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "5d519544d6c72893a625320688a7103c9cf13f9d",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/15.%E7%A7%AF%E5%88%86%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BD%93%E7%A7%AF/",
+    "title": "[高等数学] 15.积分与面积体积","content": "\r定积分求面积(X型)\r如果交叉, 则分别计算\n定积分求面积(Y型)\r定积分求旋转体的体积\r$$\rV = \\int_{a}^{b} \\left( \\int_{c}^{d} 2\\pi \\cdot \\text{距离} \\, dx \\right) dy\r$$若转轴为 $Ax+By+C=0$, 则点 $(x,y)$ 到转轴的距离为: $\\displaystyle\\frac{Ax+By+C}{\\sqrt{A^2+B^2}}$\n","date": "2026-07-03 00:00:00",
     "updated": "2026-07-03 00:00:00"
   }, 
   {
@@ -45,6 +51,12 @@
     "objectID": "1fec5ee042615bf3f2bfc43350c3537a5bfced3b",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/",
     "title": "[高等数学] 9.凹凸性与拐点","content": "\r凹凸性与拐点\r$$\ry'' \u003e 0 \\implies \\text{凹区间},\\quad y'' \u003c 0 \\implies \\text{凸区间}\r\\\\\r\\text{拐点: 凹凸区间的交界点}\r$$ ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "e024f7b674d5a239528d669663f624cc70a89428",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/1.%E8%A1%8C%E5%88%97%E5%BC%8F/",
+    "title": "[线性代数] 1.行列式","content": "\r行列式\r特性:\n全排列和对换\r排列的逆序数: sum(其前面比自己大的数的个数)\n为奇数 -\u0026gt; 奇排列 为偶数 -\u0026gt; 偶排列 -\u0026gt; 一个排列, 经过一次对换后, 其奇偶性会改变\n性质\r","date": "2026-07-03 00:00:00",
     "updated": "2026-07-03 00:00:00"
   }, 
   {
