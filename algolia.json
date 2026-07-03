@@ -1,5 +1,59 @@
 [
   {
+    "objectID": "c31f604d182f138b906dd3c3f611fd4c355c4b47",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/",
+    "title": "[高等数学] 10.曲率及曲率半径","content": "\r曲率及曲率半径\r曲率$K$: $$\rK = \\frac{|y''|}{\\left[1+(y')^2\\right]^{\\frac{3}{2}}}\r$$ 曲率半径$\\rho$: $$\r\\rho = \\frac{1}{K}\r$$ ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "c5c5cf83ccc8493409dffc662c929fd58ae89e8d",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/",
+    "title": "[高等数学] 11.渐近线","content": "\r渐近线\r铅直渐近线/垂直渐近线: 无穷间断点 水平渐近线: $\\displaystyle\\lim_{x \\to +\\infty}f(x)$ 和 $\\displaystyle\\lim_{x \\to -\\infty}f(x)$ 斜渐近线 (当求出两条水平渐近线的时候, 可以直接说函数没有斜渐近线) $\\displaystyle\\lim_{x \\to +\\infty} \\frac{f(x)}{x} = a \\ (a\\text{为非零常数}),\\quad \\lim_{x \\to +\\infty} \\big[f(x)-ax\\big] = b \\ (b\\text{为常数}) \\implies y=ax+b \\text{ 是斜渐近线}$ $\\displaystyle\\lim_{x \\to -\\infty} \\frac{f(x)}{x} = a \\ (a\\text{为非零常数}),\\quad \\lim_{x \\to -\\infty} \\big[f(x)-ax\\big] = b \\ (b\\text{为常数}) \\implies y=ax+b \\text{ 是斜渐近线}$ ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "45978a01a7f0df63285b8cfe3cf9be86f34ee282",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/",
+    "title": "[高等数学] 12.不定积分","content": "\r不定积分\r第一类换元法\r哪个整体看着难受, 就将其设为 $u$\n找 $u$ 的话, 可以先试着找一个整体, 如果求导后恰好是另一个项, 则就是所需的 $u$\n但有的 $u$ 比较难找, 需要先初步变换形式\n第二类换元法\r1. 一种根式\r根号里面是 $x$ 的 1 次方: $\\sqrt[n]{ax+b}$\n2. 三角代换\r$\\sqrt{a^2-x^2},\\quad a\u003e0$ =\u0026gt; 令 $x=asint$ 记法: $a$为斜边, $\\sqrt{a^2-x^2}$为直角边, $x$为直角边 -\u0026gt; $t$对$x$ $\\sqrt{a^2+x^2},\\quad a\u003e0$ =\u0026gt; 令 $x=atant$ 记法: $\\sqrt{a^2+x^2}$为斜边, $a$为直角边, $x$为直角边 -\u0026gt; $t$对$x$ $\\sqrt{x^2-a^2},\\quad a\u003e0$ =\u0026gt; 令 $x=asect$ 记法: $x$为斜边, $a$为直角边, $\\sqrt{x^2-a^2}$为直角边 -\u0026gt; $t$对$\\sqrt{x^2-a^2}$ 3. 多种根式\r存在 $\\sqrt[m]{ax+b}$ 和 $\\sqrt[n]{ax+b}$ -\u0026gt; 令 $t=\\sqrt[k]{ax+b}$ , 其中 $k$ 为 $m,n$ 的最小公倍数\n分部积分法\r核心公式: $$\r\\int u v' \\, dx = uv - \\int u' v \\, dx\r$$ 常用于u和v的函数形式不同时 选谁当u: 口诀反, 对, 幂, 三, 指 有理函数的积分\r假分式 -\u0026gt; 整式+真分式: 多项式长除法\n将真分式拆成便于计算的简单分式:\n对分母进行因式分解 拆分真分式 ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "496fe35249195b5c30bf86e91a4696eb369664f6",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/13.%E5%AE%9A%E7%A7%AF%E5%88%86/",
+    "title": "[高等数学] 13.定积分","content": "\r牛顿-莱布尼兹公式\r$$\r\\int_{a}^{b} f(x) \\, dx = F(x)\\bigg|_{a}^{b} = F(b) - F(a)\r$$ 换元法\r换元时, 同步更新上下限\n分部积分法\r核心公式: $$\r\\int_{a}^{b} u v' \\, dx = uv\\bigg|_{a}^{b} - \\int_{a}^{b} u' v \\, dx\r$$ 常用于u和v的函数形式不同时 选谁当u: 口诀反, 对, 幂, 三, 指 公式与性质\r华里士公式\r当被积函数是 $\\sin^nx$ 或 $\\cos^nx$ 时, 则 $\\displaystyle0 \\sim \\frac{\\pi}{2}$ 的积分可以直接写出来\n若结尾是$1/2$, 则再补上$\\pi/2$ 若结尾不是$1/2$, 则直接结束 ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "fbfca72643ee85f2614edfa4251a12f6a2cb0875",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/",
+    "title": "[高等数学] 14.变上限积分","content": "","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "b4fcbec9be9acf572602157c0310112f40626440",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/7.%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0/",
+    "title": "[高等数学] 7.高阶导数","content": "\r高阶导数\r1. 找规律法\r2. 莱布尼兹公式\r用于两个函数相乘的情况 $$\r(uv)^{(n)} = \\sum_{k=0}^{n} \\mathrm{C}_{n}^{k} u^{(n-k)} v^{(k)}\r$$ 利用某一方的导数先归零的特点, 把其视为 $v$, 以避免无意义的计算\n","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "f4a1fa1a6c30e16879201458ac085c3dd63baa77",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/8.%E4%B8%89%E5%A4%A7%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/",
+    "title": "[高等数学] 8.三大微分中值定理","content": "\r拉格朗日中值定理\r也就是在其曲线上必然存在某一点的导数, 等于两点间的斜率\n罗尔定理\r在拉格朗日的基础上, 如果两点纵坐标相同, 则其曲线上必然有一点的导数是0\n柯西中值定理\r也就是对两个拉格朗日中值定理做整合\n","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "1fec5ee042615bf3f2bfc43350c3537a5bfced3b",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/",
+    "title": "[高等数学] 9.凹凸性与拐点","content": "\r凹凸性与拐点\r$$\ry'' \u003e 0 \\implies \\text{凹区间},\\quad y'' \u003c 0 \\implies \\text{凸区间}\r\\\\\r\\text{拐点: 凹凸区间的交界点}\r$$ ","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
+    "objectID": "1bc5663be3bdd3e12c22c1638703ef85cc149f6f",
+    "permalink": "/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/",
+    "title": "[装机必备] 官方网站","content": "\r官方网站\r1. CSGO\rhltv: https://www.hltv.org/\n","date": "2026-07-03 00:00:00",
+    "updated": "2026-07-03 00:00:00"
+  }, 
+  {
     "objectID": "34c444a003ca82566499bda406a7255173414add",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/",
     "title": "[高等数学] 1.函数的极限","content": "\r$\\frac{0}{0}$型\r1. 洛必达法则\r对分子分母同时求导\n越求导越复杂的, 就不要继续洛必达了 $$\r\u003e \\lim_{x \\to 0} \\frac{1-\\cos x}{2x^2}\r\u003e = \\lim_{x \\to 0} \\frac{\\sin x}{4x}\r\u003e = \\lim_{x \\to 0} \\frac{(\\sin x)'}{(4x)'}\r\u003e = \\lim_{x \\to 0} \\frac{\\cos x}{4}\r\u003e = \\frac{1}{4}\r\u003e $$ 2. 等价无穷小\r当 $x \\to 0$ 时:\n$\\sin x、\\arcsin x、\\tan x、\\arctan x、e^{x}-1、\\ln(1+x) \\color{orange}\\sim\\color{black} x$ $1-\\cos x \\color{orange}\\sim\\color{black} \\dfrac{1}{2}x^2$ $(1+x)^{\\alpha}-1 \\color{orange}\\sim\\color{black} \\alpha x$ 一般建议在乘除法里用\n$$\r\u003e \\lim_{x \\to 0}\\frac{x-\\sin x}{x-x\\cos x}=\\lim_{x \\to 0}\\frac{x-\\sin x}{\\frac{1}{2}x^3}=\\lim_{x \\to 0}\\frac{1-\\cos x}{\\frac{3}{2}x^2}=\\lim_{x \\to 0}\\frac{\\frac{1}{2}x^2}{\\frac{3}{2}x^2}=\\frac{1}{3}\r\u003e $$ $\\frac{\\infty}{\\infty}$型\r1. 洛必达法则\r略\n2. 抓大头\r只保留增长速度最快的项, 忽略其他项 (本质还是洛必达)\n$$\r\u003e \\lim_{x \\to +\\infty} \\frac{x^2 + x + 1}{2x^2 + 3x}\r\u003e = \\lim_{x \\to +\\infty} \\frac{x^2}{2x^2}\r\u003e = \\frac{1}{2}\r\u003e $$ $$\r\u003e \\lim_{x \\to +\\infty} \\frac{x^2 + x + 1 + \\ln x}{2x^2 + 3x + e^x}\r\u003e = \\lim_{x \\to +\\infty} \\frac{x^2}{e^x}\r\u003e = 0\r\u003e $$ $0 \\cdot \\infty$型\r转换成$\\frac{0}{0}$型 转换成$\\frac{\\infty}{\\infty}$型 $$\r\u003e \\lim_{x \\to +\\infty} \\frac{1}{x} \\cdot \\ln(x^2 + 1)\r\u003e = \\lim_{x \\to +\\infty} \\frac{\\ln(x^2 + 1)}{x}\r\u003e $$ $\\infty-\\infty$型\r转换成$\\frac{0}{0}$型 转换成$\\frac{\\infty}{\\infty}$型 方法:\n有理化 (适用于含根式) 通分 (适用于分式之差) 换元t (适用于既有x又有1/x) $$\r\u003e \\begin{align}\r\u003e \\lim_{x \\to +\\infty} \\left(\\sqrt{x^2+x} - x\\right)\r\u003e \u0026= \\lim_{x \\to +\\infty} \\frac{\\left(\\sqrt{x^2+x}-x\\right)\\left(\\sqrt{x^2+x}+x\\right)}{\\sqrt{x^2+x}+x} \\\\\r\u003e \u0026= \\lim_{x \\to +\\infty} \\frac{\\left(\\sqrt{x^2+x}\\right)^2 - x^2}{\\sqrt{x^2+x}+x} \\\\\r\u003e \u0026= \\lim_{x \\to +\\infty} \\frac{x}{x\\sqrt{1+\\frac{1}{x}}+x} \\\\\r\u003e \u0026= \\lim_{x \\to +\\infty} \\frac{1}{\\sqrt{1+\\frac{1}{x}}+1} \\\\\r\u003e \u0026= \\frac{1}{2}\r\u003e \\end{align}\r\u003e $$ $$\r\u003e \\begin{align}\r\u003e \\lim_{x \\to 1} \\left( \\frac{1}{1-x} - \\frac{2}{1-x^2} \\right)\r\u003e \u0026= \\lim_{x \\to 1} \\left( \\frac{1+x}{(1-x)(1+x)} - \\frac{2}{(1-x)(1+x)} \\right) \\\\\r\u003e \u0026= \\lim_{x \\to 1} \\frac{-(1-x)}{(1-x)(1+x)} \\\\\r\u003e \u0026= \\lim_{x \\to 1} \\frac{-1}{1+x} \\\\\r\u003e \u0026= -\\frac{1}{2}\r\u003e \\end{align}\r\u003e $$ $$\r\u003e \\begin{align}\r\u003e \\lim_{x \\to +\\infty} \\left[(x+1) - x e^{\\frac{1}{x}}\\right]\r\u003e \u0026= \\lim_{t \\to 0^+} \\left[\\left(\\frac{1}{t} + 1\\right) - \\frac{1}{t} e^{t}\\right] \\\\\r\u003e \u0026= \\lim_{t \\to 0^+} \\left( \\frac{1}{t} + \\frac{t}{t} - \\frac{e^t}{t} \\right) \\\\\r\u003e \u0026= \\lim_{t \\to 0^+} \\frac{1 + t - e^t}{t} \\\\\r\u003e \u0026= \\lim_{t \\to 0^+} \\frac{0 + 1 - e^t}{1} \\\\\r\u003e \u0026= \\lim_{t \\to 0^+} \\left(1 - e^t\\right) \\\\\r\u003e \u0026= 0\r\u003e \\end{align}\r\u003e $$ $1^{\\infty}$型\r核心公式: $$\r\\lim_{x \\to \\square} f(x)^{g(x)} = e^{\\displaystyle \\lim_{x \\to \\square} \\big[f(x)-1\\big] \\cdot g(x)}\r$$ $$ \\begin{align*} \\lim_{x \\to 0} \\left[ \\frac{\\ln(1+x)}{x} \\right]^{\\frac{1}{x}} \u0026amp;= e^{\\displaystyle \\lim_{x \\to 0} \\left[ \\frac{\\ln(1+x)}{x} - 1 \\right] \\cdot \\frac{1}{x}} \\ \u0026amp;= e^{\\displaystyle \\lim_{x \\to 0} \\frac{\\ln(1+x)-x}{x^2}} \\ \u0026amp;= e^{\\displaystyle \\lim_{x \\to 0} \\frac{\\frac{1}{1+x} - 1}{2x}} \\\n\u0026amp;= e^{\\displaystyle \\lim_{x \\to 0} \\frac{\\frac{-x}{1+x}}{2x}} \\ \u0026amp;= e^{\\displaystyle \\lim_{x \\to 0} \\frac{-1}{2(1+x)}} \\ \u0026amp;= e^{-\\frac{1}{2}} \\end{align*} $$\n$0^0$型\r核心公式: $$\r\\lim_{x \\to \\square} f(x)^{g(x)} = e^{\\displaystyle \\lim_{x \\to \\square} g(x)\\cdot \\ln f(x)}\r$$ $$\r\u003e \\begin{align}\r\u003e \\lim_{x \\to 0^+} \\left(1-e^{-x}\\right)^{\\frac{1}{\\ln x}}\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{1}{\\ln x} \\cdot \\ln\\left(1-e^{-x}\\right)} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{\\ln\\left(1-e^{-x}\\right)}{\\ln x}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{\\dfrac{e^{-x}}{1-e^{-x}}}{\\dfrac{1}{x}}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{x e^{-x}}{1-e^{-x}}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{x e^{-x}}{x}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} e^{-x}} \\\\\r\u003e \u0026= e\r\u003e \\end{align}\r\u003e $$ $\\infty^0$型\r核心公式: $$\r\\lim_{x \\to \\square} f(x)^{g(x)} = e^{\\displaystyle \\lim_{x \\to \\square} g(x)\\cdot \\ln f(x)}\r$$ $$\r\u003e \\begin{align}\r\u003e \\lim_{x \\to 0^+} \\left( \\frac{1}{\\sin x} \\right)^x\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} x \\cdot \\ln \\frac{1}{\\sin x}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} x \\cdot (\\ln 1 - \\ln\\sin x)} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} -x \\cdot \\ln\\sin x} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{\\ln\\sin x}{-\\frac{1}{x}}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{\\frac{\\cos x}{\\sin x}}{\\frac{1}{x^2}}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{x^2 \\cos x}{\\sin x}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} \\frac{x^2 \\cos x}{x}} \\\\\r\u003e \u0026= e^{\\displaystyle \\lim_{x \\to 0^+} x\\cos x} \\\\\r\u003e \u0026= 1\r\u003e \\end{align}\r\u003e $$ ","date": "2026-07-02 00:00:00",
@@ -26,7 +80,13 @@
   {
     "objectID": "df46daa197a51e483242cea395103067d5662d36",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC/",
-    "title": "[高等数学] 5.隐函数求导","content": "\r隐函数求导\r","date": "2026-07-02 00:00:00",
+    "title": "[高等数学] 5.隐函数求导","content": "\r隐函数求导\r隐函数: x和y掺和在一起\n如果还要求二阶导, 也是一样的, 基于一阶导继续做即可\n","date": "2026-07-02 00:00:00",
+    "updated": "2026-07-02 00:00:00"
+  }, 
+  {
+    "objectID": "aca678446531cfe09771e96d1e215412d6b424f0",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/",
+    "title": "[高等数学] 6.参数方程求导","content": "\r参数方程求导\r参数方程有 x, y, t\n要求 $\\frac{dy}{dx}$ 只要求 $\\frac{dy}{dt}$ 和 $\\frac{dx}{dt}$ 于是 $\\displaystyle{\\frac{dy}{dx}=\\frac{dy}{dt} / \\frac{dx}{dt}}$ 因为 $\\frac{dy}{dx}$ 是用 t 来表示的式子, 所以若要求二阶导, 不能直接用一阶导对 x 求导 $$\r\\frac{d^2 y}{dx^2}\r= \\frac{d\\left(\\dfrac{dy}{dx}\\right)}{dx}\r= \\frac{\\color{red}\\dfrac{d\\left(\\dfrac{dy}{dx}\\right)}{dt}}{\\color{green}\\dfrac{dx}{dt}}\r$$ ","date": "2026-07-02 00:00:00",
     "updated": "2026-07-02 00:00:00"
   }, 
   {
@@ -780,9 +840,9 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "68ef375fb10ea69a4aa61fe53dd51f875f554a35",
-    "permalink": "/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/",
-    "title": "[装机必备] 网站","content": "\r网站\r1. 字体\rhttps://www.fonts.net.cn/\n2. github镜像\rhttps://github.akams.cn/\n3. PPT模板\rhttps://ppter8.com/ppter/dabian.html\n4. 矢量图\rhttps://lucid.app/documents/\n5. SVG编辑器\rhttps://boxy-svg.com/app/\n6. AI抠图\rhttps://www.koukoutu.com/\nhttps://docsmall.com/image-remove-bg\n7. 流程图\rhttps://www.drawio.com/\n8. 文档代码高亮\rhttps://highlightcode.com/\n9. JSON视图查看\rhttps://www.lddgo.net/string/json-viewer/\n10. 文本比较\rhttps://text-compare.com/zh-hans\n11. 飞机场\r魔戒: https://mojie.app/\n12. GIF裁剪\rhttps://tool.lu/gifcropper/\n13. 文件转换器\rhttps://convertio.co/zh/\n14. 图床\r聚合图床: https://www.superbed.cn/ 路过图床: https://imgchr.com/byzh\n15. 图标\rhttps://www.iconfont.cn/\n16. 图片压缩\rhttps://docsmall.com/image-compress\n","date": "2026-05-17 00:00:00",
+    "objectID": "32862cdd0e5f1e33018daea5a2f0ade083fd9652",
+    "permalink": "/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/",
+    "title": "[装机必备] 实用网站","content": "\r实用网站\r1. 字体\rhttps://www.fonts.net.cn/\n2. github镜像\rhttps://github.akams.cn/\n3. PPT模板\rhttps://ppter8.com/ppter/dabian.html\n4. 矢量图\rhttps://lucid.app/documents/\n5. SVG编辑器\rhttps://boxy-svg.com/app/\n6. AI抠图\rhttps://www.koukoutu.com/\nhttps://docsmall.com/image-remove-bg\n7. 流程图\rhttps://www.drawio.com/\n8. 文档代码高亮\rhttps://highlightcode.com/\n9. JSON视图查看\rhttps://www.lddgo.net/string/json-viewer/\n10. 文本比较\rhttps://text-compare.com/zh-hans\n11. 飞机场\r魔戒: https://mojie.app/\n12. GIF裁剪\rhttps://tool.lu/gifcropper/\n13. 文件转换器\rhttps://convertio.co/zh/\n14. 图床\r聚合图床: https://www.superbed.cn/ 路过图床: https://imgchr.com/byzh\n15. 图标\rhttps://www.iconfont.cn/\n16. 图片压缩\rhttps://docsmall.com/image-compress\n","date": "2026-05-17 00:00:00",
     "updated": "2026-05-17 00:00:00"
   }, 
   {

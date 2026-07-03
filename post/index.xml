@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,20 +22,52 @@
     
 
     <item>
-      <title>[高等数学] 5.隐函数求导</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <title>[装机必备] 官方网站</title>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5.%E9%9A%90%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/</guid>
       <description>
-        <![CDATA[<h1>[高等数学] 5.隐函数求导</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[装机必备] 官方网站</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h2 id="隐函数求导">
-<a class="header-anchor" href="#%e9%9a%90%e5%87%bd%e6%95%b0%e6%b1%82%e5%af%bc"></a>
-隐函数求导
-</h2>
+          <h1 id="官方网站">
+<a class="header-anchor" href="#%e5%ae%98%e6%96%b9%e7%bd%91%e7%ab%99"></a>
+官方网站
+</h1><h2 id="1-csgo">
+<a class="header-anchor" href="#1-csgo"></a>
+1. CSGO
+</h2><p>hltv: <a href="https://www.hltv.org/">https://www.hltv.org/</a></p>
         
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 9.凹凸性与拐点</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 9.凹凸性与拐点</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="凹凸性与拐点">
+<a class="header-anchor" href="#%e5%87%b9%e5%87%b8%e6%80%a7%e4%b8%8e%e6%8b%90%e7%82%b9"></a>
+凹凸性与拐点
+</h2>$$
+y'' > 0 \implies \text{凹区间},\quad y'' < 0 \implies \text{凸区间}
+\\
+\text{拐点: 凹凸区间的交界点}
+$$<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/9.%E5%87%B9%E5%87%B8%E6%80%A7%E4%B8%8E%E6%8B%90%E7%82%B9/image-20260703114753136.png" alt="image-20260703114753136"></p>
+</blockquote>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
         <category>高等数学</category>
@@ -45,121 +77,69 @@
     
 
     <item>
-      <title>[高等数学] 4.函数的可导性</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 8.三大微分中值定理</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/8.%E4%B8%89%E5%A4%A7%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/8.%E4%B8%89%E5%A4%A7%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/</guid>
       <description>
-        <![CDATA[<h1>[高等数学] 4.函数的可导性</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 8.三大微分中值定理</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h2 id="连续不一定可导-可导一定连续">
-<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e4%b8%8d%e4%b8%80%e5%ae%9a%e5%8f%af%e5%af%bc-%e5%8f%af%e5%af%bc%e4%b8%80%e5%ae%9a%e8%bf%9e%e7%bb%ad"></a>
-<mark>连续不一定可导, 可导一定连续</mark>
-</h2><h2 id="可导性">
-<a class="header-anchor" href="#%e5%8f%af%e5%af%bc%e6%80%a7"></a>
-可导性
-</h2><p>判断 $f(x)$ 在 $x=a$ 处是否可导:</p>
-<ol>
-<li>判断 $f(x)$ 在 $x=a$ 处是否连续</li>
-<li>若连续, 且$f_{-}'(0)=f_{+}'(0)$</li>
-</ol>
-<p>则得证</p>
-<h2 id="基本求导公式">
-<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e6%b1%82%e5%af%bc%e5%85%ac%e5%bc%8f"></a>
-基本求导公式
-</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4.%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%AF%E5%AF%BC%E6%80%A7/image-20260702221111509.png" alt="image-20260702221111509"></p>
-        
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 3.函数的连续性</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3.%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%9E%E7%BB%AD%E6%80%A7/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 3.函数的连续性</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="连续性">
-<a class="header-anchor" href="#%e8%bf%9e%e7%bb%ad%e6%80%a7"></a>
-连续性
-</h2><p>证明 $f(x)$ 在 $x=a$ 处连续:</p>
-<p>若 $\displaystyle\lim_{x \to a^-} f(x) = \displaystyle\lim_{x \to a^+} f(x) = f(a)$ -&gt; 则得证</p>
-<h2 id="间断点">
-<a class="header-anchor" href="#%e9%97%b4%e6%96%ad%e7%82%b9"></a>
-间断点
-</h2><p>也就是不连续</p>
-<h4 id="1-第一类间断点左右极限都存在">
-<a class="header-anchor" href="#1-%e7%ac%ac%e4%b8%80%e7%b1%bb%e9%97%b4%e6%96%ad%e7%82%b9%e5%b7%a6%e5%8f%b3%e6%9e%81%e9%99%90%e9%83%bd%e5%ad%98%e5%9c%a8"></a>
-1. 第一类间断点(左右极限都存在)
-</h4><ul>
-<li>可去间断点: $\displaystyle\lim_{x \to x_0^-} f(x) = \lim_{x \to x_0^+} f(x) \neq f(x_0)$</li>
-<li>跳跃间断点: $\displaystyle\lim_{x \to x_0^-} f(x) \neq \lim_{x \to x_0^+} f(x)$</li>
-</ul>
-<h4 id="2-第二类间断点左右极限至少有一个不存在">
-<a class="header-anchor" href="#2-%e7%ac%ac%e4%ba%8c%e7%b1%bb%e9%97%b4%e6%96%ad%e7%82%b9%e5%b7%a6%e5%8f%b3%e6%9e%81%e9%99%90%e8%87%b3%e5%b0%91%e6%9c%89%e4%b8%80%e4%b8%aa%e4%b8%8d%e5%ad%98%e5%9c%a8"></a>
-2. 第二类间断点(左右极限至少有一个不存在)
-</h4><ul>
-<li>无穷间断点: $\displaystyle\lim_{x \to x_0^-}f(x)$、$\displaystyle\lim_{x \to x_0^+}f(x)$ 至少有一个为 $\infty$</li>
-<li>振荡间断点: $\displaystyle\lim_{x \to x_0^-}f(x)$、$\displaystyle\lim_{x \to x_0^+}f(x)$ 都不为 $\infty$, 但至少有一个因振荡而无法确定具体数值</li>
-</ul>
-        
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 2.数列的极限</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 2.数列的极限</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="夹逼定理">
-<a class="header-anchor" href="#%e5%a4%b9%e9%80%bc%e5%ae%9a%e7%90%86"></a>
-夹逼定理
-</h2><h4 id="1-数列型">
-<a class="header-anchor" href="#1-%e6%95%b0%e5%88%97%e5%9e%8b"></a>
-1. 数列型
-</h4><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2.%E6%95%B0%E5%88%97%E7%9A%84%E6%9E%81%E9%99%90/image-20260702200517681.png" alt="image-20260702200517681"></p>
-<p>找分母里的非主导项, 以此统一分母又不影响结果</p>
-<ul>
-<li>上界: 其最小</li>
-<li>下界: 其最大</li>
-</ul>
+          <h2 id="拉格朗日中值定理">
+<a class="header-anchor" href="#%e6%8b%89%e6%a0%bc%e6%9c%97%e6%97%a5%e4%b8%ad%e5%80%bc%e5%ae%9a%e7%90%86"></a>
+拉格朗日中值定理
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/8.%E4%B8%89%E5%A4%A7%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/image-20260703113649891.png" alt="image-20260703113649891"></p>
 <blockquote>
-$$
-> \lim_{n \to \infty} \left( \frac{1}{n^2+1} + \frac{2}{n^2+2} + \dots + \frac{n}{n^2+n} \right)
-> $$<p>上界:
+<p>也就是<strong>在其曲线上必然存在某一点的导数, 等于两点间的斜率</strong></p>
+</blockquote>
+<h2 id="罗尔定理">
+<a class="header-anchor" href="#%e7%bd%97%e5%b0%94%e5%ae%9a%e7%90%86"></a>
+罗尔定理
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/8.%E4%B8%89%E5%A4%A7%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/image-20260703113855569.png" alt="image-20260703113855569"></p>
+<blockquote>
+<p>在拉格朗日的基础上, <strong>如果两点纵坐标相同, 则其曲线上必然有一点的导数是0</strong></p>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 7.高阶导数</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/7.%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/7.%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 7.高阶导数</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="高阶导数">
+<a class="header-anchor" href="#%e9%ab%98%e9%98%b6%e5%af%bc%e6%95%b0"></a>
+高阶导数
+</h2><h4 id="1-找规律法">
+<a class="header-anchor" href="#1-%e6%89%be%e8%a7%84%e5%be%8b%e6%b3%95"></a>
+1. 找规律法
+</h4><blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/7.%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0/image-20260703112853915.png" alt="image-20260703112853915"></p>
+</blockquote>
+<h4 id="2-莱布尼兹公式">
+<a class="header-anchor" href="#2-%e8%8e%b1%e5%b8%83%e5%b0%bc%e5%85%b9%e5%85%ac%e5%bc%8f"></a>
+2. 莱布尼兹公式
+</h4><p>用于两个函数相乘的情况
 </p>
 $$
-> \begin{align*}
-> \lim_{n \to \infty} \left( \frac{1}{n^2+1} + \frac{2}{n^2+1} + \dots + \frac{n}{n^2+1} \right)
-> &= \lim_{n \to \infty} \frac{1+2+\dots+n}{n^2+1} \\
-> &= \lim_{n \to \infty} \frac{\dfrac{n(1+n)}{2}}{n^2+1} \\
-> &= \lim_{n \to \infty} \frac{n+n^2}{2n^2+2} \\
-> &= ... = \frac{1}{2}
-> \end{align*}
-> $$<p>
-下界:
-</p>
+(uv)^{(n)} = \sum_{k=0}^{n} \mathrm{C}_{n}^{k} u^{(n-k)} v^{(k)}
+$$<p>
+利用某一方的导数先归零的特点, 把其视为 $v$, 以避免无意义的计算</p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/7.%E9%AB%98%E9%98%B6%E5%AF%BC%E6%95%B0/image-20260703113120948.png" alt="image-20260703113120948"></p>
+</blockquote>
         
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
         <category>高等数学</category>
@@ -169,38 +149,61 @@ $$
     
 
     <item>
-      <title>[高等数学] 1.函数的极限</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 14.变上限积分</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1.%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/14.%E5%8F%98%E4%B8%8A%E9%99%90%E7%A7%AF%E5%88%86/</guid>
       <description>
-        <![CDATA[<h1>[高等数学] 1.函数的极限</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 14.变上限积分</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h2 id="型">
-<a class="header-anchor" href="#%e5%9e%8b"></a>
-$\frac{0}{0}$型
-</h2><h4 id="1-洛必达法则">
-<a class="header-anchor" href="#1-%e6%b4%9b%e5%bf%85%e8%be%be%e6%b3%95%e5%88%99"></a>
-1. <mark>洛必达法则</mark>
-</h4><p>对分子分母同时求导</p>
-<ul>
-<li>越求导越复杂的, 就不要继续洛必达了</li>
+          
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[高等数学] 13.定积分</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/13.%E5%AE%9A%E7%A7%AF%E5%88%86/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/13.%E5%AE%9A%E7%A7%AF%E5%88%86/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 13.定积分</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="牛顿-莱布尼兹公式">
+<a class="header-anchor" href="#%e7%89%9b%e9%a1%bf-%e8%8e%b1%e5%b8%83%e5%b0%bc%e5%85%b9%e5%85%ac%e5%bc%8f"></a>
+牛顿-莱布尼兹公式
+</h2>$$
+\int_{a}^{b} f(x) \, dx = F(x)\bigg|_{a}^{b} = F(b) - F(a)
+$$<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/13.%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703160842655.png" alt="image-20260703160842655"></p>
+</blockquote>
+<h2 id="换元法">
+<a class="header-anchor" href="#%e6%8d%a2%e5%85%83%e6%b3%95"></a>
+换元法
+</h2><p>换元时, <strong>同步更新</strong>上下限</p>
+<h2 id="分部积分法">
+<a class="header-anchor" href="#%e5%88%86%e9%83%a8%e7%a7%af%e5%88%86%e6%b3%95"></a>
+分部积分法
+</h2><p>核心公式:
+</p>
+$$
+\int_{a}^{b} u v' \, dx = uv\bigg|_{a}^{b} - \int_{a}^{b} u' v \, dx
+$$<ul>
+<li>常用于u和v的函数形式不同时</li>
+<li>选谁当u: 口诀<code>反, 对, 幂, 三, 指</code></li>
 </ul>
 <blockquote>
-$$
-> \lim_{x \to 0} \frac{1-\cos x}{2x^2}
-> = \lim_{x \to 0} \frac{\sin x}{4x}
-> = \lim_{x \to 0} \frac{(\sin x)'}{(4x)'}
-> = \lim_{x \to 0} \frac{\cos x}{4}
-> = \frac{1}{4}
-> $$</blockquote>
-<h4 id="2-等价无穷小">
-<a class="header-anchor" href="#2-%e7%ad%89%e4%bb%b7%e6%97%a0%e7%a9%b7%e5%b0%8f"></a>
-2. 等价无穷小
-</h4><p>当 $x \to 0$ 时:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/13.%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703161930567.png" alt="image-20260703161930567"></p>
         
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
         <category>高等数学</category>
@@ -210,179 +213,141 @@ $$
     
 
     <item>
-      <title>[操作系统] 图片格式</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</link>
-      <pubDate>Tue, 30 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 12.不定积分</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/</guid>
       <description>
-        <![CDATA[<h1>[操作系统] 图片格式</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 12.不定积分</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="图片格式">
-<a class="header-anchor" href="#%e5%9b%be%e7%89%87%e6%a0%bc%e5%bc%8f"></a>
-图片格式
-</h1><h2 id="分类">
-<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
-分类
-</h2><h4 id="1-位图raster-image像素型最常见">
-<a class="header-anchor" href="#1-%e4%bd%8d%e5%9b%beraster-image%e5%83%8f%e7%b4%a0%e5%9e%8b%e6%9c%80%e5%b8%b8%e8%a7%81"></a>
-1. 位图（Raster Image）——像素型（最常见）
-</h4><ul>
-<li>JPEG</li>
-<li>PNG</li>
-<li>GIF</li>
-<li>WebP</li>
-<li>BMP</li>
-<li>TIFF</li>
-</ul>
-<h4 id="2-矢量图vector-image数学型">
-<a class="header-anchor" href="#2-%e7%9f%a2%e9%87%8f%e5%9b%bevector-image%e6%95%b0%e5%ad%a6%e5%9e%8b"></a>
-2. 矢量图（Vector Image）——数学型
-</h4><p>不是像素，而是公式：</p>
+          <h2 id="不定积分">
+<a class="header-anchor" href="#%e4%b8%8d%e5%ae%9a%e7%a7%af%e5%88%86"></a>
+不定积分
+</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703131919877.png" alt="image-20260703131919877"></p>
+<h2 id="第一类换元法">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e7%b1%bb%e6%8d%a2%e5%85%83%e6%b3%95"></a>
+第一类换元法
+</h2><p>哪个整体看着难受, 就将其设为 $u$</p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703132410189.png" alt="image-20260703132410189"></p>
+</blockquote>
+<p>找 $u$ 的话, 可以<strong>先试着找一个整体</strong>, 如果<strong>求导后恰好是另一个项</strong>, 则就是所需的 $u$</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703133621632.png" alt="image-20260703133621632"></p>
+<p>但有的 $u$ 比较难找, 需要先初步变换形式</p>
         
-        <hr><p>本文2026-06-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-30</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
-        <category>操作系统</category>
+        <category>高等数学</category>
       
     </item>
     
     
 
     <item>
-      <title>[工具] Microsoft_Word</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/microsoft_word/</link>
-      <pubDate>Mon, 29 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 11.渐近线</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/microsoft_word/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/</guid>
       <description>
-        <![CDATA[<h1>[工具] Microsoft_Word</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 11.渐近线</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="microsoft_word">
-<a class="header-anchor" href="#microsoft_word"></a>
-Microsoft_Word
-</h1><h2 id="因为表格导致空白页">
-<a class="header-anchor" href="#%e5%9b%a0%e4%b8%ba%e8%a1%a8%e6%a0%bc%e5%af%bc%e8%87%b4%e7%a9%ba%e7%99%bd%e9%a1%b5"></a>
-因为表格导致空白页
-</h2><p>字号设置为 <code>1</code></p>
-        
-        <hr><p>本文2026-06-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-29</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[信号] 带宽</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%B8%A6%E5%AE%BD/</link>
-      <pubDate>Sun, 28 Jun 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E4%BF%A1%E5%8F%B7/%E5%B8%A6%E5%AE%BD/</guid>
-      <description>
-        <![CDATA[<h1>[信号] 带宽</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="带宽">
-<a class="header-anchor" href="#%e5%b8%a6%e5%ae%bd"></a>
-带宽
-</h2><p>傅里叶思想: 任何信号都可以分解为不同频率的正弦波
--&gt; 带宽就是这些频率分量“从最低到最高”的跨度</p>
-<p>带宽 = 频谱“显著能量范围”的宽度</p>
+          <h2 id="渐近线">
+<a class="header-anchor" href="#%e6%b8%90%e8%bf%91%e7%ba%bf"></a>
+渐近线
+</h2><ul>
+<li><strong>铅直渐近线/垂直渐近线</strong>: 无穷间断点</li>
+<li><strong>水平渐近线</strong>: $\displaystyle\lim_{x \to +\infty}f(x)$ 和 $\displaystyle\lim_{x \to -\infty}f(x)$</li>
+<li><strong>斜渐近线</strong>
+(当求出两条水平渐近线的时候, 可以直接说函数没有斜渐近线)
 <ul>
-<li>理论: $B=f_{max}-f_{min}$</li>
-<li>工程: <code>3 dB 带宽</code>: 功率下降到一半（-3dB）对应的频率范围</li>
+<li>$\displaystyle\lim_{x \to +\infty} \frac{f(x)}{x} = a \ (a\text{为非零常数}),\quad \lim_{x \to +\infty} \big[f(x)-ax\big] = b \ (b\text{为常数}) \implies y=ax+b \text{ 是斜渐近线}$</li>
+<li>$\displaystyle\lim_{x \to -\infty} \frac{f(x)}{x} = a \ (a\text{为非零常数}),\quad \lim_{x \to -\infty} \big[f(x)-ax\big] = b \ (b\text{为常数}) \implies y=ax+b \text{ 是斜渐近线}$</li>
 </ul>
-<p>带宽就是信号在频域中“占据的频率宽度”，决定了信号变化速度和信息容量</p>
+</li>
+</ul>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/image-20260703131059901.png" alt="image-20260703131059901"></p>
         
-        <hr><p>本文2026-06-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-28</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
-        <category>信号</category>
+        <category>高等数学</category>
       
     </item>
     
     
 
     <item>
-      <title>[数据集] 语义分割数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Sat, 27 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 10.曲率及曲率半径</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/</guid>
       <description>
-        <![CDATA[<h1>[数据集] 语义分割数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 10.曲率及曲率半径</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="语义分割数据集">
-<a class="header-anchor" href="#%e8%af%ad%e4%b9%89%e5%88%86%e5%89%b2%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-语义分割数据集
-</h1><h2 id="msrc-v2">
-<a class="header-anchor" href="#msrc-v2"></a>
-MSRC-V2
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网:</p>
-</li>
-<li>
-<p>下载链接:</p>
-</li>
-<li>
-<p>数据集全称: Microsoft Research Cambridge Object Recognition Dataset V2</p>
-</li>
-<li>
-<p>数据集中文全称: 微软研究院剑桥目标识别数据集 V2</p>
-</li>
-<li>
-<p>样本规模（train / test 数量）</p>
+          <h2 id="曲率及曲率半径">
+<a class="header-anchor" href="#%e6%9b%b2%e7%8e%87%e5%8f%8a%e6%9b%b2%e7%8e%87%e5%8d%8a%e5%be%84"></a>
+曲率及曲率半径
+</h2><p>曲率$K$:
+</p>
+$$
+K = \frac{|y''|}{\left[1+(y')^2\right]^{\frac{3}{2}}}
+$$<p>
+曲率半径$\rho$:
+</p>
+$$
+\rho = \frac{1}{K}
+$$<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/10.%E6%9B%B2%E7%8E%87%E5%8F%8A%E6%9B%B2%E7%8E%87%E5%8D%8A%E5%BE%84/image-20260703125959060.png" alt="image-20260703125959060"></p>
+</blockquote>
         
-        <hr><p>本文2026-06-27首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-27</p>]]>
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
       
-        <category>数据集</category>
+        <category>高等数学</category>
       
     </item>
     
     
 
     <item>
-      <title>[数据集] 时序预测数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Sat, 27 Jun 2026 00:00:00 &#43;0000</pubDate>
+      <title>[高等数学] 6.参数方程求导</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</guid>
       <description>
-        <![CDATA[<h1>[数据集] 时序预测数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[高等数学] 6.参数方程求导</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="时序预测数据集">
-<a class="header-anchor" href="#%e6%97%b6%e5%ba%8f%e9%a2%84%e6%b5%8b%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-时序预测数据集
-</h1><h2 id="jena-climate-20092016">
-<a class="header-anchor" href="#jena-climate-20092016"></a>
-Jena Climate 2009–2016
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网: <a href="https://www.bgc-jena.mpg.de/wetter/">https://www.bgc-jena.mpg.de/wetter/</a></p>
-</li>
-<li>
-<p>下载链接: <a href="https://www.kaggle.com/datasets/mnassrib/jena-climate">https://www.kaggle.com/datasets/mnassrib/jena-climate</a></p>
-</li>
-<li>
-<p>数据集全称: Jena Climate Dataset 2009–2016</p>
-</li>
-<li>
-<p>数据集中文全称: 德国耶拿气候数据集（2009–2016）</p>
+          <h2 id="参数方程求导">
+<a class="header-anchor" href="#%e5%8f%82%e6%95%b0%e6%96%b9%e7%a8%8b%e6%b1%82%e5%af%bc"></a>
+参数方程求导
+</h2><p>参数方程有 <code>x, y, t</code></p>
+<ul>
+<li>要求 $\frac{dy}{dx}$</li>
+<li>只要求 $\frac{dy}{dt}$ 和 $\frac{dx}{dt}$</li>
+<li>于是 $\displaystyle{\frac{dy}{dx}=\frac{dy}{dt} / \frac{dx}{dt}}$</li>
+</ul>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703000542084.png" alt="image-20260703000542084"></p>
+</blockquote>
+<p>因为 $\frac{dy}{dx}$ 是用 t 来表示的式子, 所以<strong>若要求二阶导</strong>, 不能直接用一阶导对 x 求导
+</p>
+$$
+\frac{d^2 y}{dx^2}
+= \frac{d\left(\dfrac{dy}{dx}\right)}{dx}
+= \frac{\color{red}\dfrac{d\left(\dfrac{dy}{dx}\right)}{dt}}{\color{green}\dfrac{dx}{dt}}
+$$<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703001428799.png" alt="image-20260703001428799"></p>
         
-        <hr><p>本文2026-06-27首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-27</p>]]>
+        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
       </description>
       
-        <category>数据集</category>
+        <category>高等数学</category>
       
     </item>
     

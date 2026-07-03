@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 17 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,17 +22,43 @@
     
 
     <item>
-      <title>[装机必备] 网站</title>
-      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</link>
+      <title>[装机必备] 官方网站</title>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/</guid>
+      <description>
+        <![CDATA[<h1>[装机必备] 官方网站</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="官方网站">
+<a class="header-anchor" href="#%e5%ae%98%e6%96%b9%e7%bd%91%e7%ab%99"></a>
+官方网站
+</h1><h2 id="1-csgo">
+<a class="header-anchor" href="#1-csgo"></a>
+1. CSGO
+</h2><p>hltv: <a href="https://www.hltv.org/">https://www.hltv.org/</a></p>
+        
+        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
+      </description>
+      
+        <category>装机必备</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[装机必备] 实用网站</title>
+      <link>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/</link>
       <pubDate>Sun, 17 May 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://byzhrichard.github.io/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/</guid>
       <description>
-        <![CDATA[<h1>[装机必备] 网站</h1><p>作者：byzh（xxx@example.com）</p>
+        <![CDATA[<h1>[装机必备] 实用网站</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h1 id="网站">
-<a class="header-anchor" href="#%e7%bd%91%e7%ab%99"></a>
-网站
+          <h1 id="实用网站">
+<a class="header-anchor" href="#%e5%ae%9e%e7%94%a8%e7%bd%91%e7%ab%99"></a>
+实用网站
 </h1><h2 id="1-字体">
 <a class="header-anchor" href="#1-%e5%ad%97%e4%bd%93"></a>
 1. 字体
