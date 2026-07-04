@@ -12,12 +12,32 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[线性代数] 2.按行or列展开</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/2.%E6%8C%89%E8%A1%8Cor%E5%88%97%E5%B1%95%E5%BC%80/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/2.%E6%8C%89%E8%A1%8Cor%E5%88%97%E5%B1%95%E5%BC%80/</guid>
+      <description>
+        <![CDATA[<h1>[线性代数] 2.按行or列展开</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          
+        
+        <hr><p>本文2026-07-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-04</p>]]>
+      </description>
+      
+        <category>线性代数</category>
+      
+    </item>
     
     
 

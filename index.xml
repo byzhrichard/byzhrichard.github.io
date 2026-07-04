@@ -12,12 +12,32 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[线性代数] 2.按行or列展开</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/2.%E6%8C%89%E8%A1%8Cor%E5%88%97%E5%B1%95%E5%BC%80/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/2.%E6%8C%89%E8%A1%8Cor%E5%88%97%E5%B1%95%E5%BC%80/</guid>
+      <description>
+        <![CDATA[<h1>[线性代数] 2.按行or列展开</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          
+        
+        <hr><p>本文2026-07-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-04</p>]]>
+      </description>
+      
+        <category>线性代数</category>
+      
+    </item>
     
     
 
@@ -336,41 +356,6 @@ $$<ul>
 <p>找 $u$ 的话, 可以<strong>先试着找一个整体</strong>, 如果<strong>求导后恰好是另一个项</strong>, 则就是所需的 $u$</p>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/12.%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86/image-20260703133621632.png" alt="image-20260703133621632"></p>
 <p>但有的 $u$ 比较难找, 需要先初步变换形式</p>
-        
-        <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 11.渐近线</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/</link>
-      <pubDate>Fri, 03 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 11.渐近线</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="渐近线">
-<a class="header-anchor" href="#%e6%b8%90%e8%bf%91%e7%ba%bf"></a>
-渐近线
-</h2><ul>
-<li><strong>铅直渐近线/垂直渐近线</strong>: 无穷间断点</li>
-<li><strong>水平渐近线</strong>: $\displaystyle\lim_{x \to +\infty}f(x)$ 和 $\displaystyle\lim_{x \to -\infty}f(x)$</li>
-<li><strong>斜渐近线</strong>
-(当求出两条水平渐近线的时候, 可以直接说函数没有斜渐近线)
-<ul>
-<li>$\displaystyle\lim_{x \to +\infty} \frac{f(x)}{x} = a \ (a\text{为非零常数}),\quad \lim_{x \to +\infty} \big[f(x)-ax\big] = b \ (b\text{为常数}) \implies y=ax+b \text{ 是斜渐近线}$</li>
-<li>$\displaystyle\lim_{x \to -\infty} \frac{f(x)}{x} = a \ (a\text{为非零常数}),\quad \lim_{x \to -\infty} \big[f(x)-ax\big] = b \ (b\text{为常数}) \implies y=ax+b \text{ 是斜渐近线}$</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/11.%E6%B8%90%E8%BF%91%E7%BA%BF/image-20260703131059901.png" alt="image-20260703131059901"></p>
         
         <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
       </description>
