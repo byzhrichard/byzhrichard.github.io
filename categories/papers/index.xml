@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Papers on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/papers/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/papers/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[papers] Narrowing...Encoding</title>
+      <link>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</guid>
+      <description>
+        <![CDATA[<h1>[papers] Narrowing...Encoding</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="abstract">
+<a class="header-anchor" href="#abstract"></a>
+Abstract
+</h2><h2 id="introduction">
+<a class="header-anchor" href="#introduction"></a>
+Introduction
+</h2><h2 id="related-work">
+<a class="header-anchor" href="#related-work"></a>
+Related Work
+</h2><h2 id="preliminaries">
+<a class="header-anchor" href="#preliminaries"></a>
+Preliminaries
+</h2><h2 id="methods">
+<a class="header-anchor" href="#methods"></a>
+Methods
+</h2><h2 id="experiments">
+<a class="header-anchor" href="#experiments"></a>
+Experiments
+</h2><h2 id="conclusion">
+<a class="header-anchor" href="#conclusion"></a>
+Conclusion
+</h2>
+        
+        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
+      </description>
+      
+        <category>papers</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Papers] Adaptive...Processing</title>
+      <link>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</guid>
+      <description>
+        <![CDATA[<h1>[Papers] Adaptive...Processing</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="黑话">
+<a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
+黑话
+</h2><p><code>PRI</code>: Pulse Repetition Interval: 脉冲重复间隔
+<code>PDWs</code>: Pulse Descriptor Words: 脉冲描述字
+<code>RF</code>: radar frequency: 雷达频率
+<code>PW</code>: pulse width: 脉宽
+<code>DOA</code>: direction of arrival: 到达角
+<code>TOA</code>: time of arrival: 到达时间</p>
+<h2 id="abstract">
+<a class="header-anchor" href="#abstract"></a>
+Abstract
+</h2><p>在复杂的电磁环境中, 高密度和高度交织的信号给<strong>雷达信号分选RSS</strong>带来挑战.
+基于相似性学习和伪标签方法来解决脉冲交织问题
+分为两个部分</p>
+        
+        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
+      </description>
+      
+        <category>Papers</category>
+      
+    </item>
+    
+  </channel>
+</rss>

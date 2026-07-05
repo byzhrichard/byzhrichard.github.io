@@ -1,5 +1,23 @@
 [
   {
+    "objectID": "81cce8ce7d061fa8d23a1341aaa91fc64c30f947",
+    "permalink": "/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%AD%A6%E4%B9%A0/",
+    "title": "[DL从入门到入土] 相似性学习 similarity learning","content": "\r[DL从入门到入土] 相似性学习 similarity learning\r📢个人导航\r知乎：https://www.zhihu.com/people/byzh_rc\nCSDN：https://blog.csdn.net/qq_54636039\n注：本文仅对所述内容做了框架性引导，具体细节可查询其余相关资料or源码\n参考文章：各方资料\n[TOC]\n📖参考资料\r\u0026amp;hellip;\n🌱背景\r传统分类模型通常学习如下映射：输入一个样本，模型直接输出其所属类别 $$\rf_\\theta(x)\\rightarrow y\r$$ 相似性学习则不一定直接输出类别，而是学习样本之间的相似程度： $$\rs(x_i,x_j)\\rightarrow \\mathbb{R}\r$$ $x_i$、$x_j$ 表示两个输入样本 $s(\\cdot,\\cdot)$ 表示相似度函数 输出值表示两个样本有多相似 核心目标：让语义相近的样本在特征空间中距离较近，让语义不同的样本距离较远\n相似性学习通常不会直接在原始输入上计算距离，而是先通过神经网络提取特征 $$\rz=f_\\theta(x)\r$$ 然后在特征空间中计算两个样本的相似度： $$\rs(x_i,x_j)=s\\left(f_\\theta(x_i),f_\\theta(x_j)\\right)\r$$ 普通分类模型通常要求训练集和测试集拥有相同的类别集合\n相似性学习不直接依赖固定分类器，而是学习一个通用的特征空间。对于一个新样本，可以将其与已有样本进行比较\n相似性学习: Similarity Learning\n学习两个样本之间的相似程度 度量学习: Metric Learning\n学习一个合适的距离度量 对比学习: Contrastive Learning\n正样本对：拉近 负样本对：推远 相似性学习 ├── 直接学习相似度 └── 度量学习 ├── Contrastive Loss ├── Triplet Loss ├── N-pair Loss └── 对比表示学习 ⚙️架构(公式)\r输入样本 ↓ 特征提取网络 ↓ 嵌入向量 ↓ 距离或相似度计算 ↓ 相似性结果 数学形式为： $$\rz_i=f_\\theta(x_i), \\quad z_j=f_\\theta(x_j)\r\\\\\rs_{ij}=s(z_i,z_j)\r$$ $f_\\theta$ 是特征提取网络 $z_i$ …","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "9bb6d484e86a960db69ee6d1f77c2ef039f4e3bd",
+    "permalink": "/post/papers/ieee-spl/adaptive...processing/",
+    "title": "[Papers] Adaptive...Processing","content": "\r黑话\rPRI: Pulse Repetition Interval: 脉冲重复间隔 PDWs: Pulse Descriptor Words: 脉冲描述字 RF: radar frequency: 雷达频率 PW: pulse width: 脉宽 DOA: direction of arrival: 到达角 TOA: time of arrival: 到达时间\nAbstract\r在复杂的电磁环境中, 高密度和高度交织的信号给雷达信号分选RSS带来挑战. 基于相似性学习和伪标签方法来解决脉冲交织问题 分为两个部分\n用无监督聚类来制造伪标签用于计算脉冲重复间隔PRI 用双分支网络, 基于相似性学习, 使用PRI和其他特征来决定两个簇是否源于同一个雷达 -\u0026gt; 高性能, 更好的鲁棒性, 节约计算时间\nelectromagnetic: 电磁 reconnaissance: 侦察 intertleaving: 交织 pseudo: 伪的\nIntroduction\r什么是用来干什么的, 什么问题凸显\n现在的需求\n传统的RSS的弊端\nPRI方法: 单特征具有局限性, 当信号高度重叠时不行 PDWs cluster方法: 当外来类或数据分布不平衡的时候不行 deep learn方法: 需要大量的有标签数据 为了解决这些问题, 我们的方法\u0026hellip;\n主要创新点和贡献\ndistinguish: 区分 (distinction: 区别) overlap: 重叠 (lap: 折叠) suppression: 抑制 spectrum: 频谱 incorporate: 包含, 合并, 融入 extensive: 大量的 integrate: 整合, 使\u0026hellip;一体化 preliminary: 初步的 mechanism: 机制\nMethodology\rA. 自适应聚类和伪标签优化\rpartition: 分段, 分隔, 分割 granularity: 间隔尺寸 span: 跨度 derive: 得到, 获得 fluctuation: 波动 heterogeneous: 各种各样的 outlier: 异常值\nB. 相似性学习网络结构\rintra-cluster: 簇内 inter-cluster: 簇间 spatial: 空间的 embed: 嵌入 deep representation: 深度表征 refine: 精细化 yield: 产生 margin: 边缘 coefficient: 系数\nExperiments and results\rhierarchical: 按等级划分, 分级的 intensive: 密集的 deployment: 部署 rationality: 合理性 indicator: 指标 proportion: 占比, 比例 generalization: 泛化, 一般化 rigorously: 严密地 subtle: 细微的, 微小的 controlled ablation experiment: 控制变量的消融实验 inject: 添加, 加入 mitigate: 减轻 imperfection: 缺点, 瑕疵\nConclusion\r本文提出了基于\u0026hellip;的\u0026hellip;方法, 简单收束两个小模块\noptimize: 使\u0026hellip;最优化 scaling factor: 比例因子 practical application: 实际应用\n拓-为什么选birch\r","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "8bd5d5bb6fbf483a29816ebc3ef6941778077b5e",
+    "permalink": "/post/papers/icml/narrowing...encoding/",
+    "title": "[papers] Narrowing...Encoding","content": "\rAbstract\rIntroduction\rRelated Work\rPreliminaries\rMethods\rExperiments\rConclusion\r","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
     "objectID": "afbe26ef4427be107300a63eab0e8d1f097321f4",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/13.%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84/",
     "title": "[线性代数] 13.解方程组","content": "\r解方程组\r当有无穷多解时, 如何求通解:\n把 行阶梯形矩阵 变为 行最简形\n行最简形: 让阶梯拐弯处的数都变为1, 且该1所在列的其他数都为0\n再带回方程, 通常可以发现各解可由另一个解表示, 将其设为k ","date": "2026-07-05 00:00:00",
