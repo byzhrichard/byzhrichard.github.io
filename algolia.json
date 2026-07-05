@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "afbe26ef4427be107300a63eab0e8d1f097321f4",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/13.%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84/",
+    "title": "[线性代数] 13.解方程组","content": "\r解方程组\r当有无穷多解时, 如何求通解:\n把 行阶梯形矩阵 变为 行最简形\n行最简形: 让阶梯拐弯处的数都变为1, 且该1所在列的其他数都为0\n再带回方程, 通常可以发现各解可由另一个解表示, 将其设为k ","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "5f6ae3f1e720507dce0329b60990d3970fd3831f",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/14.%E5%90%91%E9%87%8F/",
+    "title": "[线性代数] 14.向量","content": "\r向量\rn维列向量: $$\r\\beta=\r\\begin{bmatrix}\r1 \\\\\r2 \\\\\r\\vdots \\\\\rn\r\\end{bmatrix}\r$$ n维行向量: $$\r\\beta^T=(1,2,\\dots,n)\r$$\r线性组合\r向量组 $\\alpha_1,\\alpha_2,\\dots,\\alpha_m$ 的线性组合: $$\rk_1\\alpha_1 + k_2\\alpha_2 + \\dots + k_m\\alpha_m \\quad (k_1,k_2,\\dots,k_m \\text{ 是任意实数})\r$$\r线性表示\r向量 $\\boldsymbol{\\beta}$ 能由向量组 $\\alpha_1,\\alpha_2,\\dots,\\alpha_m$ 线性表示: $$\rk_1\\alpha_1 + k_2\\alpha_2 + \\dots + k_m\\alpha_m = \\beta \\quad (k_1,k_2,\\dots,k_m \\text{ 是一组实数})\r$$ -\u0026gt; 方程组有解, 即能线性表示\n向量组的等价\r向量组A 与 向量组B 等价 \u0026lt;-\u0026gt; 向量组A 与 向量组B 能相互线性表示\n向量组的线性相关性\r向量组 $\\alpha_1,\\alpha_2,\\dots,\\alpha_m$ 线性相关: $$\rk_1\\alpha_1 + k_2\\alpha_2 + \\dots + k_m\\alpha_m = O \\quad (k_1,k_2,\\dots,k_m \\text{ 是一组实数，且不全为}0)\r$$ 向量组 $\\alpha_1,\\alpha_2,\\dots,\\alpha_m$ 线性无关: $$\rk_1\\alpha_1 + k_2\\alpha_2 + \\dots + k_m\\alpha_m = O \\quad (k_1,k_2,\\dots,k_m \\text{ 只能全为}0)\r$$ 向量组的秩\r列向量组拼起来, 就是一个矩阵, 其秩就是向量组的秩\n行向量组先转置成列向量组再拼起来, 就是一个矩阵, 其秩就是向量组的秩\n因为本质用的是初等行变换, 而不是初等列变换\n极大无关组\r行阶梯矩阵的各阶梯第一个元素对应的那一列, 就是极大无关组的元素\n如果要表示其他列对应的向量, 只要化为行最简形即可找到对应的系数\n","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "67426c4539cbe91eb531a893066b9b5b3c1ce2b2",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/15.%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB/",
+    "title": "[线性代数] 15.齐次方程组的基础解系","content": "\r齐次方程组的基础解系\r基础解析 $\\xi$ : 任意实数k后面的向量\n可用其把通解写的更简洁 ","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "bbefcf8636f58a77f04adad7375c53e15c76f4d2",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/16.%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84%E8%A7%A3%E7%9A%84%E6%80%A7%E8%B4%A8/",
+    "title": "[线性代数] 16.线性方程组解的性质","content": "\r线性方程组解的性质\r1. 齐次线性方程组 $Ax=O$\r若 $\\xi_1,\\xi_2,\\dots,\\xi_s$ 是 $Ax=O$ 的解, 则它们的线性组合 $k_1\\xi_1+k_2\\xi_2+\\dots+k_s\\xi_s$ 也是 $Ax=O$ 的解 2. 非齐次线性方程组 $Ax=b$\r设 $\\eta_1,\\eta_2$ 是 $Ax=b$ 的解, 则 $\\eta_1-\\eta_2$ 是 $Ax=O$ 的解\n设 $\\eta$ 是 $Ax=b$ 的解, $\\xi$ 是 $Ax=O$ 的解, 则 $\\xi+\\eta$ 是 $Ax=b$ 的解\n设 $\\eta_1,\\eta_2,\\dots,\\eta_s$ 是 $Ax=b$ 的解，则 $$k_1\\eta_1 + k_2\\eta_2 + \\dots + k_s\\eta_s \\begin{cases} \\text{是 } Ax=b \\text{ 的解} \u0026 (k_1+k_2+\\dots+k_s=1) \\\\ \\text{是 } Ax=O \\text{ 的解} \u0026 (k_1+k_2+\\dots+k_s=0) \\end{cases}$$ ","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "b4ae670dc8a10d5e2ae261e54fc5f6a394d13c65",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/17.%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%B4%E6%95%B0%E5%9F%BA/",
+    "title": "[线性代数] 17.向量空间的维数\u0026基","content": "\r向量空间的维数\u0026amp;基\r向量空间的维数: 相当于求向量组的秩\n向量组的基: 相当于求向量组的极大无关组\n基拼成的方阵一定可逆 ","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "4cbe41fb50b0279ac37b291599af78b097bf2534",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/18.%E8%BF%87%E5%BA%A6%E7%9F%A9%E9%98%B5/",
+    "title": "[线性代数] 18.过度矩阵","content": "\r过度矩阵\r过度矩阵: 必为方阵, 且可逆\n","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
+    "objectID": "69f977a4ae2b0cff363a3366cd9176c86b1e24ad",
+    "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/19.%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E9%95%BF%E5%BA%A6%E6%AD%A3%E4%BA%A4/",
+    "title": "[线性代数] 19.向量的内积\u0026长度\u0026正交","content": "\r内积\r$[\\alpha, \\beta]$:\n长度/模/范数\r$||\\alpha||$:\n$||\\alpha||=1$ 则为单位向量 单位化: 把向量除以自己的范数 -\u0026gt; 单位向量 正交\r$\\alpha$ 与 $\\beta$ 正交（即 $\\alpha \\perp \\beta$）$\\iff [\\alpha,\\beta] = 0$\n若一个向量组的向量两两正交, 且均不为零向量, 则称为正交向量组 若一个向量组的向量两两正交, 且均为单位向量, 则称为单位正交向量组/标准正交向量组/规范正交向量组 ","date": "2026-07-05 00:00:00",
+    "updated": "2026-07-05 00:00:00"
+  }, 
+  {
     "objectID": "cfde8dd738d615efbccbc6bb4ba8bfafcdec7616",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/10.%E5%88%9D%E7%AD%89%E8%A1%8C%E5%8F%98%E6%8D%A2/",
     "title": "[线性代数] 10.初等行变换","content": "\r初等行变换法求逆矩阵\r","date": "2026-07-04 00:00:00",
