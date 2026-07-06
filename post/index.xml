@@ -151,6 +151,101 @@ RML2016.10a数据集
     
 
     <item>
+      <title>[工具] Edge</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/edge/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/edge/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Edge</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="edge">
+<a class="header-anchor" href="#edge"></a>
+Edge
+</h1><h4 id="1-快捷键">
+<a class="header-anchor" href="#1-%e5%bf%ab%e6%8d%b7%e9%94%ae"></a>
+1. 快捷键
+</h4><p><code>ctrl+tab</code>: 类似<code>win+tab</code>
+<code>ctrl+数字</code>: 类似<code>win+数字</code></p>
+<p><code>ctrl+T</code>: 新建标签页
+<code>ctrl+F4</code>: 关闭当前页</p>
+<p><code>ctrl++</code>: 放大
+<code>ctrl+-</code>: 缩小
+<code>ctrl+0</code>: 恢复原始大小</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[papers] Narrowing...Encoding</title>
+      <link>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</guid>
+      <description>
+        <![CDATA[<h1>[papers] Narrowing...Encoding</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="黑话">
+<a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
+黑话
+</h2><p><code>budget</code>: 预算, 训练开销, <strong>算力开销</strong>
+<code>temporal evidence</code>: 时序特征判别线索
+<code>horizen</code>: 仿真时长, 时间窗口, 步长
+<code>Pareto frontier</code>: 帕累托前沿(如果无法在不牺牲其中一个指标的前提下，再提升另一个指标，当前状态就是<strong>帕累托最优</strong>)
+<code>modulation recognition</code>: 调制识别
+<code>mechanical fault diagnosis</code>: 机械故障诊断
+<code>SOPs</code>: synaptic operations: 突触运算量</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>papers</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Papers] Adaptive...Processing</title>
+      <link>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</guid>
+      <description>
+        <![CDATA[<h1>[Papers] Adaptive...Processing</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="黑话">
+<a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
+黑话
+</h2><p><code>PRI</code>: Pulse Repetition Interval: 脉冲重复间隔
+<code>PDWs</code>: Pulse Descriptor Words: 脉冲描述字
+<code>RF</code>: radar frequency: 雷达频率
+<code>PW</code>: pulse width: 脉宽
+<code>DOA</code>: direction of arrival: 到达角
+<code>TOA</code>: time of arrival: 到达时间</p>
+<h2 id="abstract">
+<a class="header-anchor" href="#abstract"></a>
+Abstract
+</h2><p>在复杂的电磁环境中, 高密度和高度交织的信号给<strong>雷达信号分选RSS</strong>带来挑战.
+基于相似性学习和伪标签方法来解决脉冲交织问题
+分为两个部分</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>Papers</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[线性代数] 19.向量的内积&amp;长度&amp;正交</title>
       <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/19.%E5%90%91%E9%87%8F%E7%9A%84%E5%86%85%E7%A7%AF%E9%95%BF%E5%BA%A6%E6%AD%A3%E4%BA%A4/</link>
       <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
@@ -275,115 +370,6 @@ RML2016.10a数据集
 </li>
 <li>
 <p>设 $\eta$ 是 $Ax=b$ 的解, $\xi$ 是 $Ax=O$ 的解, 则 $\xi+\eta$ 是 $Ax=b$ 的解</p>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 15.齐次方程组的基础解系</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/15.%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/15.%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 15.齐次方程组的基础解系</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="齐次方程组的基础解系">
-<a class="header-anchor" href="#%e9%bd%90%e6%ac%a1%e6%96%b9%e7%a8%8b%e7%bb%84%e7%9a%84%e5%9f%ba%e7%a1%80%e8%a7%a3%e7%b3%bb"></a>
-齐次方程组的基础解系
-</h2><p>基础解析 $\xi$ : 任意实数k后面的向量</p>
-<ul>
-<li>可用其把通解写的更简洁</li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/15.%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E5%9F%BA%E7%A1%80%E8%A7%A3%E7%B3%BB/image-20260705111349797.png" alt="image-20260705111349797"></p>
-</blockquote>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 14.向量</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/14.%E5%90%91%E9%87%8F/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/14.%E5%90%91%E9%87%8F/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 14.向量</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="向量">
-<a class="header-anchor" href="#%e5%90%91%e9%87%8f"></a>
-向量
-</h2><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/14.%E5%90%91%E9%87%8F/image-20260705104752154.png" alt="image-20260705104752154"></p>
-<p>n维列向量:
-</p>
-$$
-\beta=
-\begin{bmatrix}
-1 \\
-2 \\
-\vdots \\
-n
-\end{bmatrix}
-$$<p>
-n维行向量:
-</p>
-$$
-\beta^T=(1,2,\dots,n)
-$$<h2 id="线性组合">
-<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e7%bb%84%e5%90%88"></a>
-线性组合
-</h2><p>向量组 $\alpha_1,\alpha_2,\dots,\alpha_m$ 的线性组合:
-</p>
-$$
-k_1\alpha_1 + k_2\alpha_2 + \dots + k_m\alpha_m \quad (k_1,k_2,\dots,k_m \text{ 是任意实数})
-$$<h2 id="线性表示">
-<a class="header-anchor" href="#%e7%ba%bf%e6%80%a7%e8%a1%a8%e7%a4%ba"></a>
-线性表示
-</h2><p>向量 $\boldsymbol{\beta}$ 能由向量组 $\alpha_1,\alpha_2,\dots,\alpha_m$ 线性表示:
-</p>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 13.解方程组</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/13.%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/13.%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 13.解方程组</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="解方程组">
-<a class="header-anchor" href="#%e8%a7%a3%e6%96%b9%e7%a8%8b%e7%bb%84"></a>
-解方程组
-</h2><p>当有无穷多解时, 如何求<strong>通解</strong>:</p>
-<p>把 <code>行阶梯形矩阵</code> 变为 <code>行最简形</code></p>
-<p><strong>行最简形</strong>: 让阶梯拐弯处的数都变为1, 且该1所在列的其他数都为0</p>
-<ul>
-<li>再带回方程, 通常可以发现各解可由<strong>另一个解</strong>表示, 将其<strong>设为k</strong></li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/13.%E8%A7%A3%E6%96%B9%E7%A8%8B%E7%BB%84/image-20260705001105862.png" alt="image-20260705001105862"></p>
         
         <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
       </description>

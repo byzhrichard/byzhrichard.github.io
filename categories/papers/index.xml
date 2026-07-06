@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/papers/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -24,7 +24,7 @@
     <item>
       <title>[papers] Narrowing...Encoding</title>
       <link>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</guid>
       <description>
@@ -33,11 +33,15 @@
           <h2 id="黑话">
 <a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
 黑话
-</h2><p><code>temporal evidence</code>: 时序特征判别线索
+</h2><p><code>budget</code>: 预算, 训练开销, <strong>算力开销</strong>
+<code>temporal evidence</code>: 时序特征判别线索
 <code>horizen</code>: 仿真时长, 时间窗口, 步长
-<code>Pareto frontier</code>: 帕累托前沿(如果无法在不牺牲其中一个指标的前提下，再提升另一个指标，当前状态就是<strong>帕累托最优</strong>)</p>
+<code>Pareto frontier</code>: 帕累托前沿(如果无法在不牺牲其中一个指标的前提下，再提升另一个指标，当前状态就是<strong>帕累托最优</strong>)
+<code>modulation recognition</code>: 调制识别
+<code>mechanical fault diagnosis</code>: 机械故障诊断
+<code>SOPs</code>: synaptic operations: 突触运算量</p>
         
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
       </description>
       
         <category>papers</category>
@@ -49,7 +53,7 @@
     <item>
       <title>[Papers] Adaptive...Processing</title>
       <link>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
       <guid>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</guid>
       <description>
@@ -71,7 +75,7 @@ Abstract
 基于相似性学习和伪标签方法来解决脉冲交织问题
 分为两个部分</p>
         
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
       </description>
       
         <category>Papers</category>
