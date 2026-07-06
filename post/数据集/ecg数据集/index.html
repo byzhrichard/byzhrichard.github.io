@@ -152,6 +152,19 @@
             </li>
           </ul>
         </li>
+        <li><a href="#mit-bih数据集">MIT-BIH数据集</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -169,7 +182,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -379,7 +392,177 @@ PTB-XL
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">xxx</span>
 </span></span></code></pre></div><p><code>gnt2png.py</code> 代码:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">xxx</span>
-</span></span></code></pre></div></div>
+</span></span></code></pre></div><h2 id="mit-bih数据集">
+<a class="header-anchor" href="#mit-bih%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+MIT-BIH数据集
+</h2><h4 id="1-数据集介绍-1">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d-1"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://physionet.org/content/mitdb/1.0.0/">https://physionet.org/content/mitdb/1.0.0/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://physionet.org/content/mitdb/get-zip/1.0.0/">https://physionet.org/content/mitdb/get-zip/1.0.0/</a></p>
+</li>
+<li>
+<p>数据集全称: MIT-BIH Arrhythmia Database</p>
+</li>
+<li>
+<p>数据集中文全称: MIT-BIH 心律失常数据库</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>包含 48 条双通道动态心电记录，来自 47 名受试者</li>
+<li>每条记录时长约 30 分钟</li>
+<li>共包含约 11 万个人工校正的心拍标注</li>
+<li>官方没有提供固定的训练集和测试集，通常由研究者按照患者或记录编号自行划分</li>
+</ul>
+</li>
+<li>
+<p>类别数量</p>
+<ul>
+<li>原始数据包含多种正常与异常心拍标注，类别数量取决于所采用的标签标准</li>
+<li>常见做法是按照 AAMI 标准合并为 5 类：<code>N</code>、<code>S</code>、<code>V</code>、<code>F</code> 和 <code>Q</code></li>
+<li>也可以选取部分类别构造二分类、四分类或其他多分类任务</li>
+</ul>
+</li>
+</ul>
+<p>MIT-BIH 是<strong>心电信号</strong>分类领域使用最广泛的数据集之一。心电信号以每通道 360 Hz 的采样率进行数字化，量化精度为 11 bit。每条记录均由两名或以上心脏病专家进行标注，并对存在分歧的标注进行校正。</p>
+<p>常见的 AAMI 五分类定义如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>类别</th>
+          <th>含义</th>
+          <th>主要内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>N</td>
+          <td>Normal</td>
+          <td>正常心拍及部分束支传导阻滞心拍</td>
+      </tr>
+      <tr>
+          <td>S</td>
+          <td>Supraventricular</td>
+          <td>室上性异位心拍</td>
+      </tr>
+      <tr>
+          <td>V</td>
+          <td>Ventricular</td>
+          <td>室性异位心拍</td>
+      </tr>
+      <tr>
+          <td>F</td>
+          <td>Fusion</td>
+          <td>正常心拍与室性心拍的融合心拍</td>
+      </tr>
+      <tr>
+          <td>Q</td>
+          <td>Unknown</td>
+          <td>起搏心拍、无法分类心拍等</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="2-任务定义-1">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89-1"></a>
+2. 任务定义
+</h4><ul>
+<li>
+<p>任务类型：多分类（Multi-class Classification）</p>
+</li>
+<li>
+<p>输入x：</p>
+<ul>
+<li>从连续 ECG 信号中以 R 峰为中心截取的固定长度心拍片段</li>
+<li>可使用单导联或双导联输入</li>
+</ul>
+</li>
+<li>
+<p>输出y：</p>
+<ul>
+<li>当前心拍对应的心律类别</li>
+<li>采用 AAMI 五分类时</li>
+</ul>
+</li>
+<li>
+<p>难点：</p>
+<ul>
+<li>类别样本数量严重不平衡，正常心拍远多于异常心拍</li>
+<li>不同患者之间的心电形态差异较大</li>
+<li><code>S</code>、<code>F</code> 等少数类别样本较少，容易被误分类</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途-1">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94-1"></a>
+3. 主要领域用途
+</h4><ul>
+<li>心律失常自动识别</li>
+<li>心电心拍分类</li>
+<li>心血管疾病辅助诊断</li>
+<li>可穿戴心电监测</li>
+<li>异常心拍检测</li>
+<li>ECG 去噪与信号预处理</li>
+<li>一维 CNN、RNN、Transformer 和 SNN 的时序分类</li>
+<li>类别不平衡学习和跨患者泛化研究。</li>
+</ul>
+<h4 id="4-文件组成-1">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90-1"></a>
+4. 文件组成
+</h4><p>MIT-BIH 数据采用 WFDB 格式存储，每条记录通常包含三个主要文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">MIT-BIH/
+</span></span><span class="line"><span class="cl">├── 100.dat
+</span></span><span class="line"><span class="cl">├── 100.hea
+</span></span><span class="line"><span class="cl">├── 100.atr
+</span></span><span class="line"><span class="cl">├── 101.dat
+</span></span><span class="line"><span class="cl">├── 101.hea
+</span></span><span class="line"><span class="cl">├── 101.atr
+</span></span><span class="line"><span class="cl">├── ...
+</span></span><span class="line"><span class="cl">└── RECORDS
+</span></span></code></pre></div><p>各文件含义如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>后缀</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>.dat</code></td>
+          <td>二进制 ECG 波形数据</td>
+      </tr>
+      <tr>
+          <td><code>.hea</code></td>
+          <td>记录头文件，包含采样率、导联名称和信号格式等信息</td>
+      </tr>
+      <tr>
+          <td><code>.atr</code></td>
+          <td>专家标注文件，包含 R 峰位置和心拍类型</td>
+      </tr>
+      <tr>
+          <td><code>RECORDS</code></td>
+          <td>数据库中所有记录编号的列表</td>
+      </tr>
+  </tbody>
+</table>
+<p>例如，记录 <code>100</code> 由以下文件组成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">100.dat
+</span></span><span class="line"><span class="cl">100.hea
+</span></span><span class="line"><span class="cl">100.atr
+</span></span></code></pre></div><p>读取后通常可以获得：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">signal</span>          <span class="c1"># ECG波形，形状一般为[采样点数, 2]</span>
+</span></span><span class="line"><span class="cl"><span class="n">annotation</span><span class="o">.</span><span class="n">sample</span>   <span class="c1"># 每个心拍标注对应的采样点位置</span>
+</span></span><span class="line"><span class="cl"><span class="n">annotation</span><span class="o">.</span><span class="n">symbol</span>   <span class="c1"># 每个心拍对应的原始类别符号</span>
+</span></span></code></pre></div><h4 id="5-读取为pytorch数据集代码-1">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81-1"></a>
+5. 读取为pytorch数据集代码
+</h4><p>略</p>
+</div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -439,10 +622,10 @@ PTB-XL
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;147.0k</span
+          >&nbsp;153.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;06:33</span>
+        <span class="icon-coffee">&nbsp;06:46</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -483,6 +666,19 @@ PTB-XL
             </li>
           </ul>
         </li>
+        <li><a href="#mit-bih数据集">MIT-BIH数据集</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍-1">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义-1">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途-1">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成-1">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码-1">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -500,7 +696,7 @@ PTB-XL
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>

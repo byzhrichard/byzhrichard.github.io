@@ -12,12 +12,141 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 05 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[数据集] 语音信号数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] 语音信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="语音信号数据集">
+<a class="header-anchor" href="#%e8%af%ad%e9%9f%b3%e4%bf%a1%e5%8f%b7%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+语音信号数据集
+</h1><h2 id="google-speech-commands-data-set-v001">
+<a class="header-anchor" href="#google-speech-commands-data-set-v001"></a>
+Google Speech Commands Data Set v0.01
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://www.tensorflow.org/datasets/catalog/speech_commands">https://www.tensorflow.org/datasets/catalog/speech_commands</a></p>
+</li>
+<li>
+<p>下载链接: <a href="http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz">http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz</a></p>
+</li>
+<li>
+<p>数据集全称: Google Speech Commands Data Set v0.01</p>
+</li>
+<li>
+<p>数据集中文全称: Google 语音指令数据集 v0.01</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数据集] 工业诊断数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%B7%A5%E4%B8%9A%E8%AF%8A%E6%96%AD%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%B7%A5%E4%B8%9A%E8%AF%8A%E6%96%AD%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] 工业诊断数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="工业诊断数据集-industrial-diagnosis">
+<a class="header-anchor" href="#%e5%b7%a5%e4%b8%9a%e8%af%8a%e6%96%ad%e6%95%b0%e6%8d%ae%e9%9b%86-industrial-diagnosis"></a>
+工业诊断数据集 (industrial diagnosis)
+</h1><h2 id="cwru数据集">
+<a class="header-anchor" href="#cwru%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+CWRU数据集
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网:</p>
+</li>
+<li>
+<p>下载链接: <a href="https://engineering.case.edu/bearingdatacenter/download-data-file">https://engineering.case.edu/bearingdatacenter/download-data-file</a></p>
+</li>
+<li>
+<p>数据集全称: Case Western Reserve University Bearing Fault Dataset</p>
+</li>
+<li>
+<p>数据集中文全称: 凯斯西储大学轴承故障数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[数据集] 调制信号数据集</title>
+      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
+      <description>
+        <![CDATA[<h1>[数据集] 调制信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="调制信号数据集">
+<a class="header-anchor" href="#%e8%b0%83%e5%88%b6%e4%bf%a1%e5%8f%b7%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+调制信号数据集
+</h1><h2 id="rml201610a数据集">
+<a class="header-anchor" href="#rml201610a%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+RML2016.10a数据集
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://www.deepsig.ai/datasets/">https://www.deepsig.ai/datasets/</a></p>
+</li>
+<li>
+<p>下载链接:</p>
+</li>
+<li>
+<p>数据集全称: Radio Machine Learning 2016.10a</p>
+</li>
+<li>
+<p>数据集中文全称: RadioML 2016.10a 无线电调制识别数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+        
+        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
+      </description>
+      
+        <category>数据集</category>
+      
+    </item>
     
     
 
@@ -260,108 +389,6 @@ $$<h2 id="线性表示">
       </description>
       
         <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[papers] Narrowing...Encoding</title>
-      <link>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/papers/icml/narrowing...encoding/</guid>
-      <description>
-        <![CDATA[<h1>[papers] Narrowing...Encoding</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="abstract">
-<a class="header-anchor" href="#abstract"></a>
-Abstract
-</h2><h2 id="introduction">
-<a class="header-anchor" href="#introduction"></a>
-Introduction
-</h2><h2 id="related-work">
-<a class="header-anchor" href="#related-work"></a>
-Related Work
-</h2><h2 id="preliminaries">
-<a class="header-anchor" href="#preliminaries"></a>
-Preliminaries
-</h2><h2 id="methods">
-<a class="header-anchor" href="#methods"></a>
-Methods
-</h2><h2 id="experiments">
-<a class="header-anchor" href="#experiments"></a>
-Experiments
-</h2><h2 id="conclusion">
-<a class="header-anchor" href="#conclusion"></a>
-Conclusion
-</h2>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>papers</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[Papers] Adaptive...Processing</title>
-      <link>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/papers/ieee-spl/adaptive...processing/</guid>
-      <description>
-        <![CDATA[<h1>[Papers] Adaptive...Processing</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="黑话">
-<a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
-黑话
-</h2><p><code>PRI</code>: Pulse Repetition Interval: 脉冲重复间隔
-<code>PDWs</code>: Pulse Descriptor Words: 脉冲描述字
-<code>RF</code>: radar frequency: 雷达频率
-<code>PW</code>: pulse width: 脉宽
-<code>DOA</code>: direction of arrival: 到达角
-<code>TOA</code>: time of arrival: 到达时间</p>
-<h2 id="abstract">
-<a class="header-anchor" href="#abstract"></a>
-Abstract
-</h2><p>在复杂的电磁环境中, 高密度和高度交织的信号给<strong>雷达信号分选RSS</strong>带来挑战.
-基于相似性学习和伪标签方法来解决脉冲交织问题
-分为两个部分</p>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>Papers</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[DL从入门到入土] 相似性学习 similarity learning</title>
-      <link>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Sun, 05 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/dl%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F/%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%AD%A6%E4%B9%A0/</guid>
-      <description>
-        <![CDATA[<h1>[DL从入门到入土] 相似性学习 similarity learning</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="dl从入门到入土-相似性学习-similarity-learning">
-<a class="header-anchor" href="#dl%e4%bb%8e%e5%85%a5%e9%97%a8%e5%88%b0%e5%85%a5%e5%9c%9f-%e7%9b%b8%e4%bc%bc%e6%80%a7%e5%ad%a6%e4%b9%a0-similarity-learning"></a>
-[DL从入门到入土] 相似性学习 similarity learning
-</h1><h2 id="个人导航">
-<a class="header-anchor" href="#%e4%b8%aa%e4%ba%ba%e5%af%bc%e8%88%aa"></a>
-📢个人导航
-</h2><p>知乎：https://www.zhihu.com/people/byzh_rc</p>
-<p>CSDN：https://blog.csdn.net/qq_54636039</p>
-        
-        <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
-      </description>
-      
-        <category>DL从入门到入土</category>
       
     </item>
     

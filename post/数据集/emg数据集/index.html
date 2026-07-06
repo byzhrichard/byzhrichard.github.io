@@ -137,7 +137,23 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#emg数据集">EMG数据集</a></li>
+    <li><a href="#emg数据集">EMG数据集</a>
+      <ul>
+        <li><a href="#ninapro数据集">Ninapro数据集</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -153,7 +169,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -252,7 +268,295 @@
 <a class="header-anchor" href="#emg%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
 EMG数据集
 </h1><p>EMG: Electro<strong>myo</strong>gram: 肌电图</p>
-</div>
+<h2 id="ninapro数据集">
+<a class="header-anchor" href="#ninapro%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
+Ninapro数据集
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://ninapro.hevs.ch/">https://ninapro.hevs.ch/</a></p>
+</li>
+<li>
+<p>下载链接: <a href="https://ninapro.hevs.ch/">https://ninapro.hevs.ch/</a></p>
+</li>
+<li>
+<p>数据集全称: NinaPro — Non-Invasive Adaptive Prosthetics Database</p>
+</li>
+<li>
+<p>数据集中文全称: NinaPro 无创自适应假肢多模态数据库</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>NinaPro 并不是一个单独的数据集，而是由 DB1–DB10 共十个子数据库组成</li>
+<li>官方网站收录了超过 180 次来自健全受试者和经桡骨截肢受试者的数据采集；</li>
+<li>官方提供的是按受试者和实验组织的连续多通道信号，没有统一划分训练集、验证集和测试集</li>
+<li>最终样本数量取决于所选子数据库、受试者数量、动作数量、重复次数、滑动窗口长度和数据划分方式</li>
+<li>常见做法是按照动作重复次数划分训练集和测试集，或者采用跨受试者划分</li>
+</ul>
+</li>
+<li>
+<p>类别数量</p>
+<ul>
+<li>不同子数据库包含 6–52 种目标动作</li>
+<li>若将静息状态 <code>Rest</code> 作为独立类别，则实际分类类别数通常为“动作数量 + 1”</li>
+</ul>
+</li>
+</ul>
+<p>NinaPro 是面向<strong>肌电</strong>手势识别、机器人手控制和智能假肢研究建立的公开多模态数据库。其核心信号是<strong>前臂表面肌电信号</strong>，即 Surface Electromyography，sEMG。部分子数据库还同步记录了手部关节运动、加速度、惯性、手指作用力、眼动、第一视角视频和临床信息。</p>
+<p>NinaPro 的实验通常要求受试者按照屏幕中播放的动作示范完成或尝试完成指定手势。每种动作会重复多次，并在相邻动作之间设置静息时间。数据库同时包含健全受试者和经桡骨截肢受试者，因此既可以研究普通手势识别，也可以研究截肢者的肌电假肢控制。</p>
+<table>
+  <thead>
+      <tr>
+          <th>子数据库</th>
+          <th>受试者</th>
+          <th>动作数量</th>
+          <th>主要肌电设备</th>
+          <th>主要数据模态</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>DB1</td>
+          <td>27 名健全受试者</td>
+          <td>52</td>
+          <td>10 个 Otto Bock 电极</td>
+          <td>sEMG、手部运动学</td>
+      </tr>
+      <tr>
+          <td>DB2</td>
+          <td>40 名健全受试者</td>
+          <td>49</td>
+          <td>12 个 Delsys Trigno 电极</td>
+          <td>sEMG、运动学、惯性、力</td>
+      </tr>
+      <tr>
+          <td>DB3</td>
+          <td>11 名经桡骨截肢者</td>
+          <td>最多 49</td>
+          <td>最多 12 个 Delsys Trigno 电极</td>
+          <td>sEMG、惯性、运动学、力</td>
+      </tr>
+      <tr>
+          <td>DB4</td>
+          <td>10 名健全受试者</td>
+          <td>52</td>
+          <td>12 个 Cometa 电极</td>
+          <td>sEMG、手部运动学</td>
+      </tr>
+      <tr>
+          <td>DB5</td>
+          <td>10 名健全受试者</td>
+          <td>52</td>
+          <td>2 个 Myo 臂环，共16通道</td>
+          <td>sEMG、惯性</td>
+      </tr>
+      <tr>
+          <td>DB6</td>
+          <td>10 名健全受试者</td>
+          <td>7</td>
+          <td>14 个 Delsys Trigno 电极</td>
+          <td>sEMG、惯性、眼动和场景视频</td>
+      </tr>
+      <tr>
+          <td>DB7</td>
+          <td>20 名健全受试者、2 名截肢者</td>
+          <td>6</td>
+          <td>12 个 Delsys Trigno 电极</td>
+          <td>sEMG、惯性</td>
+      </tr>
+      <tr>
+          <td>DB8</td>
+          <td>10 名健全受试者、2 名截肢者</td>
+          <td>9</td>
+          <td>16 个 Delsys Trigno 电极</td>
+          <td>sEMG、手部运动学</td>
+      </tr>
+      <tr>
+          <td>DB9</td>
+          <td>77 名健全受试者</td>
+          <td>40</td>
+          <td>视原始来源而定</td>
+          <td>校准后的手部运动学、sEMG</td>
+      </tr>
+      <tr>
+          <td>DB10</td>
+          <td>30 名健全受试者、15 名截肢者</td>
+          <td>10</td>
+          <td>12 个 Delsys Trigno 电极</td>
+          <td>sEMG、惯性、眼动、视频、行为和临床数据</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="2-任务定义">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89"></a>
+2. 任务定义
+</h4><ul>
+<li>
+<p>任务类型：多分类（Multi-class Classification）</p>
+</li>
+<li>
+<p>输入x：</p>
+<ul>
+<li>从受试者前臂采集的多通道表面肌电信号</li>
+<li>输入通常是从连续 sEMG 信号中截取的一段固定长度时间窗口</li>
+<li>可选择同时输入加速度、惯性、数据手套、作用力或眼动信号</li>
+<li>不同子数据库的肌电通道数和采样频率不同</li>
+</ul>
+</li>
+<li>
+<p>输出y：</p>
+<ul>
+<li>当前肌电信号对应的手部动作类别</li>
+<li>输出可以是手指动作、手腕动作、抓握动作或功能性动作</li>
+</ul>
+</li>
+<li>
+<p>难点：</p>
+<ul>
+<li>&hellip;</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94"></a>
+3. 主要领域用途
+</h4><p>&hellip;</p>
+<h4 id="4-文件组成">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90"></a>
+4. 文件组成
+</h4><p>NinaPro 数据一般按照“子数据库—受试者—实验”的形式组织。每名受试者的数据通常以 <code>.zip</code> 压缩包下载，解压后包含若干 MATLAB <code>.mat</code> 文件。</p>
+<p>典型目录结构如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">NinaPro/
+</span></span><span class="line"><span class="cl">├── DB1/
+</span></span><span class="line"><span class="cl">│   ├── s1/
+</span></span><span class="line"><span class="cl">│   │   ├── S1_A1_E1.mat
+</span></span><span class="line"><span class="cl">│   │   ├── S1_A1_E2.mat
+</span></span><span class="line"><span class="cl">│   │   └── S1_A1_E3.mat
+</span></span><span class="line"><span class="cl">│   ├── s2/
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span><span class="line"><span class="cl">│   └── s27/
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├── DB2/
+</span></span><span class="line"><span class="cl">│   ├── s1/
+</span></span><span class="line"><span class="cl">│   ├── s2/
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span><span class="line"><span class="cl">│   └── s40/
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├── DB3/
+</span></span><span class="line"><span class="cl">│   └── ...
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">└── DB10/
+</span></span><span class="line"><span class="cl">    └── ...
+</span></span></code></pre></div><p>不同版本的文件名可能略有区别，但一般包含：</p>
+<ul>
+<li><code>S1</code>：受试者编号；</li>
+<li><code>A1</code>：数据采集编号；</li>
+<li><code>E1</code>：实验或动作组编号。</li>
+</ul>
+<blockquote>
+<p>例如：<code>S1_A1_E1.mat</code></p>
+<p>可表示第 1 名受试者、第 1 次数据采集、第 1 个动作实验的数据</p>
+</blockquote>
+<p><code>.mat</code> 不同子数据库包含的变量并不完全相同，常见变量如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>变量名</th>
+          <th>含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>subject</code></td>
+          <td>受试者编号</td>
+      </tr>
+      <tr>
+          <td><code>exercise</code></td>
+          <td>实验或动作组编号</td>
+      </tr>
+      <tr>
+          <td><code>emg</code></td>
+          <td>多通道表面肌电信号</td>
+      </tr>
+      <tr>
+          <td><code>acc</code></td>
+          <td>三轴加速度信号</td>
+      </tr>
+      <tr>
+          <td><code>glove</code></td>
+          <td>数据手套采集的手部运动学信号</td>
+      </tr>
+      <tr>
+          <td><code>inclin</code></td>
+          <td>倾角仪信号</td>
+      </tr>
+      <tr>
+          <td><code>force</code></td>
+          <td>手指作用力信号</td>
+      </tr>
+      <tr>
+          <td><code>forcecal</code></td>
+          <td>力传感器的校准数据</td>
+      </tr>
+      <tr>
+          <td><code>stimulus</code></td>
+          <td>根据屏幕提示生成的原始动作标签</td>
+      </tr>
+      <tr>
+          <td><code>restimulus</code></td>
+          <td>经过时间边界修正后的动作标签</td>
+      </tr>
+      <tr>
+          <td><code>repetition</code></td>
+          <td>原始动作重复编号</td>
+      </tr>
+      <tr>
+          <td><code>rerepetition</code></td>
+          <td>修正标签对应的动作重复编号</td>
+      </tr>
+  </tbody>
+</table>
+<p>DB1 的 <code>.mat</code> 文件通常包含：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">subject
+</span></span><span class="line"><span class="cl">exercise
+</span></span><span class="line"><span class="cl">emg
+</span></span><span class="line"><span class="cl">glove
+</span></span><span class="line"><span class="cl">stimulus
+</span></span><span class="line"><span class="cl">restimulus
+</span></span><span class="line"><span class="cl">repetition
+</span></span><span class="line"><span class="cl">rerepetition
+</span></span></code></pre></div><ul>
+<li><code>emg</code> 的形状通常为 <code>[时间点数量, 10]</code></li>
+<li><code>glove</code> 的形状通常为 <code>[时间点数量, 22]</code></li>
+<li><code>stimulus</code> 和 <code>restimulus</code> 为每个时间点对应的动作标签</li>
+<li><code>repetition</code> 和 <code>rerepetition</code> 为每个时间点所属的动作重复编号</li>
+</ul>
+<p>DB2 的 <code>.mat</code> 文件通常包含：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">subject
+</span></span><span class="line"><span class="cl">exercise
+</span></span><span class="line"><span class="cl">emg
+</span></span><span class="line"><span class="cl">acc
+</span></span><span class="line"><span class="cl">glove
+</span></span><span class="line"><span class="cl">inclin
+</span></span><span class="line"><span class="cl">force
+</span></span><span class="line"><span class="cl">forcecal
+</span></span><span class="line"><span class="cl">stimulus
+</span></span><span class="line"><span class="cl">restimulus
+</span></span><span class="line"><span class="cl">repetition
+</span></span><span class="line"><span class="cl">rerepetition
+</span></span></code></pre></div><ul>
+<li><code>emg</code> 通常包含 12 个肌电通道</li>
+<li><code>acc</code> 包含安装在肌电传感器上的三轴加速度数据</li>
+<li><code>glove</code> 包含数据手套采集的手部运动学信息</li>
+<li><code>force</code> 包含手指作用力数据</li>
+</ul>
+<h4 id="5-读取为pytorch数据集代码">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81"></a>
+5. 读取为pytorch数据集代码
+</h4></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -312,10 +616,10 @@ EMG数据集
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;147.0k</span
+          >&nbsp;153.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;06:33</span>
+        <span class="icon-coffee">&nbsp;06:46</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -341,7 +645,23 @@ EMG数据集
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#emg数据集">EMG数据集</a></li>
+    <li><a href="#emg数据集">EMG数据集</a>
+      <ul>
+        <li><a href="#ninapro数据集">Ninapro数据集</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div></div>
@@ -357,7 +677,7 @@ EMG数据集
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -524,7 +844,7 @@ EMG数据集
           author: "byzh",
           title: "[数据集] EMG数据集",
           url: "https:\/\/byzhrichard.github.io\/post\/%E6%95%B0%E6%8D%AE%E9%9B%86\/emg%E6%95%B0%E6%8D%AE%E9%9B%86\/",
-          description: "\rEMG数据集\rEMG: Electromyogram: 肌电图\n",
+          description: "\rEMG数据集\rEMG: Electromyogram: 肌电图\nNinapro数据集\r1. 数据集介绍\r官网: https:\/\/ninapro.hevs.ch\/\n下载链接: https:\/\/ninapro.hevs.ch\/\n数据集全称: NinaPro — Non-Invasive Adaptive Prosthetics Database\n数据集中文全称: NinaPro 无创自适应假肢多模态数据库\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

@@ -143,14 +143,11 @@
           <ul>
             <li>
               <ul>
-                <li><a href="#1-数据集基本思想">1. 数据集基本思想</a></li>
-                <li><a href="#2-情绪类别">2. 情绪类别</a></li>
-                <li><a href="#3-被试与实验设计">3. 被试与实验设计</a></li>
-                <li><a href="#4-eeg-信号">4. EEG 信号</a></li>
-                <li><a href="#5-核心文件夹-preprocessed_eeg">5. 核心文件夹 <code>Preprocessed_EEG</code></a></li>
-                <li><a href="#6-mat-文件内容">6. <code>.mat</code> 文件内容</a></li>
-                <li><a href="#7-标签文件-labelmat">7. 标签文件 <code>label.mat</code></a></li>
-                <li><a href="#8-特征文件-extracted_features">8. 特征文件 <code>Extracted_Features</code></a></li>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -172,7 +169,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -274,299 +271,137 @@ EEG数据集
 <h2 id="seed">
 <a class="header-anchor" href="#seed"></a>
 SEED
-</h2><p><a href="https://bcmi.sjtu.edu.cn/home/seed/">https://bcmi.sjtu.edu.cn/home/seed/</a></p>
-<p>SEED，全称一般称为 <strong>SJTU Emotion EEG Dataset</strong>，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。</p>
-<p>它的核心思想是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">让被试看电影片段
-</span></span><span class="line"><span class="cl">采集被试观看过程中的 EEG 信号
-</span></span><span class="line"><span class="cl">根据电影片段对应的情绪类别进行分类
-</span></span></code></pre></div><p>也就是说，SEED 不是普通的图像、文本、推荐系统数据集，而是一个典型的：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">被试 - 试次 - EEG信号 - 情绪标签
-</span></span></code></pre></div><p>类型的数据集。</p>
-<table>
-  <thead>
-      <tr>
-          <th>项目</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>数据集名称</td>
-          <td>SEED</td>
-      </tr>
-      <tr>
-          <td>全称</td>
-          <td>SJTU Emotion EEG Dataset</td>
-      </tr>
-      <tr>
-          <td>所属领域</td>
-          <td>EEG、脑机接口、情感计算</td>
-      </tr>
-      <tr>
-          <td>数据类型</td>
-          <td>脑电 EEG 信号</td>
-      </tr>
-      <tr>
-          <td>被试数量</td>
-          <td>15 名被试</td>
-      </tr>
-      <tr>
-          <td>通道数量</td>
-          <td>62 个 EEG 通道</td>
-      </tr>
-      <tr>
-          <td>实验次数</td>
-          <td>每个被试 3 次实验</td>
-      </tr>
-      <tr>
-          <td>每次实验</td>
-          <td>15 个电影片段 / 15 个 trial</td>
-      </tr>
-      <tr>
-          <td>情绪类别</td>
-          <td>positive、neutral、negative</td>
-      </tr>
-      <tr>
-          <td>类别数量</td>
-          <td>3 类</td>
-      </tr>
-      <tr>
-          <td>反馈类型</td>
-          <td>情绪标签</td>
-      </tr>
-      <tr>
-          <td>常见任务</td>
-          <td>情绪识别、跨被试分类、跨会话分类、特征提取</td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p>SEED 主要记录了被试在观看电影片段时的 EEG 信号，并将每个电影片段对应到正性、中性、负性三种情绪类别。</p>
-</blockquote>
-<h4 id="1-数据集基本思想">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e5%9f%ba%e6%9c%ac%e6%80%9d%e6%83%b3"></a>
-1. 数据集基本思想
-</h4><p>SEED 的实验方式比较直观：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">电影片段  -&gt;  诱发情绪  -&gt;  采集 EEG  -&gt;  进行情绪分类
+</h2><h4 id="1-数据集介绍">
+<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
+1. 数据集介绍
+</h4><ul>
+<li>
+<p>官网: <a href="https://bcmi.sjtu.edu.cn/home/seed/">https://bcmi.sjtu.edu.cn/home/seed/</a></p>
+</li>
+<li>
+<p>下载链接: 需要在 SEED 官网提交申请，获得数据使用权限后下载</p>
+</li>
+<li>
+<p>数据集全称: SJTU Emotion EEG Dataset</p>
+</li>
+<li>
+<p>数据集中文全称: 上海交通大学情绪脑电数据集</p>
+</li>
+<li>
+<p>样本规模（train / test 数量）</p>
+<ul>
+<li>共包含 15 名受试者的数据</li>
+<li>其中 12 名受试者同时采集 EEG 和眼动数据，另外 3 名受试者仅包含 EEG 数据</li>
+<li>官方没有固定的训练集和测试集，通常按照实验次数、受试者或交叉验证方式自行划分</li>
+</ul>
+</li>
+<li>
+<p>类别数量: 3 类(积极, 中性, 消极)</p>
+</li>
+</ul>
+<p>SEED 是上海交通大学 BCMI 实验室发布的脑电情绪识别数据集。实验通过播放经过筛选的电影片段诱发受试者的积极、中性和消极情绪，并同步采集脑电信号。</p>
+<p>数据采用 62 通道 EEG 设备采集。每名受试者通常在不同日期参加多次实验，每次实验观看 15 个电影片段，每种情绪包含 5 个片段。因此，一个实验会形成 15 段带有情绪标签的 EEG 试次。</p>
+<h4 id="2-任务定义">
+<a class="header-anchor" href="#2-%e4%bb%bb%e5%8a%a1%e5%ae%9a%e4%b9%89"></a>
+2. 任务定义
+</h4><ul>
+<li>任务类型：多分类（Multi-class Classification）</li>
+<li>输入x：一段多通道 EEG 时间序列</li>
+<li>输出y：当前 EEG 片段对应的情绪类别</li>
+<li>难点：
+<ul>
+<li>EEG 信号幅值较弱，容易受到眼电、肌电和环境噪声影响</li>
+<li>不同受试者之间的脑电分布差异明显</li>
+<li>同一受试者在不同日期的 EEG 信号也可能发生变化</li>
+<li>情绪状态具有主观性，不同受试者对同一影片的反应可能不同</li>
+<li>跨受试者情绪识别通常明显难于受试者内部识别</li>
+<li>EEG 通道较多，输入维度较高，同时存在明显的空间和频率相关性</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-主要领域用途">
+<a class="header-anchor" href="#3-%e4%b8%bb%e8%a6%81%e9%a2%86%e5%9f%9f%e7%94%a8%e9%80%94"></a>
+3. 主要领域用途
+</h4><ul>
+<li>基于 EEG 的情绪识别</li>
+<li>情感计算</li>
+<li>脑机接口</li>
+<li>跨受试者分类</li>
+<li>领域适应和领域泛化</li>
+<li>多模态 EEG 与眼动信息融合</li>
+<li>EEG 时频特征提取</li>
+<li>CNN、RNN、Transformer 和 SNN 的脑电分类</li>
+<li>心理状态与认知状态分析</li>
+</ul>
+<p>原始 SEED 主要面向积极、中性和消极三类情绪识别。后续 SEED-IV、SEED-V 和 SEED-VII 分别扩展为四类、五类和七类情绪任务。</p>
+<h4 id="4-文件组成">
+<a class="header-anchor" href="#4-%e6%96%87%e4%bb%b6%e7%bb%84%e6%88%90"></a>
+4. 文件组成
+</h4><p>SEED 数据通常以 MATLAB 的 <code>.mat</code> 文件提供，主要包括原始 EEG 数据和预提取特征。</p>
+<p>典型目录可以表示为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">SEED/
+</span></span><span class="line"><span class="cl">├── Preprocessed_EEG/
+</span></span><span class="line"><span class="cl">│   ├── 1_20131027.mat
+</span></span><span class="line"><span class="cl">│   ├── 1_20131030.mat
+</span></span><span class="line"><span class="cl">│   ├── 1_20131107.mat
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span><span class="line"><span class="cl">│   └── 15_xxxxxxxx.mat
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├── Extracted_Features/
+</span></span><span class="line"><span class="cl">│   ├── 1_20131027.mat
+</span></span><span class="line"><span class="cl">│   ├── 1_20131030.mat
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span><span class="line"><span class="cl">│   └── 15_xxxxxxxx.mat
+</span></span><span class="line"><span class="cl">│
+</span></span><span class="line"><span class="cl">├── label.mat
+</span></span><span class="line"><span class="cl">└── channel_order.xlsx
+</span></span></code></pre></div><p>文件名通常由两部分组成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">受试者编号_实验日期.mat
 </span></span></code></pre></div><p>例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">被试看了一个正性情绪电影片段
-</span></span><span class="line"><span class="cl">系统采集这段时间内的 EEG 信号
-</span></span><span class="line"><span class="cl">该 trial 的标签就是 positive
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">EEG</span> <span class="k">signal</span> <span class="o">-&gt;</span> <span class="n">positive</span>
-</span></span><span class="line"><span class="cl"><span class="n">EEG</span> <span class="k">signal</span> <span class="o">-&gt;</span> <span class="n">neutral</span>
-</span></span><span class="line"><span class="cl"><span class="n">EEG</span> <span class="k">signal</span> <span class="o">-&gt;</span> <span class="n">negative</span>
-</span></span></code></pre></div><p>这类数据就是 EEG 情绪识别里最经典的：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">脑电信号 - 情绪类别
-</span></span></code></pre></div><h4 id="2-情绪类别">
-<a class="header-anchor" href="#2-%e6%83%85%e7%bb%aa%e7%b1%bb%e5%88%ab"></a>
-2. 情绪类别
-</h4><p>SEED 是一个三分类情绪识别数据集，主要包含三种情绪：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1_20131027.mat
+</span></span></code></pre></div><p>表示第 1 名受试者在 2013 年 10 月 27 日采集的数据。</p>
+<p><code>.mat</code> 文件中的常见变量包括：</p>
 <table>
   <thead>
       <tr>
-          <th>标签含义</th>
-          <th>英文</th>
-          <th>常见数值标签</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>正性情绪</td>
-          <td>positive</td>
-          <td>1</td>
-      </tr>
-      <tr>
-          <td>中性情绪</td>
-          <td>neutral</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>负性情绪</td>
-          <td>negative</td>
-          <td>-1</td>
-      </tr>
-  </tbody>
-</table>
-<p>也就是说，一个 EEG 样本的标签通常可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1   -&gt; 正性情绪
-</span></span><span class="line"><span class="cl">0   -&gt; 中性情绪
-</span></span><span class="line"><span class="cl">-1  -&gt; 负性情绪
-</span></span></code></pre></div><p>在实际训练模型时，有些代码会把标签转换成：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">positive -&gt; 2
-</span></span><span class="line"><span class="cl">neutral  -&gt; 1
-</span></span><span class="line"><span class="cl">negative -&gt; 0
-</span></span></code></pre></div><p>这是因为深度学习分类任务里的标签通常需要从 <code>0</code> 开始编号。</p>
-<p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">label = label + 1
-</span></span></code></pre></div><h4 id="3-被试与实验设计">
-<a class="header-anchor" href="#3-%e8%a2%ab%e8%af%95%e4%b8%8e%e5%ae%9e%e9%aa%8c%e8%ae%be%e8%ae%a1"></a>
-3. 被试与实验设计
-</h4><p>SEED 中一共有 15 名被试，每个被试会参加 3 次实验。</p>
-<p>每次实验中，被试需要观看 15 个电影片段。每个电影片段大约 4 分钟，用于诱发不同的情绪状态。</p>
-<p>可以简单理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">15 名被试
-</span></span><span class="line"><span class="cl">每名被试 3 次实验
-</span></span><span class="line"><span class="cl">每次实验 15 个 trial
-</span></span></code></pre></div><p>所以总的实验片段数量可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">15 × 3 × 15 = 675 个 trial
-</span></span></code></pre></div><p>其中每个 trial 对应一段 EEG 信号和一个情绪标签。</p>
-<table>
-  <thead>
-      <tr>
-          <th>项目</th>
-          <th>内容</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>被试数量</td>
-          <td>15</td>
-      </tr>
-      <tr>
-          <td>每个被试实验</td>
-          <td>3 次</td>
-      </tr>
-      <tr>
-          <td>每次实验</td>
-          <td>15 个 trial</td>
-      </tr>
-      <tr>
-          <td>总 trial 数</td>
-          <td>675</td>
-      </tr>
-      <tr>
-          <td>刺激材料</td>
-          <td>电影片段</td>
-      </tr>
-      <tr>
-          <td>情绪类别</td>
-          <td>正性、中性、负性</td>
-      </tr>
-  </tbody>
-</table>
-<h4 id="4-eeg-信号">
-<a class="header-anchor" href="#4-eeg-%e4%bf%a1%e5%8f%b7"></a>
-4. EEG 信号
-</h4><p>SEED 使用 62 通道 EEG 设备采集脑电信号。</p>
-<p>EEG 信号可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">多个电极通道
-</span></span><span class="line"><span class="cl">在一段时间内连续采集到的脑电变化
-</span></span></code></pre></div><p>通常一个 trial 的 EEG 数据形状可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">channel × time
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">62 × 时间点数量
-</span></span></code></pre></div><p>其中：</p>
-<table>
-  <thead>
-      <tr>
-          <th>维度</th>
+          <th>变量</th>
           <th>含义</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>channel</td>
-          <td>EEG 电极通道数量</td>
+          <td><code>eeg_1</code>～<code>eeg_15</code></td>
+          <td>15 个电影片段对应的 EEG 信号</td>
       </tr>
       <tr>
-          <td>time</td>
-          <td>时间采样点</td>
+          <td><code>de_LDS1</code>～<code>de_LDS15</code></td>
+          <td>经 LDS 平滑后的差分熵特征</td>
+      </tr>
+      <tr>
+          <td><code>de_movingAve1</code>～<code>de_movingAve15</code></td>
+          <td>移动平均后的差分熵特征</td>
+      </tr>
+      <tr>
+          <td><code>psd_LDS1</code>～<code>psd_LDS15</code></td>
+          <td>经 LDS 平滑的功率谱密度特征</td>
+      </tr>
+      <tr>
+          <td><code>label</code></td>
+          <td>15 个电影片段对应的情绪标签</td>
       </tr>
   </tbody>
 </table>
-<p>例如，如果某个 trial 的数据是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eeg.shape = (62, 47000)
-</span></span></code></pre></div><p>可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">62 个 EEG 通道
-</span></span><span class="line"><span class="cl">每个通道有 47000 个时间点
-</span></span></code></pre></div><p>注意，不同电影片段的持续时间可能不完全一样，所以不同 trial 的时间长度也可能不同。</p>
-<h4 id="5-核心文件夹-preprocessed_eeg">
-<a class="header-anchor" href="#5-%e6%a0%b8%e5%bf%83%e6%96%87%e4%bb%b6%e5%a4%b9-preprocessed_eeg"></a>
-5. 核心文件夹 <code>Preprocessed_EEG</code>
-</h4><p>SEED 中最常用的是预处理后的 EEG 数据，一般位于：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Preprocessed_EEG/
-</span></span></code></pre></div><p>这个文件夹中通常包含 <code>.mat</code> 文件，也就是 MATLAB 格式的数据文件。</p>
-<p>文件结构大致可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Preprocessed_EEG/
-</span></span><span class="line"><span class="cl">├── label.mat
-</span></span><span class="line"><span class="cl">├── readme.txt
-</span></span><span class="line"><span class="cl">├── 1_20131027.mat
-</span></span><span class="line"><span class="cl">├── 1_20131030.mat
-</span></span><span class="line"><span class="cl">├── 1_20131107.mat
-</span></span><span class="line"><span class="cl">├── ...
-</span></span></code></pre></div><p>其中，每个 <code>.mat</code> 文件通常对应：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">某个被试的某一次实验
-</span></span></code></pre></div><p>也就是说，一个被试做了 3 次实验，因此通常会对应 3 个 <code>.mat</code> 文件。</p>
-<h4 id="6-mat-文件内容">
-<a class="header-anchor" href="#6-mat-%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9"></a>
-6. <code>.mat</code> 文件内容
-</h4><p>每个 <code>.mat</code> 文件中通常包含 15 段 EEG 数据，对应一次实验中的 15 个电影片段。</p>
-<p>这些数据一般命名为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eeg_1
-</span></span><span class="line"><span class="cl">eeg_2
-</span></span><span class="line"><span class="cl">eeg_3
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">eeg_15
-</span></span></code></pre></div><p>每一个 <code>eeg_i</code> 就表示第 <code>i</code> 个 trial 的 EEG 信号。</p>
-<p>可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eeg_1  -&gt; 第 1 个电影片段对应的 EEG
-</span></span><span class="line"><span class="cl">eeg_2  -&gt; 第 2 个电影片段对应的 EEG
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">eeg_15 -&gt; 第 15 个电影片段对应的 EEG
-</span></span></code></pre></div><p>每个 <code>eeg_i</code> 的形状通常是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">channel × data
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">62 × 时间点数量
-</span></span></code></pre></div><p>例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eeg_1.shape = (62, 47001)
-</span></span></code></pre></div><p>表示：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">第 1 个 trial
-</span></span><span class="line"><span class="cl">有 62 个 EEG 通道
-</span></span><span class="line"><span class="cl">每个通道有 47001 个采样点
-</span></span></code></pre></div><h4 id="7-标签文件-labelmat">
-<a class="header-anchor" href="#7-%e6%a0%87%e7%ad%be%e6%96%87%e4%bb%b6-labelmat"></a>
-7. 标签文件 <code>label.mat</code>
-</h4><p><code>label.mat</code> 中保存了 15 个 trial 对应的情绪标签。</p>
-<p>因为每次实验都有 15 个电影片段，所以标签也有 15 个。</p>
-<p>例如可以理解为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">labels = [1, 0, -1, ...]
-</span></span></code></pre></div><p>其中：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1   表示 positive
-</span></span><span class="line"><span class="cl">0   表示 neutral
-</span></span><span class="line"><span class="cl">-1  表示 negative
-</span></span></code></pre></div><p>也就是说：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">eeg_1  -&gt; labels[0]
-</span></span><span class="line"><span class="cl">eeg_2  -&gt; labels[1]
-</span></span><span class="line"><span class="cl">eeg_3  -&gt; labels[2]
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">eeg_15 -&gt; labels[14]
-</span></span></code></pre></div><p>这类数据在训练时通常会被整理成：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">X = EEG信号
-</span></span><span class="line"><span class="cl">y = 情绪标签
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="err">输入</span><span class="p">:</span> <span class="n">EEG</span> <span class="k">signal</span>
-</span></span><span class="line"><span class="cl"><span class="err">输出</span><span class="p">:</span> <span class="n">emotion</span> <span class="n">label</span>
-</span></span></code></pre></div><h4 id="8-特征文件-extracted_features">
-<a class="header-anchor" href="#8-%e7%89%b9%e5%be%81%e6%96%87%e4%bb%b6-extracted_features"></a>
-8. 特征文件 <code>Extracted_Features</code>
-</h4><p>除了原始或预处理后的 EEG 信号，SEED 还提供了一些已经提取好的特征。</p>
-<p>常见文件夹是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Extracted_Features/
-</span></span></code></pre></div><p>这里面通常包含一些 EEG 特征，例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">DE
-</span></span><span class="line"><span class="cl">DASM
-</span></span><span class="line"><span class="cl">RASM
-</span></span></code></pre></div><p>其中最常见的是 <strong>DE 特征</strong>，也就是 Differential Entropy，中文一般可以叫做差分熵特征。</p>
-<p>简单理解：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">原始 EEG 信号比较长
-</span></span><span class="line"><span class="cl">直接拿来训练可能比较麻烦
-</span></span><span class="line"><span class="cl">所以可以先提取特征
-</span></span><span class="line"><span class="cl">再用特征训练分类模型
-</span></span></code></pre></div><p>也就是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">EEG 原始信号 -&gt; 特征提取 -&gt; 分类模型
-</span></span></code></pre></div><p>如果只是想快速跑一个情绪分类 demo，使用提取好的特征会更方便。</p>
+<p>原始 EEG 变量通常可以理解为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[EEG通道数, 时间采样点数]
+</span></span></code></pre></div><p>预提取的 DE 特征通常可以理解为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[时间窗口数, 62个通道, 5个频带]
+</span></span></code></pre></div><p>不同版本文件中的维度顺序可能有所不同，读取后应通过数组形状进行确认。</p>
+<p>标签文件通常包含 15 个试次对应的情绪类别，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[1, 0, -1, -1, 0, 1, ...]
+</span></span></code></pre></div><h4 id="5-读取为pytorch数据集代码">
+<a class="header-anchor" href="#5-%e8%af%bb%e5%8f%96%e4%b8%bapytorch%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%a3%e7%a0%81"></a>
+5. 读取为pytorch数据集代码
+</h4><p>略</p>
 </div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -627,10 +462,10 @@ SEED
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;147.0k</span
+          >&nbsp;153.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;06:33</span>
+        <span class="icon-coffee">&nbsp;06:46</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -662,14 +497,11 @@ SEED
           <ul>
             <li>
               <ul>
-                <li><a href="#1-数据集基本思想">1. 数据集基本思想</a></li>
-                <li><a href="#2-情绪类别">2. 情绪类别</a></li>
-                <li><a href="#3-被试与实验设计">3. 被试与实验设计</a></li>
-                <li><a href="#4-eeg-信号">4. EEG 信号</a></li>
-                <li><a href="#5-核心文件夹-preprocessed_eeg">5. 核心文件夹 <code>Preprocessed_EEG</code></a></li>
-                <li><a href="#6-mat-文件内容">6. <code>.mat</code> 文件内容</a></li>
-                <li><a href="#7-标签文件-labelmat">7. 标签文件 <code>label.mat</code></a></li>
-                <li><a href="#8-特征文件-extracted_features">8. 特征文件 <code>Extracted_Features</code></a></li>
+                <li><a href="#1-数据集介绍">1. 数据集介绍</a></li>
+                <li><a href="#2-任务定义">2. 任务定义</a></li>
+                <li><a href="#3-主要领域用途">3. 主要领域用途</a></li>
+                <li><a href="#4-文件组成">4. 文件组成</a></li>
+                <li><a href="#5-读取为pytorch数据集代码">5. 读取为pytorch数据集代码</a></li>
               </ul>
             </li>
           </ul>
@@ -691,7 +523,7 @@ SEED
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">177</div>
+    <div>文章</div><div class="sidebar-state-number">180</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -858,7 +690,7 @@ SEED
           author: "byzh",
           title: "[数据集] EEG数据集",
           url: "https:\/\/byzhrichard.github.io\/post\/%E6%95%B0%E6%8D%AE%E9%9B%86\/eeg%E6%95%B0%E6%8D%AE%E9%9B%86\/",
-          description: "\rEEG数据集\rEEG: electroencephalogram: 脑电图\nSEED\rhttps:\/\/bcmi.sjtu.edu.cn\/home\/seed\/\nSEED，全称一般称为 SJTU Emotion EEG Dataset，是上海交通大学 BCMI 实验室发布的情绪脑电数据集，常用于 EEG 情绪识别、跨被试情绪分类、脑机接口、情感计算等任务。\n",
+          description: "\rEEG数据集\rEEG: electroencephalogram: 脑电图\nSEED\r1. 数据集介绍\r官网: https:\/\/bcmi.sjtu.edu.cn\/home\/seed\/\n下载链接: 需要在 SEED 官网提交申请，获得数据使用权限后下载\n数据集全称: SJTU Emotion EEG Dataset\n数据集中文全称: 上海交通大学情绪脑电数据集\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

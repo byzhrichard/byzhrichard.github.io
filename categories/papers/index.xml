@@ -30,28 +30,12 @@
       <description>
         <![CDATA[<h1>[papers] Narrowing...Encoding</h1><p>作者：byzh（xxx@example.com）</p>
         
-          <h2 id="abstract">
-<a class="header-anchor" href="#abstract"></a>
-Abstract
-</h2><h2 id="introduction">
-<a class="header-anchor" href="#introduction"></a>
-Introduction
-</h2><h2 id="related-work">
-<a class="header-anchor" href="#related-work"></a>
-Related Work
-</h2><h2 id="preliminaries">
-<a class="header-anchor" href="#preliminaries"></a>
-Preliminaries
-</h2><h2 id="methods">
-<a class="header-anchor" href="#methods"></a>
-Methods
-</h2><h2 id="experiments">
-<a class="header-anchor" href="#experiments"></a>
-Experiments
-</h2><h2 id="conclusion">
-<a class="header-anchor" href="#conclusion"></a>
-Conclusion
-</h2>
+          <h2 id="黑话">
+<a class="header-anchor" href="#%e9%bb%91%e8%af%9d"></a>
+黑话
+</h2><p><code>temporal evidence</code>: 时序特征判别线索
+<code>horizen</code>: 仿真时长, 时间窗口, 步长
+<code>Pareto frontier</code>: 帕累托前沿(如果无法在不牺牲其中一个指标的前提下，再提升另一个指标，当前状态就是<strong>帕累托最优</strong>)</p>
         
         <hr><p>本文2026-07-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-05</p>]]>
       </description>
