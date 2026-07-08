@@ -155,6 +155,8 @@
         <li><a href="#experiments-and-results">Experiments and results</a></li>
         <li><a href="#conclusion">Conclusion</a></li>
         <li><a href="#拓-为什么选birch">拓-为什么选birch</a></li>
+        <li><a href="#拓-数据集情况">拓-数据集情况</a></li>
+        <li><a href="#拓-板卡">拓-板卡</a></li>
       </ul>
     </li>
   </ul>
@@ -364,7 +366,29 @@ Conclusion
 <h2 id="拓-为什么选birch">
 <a class="header-anchor" href="#%e6%8b%93-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89birch"></a>
 拓-为什么选birch
-</h2></div>
+</h2><p>Birch 全称平衡迭代规约层次聚类，核心是<strong>CF-Tree 聚类特征树</strong>，不存储原始脉冲点，只保存簇统计量（点数、和、平方和），天然适配雷达海量脉冲数据流</p>
+<ul>
+<li>Birch 仅单次遍历数据即可构建 CF 树完成粗聚类，时间复杂度接近线性</li>
+<li>雷达脉冲是持续不断的数据流，Birch 支持逐点增量更新簇，不用每次全量重聚类</li>
+<li>自动划分簇，无需提前给定雷达数量 K</li>
+</ul>
+<h2 id="拓-数据集情况">
+<a class="header-anchor" href="#%e6%8b%93-%e6%95%b0%e6%8d%ae%e9%9b%86%e6%83%85%e5%86%b5"></a>
+拓-数据集情况
+</h2><p><code>PDW 脉冲数据集</code></p>
+<ul>
+<li>共仿真<strong>12 部独立雷达辐射源</strong>，每部雷达仅单一工作模式，不涉及多功能雷达模式切换识别</li>
+<li>划分 4 套场景子集：Train 训练集、Val1/Val2/Val3 三套验证集</li>
+</ul>
+<p>所有雷达射频集中在<strong>9557~9652MHz X 波段</strong>，仅 12 号雷达特殊（2824<del>2840MHz S 波段），脉宽 PW 跨度极大（1.5μs</del>37.9μs），DOA 方位角 37°<del>65°，PRI 覆盖 7μs</del>508μs</p>
+<h2 id="拓-板卡">
+<a class="header-anchor" href="#%e6%8b%93-%e6%9d%bf%e5%8d%a1"></a>
+拓-板卡
+</h2><p>瑞芯微的 RK3588 嵌入式开发板</p>
+<ul>
+<li>国产</li>
+</ul>
+</div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -412,7 +436,7 @@ Conclusion
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;153.6k</span
+          >&nbsp;153.9k</span
         >
         &nbsp;|&nbsp;
         <span class="icon-coffee">&nbsp;06:47</span>
@@ -459,6 +483,8 @@ Conclusion
         <li><a href="#experiments-and-results">Experiments and results</a></li>
         <li><a href="#conclusion">Conclusion</a></li>
         <li><a href="#拓-为什么选birch">拓-为什么选birch</a></li>
+        <li><a href="#拓-数据集情况">拓-数据集情况</a></li>
+        <li><a href="#拓-板卡">拓-板卡</a></li>
       </ul>
     </li>
   </ul>
