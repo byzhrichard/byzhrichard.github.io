@@ -12,12 +12,43 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Fri, 03 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[高等数学] 16.微分方程</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</link>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 16.微分方程</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="微分方程">
+<a class="header-anchor" href="#%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+微分方程
+</h2><p>含有未知函数的<strong>导数或微分</strong>的等式</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/image-20260712104636849.png" alt="image-20260712104636849"></p>
+<p>分类:</p>
+<ul>
+<li>按阶数分</li>
+<li>按线性和非线性分</li>
+</ul>
+<blockquote>
+<p>线性微分方程: 未知函数<strong>y</strong> 以及 <strong>y的各项导数</strong> 都是以<strong>一次幂</strong>的形式出现, 且彼此之间没有<strong>乘积or复合</strong>等非线性运算</p>
+        
+        <hr><p>本文2026-07-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-12</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
     
     
 
@@ -347,45 +378,6 @@ $$<blockquote>
 </blockquote>
         
         <hr><p>本文2026-07-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-03</p>]]>
-      </description>
-      
-        <category>高等数学</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[高等数学] 6.参数方程求导</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</link>
-      <pubDate>Thu, 02 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/</guid>
-      <description>
-        <![CDATA[<h1>[高等数学] 6.参数方程求导</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="参数方程求导">
-<a class="header-anchor" href="#%e5%8f%82%e6%95%b0%e6%96%b9%e7%a8%8b%e6%b1%82%e5%af%bc"></a>
-参数方程求导
-</h2><p>参数方程有 <code>x, y, t</code></p>
-<ul>
-<li>要求 $\frac{dy}{dx}$</li>
-<li>只要求 $\frac{dy}{dt}$ 和 $\frac{dx}{dt}$</li>
-<li>于是 $\displaystyle{\frac{dy}{dx}=\frac{dy}{dt} / \frac{dx}{dt}}$</li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703000542084.png" alt="image-20260703000542084"></p>
-</blockquote>
-<p>因为 $\frac{dy}{dx}$ 是用 t 来表示的式子, 所以<strong>若要求二阶导</strong>, 不能直接用一阶导对 x 求导
-</p>
-$$
-\frac{d^2 y}{dx^2}
-= \frac{d\left(\dfrac{dy}{dx}\right)}{dx}
-= \frac{\color{red}\dfrac{d\left(\dfrac{dy}{dx}\right)}{dt}}{\color{green}\dfrac{dx}{dt}}
-$$<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/6.%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC/image-20260703001428799.png" alt="image-20260703001428799"></p>
-        
-        <hr><p>本文2026-07-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-02</p>]]>
       </description>
       
         <category>高等数学</category>

@@ -12,12 +12,43 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[高等数学] 16.微分方程</title>
+      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</link>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</guid>
+      <description>
+        <![CDATA[<h1>[高等数学] 16.微分方程</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="微分方程">
+<a class="header-anchor" href="#%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b"></a>
+微分方程
+</h2><p>含有未知函数的<strong>导数或微分</strong>的等式</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/image-20260712104636849.png" alt="image-20260712104636849"></p>
+<p>分类:</p>
+<ul>
+<li>按阶数分</li>
+<li>按线性和非线性分</li>
+</ul>
+<blockquote>
+<p>线性微分方程: 未知函数<strong>y</strong> 以及 <strong>y的各项导数</strong> 都是以<strong>一次幂</strong>的形式出现, 且彼此之间没有<strong>乘积or复合</strong>等非线性运算</p>
+        
+        <hr><p>本文2026-07-12首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-12</p>]]>
+      </description>
+      
+        <category>高等数学</category>
+      
+    </item>
     
     
 
@@ -340,38 +371,6 @@ RML2016.10a数据集
       </description>
       
         <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] Edge</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/edge/</link>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/edge/</guid>
-      <description>
-        <![CDATA[<h1>[工具] Edge</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="edge">
-<a class="header-anchor" href="#edge"></a>
-Edge
-</h1><h4 id="1-快捷键">
-<a class="header-anchor" href="#1-%e5%bf%ab%e6%8d%b7%e9%94%ae"></a>
-1. 快捷键
-</h4><p><code>ctrl+tab</code>: 类似<code>win+tab</code>
-<code>ctrl+数字</code>: 类似<code>win+数字</code></p>
-<p><code>ctrl+T</code>: 新建标签页
-<code>ctrl+F4</code>: 关闭当前页</p>
-<p><code>ctrl++</code>: 放大
-<code>ctrl+-</code>: 缩小
-<code>ctrl+0</code>: 恢复原始大小</p>
-        
-        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
-      </description>
-      
-        <category>工具</category>
       
     </item>
     
