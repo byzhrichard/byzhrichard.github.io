@@ -12,12 +12,109 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sun, 12 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Stardew-Valley] Mods</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/stardew-valley/mods/</link>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/stardew-valley/mods/</guid>
+      <description>
+        <![CDATA[<h1>[Stardew-Valley] Mods</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="mods">
+<a class="header-anchor" href="#mods"></a>
+Mods
+</h2><p><a href="https://www.nexusmods.com/stardewvalley/mods/2400">https://www.nexusmods.com/stardewvalley/mods/2400</a></p>
+<h4 id="1-smapi-2400">
+<a class="header-anchor" href="#1-smapi-2400"></a>
+1. SMAPI (2400)
+</h4><p>自带:</p>
+<ul>
+<li>ConsoleCommands</li>
+<li>SaveBackup</li>
+</ul>
+<h4 id="2-uiinfosuite2-7098">
+<a class="header-anchor" href="#2-uiinfosuite2-7098"></a>
+2. UIInfoSuite2 (7098)
+</h4><h4 id="3-fishinginfooverlays-8970">
+<a class="header-anchor" href="#3-fishinginfooverlays-8970"></a>
+3. FishingInfoOverlays (8970)
+</h4><h4 id="4-bigger-backpack-1845">
+<a class="header-anchor" href="#4-bigger-backpack-1845"></a>
+4. Bigger Backpack (1845)
+</h4><p>前置: StardewHack (3213)</p>
+<h4 id="5-harvestwithscythe-2731">
+<a class="header-anchor" href="#5-harvestwithscythe-2731"></a>
+5. HarvestWithScythe (2731)
+</h4><p>前置: StardewHack (3213)</p>
+<h4 id="6-cjbshowitemsellprice-5">
+<a class="header-anchor" href="#6-cjbshowitemsellprice-5"></a>
+6. CJBShowItemSellPrice (5)
+</h4><h4 id="7-npc-map-locations-239">
+<a class="header-anchor" href="#7-npc-map-locations-239"></a>
+7. NPC Map Locations (239)
+</h4><h4 id="8-generic-mod-config-menu-5098">
+<a class="header-anchor" href="#8-generic-mod-config-menu-5098"></a>
+8. Generic Mod Config Menu (5098)
+</h4><p>拓展: GMCMOptions (10505)</p>
+        
+        <hr><p>本文2026-07-15首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-15</p>]]>
+      </description>
+      
+        <category>Stardew-Valley</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[else] 考驾照</title>
+      <link>https://byzhrichard.github.io/post/else/%E8%80%83%E9%A9%BE%E7%85%A7/</link>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/else/%E8%80%83%E9%A9%BE%E7%85%A7/</guid>
+      <description>
+        <![CDATA[<h1>[else] 考驾照</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="考驾照">
+<a class="header-anchor" href="#%e8%80%83%e9%a9%be%e7%85%a7"></a>
+考驾照
+</h1><h2 id="1-依法扣留车辆">
+<a class="header-anchor" href="#1-%e4%be%9d%e6%b3%95%e6%89%a3%e7%95%99%e8%bd%a6%e8%be%86"></a>
+1. 依法扣留车辆
+</h2><p><code>未携带机动车登记证书</code> 不属于依法扣留车辆</p>
+<ul>
+<li>确保: 驾驶证, 行驶证, 交强险</li>
+<li>登记证书没关系</li>
+</ul>
+<h2 id="2-校车">
+<a class="header-anchor" href="#2-%e6%a0%a1%e8%bd%a6"></a>
+2. 校车
+</h2><ul>
+<li>校车同方向只有1条车道，后方车辆停车等待</li>
+<li>校车同方向有2条以上车道，校车后方及相邻车道车辆要停车等待
+(其他车道车辆可以减速通过)</li>
+</ul>
+<h2 id="3-车型代号">
+<a class="header-anchor" href="#3-%e8%bd%a6%e5%9e%8b%e4%bb%a3%e5%8f%b7"></a>
+3. 车型代号
+</h2><p>客车类:</p>
+        
+        <hr><p>本文2026-07-14首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-14</p>]]>
+      </description>
+      
+        <category>else</category>
+      
+    </item>
     
     
 
@@ -277,92 +374,6 @@ Google Speech Commands Data Set v0.01
 </li>
 <li>
 <p>数据集中文全称: Google 语音指令数据集 v0.01</p>
-</li>
-<li>
-<p>样本规模（train / test 数量）</p>
-        
-        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
-      </description>
-      
-        <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] 工业诊断数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%B7%A5%E4%B8%9A%E8%AF%8A%E6%96%AD%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E5%B7%A5%E4%B8%9A%E8%AF%8A%E6%96%AD%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] 工业诊断数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="工业诊断数据集-industrial-diagnosis">
-<a class="header-anchor" href="#%e5%b7%a5%e4%b8%9a%e8%af%8a%e6%96%ad%e6%95%b0%e6%8d%ae%e9%9b%86-industrial-diagnosis"></a>
-工业诊断数据集 (industrial diagnosis)
-</h1><h2 id="cwru数据集">
-<a class="header-anchor" href="#cwru%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-CWRU数据集
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网:</p>
-</li>
-<li>
-<p>下载链接: <a href="https://engineering.case.edu/bearingdatacenter/download-data-file">https://engineering.case.edu/bearingdatacenter/download-data-file</a></p>
-</li>
-<li>
-<p>数据集全称: Case Western Reserve University Bearing Fault Dataset</p>
-</li>
-<li>
-<p>数据集中文全称: 凯斯西储大学轴承故障数据集</p>
-</li>
-<li>
-<p>样本规模（train / test 数量）</p>
-        
-        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
-      </description>
-      
-        <category>数据集</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] 调制信号数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] 调制信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="调制信号数据集">
-<a class="header-anchor" href="#%e8%b0%83%e5%88%b6%e4%bf%a1%e5%8f%b7%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-调制信号数据集
-</h1><h2 id="rml201610a数据集">
-<a class="header-anchor" href="#rml201610a%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-RML2016.10a数据集
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网: <a href="https://www.deepsig.ai/datasets/">https://www.deepsig.ai/datasets/</a></p>
-</li>
-<li>
-<p>下载链接:</p>
-</li>
-<li>
-<p>数据集全称: Radio Machine Learning 2016.10a</p>
-</li>
-<li>
-<p>数据集中文全称: RadioML 2016.10a 无线电调制识别数据集</p>
 </li>
 <li>
 <p>样本规模（train / test 数量）</p>

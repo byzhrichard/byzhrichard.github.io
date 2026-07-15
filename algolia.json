@@ -1,5 +1,17 @@
 [
   {
+    "objectID": "20a01a4b013eac5380f44866ec96df2ece792630",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/stardew-valley/mods/",
+    "title": "[Stardew-Valley] Mods","content": "\rMods\rhttps://www.nexusmods.com/stardewvalley/mods/2400\n1. SMAPI (2400)\r自带:\nConsoleCommands SaveBackup 2. UIInfoSuite2 (7098)\r3. FishingInfoOverlays (8970)\r4. Bigger Backpack (1845)\r前置: StardewHack (3213)\n5. HarvestWithScythe (2731)\r前置: StardewHack (3213)\n6. CJBShowItemSellPrice (5)\r7. NPC Map Locations (239)\r8. Generic Mod Config Menu (5098)\r拓展: GMCMOptions (10505)\n","date": "2026-07-15 00:00:00",
+    "updated": "2026-07-15 00:00:00"
+  }, 
+  {
+    "objectID": "4ecfcae54155492160f6c71db2312a371a1399dc",
+    "permalink": "/post/else/%E8%80%83%E9%A9%BE%E7%85%A7/",
+    "title": "[else] 考驾照","content": "\r考驾照\r1. 依法扣留车辆\r未携带机动车登记证书 不属于依法扣留车辆\n确保: 驾驶证, 行驶证, 交强险 登记证书没关系 2. 校车\r校车同方向只有1条车道，后方车辆停车等待 校车同方向有2条以上车道，校车后方及相邻车道车辆要停车等待 (其他车道车辆可以减速通过) 3. 车型代号\r客车类:\nA1: 大型客车(大巴) A2: 重型牵引挂车 A3: 城市公交车 客货中型:\nB1: 中型客车(中巴) B2: 大型货车 小型民用汽车:\nC1: 小型汽车 C2: 小型自动挡汽车 (length\u0026amp;lt;=6m, people\u0026amp;lt;=9) C3: 低速载货汽车 C4: 三轮汽车 C5: 残疾人专用小型自动挡载客汽车 C6: 轻型牵引挂车 摩托车类:\nD: 普通三轮摩托车 E: 普通二轮摩托车 F: 轻便摩托车 特种工程机械 / 电车:\nM: 轮式专用机械车 N: 无轨电车 P: 有轨电车 4. 三年以下\r死亡一人或者重伤三人以上，负事故全部或者主要责任的 死亡三人以上，负事故同等责任的 造成公共财产或者他人财产直接损失，负事故全部或者主要责任，无能力赔偿数额在三十万元以上的 5. 再次酒后开车\r10日拘留 1000\u0026amp;lt;罚款\u0026amp;lt;2000 吊销驾驶证 6. 科目考试上限\r科二5次 科三5次 7. 电车标志\r驱动电机故障:\n电机过热警告:\n充电系统故障:\n低荷电状态警告:\n动力蓄电池高温报警:\n胎压故障警告:\n8. 车灯\r夜间事故打灯:\n危险报警闪光灯: 警示周边车辆避让 示廊灯: 点亮车辆前后轮廓 后位灯: 显示车辆尾部位置 低能见度天气:\n雾灯 能开远光灯的情况:\n夜间郊外无路灯、无对向车辆道路 9. 道路无车道划分\r车辆在中间通行 行人和非机动在两侧 10. 处罚教练员\r未在指定路线和时间: 20\u0026amp;lt;罚款\u0026amp;lt;200\n未使用合规的机动车: 200\u0026amp;lt;罚款\u0026amp;lt;500\n11. 扣分\r高速:\n逆行: 12 违停: 9 占用应急车道: 6 低速: 3 1分:\n违规用灯 不年检 不系安全带 长宽高超限 违标违线 3分:\n不按规定车道 打电话 不避让校车 6分:\n不按信号灯通行 未悬挂警示标志 高速: 倒车12分, 掉头12分, 逆行12分 普通道路: 倒车1分, 掉头1分, 逆行3分\n道路上故障事故停车后, 不按规定开灯: 3\n12. 山路会车\r外侧车辆先行(不靠 …","date": "2026-07-14 00:00:00",
+    "updated": "2026-07-14 00:00:00"
+  }, 
+  {
     "objectID": "324a6236f1eb0e4b3e0d652b2155ce7eba3f085a",
     "permalink": "/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/16.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/",
     "title": "[高等数学] 16.微分方程","content": "\r微分方程\r含有未知函数的导数或微分的等式\n分类:\n按阶数分 按线性和非线性分 线性微分方程: 未知函数y 以及 y的各项导数 都是以一次幂的形式出现, 且彼此之间没有乘积or复合等非线性运算\n可分离变量的微分方程\r含y部分放等式左边, 含x部分放等式右边 对等式两边求不定积分来消去微分 化简为只有x和y本身的式子 检验是否漏解 齐次微分方程\r形如 $\\frac{dy}{dx}=f\\left(\\frac{y}{x}\\right)$ 的一阶微分方程，叫做一阶齐次微分方程\n一阶线性微分方程\r标准形式: $$\r\\frac{dy}{dx} + P(x)y = Q(x)\r$$ 通解公式: $$\ry = e^{-\\int P(x)dx}\\left(\\int Q(x) e^{\\int P(x)dx} dx + C\\right)\r$$ 二阶常系数线性微分方程\r1. 齐次\r标准形式: $$\ry'' + p y' + q y = 0 \\quad (p、q \\text{ 均为常数})\r$$ 特征方程: 将y换成r\n2阶导 -\u0026gt; 2次方 1阶导 -\u0026gt; 1次方 0阶导 -\u0026gt; 0次方 2. 非齐次\r标准形式: $$\ry'' + p y' + q y = f(x) \\quad (p、q \\text{ 均为常数})\r$$ 通解: $$\ry=Y+y^* \\quad (Y \\text{ 为齐次通解},y^* \\text{ 为非齐次特解})\r$$ 把等式右边改成0, 求得齐次通解 用待定系数法求非齐次特解 右边整理成 $P_m(x)e^{\\lambda x}$, 即为多项式*指数函数 则 $y^*=x^k \\times \\text{与多项式相同次数的待定多项式} \\times \\text{指数函数}$ ($k$ 只能取0或1或2, 具体为 $\\lambda$ 是否与 $r_1$, $r_2$ 相等) $\\lambda \\ne r_1,\\lambda \\ne r_2$: 则 $k=0$ $\\lambda = r_1,\\lambda \\ne r_2$ 或 $\\lambda \\ne r_1,\\lambda = r_2$: 则 $k=1$ $\\lambda = r_1 = r_2$: 则 $k=2$ 3. 三角函数型\r通解: $$\ry=Y+y^* \\quad (Y \\text{ 为齐次通解},y^* \\text{ 为非齐次特解})\r$$ 把等式右边改成0, 求得齐次通解 用待定系数法求非齐次特解 右边整理成 $\\left[P_l(x)\\cos\\omega x + Q_m(x)\\sin\\omega x\\right]e^{\\lambda x}$ 则 $y^*=x^k \\times \\text{上式(但为P和Q中较高次的待定多项式)} \\times \\text{指数函数}$ ($k$ 只能取0或1, 具体为 $\\lambda$ 是否与 $r_1$, $r_2$ 相等) $\\lambda \\pm \\omega i \\ne r_1,\\lambda \\pm \\omega i \\ne r_2$: 则 $k=0$ $\\lambda \\pm \\omega i = r_1,\\lambda \\pm \\omega i = r_2$: 则 $k=1$ ","date": "2026-07-12 00:00:00",
@@ -254,7 +266,7 @@
   {
     "objectID": "1bc5663be3bdd3e12c22c1638703ef85cc149f6f",
     "permalink": "/post/%E8%A3%85%E6%9C%BA%E5%BF%85%E5%A4%87/%E5%AE%98%E6%96%B9%E7%BD%91%E7%AB%99/",
-    "title": "[装机必备] 官方网站","content": "\r官方网站\r1. CSGO\rhltv: https://www.hltv.org/\n","date": "2026-07-03 00:00:00",
+    "title": "[装机必备] 官方网站","content": "\r官方网站\r1. CSGO\rhltv: https://www.hltv.org/\n2. 模拟器\r雷电: https://www.ldmnq.com/other/version-history-and-release-notes.html\n","date": "2026-07-03 00:00:00",
     "updated": "2026-07-03 00:00:00"
   }, 
   {
@@ -1056,26 +1068,26 @@
     "updated": "2026-05-17 00:00:00"
   }, 
   {
-    "objectID": "17549af1fac6034cd949b46453703b9447889841",
-    "permalink": "/post/counter-strike/%E4%B8%AA%E4%BA%BA%E8%AE%BE%E7%BD%AE/",
+    "objectID": "672cc1beefdfbf6d0626205051b974b1371b4063",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/counter-strike/%E4%B8%AA%E4%BA%BA%E8%AE%BE%E7%BD%AE/",
     "title": "[Counter-Strike] 个人设置","content": "\rautoexec.cfg\rD:\\SteamLibrary\\steamapps\\common\\Counter-Strike Global Offensive\\game\\csgo\\cfg\\autoexec.cfg\nbinddefaults: 还原所有按键绑定 key_listboundkeys: 显示所有按键绑定 exec autoexec.cfg: 在局内控制台使用, 可以自动使用更新后的cfg // 鼠标灵敏度 sensitivity 1.20 zoom_sensitivity_ratio 1 // 按键绑定 bind \u0026#34;z\u0026#34; \u0026#34;slot10\u0026#34; // 火 bind \u0026#34;c\u0026#34; \u0026#34;slot8\u0026#34; // 烟 bind \u0026#34;v\u0026#34; \u0026#34;slot3;slot7\u0026#34; // 闪 bind \u0026#34;x\u0026#34; \u0026#34;slot6\u0026#34; // 雷 bind \u0026#34;q\u0026#34; \u0026#34;slot11\u0026#34; // 电击枪 bind \u0026#34;mouse5\u0026#34; \u0026#34;+voicerecord\u0026#34; // 麦克风 bind \u0026#34;capslock\u0026#34; \u0026#34;+sprint\u0026#34; // 静步 bind \u0026#34;shift\u0026#34; \u0026#34;+duck\u0026#34; // 蹲 bind \u0026#34;p\u0026#34; \u0026#34;toggleconsole\u0026#34; // 控制台 unbind \u0026#34;`\u0026#34; unbind \u0026#34;u\u0026#34; bind \u0026#34;ENTER\u0026#34; \u0026#34;messagemode2\u0026#34; // 队内聊天 unbind \u0026#34;y\u0026#34; bind \u0026#34;\\\u0026#34; \u0026#34;messagemode\u0026#34; // 全局聊天 bind \u0026#34;-\u0026#34; \u0026#34;noclip\u0026#34; bind \u0026#34;[\u0026#34; \u0026#34;say_team .clear\u0026#34; bind \u0026#34;]\u0026#34; \u0026#34;say_team .rethrow\u0026#34; bind \u0026#34;,\u0026#34; \u0026#34;+radialradio\u0026#34; // 快捷聊天轮盘 bind \u0026#34;.\u0026#34; \u0026#34;+radialradio2\u0026#34; // 快捷聊天轮盘 bind \u0026#34;/\u0026#34; \u0026#34;+radialradio3\u0026#34; // 快捷聊天轮盘 // F1和F2要留给投票 bind \u0026#34;F3\u0026#34; \u0026#34;say_team .hp\u0026#34; // 血量 bind \u0026#34;F4\u0026#34; \u0026#34;say_team .drop\u0026#34; // 发刀 bind \u0026#34;F5\u0026#34; \u0026#34;say_team .pause\u0026#34; // 暂停 bind \u0026#34;F6\u0026#34; \u0026#34;say_team .unpause\u0026#34; // 取消暂停 unbind \u0026#34;F7\u0026#34; unbind \u0026#34;F8\u0026#34; bind \u0026#34;F7\u0026#34; \u0026#34;say_team nice shot! 好枪! Хороший пистолет!\u0026#34; bind \u0026#34;F8\u0026#34; \u0026#34;say_team nice try! 可惜! жаль! เสียดายมาก! ざんねん! 아쉽다! Tiếc quá!\u0026#34; // 持枪视角(niko) viewmodel_fov 68 viewmodel_offset_x 2 viewmodel_offset_y 0 viewmodel_offset_z -1.5 viewmodel_presetpos 2 // donk: // CSGO-NmcdV-ORLFj-vKC4W-LV6zW-4fWjM // niko: // CSGO-xQsAb-b7J42-qcvvS-5AG9v-VwLXL // yekindar: // CSGO-CBO9K-Nev5f-DkCEb-Hj7uY-OnMHA // 我的准星: // CSGO-nB9k8-ebxVf-aKrMn-N2O27-7MUnB // 记得调准星厚度 // 准星-byzh cl_crosshaircolor_r 0 // 红色分量 cl_crosshaircolor_g 255 // 绿色分量 cl_crosshaircolor_b 213 // 蓝色分量 cl_crosshair_drawoutline 1 // 轮廓开关 cl_crosshair_outlinethickness 0.2 // 轮廓厚度 // 准星-niko cl_crosshaircolor_r 0 // 红色分量 cl_crosshaircolor_g 255 // 绿色分量 cl_crosshaircolor_b 145 // 蓝色分量 cl_crosshair_drawoutline 0 // 轮廓开关 cl_crosshair_outlinethickness 0 // 轮廓厚度 //cl_crosshairstyle 4 // 静态准星 //cl_crosshair_recoil 0 // 跟随后坐力 //cl_crosshairdot 0 // 取消中心点 //cl_crosshairsize 1 // 长度 //cl_crosshairthickness 1 // 粗细 //cl_crosshairgap -4 // 间隙 //cl_crosshairusealpha 1 // 透明度开关 //cl_crosshairalpha 255 // 透明度 //cl_crosshair_t 0 // T形准星设置 //cl_crosshairgap_useweaponvalue 0 // 准星间距设置 //cl_crosshair_sniper_width 1 // 狙击十字线粗细 // 投掷物准星 cl_grenadecrosshair_flash 1 cl_grenadecrosshairdelay_flash 0.75 cl_grenadecrosshair_explosive 1 cl_grenadecrosshairdelay_explosive 0.75 cl_grenadecrosshair_fire 1 cl_grenadecrosshairdelay_fire 0.75 cl_grenadecrosshair_smoke 1 cl_grenadecrosshairdelay_smoke 0.75 cl_grenadecrosshair_decoy 1 cl_grenadecrosshairdelay_decoy 0.75 // 雷达设置 bind \u0026#34;`\u0026#34; \u0026#34;toggleradarscale\u0026#34; cl_hud_radar_scale 1 // 雷达大小 cl_radar_scale 0.35 // 雷达缩放 cl_radar_rotate 1 // 雷达旋转 cl_radar_always_centered 1 // 雷达以玩家为中心 cl_radar_square_with_scoreboard 1 // 切换计分板时全地图 //cl_radar_scale_alternate 1 // 雷达地图切换缩放(0.25~1) //cl_radar_icon_scale_min 0.4 // 雷达人物标点大小 //cl_hud_radar_map_additive 1 // 雷达HUD地图与背景融合(0--否，1--是) //cl_hud_radar_background_alpha 0.63 // 雷达HUD背景透明度(0~1) //cl_radar_scale_dynamic 0 // 雷达动态缩放(0--否，1--是) //hud_showtargetid 1 // 显示队友/敌人id //safezonex 1 // HUD水平方向缩放百分比 //safezoney 1 // HUD竖直方向缩放百分比 // 声音设置 snd_tensecondwarning_volume 0.251906 // 其他设置 con_enable 1 // 允许控制台 r_fullscreen_gamma 1.989329 // 亮度设为100% cl_hud_telemetry_frametime_show 2 // 显示帧间时间及FPS(0从不，1如果条件恶劣，2总是) cl_hud_telemetry_ping_show 2 // 显示延迟(0从不，1如果条件恶劣，2总是) cl_dm_buyrandomweapons 0 // 关闭死斗随机买枪 mm_dedicated_search_maxping 150 // 最大匹配延迟ms cl_silencer_mode 1 // 卸下消音器(1第二开火，0已禁用) cl_showloadout 1 // 总是显示物品栏(0否，1是) cl_sniper_auto_rezoom 1 // 开枪后狙击步枪自动重新开镜(0否，1是) cl_hud_color 11 // 浅粉色UI rate 786432 // 游戏最大流量带宽 switchhandsleft // 左手持枪 host_writeconfig // 保存配置 自动执行 echo \u0026#34;[CFG] Loaded CS2 autoexec.cfg\u0026#34; // 控制台提示 ","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
   {
-    "objectID": "3f79d266e0d756b69aea15da26078f0104a03ea5",
-    "permalink": "/post/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/",
+    "objectID": "77611f7f08f614bf14ea24c54dfa0cba7341a887",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/counter-strike/%E8%8D%92%E6%BC%A0%E8%BF%B7%E5%9F%8E/",
     "title": "[Counter-Strike] 荒漠迷城","content": "\r匪家\r1. vip烟\r（垃圾桶前）D半秒+跳投\n（垃圾桶左）D半秒+跳投\n匪打A\r1. 警家满封烟\r跳投\n(必须对齐铁栏杆)w+跳投\n2. 跳台上下烟\r跳投\n跳投\n3. 跳台上下烟\r跳投\n双键跳投\n4. 过点满封烟\r跳投\n5. 跳台上烟\r跳投\n匪打中\r1. 拱门\r（垃圾桶前）跳投\n","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
   {
-    "objectID": "7c7e6dcc03752eaccfacde9d3fd2f62e6d40d161",
-    "permalink": "/post/counter-strike/%E6%AD%BB%E5%9F%8E%E4%B9%8B%E8%B0%9C/",
+    "objectID": "00e72e1dbcd7e2f5d2aca9a601a0b1e701a0e94d",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/counter-strike/%E6%AD%BB%E5%9F%8E%E4%B9%8B%E8%B0%9C/",
     "title": "[Counter-Strike] 死城之谜","content": "\rvip烟\r1. 跑到第一个门线跳投\r2. 车位跑到车头投\rA点一线烟\r1. 双键跳投\r2. 投\r叉车过点烟\r1. 跑投\r2. 跑投\r自助闪\r1. rush B\r跑投\n匪爆B\rB1: 双键跳投 B2: s+跳投\nB2烟\r1. 3y对齐绿条下端, 过C, 静步至2y到C上端时投\r警家\r1. 中路烟\r2. A门烟\r跳投\n3. A门烟\r投\n4. B2瀑布烟\r投\n自助闪\r1. 沙袋\r右键\n2. 线圈\r双键投\n中路上管一线烟\r1. 跳投\r2. 跳投\r","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
   {
-    "objectID": "93d2c74166b9092400e54ed29bd26078d2707a3f",
-    "permalink": "/post/counter-strike/%E8%BF%9C%E5%8F%A4%E9%81%97%E8%BF%B9/",
+    "objectID": "04b5a5ae1ad83ef0ecbd6017d5ea7a4afa836939",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/counter-strike/%E8%BF%9C%E5%8F%A4%E9%81%97%E8%BF%B9/",
     "title": "[Counter-Strike] 远古遗迹","content": "\rB坡-烟\r1. 跳投\rA大-烟\r1. 投\r2. 跑投（在跑出这个口前出手）\r3. 跳投\r甜甜圈-烟\r1. 投\rb小-雷火\r跑到一半时投\n跑投\nB底线\r1. B坡烟/火\r跳投\n2. 回防黑屋烟\r跑到箱子面前跳投\n3. 黑屋烟\r双键跳投\n4. 包点火\r跳投\n5. 不白1道闪\r第一颗：双键跳投\n第二颗：投\n6. 二道自助闪\r静步一步右键跳投\n7. 包点火\r跳投\nB黑屋\r1. 黑屋回防包点闪\r走投\n2. 西瓜闪\r蹲跳投\n3. 黑屋满烧火\r跑半步（到与污渍齐平）投\n中路\r1. 匪口满烧火\r跑两步（到门口）投\n匪家\r1. vip烟\r跳投\n2. vip烟\r跳投\n3. 跳台烟\r跳投\n4. 跳台烟\r跳投\n5. 中路闪\r跳投\n6. 甲\rB爆弹\r1. B坡闪\r第1颗：跳投\n第2颗：w+跳投\n2. 一道/二道烟\r跳投\n跳投\n3. 包点火\rw+跳投\nA爆弹\r1. 甜甜圈烟\r蹲下w+跳投\n2. 警家烟\r跳投\n3. 遗迹烟\r跳投\n4. 闪光\r5. 树位火\r走到石头中间位置出手\n石头中间位置:\n","date": "2026-01-01 00:00:00",
     "updated": "2026-01-01 00:00:00"
   }, 
