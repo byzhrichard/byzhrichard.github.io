@@ -12,12 +12,37 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 15 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[洛克王国] 眠枭庇护所</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E7%9C%A0%E6%9E%AD%E5%BA%87%E6%8A%A4%E6%89%80/</link>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E7%9C%A0%E6%9E%AD%E5%BA%87%E6%8A%A4%E6%89%80/</guid>
+      <description>
+        <![CDATA[<h1>[洛克王国] 眠枭庇护所</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="眠枭庇护所-水">
+<a class="header-anchor" href="#%e7%9c%a0%e6%9e%ad%e5%ba%87%e6%8a%a4%e6%89%80-%e6%b0%b4"></a>
+眠枭庇护所-水
+</h2><ul>
+<li>咸水湾南方庇护所 (踩石头上)</li>
+</ul>
+        
+        <hr><p>本文2026-07-16首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-16</p>]]>
+      </description>
+      
+        <category>洛克王国</category>
+      
+    </item>
     
     
 
@@ -42,9 +67,9 @@ Mods
 <li>ConsoleCommands</li>
 <li>SaveBackup</li>
 </ul>
-<h4 id="2-uiinfosuite2-7098">
-<a class="header-anchor" href="#2-uiinfosuite2-7098"></a>
-2. UIInfoSuite2 (7098)
+<h4 id="2-uiinfosuite2-7098-ui界面">
+<a class="header-anchor" href="#2-uiinfosuite2-7098-ui%e7%95%8c%e9%9d%a2"></a>
+2. UIInfoSuite2 (7098) UI界面
 </h4><h4 id="3-fishinginfooverlays-8970">
 <a class="header-anchor" href="#3-fishinginfooverlays-8970"></a>
 3. FishingInfoOverlays (8970)
@@ -59,9 +84,9 @@ Mods
 <h4 id="6-cjbshowitemsellprice-5">
 <a class="header-anchor" href="#6-cjbshowitemsellprice-5"></a>
 6. CJBShowItemSellPrice (5)
-</h4><h4 id="7-npc-map-locations-239">
-<a class="header-anchor" href="#7-npc-map-locations-239"></a>
-7. NPC Map Locations (239)
+</h4><h4 id="7-npc-map-locations-239-npc地图位置">
+<a class="header-anchor" href="#7-npc-map-locations-239-npc%e5%9c%b0%e5%9b%be%e4%bd%8d%e7%bd%ae"></a>
+7. NPC Map Locations (239) NPC地图位置
 </h4><h4 id="8-generic-mod-config-menu-5098">
 <a class="header-anchor" href="#8-generic-mod-config-menu-5098"></a>
 8. Generic Mod Config Menu (5098)
@@ -339,49 +364,6 @@ $$<blockquote>
       </description>
       
         <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[数据集] 语音信号数据集</title>
-      <link>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <pubDate>Mon, 06 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%95%B0%E6%8D%AE%E9%9B%86/%E8%AF%AD%E9%9F%B3%E4%BF%A1%E5%8F%B7%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <description>
-        <![CDATA[<h1>[数据集] 语音信号数据集</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="语音信号数据集">
-<a class="header-anchor" href="#%e8%af%ad%e9%9f%b3%e4%bf%a1%e5%8f%b7%e6%95%b0%e6%8d%ae%e9%9b%86"></a>
-语音信号数据集
-</h1><h2 id="google-speech-commands-data-set-v001">
-<a class="header-anchor" href="#google-speech-commands-data-set-v001"></a>
-Google Speech Commands Data Set v0.01
-</h2><h4 id="1-数据集介绍">
-<a class="header-anchor" href="#1-%e6%95%b0%e6%8d%ae%e9%9b%86%e4%bb%8b%e7%bb%8d"></a>
-1. 数据集介绍
-</h4><ul>
-<li>
-<p>官网: <a href="https://www.tensorflow.org/datasets/catalog/speech_commands">https://www.tensorflow.org/datasets/catalog/speech_commands</a></p>
-</li>
-<li>
-<p>下载链接: <a href="http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz">http://download.tensorflow.org/data/speech_commands_v0.01.tar.gz</a></p>
-</li>
-<li>
-<p>数据集全称: Google Speech Commands Data Set v0.01</p>
-</li>
-<li>
-<p>数据集中文全称: Google 语音指令数据集 v0.01</p>
-</li>
-<li>
-<p>样本规模（train / test 数量）</p>
-        
-        <hr><p>本文2026-07-06首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-06</p>]]>
-      </description>
-      
-        <category>数据集</category>
       
     </item>
     
