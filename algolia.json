@@ -1,5 +1,11 @@
 [
   {
+    "objectID": "a910bd7f3d0e65b9a3682755000067d3cf75f3d4",
+    "permalink": "/post/python/pytorch/",
+    "title": "[Pytorch] 常用知识","content": "\rx.flatten()\rx.flatten(start维度) x.flatten(start维度, end维度) x.flatten(3): 第0,1,2维不变, 其余维度压缩到第3维 -\u0026gt; 共3+1个维度\nx.flatten(0, 1): 第0,1维度合并为1个维度, 其余维度不变\n","date": "2026-07-18 00:00:00",
+    "updated": "2026-07-18 00:00:00"
+  }, 
+  {
     "objectID": "86bc6738c9ffb13b805886206a9b02990c39fcc9",
     "permalink": "/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E7%9C%A0%E6%9E%AD%E5%BA%87%E6%8A%A4%E6%89%80/",
     "title": "[洛克王国] 眠枭庇护所","content": "\r眠枭庇护所-水\r咸水湾南方庇护所 (踩石头上) ","date": "2026-07-16 00:00:00",
@@ -8,7 +14,7 @@
   {
     "objectID": "20a01a4b013eac5380f44866ec96df2ece792630",
     "permalink": "/post/%E6%B8%B8%E6%88%8F/stardew-valley/mods/",
-    "title": "[Stardew-Valley] Mods","content": "\rMods\rhttps://www.nexusmods.com/stardewvalley/mods/2400\n1. SMAPI (2400)\r自带:\nConsoleCommands SaveBackup 2. UIInfoSuite2 (7098) UI界面\r3. FishingInfoOverlays (8970)\r4. Bigger Backpack (1845)\r前置: StardewHack (3213)\n5. HarvestWithScythe (2731)\r前置: StardewHack (3213)\n6. CJBShowItemSellPrice (5)\r7. NPC Map Locations (239) NPC地图位置\r8. Generic Mod Config Menu (5098)\r拓展: GMCMOptions (10505)\n9. Ladder Locator (3094) 梯子定位\r10. SkullCavernElevator (963) 骷髅洞穴电梯\r11. PassableCrops (15223) 可穿行作物\r12. Tieba Chinese Revision (2936) 贴吧中文修复\r前置: Content Patcher (1915)\n13. Mini Bars (8329) 迷你血条\r14. Better Shipping Bin (10487) 改良出货箱\r15. Lookup Anything (541) 查找一切\r16. Visible FIsh (8897) 可视化鱼\r17. Lockpicks (3521) 万能开锁\r18. Zoom Level (7363) 缩放\r","date": "2026-07-15 00:00:00",
+    "title": "[Stardew-Valley] Mods","content": "\rMods\rhttps://www.nexusmods.com/stardewvalley/mods/2400\n1. SMAPI (2400)\r自带:\nConsoleCommands SaveBackup 2. UIInfoSuite2 (7098) UI界面\r3. FishingInfoOverlays (8970)\r4. Bigger Backpack (1845)\r前置: StardewHack (3213)\n5. HarvestWithScythe (2731)\r前置: StardewHack (3213)\n6. CJBShowItemSellPrice (5)\r7. NPC Map Locations (239) NPC地图位置\r8. Generic Mod Config Menu (5098)\r拓展: GMCMOptions (10505)\n9. Ladder Locator (3094) 梯子定位\r10. SkullCavernElevator (963) 骷髅洞穴电梯\r11. PassableCrops (15223) 可穿行作物\r12. Tieba Chinese Revision (2936) 贴吧中文修复\r前置: Content Patcher (1915)\n13. Mini Bars (8329) 迷你血条\r14. Better Shipping Bin (10487) 改良出货箱\r15. Lookup Anything (541) 查找一切\r16. Visible FIsh (8897) 可视化鱼\r17. Lockpicks (3521) 万能开锁\r18. Zoom Level (7363) 缩放\r19. BetterRanching (859) 更好的牧场\r20. Carry Chests (30321) 便携箱子\r21. Automate (1063) 自动化\r","date": "2026-07-15 00:00:00",
     "updated": "2026-07-15 00:00:00"
   }, 
   {

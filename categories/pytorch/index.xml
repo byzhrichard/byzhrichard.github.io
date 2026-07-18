@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pytorch on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/pytorch/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sat, 18 Jul 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/pytorch/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[Pytorch] 常用知识</title>
+      <link>https://byzhrichard.github.io/post/python/pytorch/</link>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/python/pytorch/</guid>
+      <description>
+        <![CDATA[<h1>[Pytorch] 常用知识</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="xflatten">
+<a class="header-anchor" href="#xflatten"></a>
+x.flatten()
+</h2><ul>
+<li>x.flatten(start维度)</li>
+<li>x.flatten(start维度, end维度)</li>
+</ul>
+<p><code>x.flatten(3)</code>: 第0,1,2维不变, 其余维度压缩到第3维 -&gt; 共3+1个维度</p>
+        
+        <hr><p>本文2026-07-18首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-18</p>]]>
+      </description>
+      
+        <category>Pytorch</category>
+      
+    </item>
+    
+  </channel>
+</rss>
