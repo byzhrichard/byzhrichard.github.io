@@ -210,7 +210,7 @@ autoexec.cfg
 <li><code>exec autoexec.cfg</code>: 在局内控制台使用, 可以自动使用更新后的cfg</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="err">鼠标灵敏度</span>
-</span></span><span class="line"><span class="cl"><span class="n">sensitivity</span> <span class="mf">1.20</span>
+</span></span><span class="line"><span class="cl"><span class="n">sensitivity</span> <span class="mf">1.28</span>
 </span></span><span class="line"><span class="cl"><span class="n">zoom_sensitivity_ratio</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">按键绑定</span>

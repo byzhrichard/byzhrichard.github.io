@@ -12,12 +12,36 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 16 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[洛克王国] 基础数据</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</guid>
+      <description>
+        <![CDATA[<h1>[洛克王国] 基础数据</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="种族值计算pvp">
+<a class="header-anchor" href="#%e7%a7%8d%e6%97%8f%e5%80%bc%e8%ae%a1%e7%ae%97pvp"></a>
+种族值计算(pvp)
+</h2><p>除了生命的<strong>每级加成</strong>=0.01x种族值+0.005x天分加成
+除了生命的<strong>五维</strong>=(10+110x每级加成)x(1/1.2/0.9) + 50</p>
+        
+        <hr><p>本文2026-07-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-19</p>]]>
+      </description>
+      
+        <category>洛克王国</category>
+      
+    </item>
     
     
 

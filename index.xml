@@ -12,12 +12,36 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 18 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[洛克王国] 基础数据</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</guid>
+      <description>
+        <![CDATA[<h1>[洛克王国] 基础数据</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="种族值计算pvp">
+<a class="header-anchor" href="#%e7%a7%8d%e6%97%8f%e5%80%bc%e8%ae%a1%e7%ae%97pvp"></a>
+种族值计算(pvp)
+</h2><p>除了生命的<strong>每级加成</strong>=0.01x种族值+0.005x天分加成
+除了生命的<strong>五维</strong>=(10+110x每级加成)x(1/1.2/0.9) + 50</p>
+        
+        <hr><p>本文2026-07-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-19</p>]]>
+      </description>
+      
+        <category>洛克王国</category>
+      
+    </item>
     
     
 
@@ -322,38 +346,6 @@ $$P^{-1}AP=\Lambda= \begin{bmatrix} \lambda_1 & & \\ & \lambda_2 & \\ & & \ddots
 <blockquote>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/22.%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/image-20260711154118048.png" alt="image-20260711154118048"></p>
 </blockquote>
-        
-        <hr><p>本文2026-07-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-11</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 21.正交矩阵</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/21.%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5/</link>
-      <pubDate>Sat, 11 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/21.%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 21.正交矩阵</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="正交矩阵">
-<a class="header-anchor" href="#%e6%ad%a3%e4%ba%a4%e7%9f%a9%e9%98%b5"></a>
-正交矩阵
-</h2><h4 id="1-定义">
-<a class="header-anchor" href="#1-%e5%ae%9a%e4%b9%89"></a>
-1. 定义
-</h4><p>$A^TA = E$（或 $AA^T = E$）$\iff n$ 阶矩阵 $A$ 为正交矩阵
-等价
-$A^{-1}A = E$（或 $AA^{-1} = E$ $\iff n$ 阶矩阵 $A$ 为正交矩阵</p>
-<h4 id="2-性质">
-<a class="header-anchor" href="#2-%e6%80%a7%e8%b4%a8"></a>
-2. 性质
-</h4><p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/21.%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5/image-20260711105948149.png" alt="image-20260711105948149"></p>
         
         <hr><p>本文2026-07-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-11</p>]]>
       </description>
