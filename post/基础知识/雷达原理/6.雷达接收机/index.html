@@ -145,7 +145,22 @@
             <li>
               <ul>
                 <li><a href="#1-高频部分">1. 高频部分</a></li>
-                <li><a href="#2-中频部分及agc">2. 中频部分及AGC</a></li>
+                <li><a href="#2-中频部分及agc">2. 中频部分及AGC</a>
+                  <ul>
+                    <li><a href="#21-中频放大器">2.1 中频放大器</a></li>
+                    <li><a href="#22-agc">2.2 AGC</a></li>
+                    <li><a href="#23-视频">2.3 视频</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#雷达接收机的主要质量指标">雷达接收机的主要质量指标</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-接收机灵敏度">1. 接收机灵敏度</a></li>
               </ul>
             </li>
           </ul>
@@ -167,12 +182,12 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">193</div>
+    <div>文章</div><div class="sidebar-state-number">194</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      27
+      28
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
@@ -325,7 +340,10 @@ $$<ul>
 <h4 id="2-中频部分及agc">
 <a class="header-anchor" href="#2-%e4%b8%ad%e9%a2%91%e9%83%a8%e5%88%86%e5%8f%8aagc"></a>
 2. 中频部分及AGC
-</h4><p>产生中频信号流程:</p>
+</h4><h5 id="21-中频放大器">
+<a class="header-anchor" href="#21-%e4%b8%ad%e9%a2%91%e6%94%be%e5%a4%a7%e5%99%a8"></a>
+2.1 中频放大器
+</h5><p>产生中频信号流程:</p>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/image-20260629134200912.png" alt="image-20260629134200912"></p>
 <p>二者 带宽$B_{RI}$ 是一样的:</p>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/image-20260629131903588.png" alt="image-20260629131903588"></p>
@@ -337,10 +355,34 @@ h(t)=Ks^*(t_0-t)
 H(w)=KS^*(w)e^{-j\omega t_0}
 \\
 H(f)=KS^*(f)e^{-j2\pi f t_0}
-$$<p>
-<strong>AGC: automatic gain control: 自动增益控制</strong></p>
+$$<h5 id="22-agc">
+<a class="header-anchor" href="#22-agc"></a>
+2.2 AGC
+</h5><p><strong>AGC: automatic gain control: 自动增益控制</strong></p>
 <p>为了消除距离的影响, 使其只有角度信息</p>
+<ul>
+<li>调整, 使得目标和等信号轴对齐 -&gt; 自动跟踪</li>
+<li>类似归一化, 把不同距离的功率归一化</li>
+</ul>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E9%9B%B7%E8%BE%BE%E5%8E%9F%E7%90%86/6.%E9%9B%B7%E8%BE%BE%E6%8E%A5%E6%94%B6%E6%9C%BA/image-20260629133343208.png" alt="image-20260629133343208"></p>
+<h5 id="23-视频">
+<a class="header-anchor" href="#23-%e8%a7%86%e9%a2%91"></a>
+2.3 视频
+</h5><ul>
+<li>检波</li>
+<li>放大</li>
+</ul>
+<blockquote>
+<p>并不是所有的都要做到视频部分, 比如有些用多普勒测速度的问题需要用到相位全相参
+而视频部分已经把相位信息去掉过了</p>
+</blockquote>
+<h2 id="雷达接收机的主要质量指标">
+<a class="header-anchor" href="#%e9%9b%b7%e8%be%be%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%9a%84%e4%b8%bb%e8%a6%81%e8%b4%a8%e9%87%8f%e6%8c%87%e6%a0%87"></a>
+雷达接收机的主要质量指标
+</h2><h4 id="1-接收机灵敏度">
+<a class="header-anchor" href="#1-%e6%8e%a5%e6%94%b6%e6%9c%ba%e7%81%b5%e6%95%8f%e5%ba%a6"></a>
+1. 接收机灵敏度
+</h4><p>最小可检测信号功率 $S_{i\;min}$ 是在一定 $P_{fa}$ 和 一定 $P_d$ 条件下的最小的可检测信号功率 $S_i$</p>
 </div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -401,10 +443,10 @@ $$<p>
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;162.2k</span
+          >&nbsp;162.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;07:12</span>
+        <span class="icon-coffee">&nbsp;07:13</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -438,7 +480,22 @@ $$<p>
             <li>
               <ul>
                 <li><a href="#1-高频部分">1. 高频部分</a></li>
-                <li><a href="#2-中频部分及agc">2. 中频部分及AGC</a></li>
+                <li><a href="#2-中频部分及agc">2. 中频部分及AGC</a>
+                  <ul>
+                    <li><a href="#21-中频放大器">2.1 中频放大器</a></li>
+                    <li><a href="#22-agc">2.2 AGC</a></li>
+                    <li><a href="#23-视频">2.3 视频</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#雷达接收机的主要质量指标">雷达接收机的主要质量指标</a>
+          <ul>
+            <li>
+              <ul>
+                <li><a href="#1-接收机灵敏度">1. 接收机灵敏度</a></li>
               </ul>
             </li>
           </ul>
@@ -460,12 +517,12 @@ $$<p>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">193</div>
+    <div>文章</div><div class="sidebar-state-number">194</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      27
+      28
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">

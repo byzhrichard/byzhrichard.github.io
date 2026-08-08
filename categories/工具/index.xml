@@ -222,20 +222,17 @@ Python 解释器参数
 <a class="header-anchor" href="#3-%e5%85%a8%e5%b1%80%e8%a7%84%e5%88%99"></a>
 3. 全局规则
 </h3><p>在 <code>~/.config/opencode/AGENTS.md</code> 文件中设置全局规则</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。你要开始进行操作时，需要先询问我是否开始。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">严禁修改已有的代码文件，必须先询问我是否同意。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">当你写代码使用matplotlib绘图时，不要直接show，你应该savefig，同时在savefig前加上一个被注释的show代码，这样的话你执行代码时就不会因为show的窗口没关闭而卡住。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">如果项目目录下没有项目环境, 那么我还为你准备了一个Python环境专供你使用, 在 `E:\py_uv_env\py-3-11-5-opencode\.venv`
 </span></span></code></pre></div><h1 id="常用命令">
 <a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
 常用命令
 </h1><p>读取项目</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/init
-</span></span></code></pre></div><p>压缩上下文</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/compact
-</span></span></code></pre></div><p>选择model</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/models
-</span></span></code></pre></div><p>添加model</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/connect
-</span></span></code></pre></div><blockquote>
-<p>添加的model供应商, 在<code>%USERPROFILE%\.local\share\opencode</code></p>
         
         <hr><p>本文2026-05-26首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
       </description>
