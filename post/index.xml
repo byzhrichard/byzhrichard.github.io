@@ -12,12 +12,62 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 08 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[工具] Syncplay</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/syncplay/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/syncplay/</guid>
+      <description>
+        <![CDATA[<h1>[工具] Syncplay</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="syncplay">
+<a class="header-anchor" href="#syncplay"></a>
+Syncplay
+</h2><p>下载地址: <a href="https://syncplay.pl/syncplay-1-7-6-release/">https://syncplay.pl/syncplay-1-7-6-release/</a></p>
+<h2 id="vlc3">
+<a class="header-anchor" href="#vlc3"></a>
+VLC3
+</h2><p>下载地址: <a href="https://www.videolan.org/vlc/releases/3.0.0.html">https://www.videolan.org/vlc/releases/3.0.0.html</a></p>
+        
+        <hr><p>本文2026-08-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-10</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[工具] NSIS</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/nsis/</link>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/nsis/</guid>
+      <description>
+        <![CDATA[<h1>[工具] NSIS</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="nsis">
+<a class="header-anchor" href="#nsis"></a>
+NSIS
+</h2><p>用于生成安装包<code>setup.exe</code></p>
+        
+        <hr><p>本文2026-08-10首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-10</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
     
     
 
@@ -274,69 +324,6 @@ Mods
 <blockquote>
 <p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/25.%E6%AD%A3%E5%AE%9A%E4%BA%8C%E6%AC%A1%E5%9E%8B/image-20260711163427150.png" alt="image-20260711163427150"></p>
 </blockquote>
-        
-        <hr><p>本文2026-07-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-11</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 24.二次型&amp;标准型&amp;规范型</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/24.%E4%BA%8C%E6%AC%A1%E5%9E%8B%E6%A0%87%E5%87%86%E5%9E%8B%E8%A7%84%E8%8C%83%E5%9E%8B/</link>
-      <pubDate>Sat, 11 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/24.%E4%BA%8C%E6%AC%A1%E5%9E%8B%E6%A0%87%E5%87%86%E5%9E%8B%E8%A7%84%E8%8C%83%E5%9E%8B/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 24.二次型&标准型&规范型</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="二次型的矩阵表示">
-<a class="header-anchor" href="#%e4%ba%8c%e6%ac%a1%e5%9e%8b%e7%9a%84%e7%9f%a9%e9%98%b5%e8%a1%a8%e7%a4%ba"></a>
-二次型的矩阵表示
-</h2><p>二次型矩阵:</p>
-<ul>
-<li>让 平方项系数 作为 主对角线元素</li>
-<li>让 交叉项系数 除以2, 放在对应的两个位置上</li>
-</ul>
-<blockquote>
-<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/24.%E4%BA%8C%E6%AC%A1%E5%9E%8B%E6%A0%87%E5%87%86%E5%9E%8B%E8%A7%84%E8%8C%83%E5%9E%8B/image-20260711161944055.png" alt="image-20260711161944055"></p>
-</blockquote>
-<h2 id="化二次型为标准型">
-<a class="header-anchor" href="#%e5%8c%96%e4%ba%8c%e6%ac%a1%e5%9e%8b%e4%b8%ba%e6%a0%87%e5%87%86%e5%9e%8b"></a>
-化二次型为标准型
-</h2><p>标准型: <strong>只含有平方项的二次型</strong>
--&gt; 正交变换法
-</p>
-        
-        <hr><p>本文2026-07-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-11</p>]]>
-      </description>
-      
-        <category>线性代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[线性代数] 23.矩阵的相似对角化</title>
-      <link>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/23.%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96/</link>
-      <pubDate>Sat, 11 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/23.%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96/</guid>
-      <description>
-        <![CDATA[<h1>[线性代数] 23.矩阵的相似对角化</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="相似对角化">
-<a class="header-anchor" href="#%e7%9b%b8%e4%bc%bc%e5%af%b9%e8%a7%92%e5%8c%96"></a>
-相似对角化
-</h2><p>设矩阵 </p>
-$$A=\begin{bmatrix} 0 & -1 & 1 \\ -1 & 0 & 1 \\ 1 & 1 & 0 \end{bmatrix}$$<p>, 求一个可逆矩阵 $P$, 使得 $P^{-1}AP=\Lambda$</p>
-<p>令 $P=(\xi_1,\xi_2,\cdots)$，则 </p>
-$$P^{-1}AP=\Lambda= \begin{bmatrix} \lambda_1 & & \\ & \lambda_2 & \\ & & \ddots \end{bmatrix}$$<blockquote>
-<p>$\lambda_i$ 为 $A$的特征值</p>
         
         <hr><p>本文2026-07-11首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-11</p>]]>
       </description>
