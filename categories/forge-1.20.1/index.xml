@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Forge-1.20.1 on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/forge-1.20.1/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/forge-1.20.1/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 4.战利品列表</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4/</link>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 4.战利品列表</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="战利品列表">
+<a class="header-anchor" href="#%e6%88%98%e5%88%a9%e5%93%81%e5%88%97%e8%a1%a8"></a>
+战利品列表
+</h1><p>方块掉落物，生物掉落物，可疑的沙子，战利品箱子，钓鱼，猪灵交易</p>
+<h2 id="原版">
+<a class="header-anchor" href="#%e5%8e%9f%e7%89%88"></a>
+原版
+</h2><p>位于 <code>minecraft/loot_tables</code> 里</p>
+<h2 id="方块掉落物">
+<a class="header-anchor" href="#%e6%96%b9%e5%9d%97%e6%8e%89%e8%90%bd%e7%89%a9"></a>
+方块掉落物
+</h2><p>类型基本都是 <code>minecraft:block</code> 的</p>
+        
+        <hr><p>本文2026-08-31首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-31</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 3.第一个方块</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3/</link>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 3.第一个方块</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="第一个方块block-blocks">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%96%b9%e5%9d%97block-blocks"></a>
+第一个方块[Block, Blocks]
+</h1><h2 id="源码">
+<a class="header-anchor" href="#%e6%ba%90%e7%a0%81"></a>
+源码
+</h2><p>打开 <code>Blocks.java</code> 看看方块的属性:</p>
+<ul>
+<li><code>.mapColor</code>: 世界中的颜色</li>
+<li><code>.instrument</code>: 放在音符盒上的声音</li>
+<li><code>.requiresCorrectToolForDrops</code>: 挖掘工具</li>
+<li><code>.strength</code>: 挖掘时间, 爆炸抗性</li>
+</ul>
+<h2 id="combyzhdiverse_drawblockmodblocksjava">
+<a class="header-anchor" href="#combyzhdiverse_drawblockmodblocksjava"></a>
+com/byzh/diverse_draw/block/ModBlocks.java
+</h2><p>方块比较特殊, 需要注册 <code>方块</code>, 也要注册 <code>方块物品</code></p>
+        
+        <hr><p>本文2026-08-30首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-30</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 2.创作模式物品栏</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 2.创作模式物品栏</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="创作模式物品栏creativemodetab">
+<a class="header-anchor" href="#%e5%88%9b%e4%bd%9c%e6%a8%a1%e5%bc%8f%e7%89%a9%e5%93%81%e6%a0%8fcreativemodetab"></a>
+创作模式物品栏[CreativeModeTab]
+</h1><h2 id="combyzhdiverse_drawitemmodcreativemodetabs">
+<a class="header-anchor" href="#combyzhdiverse_drawitemmodcreativemodetabs"></a>
+com/byzh/diverse_draw/item/ModCreativeModeTabs
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.item</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.DiverseDraw</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.core.registries.Registries</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.network.chat.Component</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.CreativeModeTab</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.CreativeModeTabs</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.ItemStack</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.Items</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.eventbus.api.IEventBus</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.registries.DeferredRegister</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.registries.RegistryObject</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModCreativeModeTabs</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 延迟注册器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DeferredRegister</span><span class="o">&lt;</span><span class="n">CreativeModeTab</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CREATIVE_MODE_TABS</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">DeferredRegister</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Registries</span><span class="p">.</span><span class="na">CREATIVE_MODE_TAB</span><span class="p">,</span><span class="w"> </span><span class="n">DiverseDraw</span><span class="p">.</span><span class="na">MODID</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 使用`延迟注册器`注册一个对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RegistryObject</span><span class="o">&lt;</span><span class="n">CreativeModeTab</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Diverse_Draw_TAB</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">CREATIVE_MODE_TABS</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&#34;diverse_draw&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreativeModeTab</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">icon</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">(</span><span class="n">Moditems</span><span class="p">.</span><span class="na">ICE_ETHER</span><span class="p">.</span><span class="na">get</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">translatable</span><span class="p">(</span><span class="s">&#34;itemGroup.diverse_draw&#34;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 翻译的键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">displayItems</span><span class="p">((</span><span class="n">pParameters</span><span class="p">,</span><span class="w"> </span><span class="n">pOutput</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pOutput</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">Moditems</span><span class="p">.</span><span class="na">ICE_ETHER</span><span class="p">.</span><span class="na">get</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pOutput</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">Moditems</span><span class="p">.</span><span class="na">RAW_ICE_ETHER</span><span class="p">.</span><span class="na">get</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 使用`延迟注册器`注册一个对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">RegistryObject</span><span class="o">&lt;</span><span class="n">CreativeModeTab</span><span class="o">&gt;</span><span class="w"> </span><span class="n">MATERIAL_TABS</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">CREATIVE_MODE_TABS</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">&#34;material&#34;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreativeModeTab</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">icon</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ItemStack</span><span class="p">(</span><span class="n">Moditems</span><span class="p">.</span><span class="na">CARDBOARD</span><span class="p">.</span><span class="na">get</span><span class="p">()))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="n">Component</span><span class="p">.</span><span class="na">translatable</span><span class="p">(</span><span class="s">&#34;itemGroup.material&#34;</span><span class="p">))</span><span class="w"> </span><span class="c1">// 翻译的键</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">displayItems</span><span class="p">((</span><span class="n">pParameters</span><span class="p">,</span><span class="w"> </span><span class="n">pOutput</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pOutput</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">Moditems</span><span class="p">.</span><span class="na">CARDBOARD</span><span class="p">.</span><span class="na">get</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pOutput</span><span class="p">.</span><span class="na">accept</span><span class="p">(</span><span class="n">Items</span><span class="p">.</span><span class="na">DIAMOND</span><span class="p">);</span><span class="w"> </span><span class="c1">// 其实也可以加原版的这些东西</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">withTabsBefore</span><span class="p">(</span><span class="n">Diverse_Draw_TAB</span><span class="p">.</span><span class="na">getKey</span><span class="p">())</span><span class="w"> </span><span class="c1">// 用于调整前后显示位置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">build</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">register</span><span class="p">(</span><span class="n">IEventBus</span><span class="w"> </span><span class="n">eventBus</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">CREATIVE_MODE_TABS</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="n">eventBus</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>物品的各种属性都存在 <code>ItemStack</code> 这个容器里, 物品的 <code>Item</code> 本身不存这些</li>
+<li>Component.translatable 会去查看 lang 里面的具体内容</li>
+<li><code>Items.DIAMOND</code> 是原版的物品, 本身就是 <code>Item</code> 类型
+-&gt; 符合 pOutput.accept 的输入类型, 不需要 <code>.get()</code></li>
+<li><code>Moditems.CARDBOARD</code> 是自己创建的物品, 是 <code>RegistryObject&lt;Item&gt;</code> 类型
+-&gt; 不符合 pOutput.accept 的输入类型, 需要 <code>.get()</code> 获得其内的 <code>Item</code> 类型</li>
+</ul>
+        
+        <hr><p>本文2026-08-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-29</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 1.第一个物品</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 1.第一个物品</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="第一个物品items-item">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e7%89%a9%e5%93%81items-item"></a>
+第一个物品[Items, Item]
+</h1><h2 id="源码">
+<a class="header-anchor" href="#%e6%ba%90%e7%a0%81"></a>
+源码
+</h2><p>带s的一般是用来注册的</p>
+<ul>
+<li>双shift-&gt;items(类那栏)-&gt;net.minecraft.world.items-&gt;items.java</li>
+<li>ctrl+b进入item.java</li>
+<li>ctrl+h查看item的各种子类</li>
+</ul>
+<p>我们forge用的是自己的延迟注册系统, 不用管原版是怎么注册的</p>
+        
+        <hr><p>本文2026-08-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-29</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 0.配置</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0/</link>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 0.配置</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="配置">
+<a class="header-anchor" href="#%e9%85%8d%e7%bd%ae"></a>
+配置
+</h2><h4 id="1-idea">
+<a class="header-anchor" href="#1-idea"></a>
+1. IDEA
+</h4><p>代理: <code>设置-&gt;外观与行为-&gt;系统设置-&gt;HTTP代理</code></p>
+<p>SDK: 在 <code>build.gradle</code> 中提到 <code>Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.</code>, 所以打开 <code>项目结构-&gt;项目-&gt;SDK</code> 选到17或以上</p>
+        
+        <hr><p>本文2026-08-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-28</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -12,12 +12,35 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 10 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[工具] paint.net</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/paint.net/</link>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/paint.net/</guid>
+      <description>
+        <![CDATA[<h1>[工具] paint.net</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="paintnet">
+<a class="header-anchor" href="#paintnet"></a>
+paint.net
+</h1><p>官网: <a href="https://www.paint.net/">https://www.paint.net/</a></p>
+        
+        <hr><p>本文2026-08-31首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-31</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
     
     
 
@@ -185,6 +208,13 @@ Microsoft_Word
 5. Fitten code
 </h4><p>用于补全</p>
 <p>下载链接: <a href="https://code.fittentech.com/#download">https://code.fittentech.com/#download</a></p>
+<h2 id="设置">
+<a class="header-anchor" href="#%e8%ae%be%e7%bd%ae"></a>
+设置
+</h2><h4 id="1-关闭紧凑中间包compact-middle-packages">
+<a class="header-anchor" href="#1-%e5%85%b3%e9%97%ad%e7%b4%a7%e5%87%91%e4%b8%ad%e9%97%b4%e5%8c%85compact-middle-packages"></a>
+1. 关闭紧凑中间包(Compact Middle Packages)
+</h4><p><code>项目那里的...-&gt;外观-&gt;压缩孔的中间软件包</code></p>
         
         <hr><p>本文2026-06-20首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-20</p>]]>
       </description>
@@ -285,39 +315,6 @@ Python 解释器参数
 </h1><p>读取项目</p>
         
         <hr><p>本文2026-05-26首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] LaTex</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</link>
-      <pubDate>Fri, 22 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/latex/</guid>
-      <description>
-        <![CDATA[<h1>[工具] LaTex</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="overleaf">
-<a class="header-anchor" href="#overleaf"></a>
-Overleaf
-</h1><p>File -&gt; Settings -&gt; Compiler: 把 <code>pdfLaTeX</code> 换成 <code>XeLaTeX</code></p>
-<h1 id="tex-live">
-<a class="header-anchor" href="#tex-live"></a>
-Tex Live
-</h1><p>下载: <a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/</a></p>
-<h1 id="texstudio">
-<a class="header-anchor" href="#texstudio"></a>
-TeXstudio
-</h1><p>下载: <a href="https://texstudio.org/">https://texstudio.org/</a></p>
-<p>选项 -&gt; 设置TeXstudio -&gt; 构建 -&gt; 默认编辑器 换成 <code>XeLaTeX</code></p>
-<p>选项 -&gt; 设置TeXstudio -&gt; 快捷键 -&gt; 菜单 -&gt; Idefix -&gt; 注释或取消注释</p>
-        
-        <hr><p>本文2026-05-22首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-22</p>]]>
       </description>
       
         <category>工具</category>
