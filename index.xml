@@ -12,12 +12,91 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Minecraft] 基础模组</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%BB%84/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%BB%84/</guid>
+      <description>
+        <![CDATA[<h1>[Minecraft] 基础模组</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="1122">
+<a class="header-anchor" href="#1122"></a>
+1.12.2
+</h1><h4 id="优化">
+<a class="header-anchor" href="#%e4%bc%98%e5%8c%96"></a>
+优化
+</h4><ul>
+<li>FoamFix</li>
+<li>BetterFPS</li>
+<li>FPS Reducer</li>
+<li>Crash To Main Menu</li>
+</ul>
+<h4 id="实用功能">
+<a class="header-anchor" href="#%e5%ae%9e%e7%94%a8%e5%8a%9f%e8%83%bd"></a>
+实用/功能
+</h4><ul>
+<li>JEI
+<ul>
+<li>Just Enough Resources</li>
+</ul>
+</li>
+<li>Xaero&rsquo;s Minimap
+<ul>
+<li>Xaero&rsquo;s World Map</li>
+</ul>
+</li>
+<li>Hwyla
+<ul>
+<li>能否挖掘: Waila Harvestability</li>
+<li>挖掘速度: Wawla</li>
+</ul>
+</li>
+<li>Jade</li>
+<li>i18n</li>
+<li>鼠标手势: Mouse Tweaks</li>
+<li>R键整理: Inventory Tweaks</li>
+<li>声音重载: Sound Reloader</li>
+</ul>
+<h4 id="美观">
+<a class="header-anchor" href="#%e7%be%8e%e8%a7%82"></a>
+美观
+</h4><ul>
+<li>饱食度: AppleSkin</li>
+<li>鞘翅视角: RollTheSky</li>
+<li>平滑滚动: Smooth Scrolling Everywhere</li>
+<li>增强视觉效果: EnhancedVisuals</li>
+<li>更多弯曲: Mo&rsquo; Bends</li>
+<li>真实的第一人称视角: Real First Person 2</li>
+<li>游戏信息显示: InGame Info XML</li>
+<li>越肩视角: Shoulder Surfing Reloaded</li>
+<li>区块加载动画: Chunk Animator</li>
+<li>平滑字体: Smooth Font</li>
+<li>声音滤波器: Sound Filters</li>
+<li>更好的进度: Better Advancements</li>
+<li>界面进入提醒: Ding</li>
+</ul>
+<h1 id="1201">
+<a class="header-anchor" href="#1201"></a>
+1.20.1
+</h1>
+        
+        <hr><p>本文2026-09-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-02</p>]]>
+      </description>
+      
+        <category>Minecraft</category>
+      
+    </item>
     
     
 
@@ -328,30 +407,6 @@ NSIS
       </description>
       
         <category>高等代数</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[洛克王国] 基础数据</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</link>
-      <pubDate>Sun, 19 Jul 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/roco-kingdom/%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE/</guid>
-      <description>
-        <![CDATA[<h1>[洛克王国] 基础数据</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="种族值计算pvp">
-<a class="header-anchor" href="#%e7%a7%8d%e6%97%8f%e5%80%bc%e8%ae%a1%e7%ae%97pvp"></a>
-种族值计算(pvp)
-</h2><p>除了生命的<strong>每级加成</strong>=0.01x种族值+0.005x天分加成
-除了生命的<strong>五维</strong>=(10+110x每级加成)x(1/1.2/0.9) + 50</p>
-        
-        <hr><p>本文2026-07-19首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-07-19</p>]]>
-      </description>
-      
-        <category>洛克王国</category>
       
     </item>
     

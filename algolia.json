@@ -1,5 +1,11 @@
 [
   {
+    "objectID": "695256010e85d3890563dfc2fd805a52de369d8f",
+    "permalink": "/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%BB%84/",
+    "title": "[Minecraft] 基础模组","content": "\r1.12.2\r优化\rFoamFix BetterFPS FPS Reducer Crash To Main Menu 实用/功能\rJEI Just Enough Resources Xaero\u0026rsquo;s Minimap Xaero\u0026rsquo;s World Map Hwyla 能否挖掘: Waila Harvestability 挖掘速度: Wawla Jade i18n 鼠标手势: Mouse Tweaks R键整理: Inventory Tweaks 声音重载: Sound Reloader 美观\r饱食度: AppleSkin 鞘翅视角: RollTheSky 平滑滚动: Smooth Scrolling Everywhere 增强视觉效果: EnhancedVisuals 更多弯曲: Mo\u0026rsquo; Bends 真实的第一人称视角: Real First Person 2 游戏信息显示: InGame Info XML 越肩视角: Shoulder Surfing Reloaded 区块加载动画: Chunk Animator 平滑字体: Smooth Font 声音滤波器: Sound Filters 更好的进度: Better Advancements 界面进入提醒: Ding 1.20.1\r","date": "2026-09-02 00:00:00",
+    "updated": "2026-09-02 00:00:00"
+  }, 
+  {
     "objectID": "ccd00e220e44ac8673b18189bbe7d051d6ecf7c1",
     "permalink": "/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4/",
     "title": "[forge-1.20.1] 4.战利品列表","content": "\r战利品列表\r方块掉落物，生物掉落物，可疑的沙子，战利品箱子，钓鱼，猪灵交易\n原版\r位于 minecraft/loot_tables 里\n方块掉落物\r类型基本都是 minecraft:block 的\n","date": "2026-08-31 00:00:00",
