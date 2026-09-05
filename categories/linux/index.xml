@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on byzh的博客</title>
+    <link>https://byzhrichard.github.io/categories/linux/</link>
+    <description>Recent content from byzh的博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (byzh)</managingEditor>
+    <webMaster>xxx@example.com (byzh)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sat, 05 Sep 2026 00:00:00 +0000</lastBuildDate>
+    
+    
+    <atom:link href="https://byzhrichard.github.io/categories/linux/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>[Linux] 设置快捷命令</title>
+      <link>https://byzhrichard.github.io/post/linux/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/linux/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/</guid>
+      <description>
+        <![CDATA[<h1>[Linux] 设置快捷命令</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="设置快捷命令">
+<a class="header-anchor" href="#%e8%ae%be%e7%bd%ae%e5%bf%ab%e6%8d%b7%e5%91%bd%e4%bb%a4"></a>
+设置快捷命令
+</h1><h2 id="1检查终端是不是bash">
+<a class="header-anchor" href="#1%e6%a3%80%e6%9f%a5%e7%bb%88%e7%ab%af%e6%98%af%e4%b8%8d%e6%98%afbash"></a>
+1.检查终端是不是bash
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo $SHELL
+</span></span></code></pre></div><h2 id="2-添加自动命令单个用户-bashrc">
+<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
+2. 添加自动命令(单个用户: <code>~/.bashrc</code>)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
+</span></span></code></pre></div><p>文末加一行:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
+</span></span></code></pre></div><h2 id="3-添加自动命令所有用户-etcbashbashrc">
+<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
+3. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano /etc/bash.bashrc
+</span></span></code></pre></div><p>文末加一行:</p>
+        
+        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
+      </description>
+      
+        <category>Linux</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Linux] 基础知识</title>
+      <link>https://byzhrichard.github.io/post/linux/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/linux/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>
+        <![CDATA[<h1>[Linux] 基础知识</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="linux-基础知识">
+<a class="header-anchor" href="#linux-%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86"></a>
+[Linux] 基础知识
+</h1><h2 id="目录功能">
+<a class="header-anchor" href="#%e7%9b%ae%e5%bd%95%e5%8a%9f%e8%83%bd"></a>
+目录功能
+</h2><ul>
+<li><code>/tmp</code>: 临时文件夹, 其内的内容会定期清理</li>
+<li><code>/opt</code>: 用于安装第三方软件</li>
+<li><code>/home</code>: 普通用户的家目录</li>
+<li><code>/root</code>: root用户的家目录</li>
+<li><code>/usr</code>: 用户程序/系统软件的资源目录</li>
+<li><code>/etc</code>: 系统全局配置文件
+<ul>
+<li><code>/etc/profile.d/xxx.sh</code>: 当 <strong>用户登录</strong> 或 <strong>打开新的 shell</strong> 时，系统会自动执行该目录下的所有 <code>.sh</code> 脚本</li>
+</ul>
+</li>
+</ul>
+<h2 id="基础指令">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80%e6%8c%87%e4%bb%a4"></a>
+基础指令
+</h2><h4 id="1-chmod---修改文件目录的权限">
+<a class="header-anchor" href="#1-chmod---%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95%e7%9a%84%e6%9d%83%e9%99%90"></a>
+1. chmod - 修改文件/目录的权限
+</h4><p>Linux 里每个文件都有三组权限：</p>
+        
+        <hr><p>本文2026-09-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-04</p>]]>
+      </description>
+      
+        <category>Linux</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Linux] 安装conda</title>
+      <link>https://byzhrichard.github.io/post/linux/%E5%AE%89%E8%A3%85conda/</link>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/linux/%E5%AE%89%E8%A3%85conda/</guid>
+      <description>
+        <![CDATA[<h1>[Linux] 安装conda</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="linux-安装conda">
+<a class="header-anchor" href="#linux-%e5%ae%89%e8%a3%85conda"></a>
+[Linux] 安装conda
+</h1><h2 id="1-下载-miniconda-安装脚本">
+<a class="header-anchor" href="#1-%e4%b8%8b%e8%bd%bd-miniconda-%e5%ae%89%e8%a3%85%e8%84%9a%e6%9c%ac"></a>
+1. 下载 Miniconda 安装脚本
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cd /tmp
+</span></span><span class="line"><span class="cl">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</span></span></code></pre></div><h2 id="2-以-root-权限安装到-optconda">
+<a class="header-anchor" href="#2-%e4%bb%a5-root-%e6%9d%83%e9%99%90%e5%ae%89%e8%a3%85%e5%88%b0-optconda"></a>
+2. 以 root 权限安装到 /opt/conda
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo bash Miniconda3-latest-Linux-x86_64.sh
+</span></span></code></pre></div><p>-&gt; 安装路径改成 <code>/opt/conda</code></p>
+<h2 id="3-设置权限让所有用户都能读和执行">
+<a class="header-anchor" href="#3-%e8%ae%be%e7%bd%ae%e6%9d%83%e9%99%90%e8%ae%a9%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7%e9%83%bd%e8%83%bd%e8%af%bb%e5%92%8c%e6%89%a7%e8%a1%8c"></a>
+3. 设置权限，让所有用户都能读和执行
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo chmod -R 755 /opt/conda
+</span></span></code></pre></div><h2 id="4-创建一个全局-profile-文件-给所有用户加-path">
+<a class="header-anchor" href="#4-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%85%a8%e5%b1%80-profile-%e6%96%87%e4%bb%b6-%e7%bb%99%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7%e5%8a%a0-path"></a>
+4. 创建一个全局 profile 文件, 给所有用户加 PATH
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nano /etc/profile.d/conda.sh
+</span></span></code></pre></div><p><code>/etc/profile.d/conda.sh</code>:</p>
+        
+        <hr><p>本文2026-09-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-04</p>]]>
+      </description>
+      
+        <category>Linux</category>
+      
+    </item>
+    
+  </channel>
+</rss>

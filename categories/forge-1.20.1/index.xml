@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/forge-1.20.1/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,11 +22,250 @@
     
 
     <item>
+      <title>[forge-1.20.1] 8.燃料</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/8.%E7%87%83%E6%96%99/</link>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/8.%E7%87%83%E6%96%99/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 8.燃料</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="燃料modfuelitem">
+<a class="header-anchor" href="#%e7%87%83%e6%96%99modfuelitem"></a>
+燃料ModFuelItem
+</h1><ul>
+<li>1个物品要烧10秒, 也就是200tick</li>
+</ul>
+<h2 id="原版的燃料源码">
+<a class="header-anchor" href="#%e5%8e%9f%e7%89%88%e7%9a%84%e7%87%83%e6%96%99%e6%ba%90%e7%a0%81"></a>
+原版的燃料源码
+</h2><p>在 <code>AbstractFurnaceBlockEntity.java</code> 中</p>
+<h2 id="写法">
+<a class="header-anchor" href="#%e5%86%99%e6%b3%95"></a>
+写法
+</h2><p><code>com/byzh/diverse_draw/item/custom/ModFuelItem.java</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.item.custom</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.Item</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.ItemStack</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.crafting.RecipeType</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.jetbrains.annotations.Nullable</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModFuelItem</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 单位是 tick</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ModFuelItem</span><span class="p">(</span><span class="n">Properties</span><span class="w"> </span><span class="n">pProperties</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BurnTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">pProperties</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">burnTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BurnTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 重写 (这个方法来自 Item 的 IForgeItem接口, 是forge的扩展方法: 用于设置物品的燃烧时间)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getBurnTime</span><span class="p">(</span><span class="n">ItemStack</span><span class="w"> </span><span class="n">itemStack</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">RecipeType</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">recipeType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">burnTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>IForgeItem接口内有很多很棒的方法</p>
+        
+        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 7.食物</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/7.%E9%A3%9F%E7%89%A9/</link>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/7.%E9%A3%9F%E7%89%A9/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 7.食物</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="食物">
+<a class="header-anchor" href="#%e9%a3%9f%e7%89%a9"></a>
+食物
+</h1><ul>
+<li>饥饿值</li>
+<li>饱和度(要用苹果皮才看得到)</li>
+</ul>
+<blockquote>
+<p>给自己20秒的<code>饥饿10</code>: <code>/effect give @s minecraft:hunger 20 9</code></p>
+</blockquote>
+<h4 id="写食物信息">
+<a class="header-anchor" href="#%e5%86%99%e9%a3%9f%e7%89%a9%e4%bf%a1%e6%81%af"></a>
+写食物信息
+</h4><p><code>com/byzh/diverse_draw/item/ModFoods.java</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.item</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffect</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffectInstance</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffects</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.food.FoodProperties</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModFoods</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// nutrition(3): 回复3点饥饿值 -&gt; 1.5个鸡腿</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 3*0.7*2=4.2: 回复4.2点饱和度</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">CORN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">3</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">7f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="o">+++</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">2026</span><span class="o">-</span><span class="n">09</span><span class="o">-</span><span class="n">05</span><span class="err">&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">draft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">mermaid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="w"> </span><span class="n">y</span><span class="err">&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="sc">&#39;x&#39;</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="o">+++</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">STRAWBERRY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">MOVEMENT_SPEED</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">CHEESE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">4</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">8f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">JUMP</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">FIRE_RESISTANCE</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h4 id="注册为食物">
+<a class="header-anchor" href="#%e6%b3%a8%e5%86%8c%e4%b8%ba%e9%a3%9f%e7%89%a9"></a>
+注册为食物
+</h4><p>在 <code>ModItems.java</code> 里补充:</p>
+        
+        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 6.数据生成</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/6.%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90/</link>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/6.%E6%95%B0%E6%8D%AE%E7%94%9F%E6%88%90/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 6.数据生成</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="数据生成">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e7%94%9f%e6%88%90"></a>
+数据生成
+</h1><h2 id="总生成文件moddatagenerator">
+<a class="header-anchor" href="#%e6%80%bb%e7%94%9f%e6%88%90%e6%96%87%e4%bb%b6moddatagenerator"></a>
+总生成文件ModDataGenerator
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.datagen.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.core.HolderLookup</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.data.DataGenerator</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.data.PackOutput</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.data.loot.LootTableProvider</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.level.storage.loot.parameters.LootContextParamSets</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.common.data.BlockTagsProvider</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.common.data.ExistingFileHelper</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.data.event.GatherDataEvent</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.eventbus.api.SubscribeEvent</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraftforge.fml.common.Mod</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Set</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.CompletableFuture</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nd">@Mod.EventBusSubscriber</span><span class="p">(</span><span class="n">modid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DiverseDraw</span><span class="p">.</span><span class="na">MODID</span><span class="p">,</span><span class="w"> </span><span class="n">bus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mod</span><span class="p">.</span><span class="na">EventBusSubscriber</span><span class="p">.</span><span class="na">Bus</span><span class="p">.</span><span class="na">MOD</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModDataGenerator</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@SubscribeEvent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">gatherData</span><span class="p">(</span><span class="n">GatherDataEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">DataGenerator</span><span class="w"> </span><span class="n">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getGenerator</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// forge三工具</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 数据包输出路径的封装类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 检查和引用已经存在的资源文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 注册表查找提供器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">PackOutput</span><span class="w"> </span><span class="n">packOutput</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generator</span><span class="p">.</span><span class="na">getPackOutput</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ExistingFileHelper</span><span class="w"> </span><span class="n">existingFileHelper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getExistingFileHelper</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">HolderLookup</span><span class="p">.</span><span class="na">Provider</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lookupProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="na">getLookupProvider</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 服务端:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 配方</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 战利品</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 方块标签</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 物品标签 (同时也会自动注册方块对应的方块物品标签)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeServer</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModRecipeProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeServer</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LootTableProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">,</span><span class="w"> </span><span class="n">Set</span><span class="p">.</span><span class="na">of</span><span class="p">(),</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">LootTableProvider</span><span class="p">.</span><span class="na">SubProviderEntry</span><span class="p">(</span><span class="n">ModBlockLootTableProvider</span><span class="p">::</span><span class="k">new</span><span class="p">,</span><span class="w"> </span><span class="n">LootContextParamSets</span><span class="p">.</span><span class="na">BLOCK</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">BlockTagsProvider</span><span class="w"> </span><span class="n">blockTagsProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeServer</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">new</span><span class="w"> </span><span class="n">ModBlockTagProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">,</span><span class="w"> </span><span class="n">lookupProvider</span><span class="p">,</span><span class="w"> </span><span class="n">existingFileHelper</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeServer</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModItemTagProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">,</span><span class="w"> </span><span class="n">lookupProvider</span><span class="p">,</span><span class="w"> </span><span class="n">blockTagsProvider</span><span class="p">.</span><span class="na">contentsGetter</span><span class="p">(),</span><span class="w"> </span><span class="n">existingFileHelper</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 客户端:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 方块状态</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 物品模型</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// - 语言文件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeClient</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModBlockStateProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">,</span><span class="w"> </span><span class="n">existingFileHelper</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeClient</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModItemModelProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">,</span><span class="w"> </span><span class="n">existingFileHelper</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeClient</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModLangEnUsProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">generator</span><span class="p">.</span><span class="na">addProvider</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="na">includeClient</span><span class="p">(),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ModLangZhCnProvider</span><span class="p">(</span><span class="n">packOutput</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>-&gt; 然后运行 <code>Gradle/Tasks/forgegradle runs/runData</code></p>
+        
+        <hr><p>本文2026-09-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-03</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 5.配方</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/5.%E9%85%8D%E6%96%B9/</link>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/5.%E9%85%8D%E6%96%B9/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 5.配方</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="配方">
+<a class="header-anchor" href="#%e9%85%8d%e6%96%b9"></a>
+配方
+</h1><ul>
+<li>用 <code>item</code> 只是代表一个物品, 用 <code>tag</code> 代表一类物品</li>
+<li>高炉<code>blasting</code>; 熔炉<code>smelting</code>; 烟熏炉<code>smoking</code>; 切石机<code>stonecutting</code></li>
+</ul>
+<h2 id="源码">
+<a class="header-anchor" href="#%e6%ba%90%e7%a0%81"></a>
+源码
+</h2><p><code>data/minecraft/recipes</code></p>
+        
+        <hr><p>本文2026-09-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-03</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
       <title>[forge-1.20.1] 4.战利品列表</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4/</link>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4.%E6%88%98%E5%88%A9%E5%93%81%E5%88%97%E8%A1%A8/</link>
       <pubDate>Mon, 31 Aug 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4/</guid>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4.%E6%88%98%E5%88%A9%E5%93%81%E5%88%97%E8%A1%A8/</guid>
       <description>
         <![CDATA[<h1>[forge-1.20.1] 4.战利品列表</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -34,14 +273,29 @@
 <a class="header-anchor" href="#%e6%88%98%e5%88%a9%e5%93%81%e5%88%97%e8%a1%a8"></a>
 战利品列表
 </h1><p>方块掉落物，生物掉落物，可疑的沙子，战利品箱子，钓鱼，猪灵交易</p>
-<h2 id="原版">
-<a class="header-anchor" href="#%e5%8e%9f%e7%89%88"></a>
-原版
+<p>wiki: <code>https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8?variant=zh-cn</code></p>
+<h2 id="原码">
+<a class="header-anchor" href="#%e5%8e%9f%e7%a0%81"></a>
+原码
 </h2><p>位于 <code>minecraft/loot_tables</code> 里</p>
 <h2 id="方块掉落物">
 <a class="header-anchor" href="#%e6%96%b9%e5%9d%97%e6%8e%89%e8%90%bd%e7%89%a9"></a>
 方块掉落物
-</h2><p>类型基本都是 <code>minecraft:block</code> 的</p>
+</h2><ul>
+<li><code>type</code>: 类型基本都是 <code>minecraft:block</code> 的</li>
+<li><code>pools</code>
+<ul>
+<li><code>rolls</code>: 掉落物的抽取次数</li>
+<li><code>bonus_rolls</code>: 掉落物的额外抽取次数(受幸运/时运影响)</li>
+<li><code>conditions</code>: 条件</li>
+</ul>
+</li>
+<li><code>random_sequence</code></li>
+</ul>
+<h2 id="修改modblocksjava">
+<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9modblocksjava"></a>
+修改<code>ModBlocks.java</code>
+</h2><p>加入<code>.requiresCorrectToolForDrops()</code></p>
         
         <hr><p>本文2026-08-31首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-31</p>]]>
       </description>
@@ -54,10 +308,10 @@
 
     <item>
       <title>[forge-1.20.1] 3.第一个方块</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3/</link>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3.%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%B9%E5%9D%97/</link>
       <pubDate>Sun, 30 Aug 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3/</guid>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/3.%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%96%B9%E5%9D%97/</guid>
       <description>
         <![CDATA[<h1>[forge-1.20.1] 3.第一个方块</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -90,10 +344,10 @@ com/byzh/diverse_draw/block/ModBlocks.java
 
     <item>
       <title>[forge-1.20.1] 2.创作模式物品栏</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2/</link>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2.%E5%88%9B%E4%BD%9C%E6%A8%A1%E5%BC%8F%E7%89%A9%E5%93%81%E6%A0%8F/</link>
       <pubDate>Sat, 29 Aug 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2/</guid>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/2.%E5%88%9B%E4%BD%9C%E6%A8%A1%E5%BC%8F%E7%89%A9%E5%93%81%E6%A0%8F/</guid>
       <description>
         <![CDATA[<h1>[forge-1.20.1] 2.创作模式物品栏</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -170,10 +424,10 @@ com/byzh/diverse_draw/item/ModCreativeModeTabs
 
     <item>
       <title>[forge-1.20.1] 1.第一个物品</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1/</link>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1.%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%A9%E5%93%81/</link>
       <pubDate>Sat, 29 Aug 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1/</guid>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1.%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%A9%E5%93%81/</guid>
       <description>
         <![CDATA[<h1>[forge-1.20.1] 1.第一个物品</h1><p>作者：byzh（xxx@example.com）</p>
         
@@ -202,10 +456,10 @@ com/byzh/diverse_draw/item/ModCreativeModeTabs
 
     <item>
       <title>[forge-1.20.1] 0.配置</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0/</link>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0.%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 28 Aug 2026 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0/</guid>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0.%E9%85%8D%E7%BD%AE/</guid>
       <description>
         <![CDATA[<h1>[forge-1.20.1] 0.配置</h1><p>作者：byzh（xxx@example.com）</p>
         
