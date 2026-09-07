@@ -12,12 +12,172 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 05 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Linux] 安装uv</title>
+      <link>https://byzhrichard.github.io/post/linux/%E5%AE%89%E8%A3%85uv/</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/linux/%E5%AE%89%E8%A3%85uv/</guid>
+      <description>
+        <![CDATA[<h1>[Linux] 安装uv</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="安装uv">
+<a class="header-anchor" href="#%e5%ae%89%e8%a3%85uv"></a>
+安装uv
+</h1><h4 id="1-进入tmp下载uv">
+<a class="header-anchor" href="#1-%e8%bf%9b%e5%85%a5tmp%e4%b8%8b%e8%bd%bduv"></a>
+1. 进入tmp下载uv
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
+</span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">astral</span><span class="o">-</span><span class="n">sh</span><span class="o">/</span><span class="n">uv</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">9</span><span class="o">/</span><span class="n">uv</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</span></span></code></pre></div><h4 id="2-解压">
+<a class="header-anchor" href="#2-%e8%a7%a3%e5%8e%8b"></a>
+2. 解压
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tar -zxvf uv-x86_64-unknown-linux-gnu.tar.gz
+</span></span><span class="line"><span class="cl">cd uv-x86_64-unknown-linux-gnu
+</span></span></code></pre></div><h4 id="3-移动到-usrlocalbin-下">
+<a class="header-anchor" href="#3-%e7%a7%bb%e5%8a%a8%e5%88%b0-usrlocalbin-%e4%b8%8b"></a>
+3. 移动到 <code>/usr/local/bin</code> 下
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo cp uv /usr/local/bin
+</span></span><span class="line"><span class="cl">sudo cp uvx /usr/local/bin
+</span></span></code></pre></div><h4 id="4-检查安装">
+<a class="header-anchor" href="#4-%e6%a3%80%e6%9f%a5%e5%ae%89%e8%a3%85"></a>
+4. 检查安装
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">uv --version
+</span></span><span class="line"><span class="cl">uvx --version
+</span></span></code></pre></div>
+        
+        <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
+      </description>
+      
+        <category>Linux</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 学习笔记</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 学习笔记</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="学习笔记">
+<a class="header-anchor" href="#%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
+学习笔记
+</h1><h4 id="1-useoncontext-类">
+<a class="header-anchor" href="#1-useoncontext-%e7%b1%bb"></a>
+1. UseOnContext 类
+</h4><ul>
+<li><code>.getClickedPos()</code>: 方块位置</li>
+<li><code>.getPlayer()</code>: 玩家</li>
+<li><code>.getLevel()</code>: 世界</li>
+</ul>
+<h4 id="2-level-类">
+<a class="header-anchor" href="#2-level-%e7%b1%bb"></a>
+2. Level 类
+</h4><ul>
+<li><code>.isClientSide()</code>: 布尔-客户端</li>
+<li><code>.getBlockState(blockPos)</code></li>
+</ul>
+<h4 id="3-screen-类">
+<a class="header-anchor" href="#3-screen-%e7%b1%bb"></a>
+3. Screen 类
+</h4><ul>
+<li><code>.hasShiftDown()</code>: 按下shift</li>
+<li><code>.hasAltDown()</code>: 按下alt</li>
+<li><code>.hasControlDown()</code>: 按下control</li>
+</ul>
+<h4 id="4-blockpos-类">
+<a class="header-anchor" href="#4-blockpos-%e7%b1%bb"></a>
+4. BlockPos 类
+</h4><ul>
+<li><code>.getY(n)</code></li>
+<li><code>.getX(n)</code>, <code>.getZ(n)</code></li>
+<li><code>.below(n)</code>, <code>.above(n)</code></li>
+<li><code>.east(n)</code>, <code>.south(n)</code>, <code>.west(n)</code>, <code>.north(n)</code></li>
+</ul>
+<h4 id="5-blockstate-类">
+<a class="header-anchor" href="#5-blockstate-%e7%b1%bb"></a>
+5. BlockState 类
+</h4><ul>
+<li><code>.getBlock()</code></li>
+<li><code>.is(block)</code>: 布尔-方块类型</li>
+</ul>
+<h4 id="6-player-类">
+<a class="header-anchor" href="#6-player-%e7%b1%bb"></a>
+6. Player 类
+</h4><ul>
+<li><code>.sendSystemMessage()</code></li>
+</ul>
+<h4 id="7-block-类">
+<a class="header-anchor" href="#7-block-%e7%b1%bb"></a>
+7. Block 类
+</h4><ul>
+<li><code>.getName().getString()</code></li>
+</ul>
+<h4 id="8-component-接口">
+<a class="header-anchor" href="#8-component-%e6%8e%a5%e5%8f%a3"></a>
+8. Component 接口
+</h4><ul>
+<li><code>Component.literal(String)</code></li>
+<li><code>Component.translatable(String类型的key)</code></li>
+</ul>
+        
+        <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 9.探矿器</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/9.%E6%8E%A2%E7%9F%BF%E5%99%A8/</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/9.%E6%8E%A2%E7%9F%BF%E5%99%A8/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 9.探矿器</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="探矿器">
+<a class="header-anchor" href="#%e6%8e%a2%e7%9f%bf%e5%99%a8"></a>
+探矿器
+</h1><h2 id="itemjava-源码">
+<a class="header-anchor" href="#itemjava-%e6%ba%90%e7%a0%81"></a>
+<code>item.java</code> 源码
+</h2><ul>
+<li><code>.useOn</code> 方法: 当右键某个方块时触发</li>
+<li><code>.use</code> 方法: 当右键时触发</li>
+<li>&hellip;&hellip;</li>
+</ul>
+<blockquote>
+<p>也可以ctrl点击package上面的item, 去看原版物品的实现方法</p>
+</blockquote>
+<h2 id="实现">
+<a class="header-anchor" href="#%e5%ae%9e%e7%8e%b0"></a>
+实现
+</h2><p><code>com/byzh/diverse_draw/item/custom/ProspectorItem.java</code>:</p>
+        
+        <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
     
     
 
@@ -202,24 +362,26 @@
 <a class="header-anchor" href="#%e7%9b%ae%e5%bd%95%e5%8a%9f%e8%83%bd"></a>
 目录功能
 </h2><ul>
-<li><code>/tmp</code>: 临时文件夹, 其内的内容会定期清理</li>
-<li><code>/opt</code>: 用于安装第三方软件</li>
-<li><code>/home</code>: 普通用户的家目录</li>
-<li><code>/root</code>: root用户的家目录</li>
-<li><code>/usr</code>: 用户程序/系统软件的资源目录</li>
-<li><code>/etc</code>: 系统全局配置文件
+<li>
+<p><code>/tmp</code>: 临时文件夹, 其内的内容会定期清理</p>
+</li>
+<li>
+<p><code>/opt</code>: 用于安装第三方软件</p>
+</li>
+<li>
+<p><code>/home</code>: 普通用户的家目录</p>
+</li>
+<li>
+<p><code>/root</code>: root用户的家目录</p>
+</li>
+<li>
+<p><code>/usr</code>: 用户程序/系统软件的资源目录</p>
 <ul>
-<li><code>/etc/profile.d/xxx.sh</code>: 当 <strong>用户登录</strong> 或 <strong>打开新的 shell</strong> 时，系统会自动执行该目录下的所有 <code>.sh</code> 脚本</li>
+<li><code>/usr/local/bin</code>: 自己手动装的程序, 相当于环境变量</li>
 </ul>
 </li>
-</ul>
-<h2 id="基础指令">
-<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80%e6%8c%87%e4%bb%a4"></a>
-基础指令
-</h2><h4 id="1-chmod---修改文件目录的权限">
-<a class="header-anchor" href="#1-chmod---%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95%e7%9a%84%e6%9d%83%e9%99%90"></a>
-1. chmod - 修改文件/目录的权限
-</h4><p>Linux 里每个文件都有三组权限：</p>
+<li>
+<p><code>/etc</code>: 系统全局配置文件</p>
         
         <hr><p>本文2026-09-04首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-04</p>]]>
       </description>
@@ -374,154 +536,6 @@
 </h2><p><code>data/minecraft/recipes</code></p>
         
         <hr><p>本文2026-09-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-03</p>]]>
-      </description>
-      
-        <category>forge-1.20.1</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[Minecraft] 基础模组</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%BB%84/</link>
-      <pubDate>Wed, 02 Sep 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%9F%BA%E7%A1%80%E6%A8%A1%E7%BB%84/</guid>
-      <description>
-        <![CDATA[<h1>[Minecraft] 基础模组</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="1122">
-<a class="header-anchor" href="#1122"></a>
-1.12.2
-</h1><h4 id="优化">
-<a class="header-anchor" href="#%e4%bc%98%e5%8c%96"></a>
-优化
-</h4><ul>
-<li>FoamFix</li>
-<li>BetterFPS</li>
-<li>FPS Reducer</li>
-<li>Crash To Main Menu</li>
-</ul>
-<h4 id="实用功能">
-<a class="header-anchor" href="#%e5%ae%9e%e7%94%a8%e5%8a%9f%e8%83%bd"></a>
-实用/功能
-</h4><ul>
-<li>JEI
-<ul>
-<li>Just Enough Resources</li>
-</ul>
-</li>
-<li>Xaero&rsquo;s Minimap
-<ul>
-<li>Xaero&rsquo;s World Map</li>
-</ul>
-</li>
-<li>Hwyla
-<ul>
-<li>能否挖掘: Waila Harvestability</li>
-<li>挖掘速度: Wawla</li>
-</ul>
-</li>
-<li>Jade</li>
-<li>i18n</li>
-<li>鼠标手势: Mouse Tweaks</li>
-<li>R键整理: Inventory Tweaks</li>
-<li>声音重载: Sound Reloader</li>
-</ul>
-<h4 id="美观">
-<a class="header-anchor" href="#%e7%be%8e%e8%a7%82"></a>
-美观
-</h4><ul>
-<li>饱食度: AppleSkin</li>
-<li>鞘翅视角: RollTheSky</li>
-<li>平滑滚动: Smooth Scrolling Everywhere</li>
-<li>增强视觉效果: EnhancedVisuals</li>
-<li>更多弯曲: Mo&rsquo; Bends</li>
-<li>真实的第一人称视角: Real First Person 2</li>
-<li>游戏信息显示: InGame Info XML</li>
-<li>越肩视角: Shoulder Surfing Reloaded</li>
-<li>区块加载动画: Chunk Animator</li>
-<li>平滑字体: Smooth Font</li>
-<li>声音滤波器: Sound Filters</li>
-<li>更好的进度: Better Advancements</li>
-<li>界面进入提醒: Ding</li>
-</ul>
-<h1 id="1201">
-<a class="header-anchor" href="#1201"></a>
-1.20.1
-</h1>
-        
-        <hr><p>本文2026-09-02首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-02</p>]]>
-      </description>
-      
-        <category>Minecraft</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] paint.net</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/paint.net/</link>
-      <pubDate>Mon, 31 Aug 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/paint.net/</guid>
-      <description>
-        <![CDATA[<h1>[工具] paint.net</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="paintnet">
-<a class="header-anchor" href="#paintnet"></a>
-paint.net
-</h1><p>官网: <a href="https://www.paint.net/">https://www.paint.net/</a></p>
-        
-        <hr><p>本文2026-08-31首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-31</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[forge-1.20.1] 4.战利品列表</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4.%E6%88%98%E5%88%A9%E5%93%81%E5%88%97%E8%A1%A8/</link>
-      <pubDate>Mon, 31 Aug 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/4.%E6%88%98%E5%88%A9%E5%93%81%E5%88%97%E8%A1%A8/</guid>
-      <description>
-        <![CDATA[<h1>[forge-1.20.1] 4.战利品列表</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="战利品列表">
-<a class="header-anchor" href="#%e6%88%98%e5%88%a9%e5%93%81%e5%88%97%e8%a1%a8"></a>
-战利品列表
-</h1><p>方块掉落物，生物掉落物，可疑的沙子，战利品箱子，钓鱼，猪灵交易</p>
-<p>wiki: <code>https://zh.minecraft.wiki/w/%E6%88%98%E5%88%A9%E5%93%81%E8%A1%A8?variant=zh-cn</code></p>
-<h2 id="原码">
-<a class="header-anchor" href="#%e5%8e%9f%e7%a0%81"></a>
-原码
-</h2><p>位于 <code>minecraft/loot_tables</code> 里</p>
-<h2 id="方块掉落物">
-<a class="header-anchor" href="#%e6%96%b9%e5%9d%97%e6%8e%89%e8%90%bd%e7%89%a9"></a>
-方块掉落物
-</h2><ul>
-<li><code>type</code>: 类型基本都是 <code>minecraft:block</code> 的</li>
-<li><code>pools</code>
-<ul>
-<li><code>rolls</code>: 掉落物的抽取次数</li>
-<li><code>bonus_rolls</code>: 掉落物的额外抽取次数(受幸运/时运影响)</li>
-<li><code>conditions</code>: 条件</li>
-</ul>
-</li>
-<li><code>random_sequence</code></li>
-</ul>
-<h2 id="修改modblocksjava">
-<a class="header-anchor" href="#%e4%bf%ae%e6%94%b9modblocksjava"></a>
-修改<code>ModBlocks.java</code>
-</h2><p>加入<code>.requiresCorrectToolForDrops()</code></p>
-        
-        <hr><p>本文2026-08-31首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-31</p>]]>
       </description>
       
         <category>forge-1.20.1</category>

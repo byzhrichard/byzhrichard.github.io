@@ -180,7 +180,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">210</div>
+    <div>文章</div><div class="sidebar-state-number">213</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -282,12 +282,26 @@
 <a class="header-anchor" href="#%e7%9b%ae%e5%bd%95%e5%8a%9f%e8%83%bd"></a>
 目录功能
 </h2><ul>
-<li><code>/tmp</code>: 临时文件夹, 其内的内容会定期清理</li>
-<li><code>/opt</code>: 用于安装第三方软件</li>
-<li><code>/home</code>: 普通用户的家目录</li>
-<li><code>/root</code>: root用户的家目录</li>
-<li><code>/usr</code>: 用户程序/系统软件的资源目录</li>
-<li><code>/etc</code>: 系统全局配置文件
+<li>
+<p><code>/tmp</code>: 临时文件夹, 其内的内容会定期清理</p>
+</li>
+<li>
+<p><code>/opt</code>: 用于安装第三方软件</p>
+</li>
+<li>
+<p><code>/home</code>: 普通用户的家目录</p>
+</li>
+<li>
+<p><code>/root</code>: root用户的家目录</p>
+</li>
+<li>
+<p><code>/usr</code>: 用户程序/系统软件的资源目录</p>
+<ul>
+<li><code>/usr/local/bin</code>: 自己手动装的程序, 相当于环境变量</li>
+</ul>
+</li>
+<li>
+<p><code>/etc</code>: 系统全局配置文件</p>
 <ul>
 <li><code>/etc/profile.d/xxx.sh</code>: 当 <strong>用户登录</strong> 或 <strong>打开新的 shell</strong> 时，系统会自动执行该目录下的所有 <code>.sh</code> 脚本</li>
 </ul>
@@ -296,7 +310,16 @@
 <h2 id="基础指令">
 <a class="header-anchor" href="#%e5%9f%ba%e7%a1%80%e6%8c%87%e4%bb%a4"></a>
 基础指令
-</h2><h4 id="1-chmod---修改文件目录的权限">
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">// 查看文件夹的总大小
+</span></span><span class="line"><span class="cl">du -sh 文件夹路径
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 解压缩zip
+</span></span><span class="line"><span class="cl">zip -r awa.zip 文件夹
+</span></span><span class="line"><span class="cl">unzip awa.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 显示全部文件，包含隐藏文件
+</span></span><span class="line"><span class="cl">ls -a
+</span></span></code></pre></div><h4 id="1-chmod---修改文件目录的权限">
 <a class="header-anchor" href="#1-chmod---%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95%e7%9a%84%e6%9d%83%e9%99%90"></a>
 1. chmod - 修改文件/目录的权限
 </h4><p>Linux 里每个文件都有三组权限：</p>
@@ -369,8 +392,9 @@
 tmux
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tmux new -s awa
 </span></span><span class="line"><span class="cl">tmux attach -t awa | tmux a -t awa
-</span></span><span class="line"><span class="cl">暂离: ctrl+b + d
-</span></span><span class="line"><span class="cl">退出: exit | ctrl+d
+</span></span><span class="line"><span class="cl">暂离: tmux detach | ctrl+b + d
+</span></span><span class="line"><span class="cl">退出: exit | tmux kill-session -t awa | ctrl+d
+</span></span><span class="line"><span class="cl">查看历史: ctrl+b [ (按q退出该模式)
 </span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
@@ -431,10 +455,10 @@ tmux
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;168.0k</span
+          >&nbsp;168.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;07:34</span>
+        <span class="icon-coffee">&nbsp;07:37</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -503,7 +527,7 @@ tmux
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">210</div>
+    <div>文章</div><div class="sidebar-state-number">213</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -670,7 +694,7 @@ tmux
           author: "byzh",
           title: "[Linux] 基础知识",
           url: "https:\/\/byzhrichard.github.io\/post\/linux\/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86\/",
-          description: "\r[Linux] 基础知识\r目录功能\r\/tmp: 临时文件夹, 其内的内容会定期清理 \/opt: 用于安装第三方软件 \/home: 普通用户的家目录 \/root: root用户的家目录 \/usr: 用户程序\/系统软件的资源目录 \/etc: 系统全局配置文件 \/etc\/profile.d\/xxx.sh: 当 用户登录 或 打开新的 shell 时，系统会自动执行该目录下的所有 .sh 脚本 基础指令\r1. chmod - 修改文件\/目录的权限\rLinux 里每个文件都有三组权限：\n",
+          description: "\r[Linux] 基础知识\r目录功能\r\/tmp: 临时文件夹, 其内的内容会定期清理\n\/opt: 用于安装第三方软件\n\/home: 普通用户的家目录\n\/root: root用户的家目录\n\/usr: 用户程序\/系统软件的资源目录\n\/usr\/local\/bin: 自己手动装的程序, 相当于环境变量 \/etc: 系统全局配置文件\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

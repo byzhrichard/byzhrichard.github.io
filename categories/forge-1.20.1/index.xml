@@ -12,12 +12,129 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Sat, 05 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/forge-1.20.1/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 学习笔记</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 学习笔记</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="学习笔记">
+<a class="header-anchor" href="#%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0"></a>
+学习笔记
+</h1><h4 id="1-useoncontext-类">
+<a class="header-anchor" href="#1-useoncontext-%e7%b1%bb"></a>
+1. UseOnContext 类
+</h4><ul>
+<li><code>.getClickedPos()</code>: 方块位置</li>
+<li><code>.getPlayer()</code>: 玩家</li>
+<li><code>.getLevel()</code>: 世界</li>
+</ul>
+<h4 id="2-level-类">
+<a class="header-anchor" href="#2-level-%e7%b1%bb"></a>
+2. Level 类
+</h4><ul>
+<li><code>.isClientSide()</code>: 布尔-客户端</li>
+<li><code>.getBlockState(blockPos)</code></li>
+</ul>
+<h4 id="3-screen-类">
+<a class="header-anchor" href="#3-screen-%e7%b1%bb"></a>
+3. Screen 类
+</h4><ul>
+<li><code>.hasShiftDown()</code>: 按下shift</li>
+<li><code>.hasAltDown()</code>: 按下alt</li>
+<li><code>.hasControlDown()</code>: 按下control</li>
+</ul>
+<h4 id="4-blockpos-类">
+<a class="header-anchor" href="#4-blockpos-%e7%b1%bb"></a>
+4. BlockPos 类
+</h4><ul>
+<li><code>.getY(n)</code></li>
+<li><code>.getX(n)</code>, <code>.getZ(n)</code></li>
+<li><code>.below(n)</code>, <code>.above(n)</code></li>
+<li><code>.east(n)</code>, <code>.south(n)</code>, <code>.west(n)</code>, <code>.north(n)</code></li>
+</ul>
+<h4 id="5-blockstate-类">
+<a class="header-anchor" href="#5-blockstate-%e7%b1%bb"></a>
+5. BlockState 类
+</h4><ul>
+<li><code>.getBlock()</code></li>
+<li><code>.is(block)</code>: 布尔-方块类型</li>
+</ul>
+<h4 id="6-player-类">
+<a class="header-anchor" href="#6-player-%e7%b1%bb"></a>
+6. Player 类
+</h4><ul>
+<li><code>.sendSystemMessage()</code></li>
+</ul>
+<h4 id="7-block-类">
+<a class="header-anchor" href="#7-block-%e7%b1%bb"></a>
+7. Block 类
+</h4><ul>
+<li><code>.getName().getString()</code></li>
+</ul>
+<h4 id="8-component-接口">
+<a class="header-anchor" href="#8-component-%e6%8e%a5%e5%8f%a3"></a>
+8. Component 接口
+</h4><ul>
+<li><code>Component.literal(String)</code></li>
+<li><code>Component.translatable(String类型的key)</code></li>
+</ul>
+        
+        <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 9.探矿器</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/9.%E6%8E%A2%E7%9F%BF%E5%99%A8/</link>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/9.%E6%8E%A2%E7%9F%BF%E5%99%A8/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 9.探矿器</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="探矿器">
+<a class="header-anchor" href="#%e6%8e%a2%e7%9f%bf%e5%99%a8"></a>
+探矿器
+</h1><h2 id="itemjava-源码">
+<a class="header-anchor" href="#itemjava-%e6%ba%90%e7%a0%81"></a>
+<code>item.java</code> 源码
+</h2><ul>
+<li><code>.useOn</code> 方法: 当右键某个方块时触发</li>
+<li><code>.use</code> 方法: 当右键时触发</li>
+<li>&hellip;&hellip;</li>
+</ul>
+<blockquote>
+<p>也可以ctrl点击package上面的item, 去看原版物品的实现方法</p>
+</blockquote>
+<h2 id="实现">
+<a class="header-anchor" href="#%e5%ae%9e%e7%8e%b0"></a>
+实现
+</h2><p><code>com/byzh/diverse_draw/item/custom/ProspectorItem.java</code>:</p>
+        
+        <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
     
     
 
@@ -446,33 +563,6 @@ com/byzh/diverse_draw/item/ModCreativeModeTabs
 <p>我们forge用的是自己的延迟注册系统, 不用管原版是怎么注册的</p>
         
         <hr><p>本文2026-08-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-29</p>]]>
-      </description>
-      
-        <category>forge-1.20.1</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[forge-1.20.1] 0.配置</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0.%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Fri, 28 Aug 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/0.%E9%85%8D%E7%BD%AE/</guid>
-      <description>
-        <![CDATA[<h1>[forge-1.20.1] 0.配置</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h2 id="配置">
-<a class="header-anchor" href="#%e9%85%8d%e7%bd%ae"></a>
-配置
-</h2><h4 id="1-idea">
-<a class="header-anchor" href="#1-idea"></a>
-1. IDEA
-</h4><p>代理: <code>设置-&gt;外观与行为-&gt;系统设置-&gt;HTTP代理</code></p>
-<p>SDK: 在 <code>build.gradle</code> 中提到 <code>Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.</code>, 所以打开 <code>项目结构-&gt;项目-&gt;SDK</code> 选到17或以上</p>
-        
-        <hr><p>本文2026-08-28首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-28</p>]]>
       </description>
       
         <category>forge-1.20.1</category>
