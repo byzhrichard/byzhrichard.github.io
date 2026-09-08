@@ -140,8 +140,9 @@
     <li><a href="#设置快捷命令">设置快捷命令</a>
       <ul>
         <li><a href="#1检查终端是不是bash">1.检查终端是不是bash</a></li>
-        <li><a href="#2-添加自动命令单个用户-bashrc">2. 添加自动命令(单个用户: <code>~/.bashrc</code>)</a></li>
-        <li><a href="#3-添加自动命令所有用户-etcbashbashrc">3. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)</a></li>
+        <li><a href="#2-添加自动命令所有用户-etcbashbashrc">2. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)</a></li>
+        <li><a href="#3-添加自动命令单个用户-bashrc">3. 添加自动命令(单个用户: <code>~/.bashrc</code>)</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -159,7 +160,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">213</div>
+    <div>文章</div><div class="sidebar-state-number">215</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -261,19 +262,26 @@
 <a class="header-anchor" href="#1%e6%a3%80%e6%9f%a5%e7%bb%88%e7%ab%af%e6%98%af%e4%b8%8d%e6%98%afbash"></a>
 1.检查终端是不是bash
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo $SHELL
-</span></span></code></pre></div><h2 id="2-添加自动命令单个用户-bashrc">
-<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
-2. 添加自动命令(单个用户: <code>~/.bashrc</code>)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
-</span></span></code></pre></div><p>文末加一行:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
-</span></span></code></pre></div><h2 id="3-添加自动命令所有用户-etcbashbashrc">
-<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
-3. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
+</span></span></code></pre></div><h2 id="2-添加自动命令所有用户-etcbashbashrc">
+<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
+2. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano /etc/bash.bashrc
 </span></span></code></pre></div><p>文末加一行:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
-</span></span></code></pre></div></div>
+</span></span></code></pre></div><h2 id="3-添加自动命令单个用户-bashrc">
+<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
+3. 添加自动命令(单个用户: <code>~/.bashrc</code>)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
+</span></span></code></pre></div><p>文末加:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">alias cdbyzh=&#39;cd /data/SQ/huangyulei&#39;
+</span></span><span class="line"><span class="cl">alias condabyzh=&#39;conda activate byzh&#39;
+</span></span><span class="line"><span class="cl">alias tmuxbyzh=&#39;tmux a -t byzh&#39;
+</span></span></code></pre></div><h2 id="">
+<a class="header-anchor" href="#"></a>
+
+</h2></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -333,10 +341,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;168.9k</span
+          >&nbsp;169.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;07:37</span>
+        <span class="icon-coffee">&nbsp;07:39</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -365,8 +373,9 @@
     <li><a href="#设置快捷命令">设置快捷命令</a>
       <ul>
         <li><a href="#1检查终端是不是bash">1.检查终端是不是bash</a></li>
-        <li><a href="#2-添加自动命令单个用户-bashrc">2. 添加自动命令(单个用户: <code>~/.bashrc</code>)</a></li>
-        <li><a href="#3-添加自动命令所有用户-etcbashbashrc">3. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)</a></li>
+        <li><a href="#2-添加自动命令所有用户-etcbashbashrc">2. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)</a></li>
+        <li><a href="#3-添加自动命令单个用户-bashrc">3. 添加自动命令(单个用户: <code>~/.bashrc</code>)</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -384,7 +393,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">213</div>
+    <div>文章</div><div class="sidebar-state-number">215</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -551,7 +560,7 @@
           author: "byzh",
           title: "[Linux] 设置快捷命令",
           url: "https:\/\/byzhrichard.github.io\/post\/linux\/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4\/",
-          description: "\r设置快捷命令\r1.检查终端是不是bash\recho $SHELL 2. 添加自动命令(单个用户: ~\/.bashrc)\rnano ~\/.bashrc 文末加一行:\nalias nv=\u0026#39;nvidia-smi\u0026#39; 3. 添加自动命令(所有用户: \/etc\/bash.bashrc)\rnano \/etc\/bash.bashrc 文末加一行:\n",
+          description: "\r设置快捷命令\r1.检查终端是不是bash\recho $SHELL 2. 添加自动命令(所有用户: \/etc\/bash.bashrc)\rnano \/etc\/bash.bashrc 文末加一行:\nalias nv=\u0026#39;nvidia-smi\u0026#39; 3. 添加自动命令(单个用户: ~\/.bashrc)\rnano ~\/.bashrc 文末加:\n",
           cover: "https:\/\/byzhrichard.github.io\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {

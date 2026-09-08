@@ -12,12 +12,68 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/forge-1.20.1/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[forge-1.20.1] 10.标签</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/10.%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/10.%E6%A0%87%E7%AD%BE/</guid>
+      <description>
+        <![CDATA[<h1>[forge-1.20.1] 10.标签</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="标签">
+<a class="header-anchor" href="#%e6%a0%87%e7%ad%be"></a>
+标签
+</h1><h2 id="源码">
+<a class="header-anchor" href="#%e6%ba%90%e7%a0%81"></a>
+源码
+</h2><p><code>BlockTags.java</code></p>
+<h2 id="方块tag">
+<a class="header-anchor" href="#%e6%96%b9%e5%9d%97tag"></a>
+方块tag
+</h2><p><code>com/byzh/diverse_draw/tag/ModBlockTags.java</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.tag</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.DiverseDraw</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.core.registries.Registries</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.resources.ResourceLocation</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.tags.TagKey</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.level.block.Block</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModBlockTags</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">TagKey</span><span class="o">&lt;</span><span class="n">Block</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ORE_TAGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create</span><span class="p">(</span><span class="s">&#34;ore_tags&#34;</span><span class="p">);;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 修改自源码的 `BlockTags.java`</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">TagKey</span><span class="o">&lt;</span><span class="n">Block</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">create</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">pName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">TagKey</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">Registries</span><span class="p">.</span><span class="na">BLOCK</span><span class="p">,</span><span class="w"> </span><span class="n">ResourceLocation</span><span class="p">.</span><span class="na">fromNamespaceAndPath</span><span class="p">(</span><span class="n">DiverseDraw</span><span class="p">.</span><span class="na">MODID</span><span class="p">,</span><span class="w"> </span><span class="n">pName</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 可以这样创建 forge 命名空间下的 tag, 以达到与其他 mod 联动的效果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// private static TagKey&lt;Block&gt; createForgeTag(String pName) {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//     return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(&#34;forge&#34;, pName));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// }</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="物品tag">
+<a class="header-anchor" href="#%e7%89%a9%e5%93%81tag"></a>
+物品tag
+</h2><p><code>com/byzh/diverse_draw/tag/ModItemTags.java</code>:</p>
+        
+        <hr><p>本文2026-09-08首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-08</p>]]>
+      </description>
+      
+        <category>forge-1.20.1</category>
+      
+    </item>
     
     
 
@@ -70,7 +126,8 @@
 5. BlockState 类
 </h4><ul>
 <li><code>.getBlock()</code></li>
-<li><code>.is(block)</code>: 布尔-方块类型</li>
+<li><code>.is(block)</code>: 布尔-方块类型
+<code>.is(tagKey)</code>: 布尔-方块类型</li>
 </ul>
 <h4 id="6-player-类">
 <a class="header-anchor" href="#6-player-%e7%b1%bb"></a>
@@ -529,38 +586,6 @@ com/byzh/diverse_draw/item/ModCreativeModeTabs
 <li><code>Moditems.CARDBOARD</code> 是自己创建的物品, 是 <code>RegistryObject&lt;Item&gt;</code> 类型
 -&gt; 不符合 pOutput.accept 的输入类型, 需要 <code>.get()</code> 获得其内的 <code>Item</code> 类型</li>
 </ul>
-        
-        <hr><p>本文2026-08-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-29</p>]]>
-      </description>
-      
-        <category>forge-1.20.1</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[forge-1.20.1] 1.第一个物品</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1.%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%A9%E5%93%81/</link>
-      <pubDate>Sat, 29 Aug 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/1.%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%89%A9%E5%93%81/</guid>
-      <description>
-        <![CDATA[<h1>[forge-1.20.1] 1.第一个物品</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="第一个物品items-item">
-<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e4%b8%aa%e7%89%a9%e5%93%81items-item"></a>
-第一个物品[Items, Item]
-</h1><h2 id="源码">
-<a class="header-anchor" href="#%e6%ba%90%e7%a0%81"></a>
-源码
-</h2><p>带s的一般是用来注册的</p>
-<ul>
-<li>双shift-&gt;items(类那栏)-&gt;net.minecraft.world.items-&gt;items.java</li>
-<li>ctrl+b进入item.java</li>
-<li>ctrl+h查看item的各种子类</li>
-</ul>
-<p>我们forge用的是自己的延迟注册系统, 不用管原版是怎么注册的</p>
         
         <hr><p>本文2026-08-29首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-08-29</p>]]>
       </description>

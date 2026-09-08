@@ -12,12 +12,91 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/linux/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Linux] 镜像源</title>
+      <link>https://byzhrichard.github.io/post/linux/%E9%95%9C%E5%83%8F%E6%BA%90/</link>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/linux/%E9%95%9C%E5%83%8F%E6%BA%90/</guid>
+      <description>
+        <![CDATA[<h1>[Linux] 镜像源</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="镜像源">
+<a class="header-anchor" href="#%e9%95%9c%e5%83%8f%e6%ba%90"></a>
+镜像源
+</h1><h2 id="1-pip">
+<a class="header-anchor" href="#1-pip"></a>
+1. pip
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+</span></span><span class="line"><span class="cl">pip config set global.extra-index-url https://mirrors.aliyun.com/pypi/simple
+</span></span></code></pre></div><h2 id="2-conda">
+<a class="header-anchor" href="#2-conda"></a>
+2. conda
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">conda config --set show_channel_urls yes
+</span></span></code></pre></div><p>替换.condarc文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">channels:
+</span></span><span class="line"><span class="cl">  - defaults
+</span></span><span class="line"><span class="cl">show_channel_urls: true
+</span></span><span class="line"><span class="cl">default_channels:
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+</span></span><span class="line"><span class="cl">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+</span></span><span class="line"><span class="cl">custom_channels:
+</span></span><span class="line"><span class="cl">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span class="line"><span class="cl">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+</span></span></code></pre></div><h2 id="3-uv">
+<a class="header-anchor" href="#3-uv"></a>
+3. uv
+</h2><h4 id="项目级---pyprojecttoml">
+<a class="header-anchor" href="#%e9%a1%b9%e7%9b%ae%e7%ba%a7---pyprojecttoml"></a>
+项目级 - <code>pyproject.toml</code>
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">sources</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">torch</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">index</span> <span class="p">=</span> <span class="s2">&#34;pytorch-cu117&#34;</span><span class="p">,</span> <span class="nx">marker</span> <span class="p">=</span> <span class="s2">&#34;sys_platform == &#39;linux&#39; or sys_platform == &#39;win32&#39;&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">torchvision</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">index</span> <span class="p">=</span> <span class="s2">&#34;pytorch-cu117&#34;</span><span class="p">,</span> <span class="nx">marker</span> <span class="p">=</span> <span class="s2">&#34;sys_platform == &#39;linux&#39; or sys_platform == &#39;win32&#39;&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">torchaudio</span> <span class="p">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">index</span> <span class="p">=</span> <span class="s2">&#34;pytorch-cu117&#34;</span><span class="p">,</span> <span class="nx">marker</span> <span class="p">=</span> <span class="s2">&#34;sys_platform == &#39;linux&#39; or sys_platform == &#39;win32&#39;&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;pytorch-cu117&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c"># url = &#34;https://download.pytorch.org/whl/cu117&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirror.sjtu.edu.cn/pytorch-wheels/cu117/&#34;</span> <span class="c"># 上交源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">explicit</span> <span class="p">=</span> <span class="kc">true</span> <span class="c"># 表示 只有在 [tool.uv.sources] 明确指定了这个索引源的包，才会使用这个源</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># url = &#34;https://pypi.org/simple&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple&#34;</span> <span class="c"># 阿里源</span>
+</span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></div><h2 id="用户级">
+<a class="header-anchor" href="#%e7%94%a8%e6%88%b7%e7%ba%a7"></a>
+用户级
+</h2><p>python下载的镜像源</p>
+        
+        <hr><p>本文2026-09-08首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-08</p>]]>
+      </description>
+      
+        <category>Linux</category>
+      
+    </item>
     
     
 
@@ -38,12 +117,49 @@
 1. 进入tmp下载uv
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span>
 </span></span><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">astral</span><span class="o">-</span><span class="n">sh</span><span class="o">/</span><span class="n">uv</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="mf">0.12</span><span class="o">.</span><span class="mi">9</span><span class="o">/</span><span class="n">uv</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
-</span></span></code></pre></div><h4 id="2-解压">
+</span></span></code></pre></div><blockquote>
+<p>官方: <code>wget https://github.com/astral-sh/uv/releases/download/0.12.9/uv-x86_64-unknown-linux-gnu.tar.gz</code></p>
+<p>加速: <code>wget https://gh-proxy.com/https://github.com/astral-sh/uv/releases/download/0.12.9/uv-x86_64-unknown-linux-gnu.tar.gz</code></p>
+</blockquote>
+<h4 id="2-解压">
 <a class="header-anchor" href="#2-%e8%a7%a3%e5%8e%8b"></a>
 2. 解压
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tar -zxvf uv-x86_64-unknown-linux-gnu.tar.gz
 </span></span><span class="line"><span class="cl">cd uv-x86_64-unknown-linux-gnu
-</span></span></code></pre></div><h4 id="3-移动到-usrlocalbin-下">
+</span></span></code></pre></div><blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>参数</strong></th>
+          <th style="text-align: left"><strong>全称</strong></th>
+          <th style="text-align: left"><strong>作用</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>-z</code></td>
+          <td style="text-align: left"><code>--gzip</code></td>
+          <td style="text-align: left">告诉 tar：这个包是用 <strong>gzip</strong> 压缩的（因为是 <code>.tar.gz</code>）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-x</code></td>
+          <td style="text-align: left"><code>--extract</code></td>
+          <td style="text-align: left"><strong>解压/提取</strong>文件（和打包 <code>-c</code> 相对）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-v</code></td>
+          <td style="text-align: left"><code>--verbose</code></td>
+          <td style="text-align: left"><strong>显示过程</strong>：把正在解压的文件名打印到终端</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-f</code></td>
+          <td style="text-align: left"><code>--file</code></td>
+          <td style="text-align: left">指定<strong>文件名</strong>，后面必须紧跟 tar 包名</td>
+      </tr>
+  </tbody>
+</table>
+</blockquote>
+<h4 id="3-移动到-usrlocalbin-下">
 <a class="header-anchor" href="#3-%e7%a7%bb%e5%8a%a8%e5%88%b0-usrlocalbin-%e4%b8%8b"></a>
 3. 移动到 <code>/usr/local/bin</code> 下
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo cp uv /usr/local/bin
@@ -52,6 +168,28 @@
 <a class="header-anchor" href="#4-%e6%a3%80%e6%9f%a5%e5%ae%89%e8%a3%85"></a>
 4. 检查安装
 </h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">uv --version
+</span></span><span class="line"><span class="cl">uvx --version
+</span></span></code></pre></div><h1 id="sh">
+<a class="header-anchor" href="#sh"></a>
+sh
+</h1><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用方法: ./install_uv.sh 0.12.9</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 传入参数</span>
+</span></span><span class="line"><span class="cl"><span class="nv">VERSION</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">0</span><span class="p">.12.9</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /tmp
+</span></span><span class="line"><span class="cl">wget https://gh-proxy.com/https://github.com/astral-sh/uv/releases/download/<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>/uv-x86_64-unknown-linux-gnu.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tar -zxvf uv-x86_64-unknown-linux-gnu.tar.gz
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> uv-x86_64-unknown-linux-gnu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo cp uv /usr/local/bin
+</span></span><span class="line"><span class="cl">sudo cp uvx /usr/local/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">uv --version
 </span></span><span class="line"><span class="cl">uvx --version
 </span></span></code></pre></div>
         
@@ -80,17 +218,17 @@
 <a class="header-anchor" href="#1%e6%a3%80%e6%9f%a5%e7%bb%88%e7%ab%af%e6%98%af%e4%b8%8d%e6%98%afbash"></a>
 1.检查终端是不是bash
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo $SHELL
-</span></span></code></pre></div><h2 id="2-添加自动命令单个用户-bashrc">
-<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
-2. 添加自动命令(单个用户: <code>~/.bashrc</code>)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
-</span></span></code></pre></div><p>文末加一行:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
-</span></span></code></pre></div><h2 id="3-添加自动命令所有用户-etcbashbashrc">
-<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
-3. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
+</span></span></code></pre></div><h2 id="2-添加自动命令所有用户-etcbashbashrc">
+<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
+2. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
 </h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano /etc/bash.bashrc
 </span></span></code></pre></div><p>文末加一行:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
+</span></span></code></pre></div><h2 id="3-添加自动命令单个用户-bashrc">
+<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
+3. 添加自动命令(单个用户: <code>~/.bashrc</code>)
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
+</span></span></code></pre></div><p>文末加:</p>
         
         <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
       </description>
