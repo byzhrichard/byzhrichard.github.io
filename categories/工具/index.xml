@@ -12,12 +12,138 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[工具] pip</title>
+      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/pip/</link>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/pip/</guid>
+      <description>
+        <![CDATA[<h1>[工具] pip</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="pip">
+<a class="header-anchor" href="#pip"></a>
+pip
+</h1><h2 id="镜像源">
+<a class="header-anchor" href="#%e9%95%9c%e5%83%8f%e6%ba%90"></a>
+镜像源
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+</span></span></code></pre></div><h2 id="寻找pip">
+<a class="header-anchor" href="#%e5%af%bb%e6%89%bepip"></a>
+寻找pip
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip show pip
+</span></span></code></pre></div><h2 id="安装深度学习环境">
+<a class="header-anchor" href="#%e5%ae%89%e8%a3%85%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%8e%af%e5%a2%83"></a>
+安装深度学习环境
+</h2><h4 id="1-numpy先行">
+<a class="header-anchor" href="#1-numpy%e5%85%88%e8%a1%8c"></a>
+1. numpy先行
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install numpy==1.26.4
+</span></span></code></pre></div><h4 id="2-numpy的附属包">
+<a class="header-anchor" href="#2-numpy%e7%9a%84%e9%99%84%e5%b1%9e%e5%8c%85"></a>
+2. numpy的附属包
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pip install scipy==1.13.1
+</span></span><span class="line"><span class="cl">pip install pandas==2.2.2
+</span></span><span class="line"><span class="cl">pip install matplotlib==3.9.2
+</span></span><span class="line"><span class="cl">pip install seaborn==0.13.2
+</span></span><span class="line"><span class="cl">pip install scikit-learn==1.5.1
+</span></span></code></pre></div><h4 id="3-pytorch">
+<a class="header-anchor" href="#3-pytorch"></a>
+3. pytorch
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span><span class="o">+</span><span class="n">cu118</span> <span class="n">torchvision</span><span class="o">==</span><span class="mf">0.22</span><span class="o">.</span><span class="mi">0</span><span class="o">+</span><span class="n">cu118</span> <span class="n">torchaudio</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span><span class="o">+</span><span class="n">cu118</span> \
+</span></span><span class="line"><span class="cl">  <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">pytorch</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">whl</span><span class="o">/</span><span class="n">cu118</span>
+</span></span></code></pre></div><h4 id="一键sh">
+<a class="header-anchor" href="#%e4%b8%80%e9%94%aesh"></a>
+一键sh
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第1步】检查 pip 安装位置&#34;</span>
+</span></span><span class="line"><span class="cl">pip show pip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;是否继续安装环境？(y/n): &#34;</span> confirm
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$confirm</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;y&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;已取消&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第2步】检查默认镜像源&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># default_pypi=&#34;https://pypi.org/simple/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># default_pypi=&#34;https://pypi.tuna.tsinghua.edu.cn/simple/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">default_pypi</span><span class="o">=</span><span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;请输入pip镜像源（默认：</span><span class="nv">$default_pypi</span><span class="s2">）：&#34;</span> pypi_source
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果用户直接回车，使用默认源default_pypi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">pypi_source</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$default_pypi</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;使用pypi镜像源：</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第3步】检查torch镜像源&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># default_torch=&#34;https://download.pytorch.org/whl/cu118&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">default_torch</span><span class="o">=</span><span class="s2">&#34;https://mirror.sjtu.edu.cn/pytorch-wheels/cu118&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">read</span> -p <span class="s2">&#34;请输入torch镜像源（默认：</span><span class="nv">$default_torch</span><span class="s2">）：&#34;</span> torch_source
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果用户直接回车，使用默认源default_torch</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$torch_source</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">torch_source</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$default_torch</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;使用torch镜像源：</span><span class="nv">$torch_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - basic&#34;</span>
+</span></span><span class="line"><span class="cl">pip install pip -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install twine -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install tqdm -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install pyyaml -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install python-dotenv -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - numpy&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">numpy</span><span class="o">==</span>1.26.4 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - numpy 的附属&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">scipy</span><span class="o">==</span>1.13.1 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">pandas</span><span class="o">==</span>2.2.2 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">matplotlib</span><span class="o">==</span>3.9.2 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">seaborn</span><span class="o">==</span>0.13.2 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install scikit-learn<span class="o">==</span>1.5.1 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - torch&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">torch</span><span class="o">==</span>2.7.0+cu118 -i <span class="s2">&#34;</span><span class="nv">$torch_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">torchvision</span><span class="o">==</span>0.22.0+cu118 -i <span class="s2">&#34;</span><span class="nv">$torch_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">torchaudio</span><span class="o">==</span>2.7.0+cu118 -i <span class="s2">&#34;</span><span class="nv">$torch_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - spikingjelly&#34;</span>
+</span></span><span class="line"><span class="cl">pip install <span class="nv">spikingjelly</span><span class="o">==</span>0.0.0.0.14 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install tensorboard -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install cupy-cuda12x -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - cv&#34;</span>
+</span></span><span class="line"><span class="cl">pip install opencv-python<span class="o">==</span>4.10.0.84 -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - byzh&#34;</span>
+</span></span><span class="line"><span class="cl">pip install byzh-core -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install byzh-ai -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">pip install byzh-extra -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;【第4步】开始安装 - else&#34;</span>
+</span></span><span class="line"><span class="cl">pip install gradio -i <span class="s2">&#34;</span><span class="nv">$pypi_source</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h2 id="requirementstxt">
+<a class="header-anchor" href="#requirementstxt"></a>
+requirements.txt
+</h2><p><code>requirements-base.txt</code></p>
+        
+        <hr><p>本文2026-09-09首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-09</p>]]>
+      </description>
+      
+        <category>工具</category>
+      
+    </item>
     
     
 
@@ -274,47 +400,6 @@ Python 解释器参数
 </h4><p><strong>stdout / stderr 尽量别缓冲，有东西就赶紧输出</strong></p>
         
         <hr><p>本文2026-06-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-06-03</p>]]>
-      </description>
-      
-        <category>工具</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[工具] OpenCode</title>
-      <link>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</link>
-      <pubDate>Tue, 26 May 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E5%B7%A5%E5%85%B7/opencode/</guid>
-      <description>
-        <![CDATA[<h1>[工具] OpenCode</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="规则">
-<a class="header-anchor" href="#%e8%a7%84%e5%88%99"></a>
-规则
-</h1><h3 id="1-项目级规则">
-<a class="header-anchor" href="#1-%e9%a1%b9%e7%9b%ae%e7%ba%a7%e8%a7%84%e5%88%99"></a>
-1. 项目级规则
-</h3><p>在项目根目录放置一个 <code>AGENTS.md</code> 文件</p>
-<h3 id="3-全局规则">
-<a class="header-anchor" href="#3-%e5%85%a8%e5%b1%80%e8%a7%84%e5%88%99"></a>
-3. 全局规则
-</h3><p>在 <code>~/.config/opencode/AGENTS.md</code> 文件中设置全局规则</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">你始终用中文回复。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">严禁修改已有的代码文件，必须先询问我是否同意。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">当你写代码使用matplotlib绘图时，不要直接show，你应该savefig，同时在savefig前加上一个被注释的show代码，这样的话你执行代码时就不会因为show的窗口没关闭而卡住。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">如果项目目录下没有项目环境, 那么我还为你准备了一个Python环境专供你使用, 在 `E:\py_uv_env\py-3-11-5-opencode\.venv`
-</span></span></code></pre></div><h1 id="常用命令">
-<a class="header-anchor" href="#%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4"></a>
-常用命令
-</h1><p>读取项目</p>
-        
-        <hr><p>本文2026-05-26首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-05-26</p>]]>
       </description>
       
         <category>工具</category>

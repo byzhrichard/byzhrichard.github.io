@@ -189,7 +189,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">215</div>
+    <div>文章</div><div class="sidebar-state-number">217</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -369,7 +369,7 @@ pyproject.toml模板
 </span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">description</span> <span class="p">=</span> <span class="s2">&#34;Add your description here&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">readme</span> <span class="p">=</span> <span class="s2">&#34;README.md&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.11&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requires-python</span> <span class="p">=</span> <span class="s2">&#34;&gt;=3.11, &lt;3.12&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="c"># requires-python = &#34;&gt;=3.10&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">dependencies</span> <span class="p">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">    <span class="c"># ✅基础包</span>
@@ -440,12 +440,13 @@ pyproject.toml模板
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;pytorch-cu118&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://download.pytorch.org/whl/cu118&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c"># url = &#34;https://download.pytorch.org/whl/cu118&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirror.sjtu.edu.cn/pytorch-wheels/cu118/&#34;</span> <span class="c"># 上交源</span>
 </span></span><span class="line"><span class="cl"><span class="nx">explicit</span> <span class="p">=</span> <span class="kc">true</span> <span class="c"># 表示 只有在 [tool.uv.sources] 明确指定了这个索引源的包，才会使用这个源</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">tool</span><span class="p">.</span><span class="nx">uv</span><span class="p">.</span><span class="nx">index</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl"><span class="c"># url = &#34;https://pypi.org/simple&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="p">=</span> <span class="s2">&#34;https://mirrors.aliyun.com/pypi/simple&#34;</span> <span class="c"># 阿里源</span>
 </span></span><span class="line"><span class="cl"><span class="nx">default</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span></code></pre></div><table>
   <thead>
@@ -549,10 +550,10 @@ pyproject.toml模板
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;169.6k</span
+          >&nbsp;170.5k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;07:39</span>
+        <span class="icon-coffee">&nbsp;07:42</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -630,7 +631,7 @@ pyproject.toml模板
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">215</div>
+    <div>文章</div><div class="sidebar-state-number">217</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
