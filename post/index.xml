@@ -12,12 +12,102 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://byzhrichard.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>[Minecraft] 实用网站</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E5%AE%9E%E7%94%A8%E7%BD%91%E7%AB%99/</guid>
+      <description>
+        <![CDATA[<h1>[Minecraft] 实用网站</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h1 id="实用网站">
+<a class="header-anchor" href="#%e5%ae%9e%e7%94%a8%e7%bd%91%e7%ab%99"></a>
+实用网站
+</h1><h2 id="1-蓝图">
+<a class="header-anchor" href="#1-%e8%93%9d%e5%9b%be"></a>
+1. 蓝图
+</h2><p><a href="https://www.mcschematic.top/">https://www.mcschematic.top/</a></p>
+<h2 id="2-litematica---create">
+<a class="header-anchor" href="#2-litematica---create"></a>
+2. litematica -&gt; create
+</h2><p><a href="https://l2b.2star.site/">https://l2b.2star.site/</a></p>
+<h2 id="3-mc正版皮肤下载png">
+<a class="header-anchor" href="#3-mc%e6%ad%a3%e7%89%88%e7%9a%ae%e8%82%a4%e4%b8%8b%e8%bd%bdpng"></a>
+3. MC正版皮肤下载png
+</h2><p><a href="https://o.xbottle.top/bottleskin/">https://o.xbottle.top/bottleskin/</a></p>
+        
+        <hr><p>本文2026-10-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-10-07</p>]]>
+      </description>
+      
+        <category>Minecraft</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Civilization6] 胜利</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/civilization6/</link>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/civilization6/</guid>
+      <description>
+        <![CDATA[<h1>[Civilization6] 胜利</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="宗教胜利">
+<a class="header-anchor" href="#%e5%ae%97%e6%95%99%e8%83%9c%e5%88%a9"></a>
+宗教胜利
+</h2><h4 id="1-发教">
+<a class="header-anchor" href="#1-%e5%8f%91%e6%95%99"></a>
+1. 发教
+</h4><ul>
+<li>圣地 -&gt; 大预言家</li>
+<li>科技-占星术 -&gt; 神社</li>
+<li>科技-航海术-制图学</li>
+<li>市政-对外贸易 -&gt; 修路</li>
+<li>市政-神学 -&gt; 神权统治</li>
+<li></li>
+</ul>
+        
+        <hr><p>本文2026-10-03首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-10-03</p>]]>
+      </description>
+      
+        <category>Civilization6</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>[Minecraft] 材质包</title>
+      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E6%9D%90%E8%B4%A8%E5%8C%85/</link>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (byzh)</author>
+      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/%E6%9D%90%E8%B4%A8%E5%8C%85/</guid>
+      <description>
+        <![CDATA[<h1>[Minecraft] 材质包</h1><p>作者：byzh（xxx@example.com）</p>
+        
+          <h2 id="ore-borders">
+<a class="header-anchor" href="#ore-borders"></a>
+Ore Borders
+</h2><p>矿物边缘高光</p>
+        
+        <hr><p>本文2026-09-25首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-25</p>]]>
+      </description>
+      
+        <category>Minecraft</category>
+      
+    </item>
     
     
 
@@ -521,171 +611,6 @@ sh
 </h2><p><code>com/byzh/diverse_draw/item/custom/ProspectorItem.java</code>:</p>
         
         <hr><p>本文2026-09-07首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-07</p>]]>
-      </description>
-      
-        <category>forge-1.20.1</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[Linux] 设置快捷命令</title>
-      <link>https://byzhrichard.github.io/post/linux/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/linux/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E5%91%BD%E4%BB%A4/</guid>
-      <description>
-        <![CDATA[<h1>[Linux] 设置快捷命令</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="设置快捷命令">
-<a class="header-anchor" href="#%e8%ae%be%e7%bd%ae%e5%bf%ab%e6%8d%b7%e5%91%bd%e4%bb%a4"></a>
-设置快捷命令
-</h1><h2 id="1检查终端是不是bash">
-<a class="header-anchor" href="#1%e6%a3%80%e6%9f%a5%e7%bb%88%e7%ab%af%e6%98%af%e4%b8%8d%e6%98%afbash"></a>
-1.检查终端是不是bash
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo $SHELL
-</span></span></code></pre></div><h2 id="2-添加自动命令所有用户-etcbashbashrc">
-<a class="header-anchor" href="#2-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e6%89%80%e6%9c%89%e7%94%a8%e6%88%b7-etcbashbashrc"></a>
-2. 添加自动命令(所有用户: <code>/etc/bash.bashrc</code>)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano /etc/bash.bashrc
-</span></span></code></pre></div><p>文末加一行:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">alias nv=&#39;nvidia-smi&#39;
-</span></span></code></pre></div><h2 id="3-添加自动命令单个用户-bashrc">
-<a class="header-anchor" href="#3-%e6%b7%bb%e5%8a%a0%e8%87%aa%e5%8a%a8%e5%91%bd%e4%bb%a4%e5%8d%95%e4%b8%aa%e7%94%a8%e6%88%b7-bashrc"></a>
-3. 添加自动命令(单个用户: <code>~/.bashrc</code>)
-</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nano ~/.bashrc
-</span></span></code></pre></div><p>文末加:</p>
-        
-        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
-      </description>
-      
-        <category>Linux</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[forge-1.20.1] 8.燃料</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/8.%E7%87%83%E6%96%99/</link>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/8.%E7%87%83%E6%96%99/</guid>
-      <description>
-        <![CDATA[<h1>[forge-1.20.1] 8.燃料</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="燃料modfuelitem">
-<a class="header-anchor" href="#%e7%87%83%e6%96%99modfuelitem"></a>
-燃料ModFuelItem
-</h1><ul>
-<li>1个物品要烧10秒, 也就是200tick</li>
-</ul>
-<h2 id="原版的燃料源码">
-<a class="header-anchor" href="#%e5%8e%9f%e7%89%88%e7%9a%84%e7%87%83%e6%96%99%e6%ba%90%e7%a0%81"></a>
-原版的燃料源码
-</h2><p>在 <code>AbstractFurnaceBlockEntity.java</code> 中</p>
-<h2 id="写法">
-<a class="header-anchor" href="#%e5%86%99%e6%b3%95"></a>
-写法
-</h2><p><code>com/byzh/diverse_draw/item/custom/ModFuelItem.java</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.item.custom</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.Item</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.ItemStack</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.item.crafting.RecipeType</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.jetbrains.annotations.Nullable</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModFuelItem</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">burnTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 单位是 tick</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ModFuelItem</span><span class="p">(</span><span class="n">Properties</span><span class="w"> </span><span class="n">pProperties</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BurnTime</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">pProperties</span><span class="p">);</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">burnTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BurnTime</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 重写 (这个方法来自 Item 的 IForgeItem接口, 是forge的扩展方法: 用于设置物品的燃烧时间)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getBurnTime</span><span class="p">(</span><span class="n">ItemStack</span><span class="w"> </span><span class="n">itemStack</span><span class="p">,</span><span class="w"> </span><span class="nd">@Nullable</span><span class="w"> </span><span class="n">RecipeType</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">recipeType</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">burnTime</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><blockquote>
-<p>IForgeItem接口内有很多很棒的方法</p>
-        
-        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
-      </description>
-      
-        <category>forge-1.20.1</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>[forge-1.20.1] 7.食物</title>
-      <link>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/7.%E9%A3%9F%E7%89%A9/</link>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 &#43;0000</pubDate>
-      <author>xxx@example.com (byzh)</author>
-      <guid>https://byzhrichard.github.io/post/%E6%B8%B8%E6%88%8F/minecraft/forge-1.20.1/7.%E9%A3%9F%E7%89%A9/</guid>
-      <description>
-        <![CDATA[<h1>[forge-1.20.1] 7.食物</h1><p>作者：byzh（xxx@example.com）</p>
-        
-          <h1 id="食物">
-<a class="header-anchor" href="#%e9%a3%9f%e7%89%a9"></a>
-食物
-</h1><ul>
-<li>饥饿值</li>
-<li>饱和度(要用苹果皮才看得到)</li>
-</ul>
-<blockquote>
-<p>给自己20秒的<code>饥饿10</code>: <code>/effect give @s minecraft:hunger 20 9</code></p>
-</blockquote>
-<h4 id="写食物信息">
-<a class="header-anchor" href="#%e5%86%99%e9%a3%9f%e7%89%a9%e4%bf%a1%e6%81%af"></a>
-写食物信息
-</h4><p><code>com/byzh/diverse_draw/item/ModFoods.java</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.byzh.diverse_draw.item</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffect</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffectInstance</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.effect.MobEffects</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">net.minecraft.world.food.FoodProperties</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ModFoods</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// nutrition(3): 回复3点饥饿值 -&gt; 1.5个鸡腿</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 3*0.7*2=4.2: 回复4.2点饱和度</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">CORN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">3</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">7f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="o">+++</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="n">2026</span><span class="o">-</span><span class="n">09</span><span class="o">-</span><span class="n">05</span><span class="err">&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">draft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">math</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">mermaid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">&#39;</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="w"> </span><span class="n">y</span><span class="err">&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="sc">&#39;x&#39;</span><span class="o">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="o">+++</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">STRAWBERRY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">1</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">MOVEMENT_SPEED</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">FoodProperties</span><span class="w"> </span><span class="n">CHEESE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FoodProperties</span><span class="p">.</span><span class="na">Builder</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">nutrition</span><span class="p">(</span><span class="n">4</span><span class="p">).</span><span class="na">saturationMod</span><span class="p">(</span><span class="n">0</span><span class="p">.</span><span class="na">8f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">JUMP</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">effect</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MobEffectInstance</span><span class="p">(</span><span class="n">MobEffects</span><span class="p">.</span><span class="na">FIRE_RESISTANCE</span><span class="p">,</span><span class="w"> </span><span class="n">200</span><span class="p">),</span><span class="w"> </span><span class="n">0</span><span class="p">.</span><span class="na">2f</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">build</span><span class="p">();</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
-</span></span></span></code></pre></div><h4 id="注册为食物">
-<a class="header-anchor" href="#%e6%b3%a8%e5%86%8c%e4%b8%ba%e9%a3%9f%e7%89%a9"></a>
-注册为食物
-</h4><p>在 <code>ModItems.java</code> 里补充:</p>
-        
-        <hr><p>本文2026-09-05首发于<a href='https://byzhrichard.github.io/'>byzh的博客</a>，最后修改于2026-09-05</p>]]>
       </description>
       
         <category>forge-1.20.1</category>
