@@ -210,7 +210,7 @@ autoexec.cfg
 <li><code>exec autoexec.cfg</code>: 在局内控制台使用, 可以自动使用更新后的cfg</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">//</span> <span class="err">鼠标灵敏度</span>
-</span></span><span class="line"><span class="cl"><span class="n">sensitivity</span> <span class="mf">0.50</span> <span class="o">//</span> <span class="mi">1600</span><span class="o">*</span><span class="mf">0.57</span> <span class="o">=</span> <span class="mi">800</span><span class="o">*</span><span class="mf">1.14</span>
+</span></span><span class="line"><span class="cl"><span class="n">sensitivity</span> <span class="mf">0.46</span> <span class="o">//</span> <span class="mi">1600</span><span class="o">*</span><span class="mf">0.46</span> <span class="o">=</span> <span class="mi">800</span><span class="o">*</span><span class="mf">0.92</span>
 </span></span><span class="line"><span class="cl"><span class="n">zoom_sensitivity_ratio</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">按键绑定</span>
@@ -262,15 +262,12 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">viewmodel_presetpos</span> <span class="mi">2</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">donk</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">NmcdV</span><span class="o">-</span><span class="n">ORLFj</span><span class="o">-</span><span class="n">vKC4W</span><span class="o">-</span><span class="n">LV6zW</span><span class="o">-</span><span class="mi">4</span><span class="n">fWjM</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> 
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">niko</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">xQsAb</span><span class="o">-</span><span class="n">b7J42</span><span class="o">-</span><span class="n">qcvvS</span><span class="o">-</span><span class="mi">5</span><span class="n">AG9v</span><span class="o">-</span><span class="n">VwLXL</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">a2D4r</span><span class="o">-</span><span class="n">RsQz6</span><span class="o">-</span><span class="n">D5eZx</span><span class="o">-</span><span class="n">GV2PP</span><span class="o">-</span><span class="n">CPfuB</span>
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">yekindar</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">CBO9K</span><span class="o">-</span><span class="n">Nev5f</span><span class="o">-</span><span class="n">DkCEb</span><span class="o">-</span><span class="n">Hj7uY</span><span class="o">-</span><span class="n">OnMHA</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">我的准星</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">nB9k8</span><span class="o">-</span><span class="n">ebxVf</span><span class="o">-</span><span class="n">aKrMn</span><span class="o">-</span><span class="n">N2O27</span><span class="o">-</span><span class="mi">7</span><span class="n">MUnB</span> <span class="o">//</span> <span class="err">记得调准星厚度</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">我的小准星</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="n">CSGO</span><span class="o">-</span><span class="n">OjpcU</span><span class="o">-</span><span class="n">cv4Hn</span><span class="o">-</span><span class="n">cGdRq</span><span class="o">-</span><span class="n">ozzbe</span><span class="o">-</span><span class="mi">2</span><span class="n">AyXD</span>
+</span></span><span class="line"><span class="cl"><span class="o">//</span> 
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span> <span class="err">准星</span><span class="o">-</span><span class="n">byzh</span>
 </span></span><span class="line"><span class="cl"><span class="o">//</span><span class="n">cl_crosshaircolor_r</span> <span class="mi">0</span>              <span class="o">//</span> <span class="err">红色分量</span>
@@ -343,6 +340,7 @@ autoexec.cfg
 </span></span><span class="line"><span class="cl"><span class="n">cl_hud_color</span> <span class="mi">11</span> <span class="o">//</span> <span class="err">浅粉色</span><span class="n">UI</span>
 </span></span><span class="line"><span class="cl"><span class="n">rate</span> <span class="mi">786432</span> <span class="o">//</span> <span class="err">游戏最大流量带宽</span>
 </span></span><span class="line"><span class="cl"><span class="n">switchhandsleft</span> <span class="o">//</span> <span class="err">左手持枪</span>
+</span></span><span class="line"><span class="cl"><span class="n">cl_teamid_overhead_fade_near_crosshair</span> <span class="mf">0.75</span> <span class="o">//</span> <span class="err">准星靠近队友</span><span class="n">id时透明</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">host_writeconfig</span> <span class="o">//</span> <span class="err">保存配置</span> <span class="err">自动执行</span>
 </span></span><span class="line"><span class="cl"><span class="n">echo</span> <span class="s2">&#34;[CFG] Loaded CS2 autoexec.cfg&#34;</span> <span class="o">//</span> <span class="err">控制台提示</span>
