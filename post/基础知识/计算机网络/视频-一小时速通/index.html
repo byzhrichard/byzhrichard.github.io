@@ -141,6 +141,13 @@
       <ul>
         <li><a href="#概述">概述</a></li>
         <li><a href="#物理层">物理层</a></li>
+        <li><a href="#数据链路层--成帧与差错检测">数据链路层 / 成帧与差错检测</a></li>
+        <li><a href="#可靠传输与滑动窗口">可靠传输与滑动窗口</a></li>
+        <li><a href="#介质访问控制mac">介质访问控制MAC</a></li>
+        <li><a href="#以太网与交换机">以太网与交换机</a></li>
+        <li><a href="#网络层与ip数据报">网络层与IP数据报</a></li>
+        <li><a href="#ip地址与子网划分">IP地址与子网划分</a></li>
+        <li><a href="#arp-dhcp-icmp-ipv6">ARP, DHCP, ICMP, IPv6</a></li>
       </ul>
     </li>
   </ul>
@@ -438,7 +445,405 @@
 <li>中继器: 整形, 放大, 延长距离</li>
 <li>集线器: 多端口的中继器 (只认识比特, 不认识帧)</li>
 </ul>
-</div>
+<h2 id="数据链路层--成帧与差错检测">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e9%93%be%e8%b7%af%e5%b1%82--%e6%88%90%e5%b8%a7%e4%b8%8e%e5%b7%ae%e9%94%99%e6%a3%80%e6%b5%8b"></a>
+数据链路层 / 成帧与差错检测
+</h2><p>链路: 点到点的物理线路
+数据链路: 链路+实现通信协议的硬件和软件</p>
+<p>数据链路层传输的数据单元叫 <strong>帧 frame</strong></p>
+<p><strong>MTU: 最大传送单元 (帧的数据部分的长度上限)</strong></p>
+<p>三个基本问题:</p>
+<ul>
+<li>封装成帧: 在数据前后加<strong>首部SOH</strong>和<strong>尾部EOT</strong></li>
+<li>透明传输: 在控制字符前面插入一个<strong>转义字符ESC</strong></li>
+<li>差错检测</li>
+</ul>
+<p>零比特填充:</p>
+<ul>
+<li>发送方在数据中每遇到连续五个1, 就在后面插入一个0</li>
+<li>接收方在数据中每遇到连续五个1, 就删掉后面的一个0</li>
+</ul>
+<p>-&gt; 数据中永远不会出现六个连续的1</p>
+<p><strong>帧定界符: <code>7E</code>: <code>0111 1110</code></strong></p>
+<p>差错检测:</p>
+<ul>
+<li>奇偶校验: 加一位使1的个数为奇数或偶数
+<img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026163853091.png" alt="image-20261026163853091"></li>
+<li>循环冗余检验CRC: 事先约定一个多项式P, 经过处理后生成FCS附在数据后面一起发过去
+<img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026164023954.png" alt="image-20261026164023954"></li>
+</ul>
+<blockquote>
+<p>例题: 数据101001, 约定P(x)=x^3^+x^2^+1即1101</p>
+<ul>
+<li>补3个0 -&gt; 101001000</li>
+<li>最高位对齐除以(异或)1101 -&gt; 011101000</li>
+<li>次高位对齐除以(异或)1101 -&gt; 000111000</li>
+<li>次次高位对齐除以(异或)1101 -&gt; 000001100</li>
+<li>次次次高位对齐除以(异或)1101 -&gt; 000000<strong>001</strong></li>
+<li>余数为001, 所以发送101001<strong>001</strong></li>
+<li>接收方把接收到的101001001除以1101
+<ul>
+<li>余数为000, 说明数据没错, 接收</li>
+<li>余数非000, 说明数据出错, 丢弃</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>纠错: 海明码</p>
+<p>-&gt; 但是4位数据需要3位纠错位, 代价太高</p>
+<p>-&gt; <strong>网络中, 只检错, 不纠错, 如果出错就重传</strong></p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026164846181.png" alt="image-20261026164846181"></p>
+<p>点对点协议PPP:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026165226654.png" alt="image-20261026165226654"></p>
+<h2 id="可靠传输与滑动窗口">
+<a class="header-anchor" href="#%e5%8f%af%e9%9d%a0%e4%bc%a0%e8%be%93%e4%b8%8e%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3"></a>
+可靠传输与滑动窗口
+</h2><p>出错的帧被丢弃了怎么办 -&gt; 自动重传请求ARQ (确认+重传):</p>
+<ul>
+<li>
+<p>停止等待协议</p>
+<ul>
+<li>流水线传输与滑动窗口</li>
+</ul>
+</li>
+<li>
+<p>后退N帧协议GBN</p>
+</li>
+<li>
+<p>选择重传SR</p>
+</li>
+</ul>
+<p>停止等待协议:</p>
+<ul>
+<li>
+<p>丢帧</p>
+<ul>
+<li>发一帧, 等<strong>接收方的确认ACK</strong>再发下一帧</li>
+<li>如果超时计时器到期, 就重传</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026165652124.png" alt="image-20261026165652124"></p>
+</li>
+<li>
+<p>丢确认</p>
+<ul>
+<li>如果接收方的确认ACK被丢弃, 接收方就会收到重复的帧</li>
+<li>接收方发现是重复帧, 就丢掉, 再发一次上次的确认ACK</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026165856815.png" alt="image-20261026165856815"></p>
+</li>
+</ul>
+<p>停止等待协议的<strong>信道利用率U</strong>太低:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026170035689.png" alt="image-20261026170035689"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026170208251.png" alt="image-20261026170208251"></p>
+<p>-&gt; 大部分时间, 信道都在空等</p>
+</blockquote>
+<p>流水线传输与滑动窗口:</p>
+<ul>
+<li>落在发送窗口内的帧可以连续发出</li>
+<li>收到确认后, 窗口向前滑动</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026170441806.png" alt="image-20261026170441806"></p>
+<p>后退N帧协议GBN:</p>
+<ul>
+<li>接收方按顺序接收, 采用累计确认</li>
+<li>ACK2表示二号及以前的帧都收到了</li>
+<li>如果丢帧, 则后面传来的帧也都丢弃, 发送方超时后, 从丢失的那一帧重传(也就是后退N帧)</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026174501972.png" alt="image-20261026174501972"></p>
+<blockquote>
+<p>用 n 位给帧编号, GBN的发送窗口最大是 2^n^-1</p>
+</blockquote>
+<p>选择重传SR:</p>
+<ul>
+<li>接收窗口&gt;1</li>
+<li>丢帧后先缓存正确到达的帧, 发送方只重传丢失的那一帧</li>
+<li>需要满足: 发送窗口+接收窗口&lt;=2^n^ (一般都是: 发送窗口=接收窗口=2^n-1^)</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026180330435.png" alt="image-20261026180330435"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026180313894.png" alt="image-20261026180313894"></p>
+</blockquote>
+<p>三种协议的对比:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026180444152.png" alt="image-20261026180444152"></p>
+<p>信道利用率U = (一个周期内发出的帧数 * T<del>D</del>) / 周期</p>
+<h2 id="介质访问控制mac">
+<a class="header-anchor" href="#%e4%bb%8b%e8%b4%a8%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6mac"></a>
+介质访问控制MAC
+</h2><p>点对点链路很简单, 但是! 局域网里, 常常是多台主机共享同一条广播信道, 如果两台主机同时发送, 信道就会叠加, 发生碰撞 -&gt; MAC解决who以及when能发</p>
+<ul>
+<li>信道划分: 复用
+<ul>
+<li>频分复用FDM: 把频带分成多个子频带, 每个用户一个子频带</li>
+<li>时分复用TDM: 把时间分成一帧帧, 每个用户固定一个时隙</li>
+<li>波分复用WDM: 光的频分复用</li>
+</ul>
+</li>
+<li>随机访问</li>
+<li>轮询访问</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261026184058033.png" alt="image-20261026184058033"></p>
+<blockquote>
+<p>为了解决TDM的时隙浪费, STDM按需动态分配, 时隙不再空着</p>
+</blockquote>
+<p>码分多址CDMA:</p>
+<ul>
+<li>每个站分配一个唯一的M位码片序列
+<ul>
+<li>发1 &lt;-&gt; 发送码片序列</li>
+<li>发0 &lt;-&gt; 发送码片序列的反码</li>
+</ul>
+</li>
+<li>各站的码片序列两两正交, 即规格化内积为0 [S*T=(1/m)ΣS<del>i</del>T<del>i</del>=0]</li>
+<li>所有站可以在同一时间, 同一频带发送</li>
+<li>接收方想知道某个站(A/B/C/D)发了什么: 用<code>该站的码片序列A/B/C/D</code>和<code>收到的叠加信号S</code>求规格化内积
+<ul>
+<li>内积为1 -&gt; 发的是1</li>
+<li>内积为-1 -&gt; 发的是0</li>
+<li>内积为0 -&gt; 未发送</li>
+</ul>
+</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027150920499.png" alt="image-20261027150920499"></p>
+<p>随机访问: 所有站都可以随时发送, 冲突了再想办法</p>
+<ul>
+<li>最早的是ALOHA协议: 想发就发</li>
+<li>改进后的是CSMA协议: 先听信道, 空闲才发</li>
+<li>传统以太网用的是CSMA/CD协议: 先听后发, 边发边听, 冲突停发, 随机重发</li>
+</ul>
+<p>但是还会碰撞, 根据下图, 所以<strong>争用期为2τ</strong></p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027201152631.png" alt="image-20261027201152631"></p>
+<p>-&gt; 帧不能太短, <strong>最短帧长 = 2τ * 数据率</strong></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027201341710.png" alt="image-20261027201341710"></p>
+</blockquote>
+<p>碰撞后用<strong>截断二进制指数退避</strong>:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027201721068.png" alt="image-20261027201721068"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027201912536.png" alt="image-20261027201912536"></p>
+</blockquote>
+<p>无线局域网用CSMA/CA: [不是CSMA/CD]</p>
+<ul>
+<li>定义一个帧间间隔DIFS</li>
+<li>定义一个短帧间间隔SIFS</li>
+<li>还可以用<code>RTS请求发送</code>, <code>CTS允许发送</code></li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027210526134.png" alt="image-20261027210526134"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027210602343.png" alt="image-20261027210602343"></p>
+</blockquote>
+<p>轮询访问: e.g. 令牌环</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027211007978.png" alt="image-20261027211007978"></p>
+<h2 id="以太网与交换机">
+<a class="header-anchor" href="#%e4%bb%a5%e5%a4%aa%e7%bd%91%e4%b8%8e%e4%ba%a4%e6%8d%a2%e6%9c%ba"></a>
+以太网与交换机
+</h2><p>以太网:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027211427102.png" alt="image-20261027211427102"></p>
+<p>每块网卡都有一个<strong>MAC地址</strong>, 也叫<strong>硬件地址</strong>或<strong>物理地址</strong></p>
+<ul>
+<li>长48位, 通常写成6组十六进制, 即6B</li>
+<li>前24位是厂商代码, 后24位由厂商自行分配</li>
+<li>全1的地址, 是广播地址: <code>FF FF FF FF FF FF</code></li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027213056095.png" alt="image-20261027213056095"></p>
+<p>以太网V2帧格式:</p>
+<ul>
+<li>目的地址: 网卡一收到前6个字节就能判断是不是发给自己的</li>
+<li>类型: 指明上层协议, 比如0x0800代表IP</li>
+<li>FCS: 帧检验序列</li>
+<li>以太网最短帧64字节, 故数据若不足46字节需要填充到46字节</li>
+<li>数据部分最多1500字节</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027214103572.png" alt="image-20261027214103572"></p>
+<p>后来集线器被<strong>以太网交换机</strong>取代:</p>
+<ul>
+<li>本质是多端口网桥, 工作在数据链路层</li>
+<li>能看懂帧里的MAC地址, 把帧转发到目的主机所在的端口</li>
+<li>多对主机可以同时通信, 全双工时不会碰撞</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027220255310.png" alt="image-20261027220255310"></p>
+<p>交换机的自学习: 学习主机在哪个端口</p>
+<ul>
+<li>一开始交换表是空的</li>
+<li>A发帧给交换机, 交换机得到了A的端口是1</li>
+<li>但还不知道B的端口, 所以把帧给所有其他主机都发一遍, 叫做<strong>泛洪</strong></li>
+<li>B回复A时, 交换机得到了B的端口是2</li>
+<li>以后A和B通信, 就可以直接定向转发</li>
+<li>交换表的每个表项都有有效时间, 过期就自动删除</li>
+</ul>
+<blockquote>
+<p>冲突域和广播域:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027220727301.png" alt="image-20261027220727301"></p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027220827520.png" alt="image-20261027220827520"></p>
+</blockquote>
+<p>虚拟局域网VLAN:</p>
+<ul>
+<li>把一条交换机上的主机按需分成几个局域网</li>
+<li>每个VLAN是一个独立的广播域</li>
+<li>VLAN帧: 在以太网里插入一个4字节的标记, 其中VID有12位是VLAN号</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/PixPin_2026-10-27_22-10-21.gif" alt="PixPin_2026-10-27_22-10-21"></p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027221631219.png" alt="image-20261027221631219"></p>
+<p>以太网的发展:</p>
+<ul>
+<li>从 <code>10Mbit/s</code> 到 <code>100Mbit/s</code> 到 <code>1Gbit/s</code> 到 <code>10Gbit/s</code></li>
+<li>帧格式始终不变</li>
+<li>告诉以太网一般在<strong>全双工</strong>方式下工作, 不再需要CSMA/CD</li>
+</ul>
+<p><code>无限局域网802.11</code>, 也就是<code>WIFI</code>:</p>
+<ul>
+<li>主机通过接入点AP通信</li>
+<li>帧首部通过四个地址字段
+<ul>
+<li>地址1: AP: 这一跳的接收方</li>
+<li>地址2: A: 这一跳的发送方</li>
+<li>地址3: R: 另一端的源地址或目的地址</li>
+<li>地址4: 不常用</li>
+</ul>
+</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027233238694.png" alt="image-20261027233238694"></p>
+<h2 id="网络层与ip数据报">
+<a class="header-anchor" href="#%e7%bd%91%e7%bb%9c%e5%b1%82%e4%b8%8eip%e6%95%b0%e6%8d%ae%e6%8a%a5"></a>
+网络层与IP数据报
+</h2><p>虚电路 vs 数据报: 互联网选择了<strong>数据报</strong>, 把可靠性交给端系统去解决</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261027233431621.png" alt="image-20261027233431621"></p>
+<p>转发: 路由器查转发表, 把数据从合适的端口转发出去 [本地的]</p>
+<p>路由选择: 许多路由器算出最佳路径, 生成路由表 [全网范围的]</p>
+<p>软件定义网络SDN: (控制与转发分离)</p>
+<ul>
+<li>SDN控制器: 计算路由, 下发流表</li>
+<li>路由器只负责按流表转发</li>
+</ul>
+<p>IPv4数据报<strong>首部</strong>:</p>
+<ul>
+<li>版本: 4 bit</li>
+<li>首部长度: 4 bit, 单位是 <code>x4字节</code></li>
+<li>总长度: 16 bit, 单位是 <code>x1字节</code> [-&gt; 一个IP数据报最长 2^16^-1=65535 字节]</li>
+<li>标识, 标志, 片偏移: 用于分片</li>
+<li>片偏移: 单位是 <code>x8字节</code></li>
+<li>生存时间TTL: 每经过一个路由器就-1, 到0就丢弃, 放置兜圈子</li>
+<li>协议: 数据交给谁
+<ul>
+<li>6是TCP</li>
+<li>17是UDP</li>
+</ul>
+</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028130611980.png" alt="image-20261028130611980"></p>
+<blockquote>
+<p>这三个字段是不同的单位:</p>
+<ul>
+<li>首部长度<code>5</code>代表<code>20字节</code>, 首部长度<code>15</code>代表<code>60字节</code></li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028140255676.png" alt="image-20261028140255676"></p>
+</blockquote>
+<p>IP分片:</p>
+<ul>
+<li>当数据报比MTU还大时, 就要分成几片</li>
+<li>每一片都有自己的首部</li>
+<li>标识相同</li>
+<li>标志里, MF=1表示后面还有分片, DF=1表示不允许分片</li>
+<li>片偏移表示这一片在原数据中的位置 (除以8)
+<strong>片偏移 = 该片数据起始字节 / 8</strong></li>
+<li>除最后一片外, 每片数据长度都是 8 的整数倍</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028143141195.png" alt="image-20261028143141195"></p>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028143255959.png" alt="image-20261028143255959"></p>
+</blockquote>
+<p><strong>分片</strong>在源主机或路由器上进行, <strong>重组</strong>只在目的主机上进行</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028144754150.png" alt="image-20261028144754150"></p>
+<h2 id="ip地址与子网划分">
+<a class="header-anchor" href="#ip%e5%9c%b0%e5%9d%80%e4%b8%8e%e5%ad%90%e7%bd%91%e5%88%92%e5%88%86"></a>
+IP地址与子网划分
+</h2><p>IP地址:</p>
+<ul>
+<li>是分配给互联网上每台主机每个路由器的每一个接口的32位标识符</li>
+<li>通常写成<strong>点分十进制</strong>, 如<strong>192.168.1.10</strong></li>
+<li>分为网络号和主机号</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261028150533837.png" alt="image-20261028150533837"></p>
+<blockquote>
+<p>192: <code>1100 0000</code>
+168: <code>1010 1000</code>
+1: <code>0000 0001</code>
+10: <code>0000 1010</code></p>
+</blockquote>
+<p>分类的IP地址:</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030163040433.png" alt="image-20261030163040433"></p>
+<p>特殊的IP地址:</p>
+<ul>
+<li>主机号全0 [<code>192.168.1.0</code>] -&gt; <strong>表示网络本身</strong></li>
+<li>主机号全1 [<code>192.168.1.255</code>] -&gt; <strong>表示网络的广播地址</strong></li>
+<li>127开头 [<code>127.0.0.1</code>] -&gt; 环回地址, 用于本机测试</li>
+<li>私有地址: 只能在内网使用
+<ul>
+<li><code>10.0.0.0</code> ~ <code>10.255.255.255</code></li>
+<li><code>172.16.0.0</code> ~ <code>172.31.255.255</code></li>
+<li><code>192.168.0.0</code> ~ <code>192.168.255.255</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030163500924.png" alt="image-20261030163500924"></p>
+</blockquote>
+<p>子网划分与子网掩码:</p>
+<ul>
+<li>从主机号里借几位作为子网号</li>
+<li>子网掩码: 网络号和子网号对应的位都是1, 主机号对应的位都是0</li>
+<li><strong>IP地址</strong>与<strong>掩码</strong>逐位相<strong>与</strong>, 就得到<strong>网络地址</strong>
+<ul>
+<li>网络号和子网号<strong>与1</strong>后还是本身</li>
+<li>主机号<strong>与0</strong>后就是全0, 表示网络本身 -&gt; 得到网络地址</li>
+</ul>
+</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030164231669.png" alt="image-20261030164231669"></p>
+<p>无分类编址CIDR: [不再区分ABC类]</p>
+<ul>
+<li>网络前缀: 网络号与子网号的长度</li>
+<li>直接用&quot;斜线记法&quot;写出网络前缀的长度 e.g. <code>192.168.1.0/24</code>的网络前缀长度24位</li>
+<li>前缀相同的连续地址组成一个CIDR地址块</li>
+</ul>
+<blockquote>
+<p>例题: 把 <code>192.168.10.0/24</code> 平均分成4个子网</p>
+<ul>
+<li>第四个字节需要借出2位作为子网号 -&gt; <code>/26</code></li>
+<li>掩码变成 <code>255.255.255.192</code></li>
+<li>每个子网有 2^6^=64 个地址, 有 2^6^-2=62 台主机</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030165922548.png" alt="image-20261030165922548"></p>
+</blockquote>
+<p>路由聚合(构成超网): 把多个前缀相同的小地址块合成一个大地址块, 在路由表里只占一项</p>
+<ul>
+<li>但是一个地址可能同时匹配路由表里的好几项</li>
+<li>这时要<strong>选前缀最长的那一项</strong> -&gt; 最长前缀匹配</li>
+<li>因为前缀越长, 地址块就越小, 路由就越具体</li>
+</ul>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030170706078.png" alt="image-20261030170706078"></p>
+<blockquote>
+<p>例题: 路由表的最长前缀匹配</p>
+<p><img src="/post/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%A7%86%E9%A2%91-%E4%B8%80%E5%B0%8F%E6%97%B6%E9%80%9F%E9%80%9A/image-20261030171610730.png" alt="image-20261030171610730"></p>
+<p>目的网络 <code>192.168.10.5</code>:</p>
+<ul>
+<li>能匹配第一项, 因为前16位都一样</li>
+<li>能匹配第二项, 因为前24位都一样</li>
+<li>能匹配第三项, 前缀长度是0, 任何 IP 都和它匹配</li>
+</ul>
+<p>-&gt; 优先选 <code>接口2</code></p>
+<p>目的网络 <code>10.1.1.1</code>:</p>
+<ul>
+<li>不匹配第一项</li>
+<li>不匹配第二项</li>
+<li>能匹配第三项, 前缀长度是0, 任何 IP 都和它匹配</li>
+</ul>
+<p>-&gt; 优先选 <code>接口3</code></p>
+</blockquote>
+<h2 id="arp-dhcp-icmp-ipv6">
+<a class="header-anchor" href="#arp-dhcp-icmp-ipv6"></a>
+ARP, DHCP, ICMP, IPv6
+</h2></div>
     <footer class="article-footer"><ul class="article-category-list"><li class="article-tag-list-item" data-aos="zoom-in">
     <a
       class="article-category-link"
@@ -486,10 +891,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;172.8k</span
+          >&nbsp;176.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;07:50</span>
+        <span class="icon-coffee">&nbsp;07:57</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -519,6 +924,13 @@
       <ul>
         <li><a href="#概述">概述</a></li>
         <li><a href="#物理层">物理层</a></li>
+        <li><a href="#数据链路层--成帧与差错检测">数据链路层 / 成帧与差错检测</a></li>
+        <li><a href="#可靠传输与滑动窗口">可靠传输与滑动窗口</a></li>
+        <li><a href="#介质访问控制mac">介质访问控制MAC</a></li>
+        <li><a href="#以太网与交换机">以太网与交换机</a></li>
+        <li><a href="#网络层与ip数据报">网络层与IP数据报</a></li>
+        <li><a href="#ip地址与子网划分">IP地址与子网划分</a></li>
+        <li><a href="#arp-dhcp-icmp-ipv6">ARP, DHCP, ICMP, IPv6</a></li>
       </ul>
     </li>
   </ul>
